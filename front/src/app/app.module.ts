@@ -7,6 +7,8 @@ import { LoginAdminComponent } from './components/login-admin/login-admin.compon
 import { LoginUsuarioComponent } from './components/login-usuario/login-usuario.component';
 import { ReproductorComponent } from './components/reproductor/reproductor.component';
 import { AdminComponent } from './components/admin/admin.component';
+import { NavLoginsComponent } from './components/nav-logins/nav-logins.component';
+import { NavLandingComponent } from './components/nav-landing/nav-landing.component';
 
 @NgModule({
   declarations: [
@@ -15,7 +17,9 @@ import { AdminComponent } from './components/admin/admin.component';
     LoginAdminComponent,
     LoginUsuarioComponent,
     ReproductorComponent,
-    AdminComponent
+    AdminComponent,
+    NavLoginsComponent,
+    NavLandingComponent
   ],
   imports: [
     BrowserModule
