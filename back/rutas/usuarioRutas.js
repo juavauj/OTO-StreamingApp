@@ -1,11 +1,10 @@
 const express = require('express');
 const UsuarioControl = require('../control/usuarioControl');
-// importar el paquete connect
+
+// Importar el paquete connect-multiparty
 const multipart = require('connect-multiparty');
-
+// A traves de connect multiparty, apuntamos a la carpeta que deseemos en que se guarden los archivos
 const subirImgDirectorio = multipart({uploadDir: './archivos/usuarios'});
-
-
 
 var api = express.Router();
 
@@ -16,13 +15,14 @@ api.post('/registro', UsuarioControl.registrarUsuario);
 api.post('/login', UsuarioControl.login);
 
 // Ruta Actualizar Usuario
-api.put('/actualizar/:id', UsuarioControl.actualizarUsuario);
 
-//ruta subir imagen usuario
-api.put('/subirImagen/:id', subirImgDirectorio, UsuarioControl.subirImagen);
+api.put('/actualizar-usuario/:id', UsuarioControl.actualizarUsuario);
 
-//ruta mostrara imagen
-api.get('/obtenerImagen/:imageFile', UsuarioControl.mostrarArchivo); 
+// Ruta Subir Imagen Usuario
+api.put('/subirImagen/:id', subirImgDirectorio, UsuarioControl.subirImg);
+
+// Ruta mostrar Imagen Usuario
+api.get('/obtenerImagen/:imageFile', UsuarioControl.mostrarArchivo);
 
 // Exportar el módulo
 module.exports = api;
