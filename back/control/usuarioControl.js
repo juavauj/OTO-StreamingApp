@@ -5,6 +5,10 @@ const fs = require('fs');
 const path = require('path');
 
 
+const fs = require('fs');
+
+const path = require('path');
+
 // Función Registro Usuario
 function registrarUsuario(req, res){
     var usuario = new Usuario();
@@ -62,6 +66,7 @@ function login(req, res){
 
 // Función Actualizar Usuario
 function actualizarUsuario(req, res){
+  
     var usuarioId = req.params.id;
     var nuevosDatosUsuario = req.body;
 
