@@ -14,6 +14,8 @@ import { AdminComponent } from './components/admin/admin.component';
 import { MenuComponent } from './components/menu/menu.component';
 import { RegistroComponent } from './components/registro/registro.component';
 import { PerfilUsuarioComponent } from './components/perfil-usuario/perfil-usuario.component';
+import { HttpClientModule } from '@angular/common/http';
+import { UsuarioService } from './services/usuario.service';
 
 @NgModule({
   declarations: [
@@ -27,8 +29,8 @@ import { PerfilUsuarioComponent } from './components/perfil-usuario/perfil-usuar
     RegistroComponent,
     PerfilUsuarioComponent,
   ],
-  imports: [BrowserModule, AppRoutingModule, FormsModule],
-  providers: [],
+  imports: [BrowserModule, AppRoutingModule, FormsModule, HttpClientModule],
+  providers: [UsuarioService],
   bootstrap: [AppComponent],
 })
-export class AppModule {}
+export class AppModule { }
