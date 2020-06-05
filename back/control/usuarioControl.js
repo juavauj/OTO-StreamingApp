@@ -160,6 +160,12 @@ function mostrarArchivo(req, res){
     });
 }
 
+//Función borrar usuario
+
+
+//funcion login admin
+
+
 // Exportar paquete de funciones
 module.exports = {
     registrarUsuario,
