@@ -1,5 +1,9 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+//Importar módulo de rutas
+import { AppRoutingModule } from './app-routing.module';
+// Importar Módulo Formulariios
+import { FormsModule } from '@angular/forms';
 
 import { AppComponent } from './app.component';
 import { LandingComponent } from './components/landing/landing.component';
@@ -7,6 +11,9 @@ import { LoginAdminComponent } from './components/login-admin/login-admin.compon
 import { LoginUsuarioComponent } from './components/login-usuario/login-usuario.component';
 import { ReproductorComponent } from './components/reproductor/reproductor.component';
 import { AdminComponent } from './components/admin/admin.component';
+import { MenuComponent } from './components/menu/menu.component';
+import { RegistroComponent } from './components/registro/registro.component';
+import { PerfilUsuarioComponent } from './components/perfil-usuario/perfil-usuario.component';
 
 @NgModule({
   declarations: [
@@ -15,12 +22,13 @@ import { AdminComponent } from './components/admin/admin.component';
     LoginAdminComponent,
     LoginUsuarioComponent,
     ReproductorComponent,
-    AdminComponent
+    AdminComponent,
+    MenuComponent,
+    RegistroComponent,
+    PerfilUsuarioComponent,
   ],
-  imports: [
-    BrowserModule
-  ],
+  imports: [BrowserModule, AppRoutingModule, FormsModule],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}
