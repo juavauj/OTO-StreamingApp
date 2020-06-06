@@ -3,12 +3,28 @@ const Schema = mongoose.Schema;
 
 // Objeto Schema
 var UsuarioSchema = new Schema({
-    nombre: String,
-    apellido: String,
-    correo: String,
-    contrasena: String,
+    nombre: {
+        type: String,
+        required: true
+    },
+    apellido: {
+        type: String,
+        required: true
+    },
+    correo: {
+       type: String,
+       unique: true,
+       required: true
+    },
+    contrasena: {
+        type: String,
+        required: true
+    },
     rol: String,
-    imagen: String
+    imagen: {
+        type: String,
+        default: null
+    }
     // imagen: {required: true}
 });
 
