@@ -14,6 +14,10 @@ import { AdminComponent } from './components/admin/admin.component';
 import { MenuComponent } from './components/menu/menu.component';
 import { RegistroComponent } from './components/registro/registro.component';
 import { PerfilUsuarioComponent } from './components/perfil-usuario/perfil-usuario.component';
+import { HttpClientModule } from '@angular/common/http';
+import { UsuarioService } from './services/usuario.service';
+import { NavLoginsComponent } from './components/nav-logins/nav-logins.component';
+import { NavLandingComponent } from './components/nav-landing/nav-landing.component';
 
 @NgModule({
   declarations: [
@@ -26,9 +30,14 @@ import { PerfilUsuarioComponent } from './components/perfil-usuario/perfil-usuar
     MenuComponent,
     RegistroComponent,
     PerfilUsuarioComponent,
+<<<<<<< HEAD
+=======
+    NavLoginsComponent,
+    NavLandingComponent
+>>>>>>> 6d69e23a24b4a55c1a45f1e04445b13c1f290d0b
   ],
-  imports: [BrowserModule, AppRoutingModule, FormsModule],
-  providers: [],
+  imports: [BrowserModule, AppRoutingModule, FormsModule, HttpClientModule],
+  providers: [UsuarioService],
   bootstrap: [AppComponent],
 })
-export class AppModule {}
+export class AppModule { }
