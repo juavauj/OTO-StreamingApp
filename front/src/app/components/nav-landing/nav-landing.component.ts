@@ -13,7 +13,7 @@ export class NavLandingComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  switchNav(status:Number){
+  switchNav(status:String){
     this.navSwitchService.switchNav(status);
   }
 

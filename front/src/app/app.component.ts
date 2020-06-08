@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { NavSwitchService } from './services/nav-switch.service'
+import { Location } from '@angular/common';
+import { Router } from '@angular/router'; 
 
 @Component({
   selector: 'app-root',
@@ -8,17 +10,26 @@ import { NavSwitchService } from './services/nav-switch.service'
 })
 export class AppComponent implements OnInit{
   title = 'front';
-  navStatus:Number=0;
+  navStatus:Number;
 
-  constructor(private navSwitchService : NavSwitchService){}
+  constructor(
+    private navSwitchService : NavSwitchService,
+    private location: Location
+    
+    ){}
 
   ngOnInit(){
 
-    this.navSwitchService.navStatusObservable.subscribe(status =>{
+     this.navSwitchService.navStatusObservable.subscribe(status =>{
+       console.log("status",status)
       this.navStatus=status
-    });
+    }); 
+
+    // Revisar la direccion a la que se ingresa y mostrar el nav correspondiente
+    this.navSwitchService.switchNav(this.location.path());
 
   }
+ 
 
 
 }

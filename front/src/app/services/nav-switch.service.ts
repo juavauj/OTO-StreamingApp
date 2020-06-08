@@ -10,8 +10,22 @@ export class NavSwitchService {
   navStatusObservable= this.navStatusSubject.asObservable();
 
 
-  switchNav(status:Number){
-    this.navStatus=status;
-    this.navStatusSubject.next(this.navStatus);
+  switchNav(url:String){
+    switch (url) {
+      case '/registro':
+        this.navStatus=1;
+        this.navStatusSubject.next(this.navStatus);
+        break;
+      case '/loginUsuario':
+        this.navStatus=1;
+        this.navStatusSubject.next(this.navStatus);
+        break;
+      
+      default:
+        this.navStatus=0;
+        this.navStatusSubject.next(this.navStatus);
+        break;
+    }
+    
   }
 }
