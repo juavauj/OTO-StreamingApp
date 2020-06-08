@@ -11,7 +11,8 @@ var CancionSchema = new Schema({
     },
     album: {
         type: ObjectId,
-        ref: 'Albumes'
+        ref: 'Albumes',
+        required: true
     },
     artistas: [
         {
@@ -24,12 +25,11 @@ var CancionSchema = new Schema({
     genero: String,
     anio: Number,
     letra: String,
-    imagen: {
+    archivoCancion: {
         type: String,
         default: null
     }
-    /*reproducciones: Number */
-
+    /*reproducciones: Number*/
 })
 
 //exportar el modelo

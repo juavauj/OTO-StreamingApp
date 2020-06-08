@@ -20,12 +20,19 @@ var UsuarioSchema = new Schema({
         type: String,
         required: true
     },
-    rol: String,
+    rol: {
+        type: String,
+        required: true
+    },
     imagen: {
         type: String,
         default: null
+    },
+    suscripcion: {
+        type: String,
+        default: "lite"
     }
-    // imagen: {required: true}
+    
 });
 
 // Exportar el modelo

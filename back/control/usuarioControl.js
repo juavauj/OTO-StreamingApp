@@ -4,11 +4,6 @@ const fs = require('fs');
 // Importar el módulo Path de Node
 const path = require('path');
 
-
-const fs = require('fs');
-
-const path = require('path');
-
 // Función Registro Usuario
 function registrarUsuario(req, res){
     var usuario = new Usuario();
@@ -70,7 +65,7 @@ function actualizarUsuario(req, res){
     var usuarioId = req.params.id;
     var nuevosDatosUsuario = req.body;
 
-    Usuario.findByIdAndUpdate(usuarioid, nuevosDatosUsuario, (err, usuarioActualizado)=> {
+    Usuario.findByIdAndUpdate(usuarioId, nuevosDatosUsuario, (err, usuarioActualizado)=> {
         if(err){
             res.status(500).send({message: "Error en el servidor"});
         }else{

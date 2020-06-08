@@ -13,11 +13,11 @@ var AlbumSchema = new Schema({
         ref: 'Artistas',
         required: true
     }],
-    canciones: {
+    canciones: [{
         type: ObjectId,
         ref: 'Canciones',
         required: true
-    },
+    }],
     generos: [String],
     disquera: String,
     anio: Number,
@@ -25,7 +25,6 @@ var AlbumSchema = new Schema({
         type: String,
         default: null
     }
-
 });
 
 module.exports = mongoose.model('Album', AlbumSchema);
