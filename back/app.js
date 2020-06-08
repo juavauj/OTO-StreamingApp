@@ -6,13 +6,15 @@ const app = express();
 
 // Declaración de rutas a ejecutar por express
 const usuarioRutas = require('./rutas/usuarioRutas');
-
+const cancionRutas = require('./rutas/cancionesRutas');
+const artistaRutas = require('./rutas/ArtistasRutas');
 // -- Inicio Middlewares --
 app.use(express.json());
 
 // Consumo de las rutas
 app.use('/api', usuarioRutas);
-
+app.use('/api', cancionRutas);
+app.use('/api', artistaRutas);
 // -- Fin Middlewares --
 
 // Exportación módulo

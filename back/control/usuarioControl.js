@@ -15,6 +15,7 @@ function registrarUsuario(req, res){
     usuario.contrasena = parametros.contrasena;
     usuario.rol = parametros.usuario;
     usuario.imagen = null;
+    usuario.suscripcion = parametros.suscripcion;
 
     // Función save para interactuar con la BD
     usuario.save((err, usuarioNuevo)=>{

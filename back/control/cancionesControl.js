@@ -11,8 +11,12 @@ function addCancion(req, res) {
     cancion.nombre = parametros.nombre;
     cancion.album = parametros.album;
     cancion.artistas = parametros.artistas;
-    cancion.imagen = parametros.imagen;
-    cancion.cancion = parametros.cancion;
+    cancion.generos = parametros.generos;
+    cancion.anio = parametros.anio;
+    cancion.letra = parametros.letra;
+    cancion.archivoCancion = null;
+    console.log(parametros);
+    
 
     cancion.save((err, cancionNueva)=>{
         if (err) {
@@ -33,7 +37,7 @@ function addCancion(req, res) {
 //mostrar canciones
 
 function showCanciones(req, res) {
-    cancion.find((err, cancionesEncontradas)=>{
+    Cancion.find((err, cancionesEncontradas)=>{
         if (err) {
             res.status(500).send({message: "Error en el servidor"});
         }else{
@@ -113,9 +117,9 @@ function mostrarUnaCancion(req, res) {
     })
 }
 
-//agregar imagenes canciones
+//agregar canciones mp3
 
-function SubirAudios(req, res) {
+function subirAudios(req, res) {
     var cancionId = req.params.id;
     var nombreArchivo = "No ha subido ningún archivo...";
     
@@ -126,7 +130,7 @@ function SubirAudios(req, res) {
         var extension = nombreArchivo.split('\.');
         var extensionArchivo = extension[1];
 
-        if (extensionArchivo == 'mp3' || extensionArchivo == 'ogg') {
+        if (extensionArchivo == 'mp3') {
             Cancion.findByIdAndUpdate(cancionId, {archivoCancion: nombreArchivo}, (err, cancionActualizada)=>{
                 if(err){
                     res.status(500).send({message: "Error en el servidor"});
@@ -155,7 +159,7 @@ module.exports = {
     actualizarCancion,
     borrarCancion,
     mostrarUnaCancion,
-    SubirAudios
+    subirAudios
 }
 
 

@@ -21,10 +21,11 @@ var CancionSchema = new Schema({
             required: true
         }
     ],
-    duracion: Number,
-    genero: String,
+    /* duracion: Number, */
+    generos: [String],
     anio: Number,
     letra: String,
+
     archivoCancion: {
         type: String,
         default: null

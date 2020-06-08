@@ -1,4 +1,7 @@
+const Album = require('../modelo/albumes');
 
+const fs = require('fs');
+const path = require('path');
 
 //agregar un album
 
