@@ -1,0 +1,1 @@
+{"options":{},"indexes":[{"v":{"$numberInt":"2"},"key":{"_id":{"$numberInt":"1"}},"name":"_id_","ns":"otoMusicApp.albumes"}],"uuid":"aa57b9a230224ad2a1ef784e8ad689bf"}
