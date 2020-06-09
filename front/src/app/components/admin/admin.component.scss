@@ -1,4 +1,4 @@
-/* The sidebar menu */
+
 * {
     margin: 0;
     padding: 0;
@@ -7,7 +7,7 @@
 
 .sidenav {
     height: 100%; 
-    width: 50px; 
+    width: 100px; 
     position: fixed; 
     z-index: 1; 
     top: 0; 
@@ -21,11 +21,10 @@
   }
   
   .sidenav:hover{
-    background-image: linear-gradient(to top, #30cfd0 0%, #330867 100%);
+      background-color: black;
       color: white;
       width: 100px;
       box-shadow: 0px 0px 0px 1px black;
-      
   }
   
   .sidenav a {
@@ -36,18 +35,16 @@
     
   }
   
-  /* When you mouse over the navigation links, change their color */
+
   .sidenav a:hover {
     color: white;
   }
   
-  /* Style page content */
   .main {
-   /* Same as the width of the sidebar */
+   
     
   }
   
-  /* On smaller screens, where height is less than 450px, change the style of the sidebar (less padding and a smaller font size) */
   @media screen and (max-height: 450px) {
     .sidenav {padding-top: 15px;}
     .sidenav a {font-size: 18px;}
@@ -67,18 +64,32 @@
       font-size: 2em;
   }
 
-  .blue{
-      background-color: blue;
+  .welcome{
+    background-image: linear-gradient(to right, #f83600 0%, #f9d423 100%);
+    flex-direction: column;
   }
 
-  .yellow{
+  .albumes{
     background-image: linear-gradient(to top, #30cfd0 0%, #330867 100%);
  } 
 
-  .green{
-    background-color: green;
+  .artistas{
+    background-image: linear-gradient(to top, #30cfd0 0%, #330867 100%);
+ } 
+
+  .canciones{
+    background-image: linear-gradient(to top, #30cfd0 0%, #330867 100%);
  }
 
- .pink{
+  .playlist{
     background-image: linear-gradient(120deg, #a6c0fe 0%, #f68084 100%);
  }
+
+  .usuarios{
+    background-image: linear-gradient(120deg, #a6c0fe 0%, #f68084 100%);
+ }
+
+  .admins{
+    background-image: linear-gradient(120deg, #a6c0fe 0%, #f68084 100%);
+ }
+
