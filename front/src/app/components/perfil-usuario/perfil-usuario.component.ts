@@ -59,7 +59,7 @@ export class PerfilUsuarioComponent implements OnInit {
 
                 // Mostrar la imagen 
                 let rutaImagen = this.url + 'obtenerImagen/' + this.usuarioActualizar.imagen;
-                document.getElementById('mostrarImagen').setAttribute('src', rutaImagen);
+                //document.getElementById('mostrarImagen').setAttribute('src', rutaImagen);
                 document.getElementById('imgUsuario').setAttribute('src', rutaImagen);
 
                 // Cierre mostrar imagen
