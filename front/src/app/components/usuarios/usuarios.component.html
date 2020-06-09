@@ -1,61 +1,32 @@
-
-<div class="container">
-  <div class="row">
-      <div class="col s5">
-          <div class="card">
-              <div class="card-content">
-                  <div class="form-container">
-                      <form #formularioRegistro="ngForm" (ngSubmit)="registrarUsuario()">
-                        <div class="input-form">
-                          <div class="titulo">Agregar nuevo usuario </div>
-                          <input type="text" name="nombre" #nombre="ngModel" [(ngModel)]="usuarioRegistro.nombre" autocomplete="off" required/>
-                          <label class="label-input" for="nombre"> <span class="content-input">Nombre</span></label>
-                          <br />
-                        </div>
-                    
-                        <div class="input-form">
-                          <input type="text" name="apellido" #apellido="ngModel" [(ngModel)]="usuarioRegistro.apellido" autocomplete="off" required />
-                          <label class="label-input" for="apellido"> <span class="content-input">Apellido</span></label>
-                          <br />
-                        </div>
-                    
-                        <div class="input-form">
-                          <input type="text" name="correo" #correo="ngModel" [(ngModel)]="usuarioRegistro.correo" autocomplete="off" required />
-                          <label class="label-input" for="correo"> <span class="content-input">Correo</span></label>
-                          <br />      
-                        </div>
-                       
-                        <div class="input-form"> 
-                          <input type="password" name="contrasena" #contrasena="ngModel" [(ngModel)]="usuarioRegistro.contrasena" autocomplete="off" required />
-                          <label class="label-input" for="contrasena"> <span class="content-input">Contraseña</span></label>
-                        <br />                      
-                        </div>
-                        
-                        <br />
-                        <button type="submit" class="btn waves-effect waves-light green darken-3"><i class="material-icons left"> person_add</i> Crear Usuario </button>
-                      </form>
-              </div>
-          </div>
-      </div>
-      <div class="col s7">
-        
-      </div>
+<!--  FORMULARIO FUNCIONAL PARA ANADIR UN NUEVO USUARIO
+ <form #formularioRegistro="ngForm" (ngSubmit)="registrarUsuario()">
+  <div class="input-form">
+    <div class="titulo">Agregar nuevo usuario </div>
+    <input type="text" name="nombre" #nombre="ngModel" [(ngModel)]="usuarioRegistro.nombre" autocomplete="off" required/>
+    <label class="label-input" for="nombre"> <span class="content-input">Nombre</span></label>
+    <br />
   </div>
-</div>
 
-<ul class="collapsible">
-  <li>
-    <div class="collapsible-header">
-      <i class="material-icons">filter_drama</i>
-      First
-      <span class="new badge">4</span></div>
-    <div class="collapsible-body"><p>Lorem ipsum dolor sit amet.</p></div>
-  </li>
-  <li>
-    <div class="collapsible-header">
-      <i class="material-icons">place</i>
-      Second
-      <span class="badge">1</span></div>
-    <div class="collapsible-body"><p>Lorem ipsum dolor sit amet.</p></div>
-  </li>
-</ul>
+  <div class="input-form">
+    <input type="text" name="apellido" #apellido="ngModel" [(ngModel)]="usuarioRegistro.apellido" autocomplete="off" required />
+    <label class="label-input" for="apellido"> <span class="content-input">Apellido</span></label>
+    <br />
+  </div>
+
+  <div class="input-form">
+    <input type="text" name="correo" #correo="ngModel" [(ngModel)]="usuarioRegistro.correo" autocomplete="off" required />
+    <label class="label-input" for="correo"> <span class="content-input">Correo</span></label>
+    <br />      
+  </div>
+ 
+  <div class="input-form"> 
+    <input type="password" name="contrasena" #contrasena="ngModel" [(ngModel)]="usuarioRegistro.contrasena" autocomplete="off" required />
+    <label class="label-input" for="contrasena"> <span class="content-input">Contraseña</span></label>
+  <br />                      
+  </div>
+  
+  <br />
+  <button type="submit" class="btn waves-effect waves-light green darken-3"><i class="material-icons left"> person_add</i> Crear Usuario </button>
+</form> -->
+
+

@@ -65,11 +65,20 @@ export class UsuarioService {
     if (usuarioAutorizado != 'undefined') {
       this.identidad = usuarioAutorizado;
 
+  //Metodo para optener datos de usuarios
+  obtenerTareas (){
+    return this._http.get(
+      this.url + `optenerUsuarios`
+    ).pipe(map(res=> res));
+    
+  }
+      
+  /*
     } else {
       this.identidad = null;
     }
-
-    return this.identidad;
+  return this.identidad;
+  */
 
   }
 
