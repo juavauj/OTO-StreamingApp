@@ -2,7 +2,7 @@ const express = require('express');
 const ArtistasControl = require('../control/artistasControl');
 
 const multipart = require('connect-multiparty');
-const addArtistaDir = multipart({uploadDir: './archivos/albumArt'});
+const addArtistaDir = multipart({uploadDir: './archivos/artistas'});
 
 var api = express.Router();
 
@@ -14,7 +14,7 @@ api.put('/actualizar-artista/:id', ArtistasControl.actualizarArtista);
 
 api.delete('/borrar-artista/:id', ArtistasControl.borrarArtista);
 
-api.get('/album/:id', ArtistasControl.mostrarUnArtista);
+api.get('/artista/:id', ArtistasControl.mostrarUnArtista);
 
 api.put('/subir-img/:id',addArtistaDir, ArtistasControl.subirImg);
 
