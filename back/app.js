@@ -18,7 +18,7 @@ app.use(cors());
 app.use('/api', usuarioRutas);
 app.use('/api', cancionRutas);
 app.use('/api', artistaRutas);
-/* app.use('/api', albumRutas); */
+app.use('/api', albumRutas);
 
 // -- Fin Middlewares --
 
