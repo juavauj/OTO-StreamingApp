@@ -132,7 +132,7 @@ function subirImg(req, res){
                 if(err){
                     res.status(500).send({message: "Error en el servidor"});
                 }else{
-                    if(!artistaConImg){
+                    if(!artistaImg){
                         res.status(200).send({message: "No fue posible subir la imagen"});
                     }else{
                         res.status(200).send({

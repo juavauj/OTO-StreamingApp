@@ -8,6 +8,7 @@ const app = express();
 const usuarioRutas = require('./rutas/usuarioRutas');
 const cancionRutas = require('./rutas/cancionesRutas');
 const artistaRutas = require('./rutas/ArtistasRutas');
+const albumRutas = require('./rutas/albumesRutas');
 // -- Inicio Middlewares --
 app.use(express.json());
 
@@ -15,6 +16,8 @@ app.use(express.json());
 app.use('/api', usuarioRutas);
 app.use('/api', cancionRutas);
 app.use('/api', artistaRutas);
+app.use('/api', albumRutas);
+
 // -- Fin Middlewares --
 
 // Exportación módulo

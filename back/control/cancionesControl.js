@@ -131,17 +131,17 @@ function subirAudios(req, res) {
         var extensionArchivo = extension[1];
 
         if (extensionArchivo == 'mp3') {
-            Cancion.findByIdAndUpdate(cancionId, {archivoCancion: nombreArchivo}, (err, cancionActualizada)=>{
+            Cancion.findByIdAndUpdate(cancionId, {archivoCancion: nombreArchivo}, (err, cancionImg)=>{
                 if(err){
                     res.status(500).send({message: "Error en el servidor"});
                 }else{
-                    if(!usuarioConImg){
+                    if(!cancionImg){
                         res.status(200).send({message: "No fue posible subir la canción"});
                     }else{
                         res.status(200).send({
                             message: "canción anexada",
                             imagen: nombreArchivo,
-                            cancion: cancionActualizada
+                            cancion: cancionImg
                         });
                     }
                 }
