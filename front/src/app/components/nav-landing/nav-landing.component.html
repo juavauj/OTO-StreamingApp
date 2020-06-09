@@ -6,7 +6,7 @@
     <nav>
         
         <ul class="nav-links">
-            <li>
+           <!--  <li>
                 <a routerLink="/quienes-somos">¿Quíenes somos?</a>
             </li>
             <li>
@@ -14,12 +14,20 @@
             </li>
             <li>
                 <a routerLink="/premium">Premium</a>
+            </li> -->
+            <li>
+                <a *ngIf="isLoggedIn; else registro">Reproductor Web</a>
+                <ng-template #registro>
+                    <a routerLink="/registro" (click)="switchNav('/registro')">Registrarse</a>
+                </ng-template>
+                
             </li>
             <li>
-                <a routerLink="/registro" (click)="switchNav('/registro')">Registrarse</a>
-            </li>
-            <li>
-                <a routerLink="/loginUsuario" (click)="switchNav('/registro')">Iniciar Sesión</a>
+                <a *ngIf="isLoggedIn; else login">User</a>
+                <ng-template #login>
+                    <a routerLink="/loginUsuario" (click)="switchNav('/registro')">Iniciar Sesión</a>
+                </ng-template>
+                
             </li>
         </ul>
         
