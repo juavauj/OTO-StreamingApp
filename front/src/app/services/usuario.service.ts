@@ -73,9 +73,11 @@ export class UsuarioService {
   }
 
   //Metodo para optener datos de usuarios
-
-  
-
+  obtenerTareas (){
+    return this._http.get(
+      this.url + `optenerUsuarios`
+    ).pipe(map(res=> res));
+  }
 
 
 

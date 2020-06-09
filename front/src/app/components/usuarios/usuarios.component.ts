@@ -33,7 +33,7 @@ export class UsuariosComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.getUsers();
+   
   }
 
   registrarUsuario() {
@@ -60,7 +60,11 @@ export class UsuariosComponent implements OnInit {
     );
   }
 
- 
+ getUsers() {
+   this.usuarioService.obtenerTareas().subscribe((response: any) => {
+    
+  })
+ }
 
 
 
