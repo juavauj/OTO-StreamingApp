@@ -10,6 +10,9 @@ import { Router, ActivatedRoute, Params } from '@angular/router';
 
 import { NavSwitchService } from '../../services/nav-switch.service';
 
+//Importar modulo de _http
+import { HttpClient } from '@angular/common/http';
+
 @Component({
   selector: 'app-usuarios',
   templateUrl: './usuarios.component.html',
@@ -18,15 +21,19 @@ import { NavSwitchService } from '../../services/nav-switch.service';
 export class UsuariosComponent implements OnInit {
 
   public usuarioRegistro: Usuario;
+  selectedUser: Usuario;
+  usuarios: [];
 
   constructor(
     private usuarioService: UsuarioService,
-    private _router: Router
+    private _router: Router,
+    private http: HttpClient
   ) { 
     this.usuarioRegistro = new Usuario('', '', '', '', '', 'usuario', '');
   }
 
   ngOnInit(): void {
+    this.getUsers();
   }
 
   registrarUsuario() {
@@ -52,5 +59,9 @@ export class UsuariosComponent implements OnInit {
       }
     );
   }
+
+ 
+
+
 
 }
