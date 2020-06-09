@@ -156,11 +156,20 @@ function mostrarArchivo(req, res){
     });
 }
 
+// Funcion mostrar usuarios 
+async function optenerUsuarios(req, res){
+    const users = await Usuario.find();
+    res.json(users);
+}
+
+
+
 // Exportar paquete de funciones
 module.exports = {
     registrarUsuario,
     login,
     actualizarUsuario,
     subirImg,
-    mostrarArchivo
+    mostrarArchivo,
+    optenerUsuarios
 }

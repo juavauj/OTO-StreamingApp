@@ -71,5 +71,14 @@ export class UsuarioService {
    return this.identidad;
 
   }
-  //----------------------------------------------------------
+
+  //Metodo para optener datos de usuarios
+
+  
+
+
+
+
 }
+
+
