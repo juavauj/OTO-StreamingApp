@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { NavSwitchService } from '../../services/nav-switch.service';
 
 @Component({
   selector: 'app-nav-logins',
@@ -7,9 +8,13 @@ import { Component, OnInit } from '@angular/core';
 })
 export class NavLoginsComponent implements OnInit {
 
-  constructor() { }
+  constructor(private navSwitchService : NavSwitchService) { }
 
   ngOnInit(): void {
+  }
+
+  switchNav(status:String){
+    this.navSwitchService.switchNav(status);
   }
 
 }
