@@ -1,5 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 //Importar módulo de rutas
 import { AppRoutingModule } from './app-routing.module';
 // Importar Módulo Formulariios
@@ -23,7 +24,8 @@ import { PremiumComponent } from './components/premium/premium.component';
 //Importar Servicios
 
 import { UsuarioService } from './services/usuario.service';
-import { NavSwitchService } from './services/nav-switch.service'
+import { NavSwitchService } from './services/nav-switch.service';
+import { UsuariosComponent } from './components/usuarios/usuarios.component'
 
 @NgModule({
   declarations: [
@@ -39,9 +41,10 @@ import { NavSwitchService } from './services/nav-switch.service'
     NavLandingComponent,
     QuienesSomosComponent,
     TrabajaConNosotrosComponent,
-    PremiumComponent
+    PremiumComponent,
+    UsuariosComponent
   ],
-  imports: [BrowserModule, AppRoutingModule, FormsModule, HttpClientModule],
+  imports: [BrowserModule, AppRoutingModule, FormsModule, HttpClientModule, BrowserAnimationsModule],
   providers: [UsuarioService, NavSwitchService],
   bootstrap: [AppComponent],
 })

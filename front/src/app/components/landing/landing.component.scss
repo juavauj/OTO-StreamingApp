@@ -1,0 +1,305 @@
+@font-face {
+    font-family: PoppinsRegular;
+    src: url(/assets/font/Poppins-Regular.ttf);
+}
+
+@font-face {
+    font-family: PoppinsExtraBold;
+    src: url(/assets/font/Poppins-ExtraBold.ttf);
+}
+
+@font-face {
+    font-family: PoppinsSemiBold;
+    src: url(/assets/font/Poppins-SemiBold.ttf);
+}
+
+@font-face {
+    font-family: PoppinsLight;
+    src: url(/assets/font/Poppins-Light.ttf);
+}
+
+
+
+/* Colores
+#95DBE5
+#00203FFF
+
+*/
+
+body {
+    margin: 0;
+    padding: 0;
+}
+
+
+
+
+.overlay {
+    position: absolute;
+    width: 100%;
+    height: 100vh;
+    top: 0%;
+    z-index: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+
+// .slide {
+//     height: 100vh;
+//     width: 100vw;
+// }
+
+#container {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction:column;
+    height:100vh;    
+    // transform: rotate(-90deg) translateX(-100vh);
+    // transform-origin: top left;
+    // overflow-y: scroll;
+    // overflow-x: hidden;
+    // position: absolute;
+    // scrollbar-width: none;
+    // -ms-overflow-style: none;
+}
+
+.slide {
+    height:100%;
+    display:flex;
+}
+
+// .wrapper {
+    // display: flex;
+    // flex-direction: row;
+    // width: 400vw;
+    // transform: rotate(90deg) translateY(-100vh);
+    // transform-origin: top left;
+// }
+
+.uno {
+    width: 100vw;
+    // background: #00203FFF;
+    background-image: linear-gradient(to top, #30cfd0 0%, #330867 100%);
+    display: grid;
+    grid-template-columns: 0.8fr 1fr;
+    grid-template-rows: repeat(9, 1fr);
+    grid-template-areas: 
+    "imgUno     .   "
+    "imgUno     .   "
+    "imgUno     .   "
+    "imgUno     .   "
+    "imgUno textoUno"
+    "imgUno textoUno"
+    "imgUno     .   "
+    "imgUno     .   "
+    "imgUno     .   ";
+}
+
+.imgUno {
+    grid-area: imgUno;
+    display: flex;
+    align-items: flex-end;
+}
+
+.imgUno img {
+    max-width: 90%;
+    height: auto;
+}    
+
+.textoUno {
+    grid-area: textoUno;
+    display: grid;
+    margin-left: 30px;
+}
+
+#tituloUno {
+    color: #95DBE5;
+    font-family: PoppinsSemiBold;
+    font-size: 72px;
+    display: grid;
+    justify-self: start;
+    align-self: end;
+    letter-spacing: 0.03em;
+
+}
+
+#parrafoUno {
+    color: #95DBE5;
+    font-family: PoppinsLight;
+    font-size: 48px;
+    justify-self: start;
+    align-self: end;
+    letter-spacing: 0.05em;
+}
+
+.dos {
+    width: 100vw;
+    // background: #00203FFF;
+    background-image: linear-gradient(to top, #30cfd0 0%, #330867 100%);
+    display: grid;
+    grid-template-columns: 0.7fr 1fr;
+    grid-template-rows: repeat(9, 1fr);
+    grid-template-areas: 
+    "   .           .     "
+    "   .        imgDos   "
+    "   .        imgDos   "
+    "textoDos    imgDos   "
+    "textoDos    imgDos   "
+    "textoDos    imgDos   "
+    "   .        imgDos   "
+    "   .        imgDos   "
+    "   .        imgDos   ";
+}
+
+.imgDos {
+    grid-area: imgDos;
+    height: 100%;
+}
+
+.textoDos {
+    grid-area: textoDos;
+    font-family: PoppinsLight;
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: repeat(3, 1fr);
+    grid-template-areas: 
+    "descubre"
+    "artistas"
+    "parrafo";
+}
+
+.tituloDos {
+    color: #95DBE5;
+    font-family: PoppinsSemiBold;
+    font-size: 72px;
+    letter-spacing: 0.03em;
+
+}
+
+.descubre {
+    grid-area: descubre;
+    display: grid;
+    justify-self: start;
+    align-self: center
+}
+
+.artistas {
+    grid-area: artistas;
+    display: grid;
+    justify-self: start;
+    align-self: start;
+}
+
+#parrafoDos {
+    grid-area: parrafo;
+    color: #95DBE5;
+    font-family: PoppinsLight;
+    font-size: 42px;
+    justify-self: start;
+    align-self: end;
+    letter-spacing: 0.05em;
+}
+
+.tres {
+    width: 100vw;
+    // background: #00203FFF;
+    background-image: linear-gradient(to top, #30cfd0 0%, #330867 100%);
+    display: grid;
+    grid-template-columns: 0.7fr 1fr;
+    grid-template-rows: repeat(9, 1fr);
+    grid-template-areas: 
+    "imgTres        .       "
+    "imgTres        .       "
+    "imgTres        .       "
+    "imgTres    textoTres   "
+    "imgTres    textoTres   "
+    "imgTres    textoTres   "
+    "imgTres    textoTres   "
+    "imgTres        .       "
+    "imgTres        .       ";
+}
+
+.imgTres {
+    grid-area: imgTres;
+    // margin-left: -220px;
+}
+
+.imgTres video {
+    // width: 100% !important;
+    // height: auto !important;
+}
+
+.textoTres {
+    grid-area: textoTres;
+    font-family: PoppinsLight;
+    display: grid;
+    grid-template-columns: 0.25fr 1fr 0.25fr;
+    grid-template-rows: 1fr repeat(4, 0.5fr);
+    grid-template-areas: 
+    ".      haces         ."
+    ".      publica       ."
+    ".      publica       ."
+    ".      publica       ."
+    ".      publica       .";
+}
+
+#tituloTres {
+    grid-area: haces;
+    color: #95DBE5;
+    font-family: PoppinsSemiBold;
+    font-size: 72px;
+    align-items: center;
+    text-align: center;
+    letter-spacing: 0.03em;
+
+}
+
+.parrafoTres {
+    grid-area: publica;
+    color: #95DBE5;
+    font-family: PoppinsLight;
+    font-size: 42px;
+    align-items: center;
+    text-align: center;
+    letter-spacing: 0.05em;
+}
+
+.cuatro {
+    width: 100vw;
+    // background: #95DBE5;
+    background-image: linear-gradient(to top, #209cff 0%, #68e0cf 100%);
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    grid-template-rows: repeat(5, 1fr);
+    grid-template-areas: 
+    "   .           .       logoFoot        .         .  "
+    "   .           .       logoFoot        .         .  "
+    "   .           .       logoFoot        .         .  "
+    "   .           .       pruebaBoton       .         .  "
+    "infoDev        .           .         redes     redes";
+}
+
+#logoFoot {
+    grid-area: logoFoot;
+    align-self: center;
+}
+
+
+#pruebaBoton {
+    grid-area: pruebaBoton;
+    display: grid;
+    justify-self: center;
+    align-self: center;
+}
+
+#infoDev {
+    grid-area: infoDev;
+}
+
+#redes {
+    grid-area: redes;
+}
+

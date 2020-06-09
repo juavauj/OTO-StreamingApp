@@ -10,72 +10,76 @@ import { UsuarioService } from '../../services/usuario.service';
 export class PerfilUsuarioComponent implements OnInit {
 
   // Declarar la variable usuarioActualizar
-  public usuarioActualizar : Usuario;
-  // Declarar la variable archivoSubir de tipo file
-  public archivoSubir : File;
-  // Declarar la variable identidad
-  public identidad;
-  // Declarar la variable url
-  public url : String;
 
-  constructor(private usuarioService : UsuarioService) { 
+  public usuarioActualizar: Usuario;
+
+  // Declara la variable archivoSubir de tipo File
+  public archivoSubir: File;
+
+  //Declarar la variable identidad
+  public identidad;
+
+  //Declarar la variable url
+  public url: String;
+
+  constructor(
+    private usuarioService: UsuarioService
+  ) {
     this.url = usuarioService.url;
   }
 
   ngOnInit(): void {
+    // usuarioActualizar = {nombre: "Pepe", apellido}
     this.usuarioActualizar = JSON.parse(localStorage.getItem('sesion'));
-    this.identidad=this.usuarioService.obtenerNombreUsuario();
+    this.identidad = this.usuarioService.obtenerNombreUsuario();
   }
 
-  // Declarar los metodos
-  // Metodo subirArchivo
-  subirArchivo(fileInput : any){
+  // Método subirArchivo
+  subirArchivo(fileInput: any) {
     this.archivoSubir = <File>fileInput.target.files[0];
   }
-  // ------------------------------------
-  // Metodo actualizarUsuario
-  actualizarUsuario(){
-    this.usuarioService.editarUsuario(this.usuarioActualizar._id,this.usuarioActualizar).subscribe(
-      (response : any)=>{
-        if(response.usuario){
-          alert('Tus datos han sido actualizados correctamente');
-          localStorage.setItem( 'sesion' , JSON.stringify(this.usuarioActualizar));
 
-          // Validacion de la imagen
-          if(!this.archivoSubir){
+  // Método actualizar Usuario
+  actualizarUsuario() {
+    this.usuarioService.editarusuario(this.usuarioActualizar._id, this.usuarioActualizar).subscribe(
+      (response: any) => {
+        if (response.usuario) {
+          alert('Tus datos han sido Actualizados correctamente!');
+          localStorage.setItem('sesion', JSON.stringify(this.usuarioActualizar));
+
+          // Validacion de la carga de la imagen
+          if (!this.archivoSubir) {
             alert('No hay ninguna imagen');
-          }else{
+          } else {
             alert(`Tu imagen es ${this.archivoSubir.name}`);
-            this.usuarioService.cargarImagenUsuario(this.archivoSubir,this.usuarioActualizar._id).subscribe(
-              (result : any)=>{
+            this.usuarioService.cargarImagenUsuario(this.archivoSubir, this.usuarioActualizar._id).subscribe(
+              (result: any) => {
                 this.usuarioActualizar.imagen = result.imagen;
                 localStorage.setItem('sesion', JSON.stringify(this.usuarioActualizar));
-                // Mostrar la imagen
-                let rutaImagen = this.url+'obtenerImagen/'+this.usuarioActualizar.imagen;
-                //document.getElementById('mostrarImagen').setAttribute('src',rutaImagen);
-                document.getElementById('imgUsuario').setAttribute('src', rutaImagen);
-                // Cierre mostrar Imagen
 
+                // Mostrar la imagen 
+                let rutaImagen = this.url + 'obtenerImagen/' + this.usuarioActualizar.imagen;
+                document.getElementById('mostrarImagen').setAttribute('src', rutaImagen);
+                document.getElementById('imgUsuario').setAttribute('src', rutaImagen);
+
+                // Cierre mostrar imagen
 
               }
-
             );
           }
 
-
+          // Cierrre Validacion
         } else {
-          alert('No fue posible actualizar sus datos');
+          alert(`${response.message}`);
         }
 
-
-      }, error =>{
-        if(error!= null){
+        // Cierre response
+      }, error => {
+        if (error != null) {
           console.log(error);
         }
       }
     );
-    
-
   }
 
 }

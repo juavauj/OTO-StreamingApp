@@ -3,13 +3,36 @@ const Schema = mongoose.Schema;
 
 // Objeto Schema
 var UsuarioSchema = new Schema({
-    nombre: String,
-    apellido: String,
-    correo: String,
-    contrasena: String,
-    rol: String,
-    imagen: String
-    // imagen: {required: true}
+    nombre: {
+        type: String,
+        required: true
+    },
+    apellido: {
+        type: String,
+        required: true
+    },
+    correo: {
+       type: String,
+       unique: true,
+       required: true
+    },
+    contrasena: {
+        type: String,
+        required: true
+    },
+    rol: {
+        type: String,
+        required: true
+    },
+    imagen: {
+        type: String,
+        default: null
+    },
+    suscripcion: {
+        type: String,
+        default: "lite"
+    }
+    
 });
 
 // Exportar el modelo
