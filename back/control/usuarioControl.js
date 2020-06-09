@@ -159,7 +159,13 @@ function mostrarArchivo(req, res){
 //Función borrar usuario
 
 
-//funcion login admin
+//Funcion login admin
+
+// Funcion mostrar usuarios 
+async function optenerUsuarios(req, res){
+    const users = await Usuario.find();
+    res.json(users);
+}
 
 
 // Exportar paquete de funciones
@@ -168,5 +174,6 @@ module.exports = {
     login,
     actualizarUsuario,
     subirImg,
-    mostrarArchivo
+    mostrarArchivo,
+    optenerUsuarios
 }
