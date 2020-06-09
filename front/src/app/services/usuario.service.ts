@@ -97,12 +97,7 @@ export class UsuarioService {
       this.url + 'subirImagen/' + id,
       formData
     ).pipe(map(res => res));
-
   }
-
-
-
-
 }
 
 

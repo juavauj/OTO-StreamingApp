@@ -1,36 +1,41 @@
-<!-- Traer la imagen de perfil del Usuario
+<main>
+<!-- 
+    Traer la imagen de perfil del usuario
+
     <img id="imgUsuario" src="{{ url + 'obtenerImagen/' + identidad.imagen }}" />
 
     Segunda Opcion
     <img id="imgUsuario" src="{{ rutaImagen }}" >
+ -->
+ <img  id="imgUsuario" style="width: 80px;"/>
+ <span>Bienvenido {{identidad.nombre}}</span>
 
+<!-- 
+  Formulario Actualizacion Datos Usuario
 -->
 
-
-<!-- <img id="imgUsuario" style="width: 80px;" /> -->
-<img id="imgUsuario" src="{{ url + 'obtenerImagen/' + identidad.imagen }}" />
-<span>Bienvenid@
-    {{ identidad.nombre  }}</span>
-
-
-<!-- Formulario Actualización Datos Usuario -->
-
 <form #formularioActualizar="ngForm" (ngSubmit)="actualizarUsuario()">
-    <input type="text" placeholder="Nombre" name="nombre" #nombre="ngModel" [(ngModel)]="usuarioActualizar.nombre">
-    <br>
-    <input type="text" placeholder="Apellido" name="apellido" #nombre="ngModel"
-        [(ngModel)]="usuarioActualizar.apellido">
-    <br>
-    <input type="text" placeholder="Correo" name="correo" #nombre="ngModel" [(ngModel)]="usuarioActualizar.correo">
-    <br>
-    <input type="password" placeholder="Contraseña" name="contrasena" #nombre="ngModel"
-        [(ngModel)]="usuarioActualizar.contrasena">
-    <br><br>
+ <input type="text"  placeholder="Nombre" name="nombre"
+ #nombre="ngModel" [(ngModel)]="usuarioActualizar.nombre"/>
+ <br>
+ <input type="text"  placeholder="Apellido" name="apellido"
+ #apellido="ngModel" [(ngModel)]="usuarioActualizar.apellido"/>
+ <br>
+ <input type="text"  placeholder="Correo" name="correo"
+ #correo="ngModel" [(ngModel)]="usuarioActualizar.correo"/>
+ <br>
+ <input type="text"  placeholder="Contraseña" name="contrasena"
+ #contrasena="ngModel" [(ngModel)]="usuarioActualizar.contrasena"/>
+ <br><br>
 
-    <input type="file" placeholder="Subir Imagen" (change)="subirArchivo($event)">
+ <input type="file" placeholder="Subir Imagen" (change)="subirArchivo($event)" />
 
+ <!-- 
+     Previsualizar la imagen escogida por el usuario
+  -->
 
-    <!-- Previsualizar la imagen escogida por el usuario -->
-
-    <button type="submit">Actualizar Datos</button>
+  <button type="submit">Actualizar Datos</button>
 </form>
+
+
+</main>

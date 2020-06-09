@@ -19,14 +19,20 @@ export class AppComponent implements OnInit{
     ){}
 
   ngOnInit(){
+    this.navSwitching();
+    
 
-     this.navSwitchService.navStatusObservable.subscribe(status =>{
-       console.log("status",status)
-      this.navStatus=status
-    }); 
+  }
 
-    // Revisar la direccion a la que se ingresa y mostrar el nav correspondiente
-    this.navSwitchService.switchNav(this.location.path());
+  navSwitching(){
+    // Suscribirse al servicio de navSwitch
+    this.navSwitchService.navStatusObservable.subscribe(status =>{
+      console.log("status",status)
+     this.navStatus=status
+   }); 
+
+   // Revisar la direccion a la que se ingresa y mostrar el nav correspondiente
+   this.navSwitchService.switchNav(this.location.path());
 
   }
  

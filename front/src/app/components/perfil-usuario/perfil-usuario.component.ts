@@ -10,6 +10,7 @@ import { UsuarioService } from '../../services/usuario.service';
 export class PerfilUsuarioComponent implements OnInit {
 
   // Declarar la variable usuarioActualizar
+
   public usuarioActualizar: Usuario;
 
   // Declara la variable archivoSubir de tipo File
