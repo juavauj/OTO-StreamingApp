@@ -1,38 +1,63 @@
-<div>
+<div class="form-container">
   <form #formularioRegistro="ngForm" (ngSubmit)="registrarUsuario()">
-    <input
-      type="text"
-      placeholder="Nombre"
-      name="nombre"
-      #nombre="ngModel"
-      [(ngModel)]="usuarioRegistro.nombre"
-    />
+    <div class="input-form">
+      <input
+        type="text"
+        name="nombre"
+        #nombre="ngModel"
+        [(ngModel)]="usuarioRegistro.nombre"
+        autocomplete="off"
+        required
+      />
+      <label class="label-input" for="nombre"> <span class="content-input">Nombre</span></label>
+      <br />
+    </div>
+
+    <div class="input-form">
+      <input
+        type="text"
+        name="apellido"
+        #apellido="ngModel"
+        [(ngModel)]="usuarioRegistro.apellido"
+        autocomplete="off"
+        required
+      />
+      <label class="label-input" for="apellido"> <span class="content-input">Apellido</span></label>
+      <br />
+
+    </div>
+
+    <div class="input-form">
+      <input
+        type="text"
+        name="correo"
+        #correo="ngModel"
+        [(ngModel)]="usuarioRegistro.correo"
+        autocomplete="off"
+        required
+      />
+      <label class="label-input" for="correo"> <span class="content-input">Correo</span></label>
+      <br />      
+    </div>
+   
+    <div class="input-form">
+      <input
+        type="password"
+        name="contrasena"
+        #contrasena="ngModel"
+        [(ngModel)]="usuarioRegistro.contrasena"
+        autocomplete="off"
+        required
+      />
+    <label class="label-input" for="contrasena"> <span class="content-input">Contraseña</span></label>
     <br />
-    <input
-      type="text"
-      placeholder="Apellido"
-      name="apellido"
-      #apellido="ngModel"
-      [(ngModel)]="usuarioRegistro.apellido"
-    />
-    <br />
-    <input
-      type="text"
-      placeholder="Correo"
-      name="correo"
-      #correo="ngModel"
-      [(ngModel)]="usuarioRegistro.correo"
-    />
-    <br />
-    <input
-      type="password"
-      placeholder="Contraseña"
-      name="contrasena"
-      #contrasena="ngModel"
-      [(ngModel)]="usuarioRegistro.contrasena"
-    />
-    <br />
+
+    </div>
+    
     <br />
     <button type="submit">Registrarse</button>
+
+    
+    
   </form>
 </div>

@@ -5,10 +5,6 @@ const fs = require('fs');
 const path = require('path');
 
 
-const fs = require('fs');
-
-const path = require('path');
-
 // Función Registro Usuario
 function registrarUsuario(req, res){
     var usuario = new Usuario();

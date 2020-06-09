@@ -8,6 +8,8 @@ import { UsuarioService } from '../../services/usuario.service';
 // Importar el objeto Router
 import { Router, ActivatedRoute, Params } from '@angular/router';
 
+import { NavSwitchService } from '../../services/nav-switch.service';
+
 
 @Component({
   selector: 'app-registro',
@@ -20,13 +22,15 @@ export class RegistroComponent implements OnInit {
 
   constructor(
     private usuarioService: UsuarioService,
-    private _router: Router
+    private _router: Router,
   ) {
     this.usuarioRegistro = new Usuario('', '', '', '', '', 'usuario', '');
   }
 
+  ngOnInit(): void {
+  }
 
-  ngOnInit(): void { }
+  
 
   // Método registrarUsuario()
   registrarUsuario() {
