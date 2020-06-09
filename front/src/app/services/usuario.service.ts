@@ -40,10 +40,10 @@ export class UsuarioService {
 
   //----------------------------------------------------------
   // Declarar el método del servicio iniciarSesion
-  iniciarSesion(usuarioLogueado){
+  iniciarSesion(usuarioLogueado) {
     let params = JSON.stringify(usuarioLogueado);
     let options = {
-      headers : new HttpHeaders( { 'Content-Type' : 'application/json' } )
+      headers: new HttpHeaders({ 'Content-Type': 'application/json' })
     }
     return this._http.post(
       this.url + 'login',
@@ -51,30 +51,54 @@ export class UsuarioService {
       options
     ).pipe(map(res => res));
   }
+
   //----------------------------------------------------------
   // Declarar el método del servicio obtenerNombreUsuario
-  obtenerNombreUsuario(){
+  obtenerNombreUsuario() {
     /* 
       En una variable llamada identidad recogeremos los datos de nuestros usuarios una vez que haya iniciado sesion.
       Estos datos se encuentran en el local storage.
     */
-   let usuarioAutorizado = JSON.parse(localStorage.getItem('sesion'));
+    let usuarioAutorizado = JSON.parse(localStorage.getItem('sesion'));
 
-   // Validar si localStorage esta vacio
-   if(usuarioAutorizado != 'undefined'){
-     this.identidad = usuarioAutorizado;
+    // Validar si localStorage esta vacio
+    if (usuarioAutorizado != 'undefined') {
+      this.identidad = usuarioAutorizado;
 
-   }else{
-     this.identidad = null;
-   }
-   
-   return this.identidad;
+    } else {
+      this.identidad = null;
+    }
+
+    return this.identidad;
 
   }
 
-  //Metodo para optener datos de usuarios
+  //----------------------------------------------------------
+  // Declarar el método del servicio editarUsuario
+  editarusuario(id, usuarioActualizado) {
+    let params = JSON.stringify(usuarioActualizado);
+    let options = {
+      headers: new HttpHeaders({ 'Content-Type': 'aplication/json' })
+    }
+    return this._http.put(
+      this.url + 'actualizar-usuario/' + id,
+      params,
+      options
+    ).pipe(map(res => res));
+  }
 
-  
+  //----------------------------------------------------------
+  // Declarar el método del servicio cargarImagenUsuario
+  cargarImagenUsuario(file: File, id) {
+    // Instanciamos el objeto FormData que nos permitirá enviar la img
+    let formData = new FormData();
+    formData.append('imagen', file);
+    return this._http.put(
+      this.url + 'subirImagen/' + id,
+      formData
+    ).pipe(map(res => res));
+
+  }
 
 
 
