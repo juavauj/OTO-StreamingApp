@@ -17,6 +17,8 @@ import { RegistroComponent } from './components/registro/registro.component';
 import { PerfilUsuarioComponent } from './components/perfil-usuario/perfil-usuario.component';
 import { HttpClientModule } from '@angular/common/http';
 import { UsuarioService } from './services/usuario.service';
+import { NavLoginsComponent } from './components/nav-logins/nav-logins.component';
+import { NavLandingComponent } from './components/nav-landing/nav-landing.component';
 
 @NgModule({
   declarations: [
@@ -29,6 +31,8 @@ import { UsuarioService } from './services/usuario.service';
     MenuComponent,
     RegistroComponent,
     PerfilUsuarioComponent,
+    NavLoginsComponent,
+    NavLandingComponent
   ],
   imports: [BrowserModule, AppRoutingModule, FormsModule, HttpClientModule, BrowserAnimationsModule],
   providers: [UsuarioService],

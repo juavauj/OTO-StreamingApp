@@ -1,5 +1,6 @@
 const express = require('express');
 const UsuarioControl = require('../control/usuarioControl');
+
 // Importar el paquete connect-multiparty
 const multipart = require('connect-multiparty');
 // A traves de connect multiparty, apuntamos a la carpeta que deseemos en que se guarden los archivos
@@ -14,6 +15,7 @@ api.post('/registro', UsuarioControl.registrarUsuario);
 api.post('/login', UsuarioControl.login);
 
 // Ruta Actualizar Usuario
+
 api.put('/actualizar-usuario/:id', UsuarioControl.actualizarUsuario);
 
 // Ruta Subir Imagen Usuario
