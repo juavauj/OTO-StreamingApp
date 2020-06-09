@@ -1,5 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 //Importar módulo de rutas
 import { AppRoutingModule } from './app-routing.module';
 // Importar Módulo Formulariios
@@ -43,7 +44,7 @@ import { UsuariosComponent } from './components/usuarios/usuarios.component'
     PremiumComponent,
     UsuariosComponent
   ],
-  imports: [BrowserModule, AppRoutingModule, FormsModule, HttpClientModule],
+  imports: [BrowserModule, AppRoutingModule, FormsModule, HttpClientModule, BrowserAnimationsModule],
   providers: [UsuarioService, NavSwitchService],
   bootstrap: [AppComponent],
 })
