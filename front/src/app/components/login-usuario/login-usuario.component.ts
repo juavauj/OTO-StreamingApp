@@ -5,6 +5,8 @@ import { Usuario } from '../../modelo/usuario';
 // Importar el servicio
 import { UsuarioService } from '../../services/usuario.service';
 
+import { NavSwitchService } from '../../services/nav-switch.service';
+
 // Importar el manejador de rutas
 import { Router, ActivatedRoute, Params } from '@angular/router';
 
@@ -21,7 +23,7 @@ export class LoginUsuarioComponent implements OnInit {
   // Declarar la variable identidad
   public identidad;
 
-  constructor(private usuarioService : UsuarioService, private _router : Router) { 
+  constructor(private usuarioService : UsuarioService, private _router : Router, private navSwitchService : NavSwitchService) { 
     this.login = new Usuario("","","","","","usuario","");
   }
 
@@ -46,9 +48,13 @@ export class LoginUsuarioComponent implements OnInit {
           );
           // crear el objeto localStorage
           localStorage.setItem('sesion',JSON.stringify(usuarioLogueado));
+          // crear el objeto de logged in en localStorage
+          localStorage.setItem('logged',JSON.stringify({logged:true}));
           //Consumir el servicio obtenerNombreUsuario
           this.identidad = this.usuarioService.obtenerNombreUsuario();
           alert(`Hola ${this.identidad.nombre}`);
+          // Realizar cambio de barra de navegacion 
+          this.navSwitchService.switchNav('/login');
           //Redireccion al perfil
           this._router.navigate(['/perfil']);
         }else{
