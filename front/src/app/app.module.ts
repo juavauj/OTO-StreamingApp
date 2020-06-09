@@ -23,7 +23,8 @@ import { PremiumComponent } from './components/premium/premium.component';
 //Importar Servicios
 
 import { UsuarioService } from './services/usuario.service';
-import { NavSwitchService } from './services/nav-switch.service'
+import { NavSwitchService } from './services/nav-switch.service';
+import { UsuariosComponent } from './components/usuarios/usuarios.component'
 
 @NgModule({
   declarations: [
@@ -39,7 +40,8 @@ import { NavSwitchService } from './services/nav-switch.service'
     NavLandingComponent,
     QuienesSomosComponent,
     TrabajaConNosotrosComponent,
-    PremiumComponent
+    PremiumComponent,
+    UsuariosComponent
   ],
   imports: [BrowserModule, AppRoutingModule, FormsModule, HttpClientModule],
   providers: [UsuarioService, NavSwitchService],
