@@ -4,7 +4,6 @@ const fs = require('fs');
 // Importar el módulo Path de Node
 const path = require('path');
 
-
 // Función Registro Usuario
 function registrarUsuario(req, res){
     var usuario = new Usuario();
@@ -16,6 +15,7 @@ function registrarUsuario(req, res){
     usuario.contrasena = parametros.contrasena;
     usuario.rol = parametros.usuario;
     usuario.imagen = null;
+    usuario.suscripcion = parametros.suscripcion;
 
     // Función save para interactuar con la BD
     usuario.save((err, usuarioNuevo)=>{
@@ -66,7 +66,7 @@ function actualizarUsuario(req, res){
     var usuarioId = req.params.id;
     var nuevosDatosUsuario = req.body;
 
-    Usuario.findByIdAndUpdate(usuarioid, nuevosDatosUsuario, (err, usuarioActualizado)=> {
+    Usuario.findByIdAndUpdate(usuarioId, nuevosDatosUsuario, (err, usuarioActualizado)=> {
         if(err){
             res.status(500).send({message: "Error en el servidor"});
         }else{
@@ -156,12 +156,16 @@ function mostrarArchivo(req, res){
     });
 }
 
+//Función borrar usuario
+
+
+//Funcion login admin
+
 // Funcion mostrar usuarios 
 async function optenerUsuarios(req, res){
     const users = await Usuario.find();
     res.json(users);
 }
-
 
 
 // Exportar paquete de funciones
