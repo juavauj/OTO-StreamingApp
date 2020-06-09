@@ -1,3 +1,38 @@
-<app-nav-logins></app-nav-logins>
-<p>login-usuario works!</p>
-
+<div class="form-container">
+    <form #formularioLogin="ngForm" (ngSubmit)="loginUsuario()" >
+     
+      <div class="input-form">
+        <input
+          type="text"
+          name="correo"
+          #correo="ngModel"
+          [(ngModel)]="login.correo"
+          autocomplete="off"
+          required
+        />
+        <label class="label-input" for="correo"> <span class="content-input">Correo</span></label>
+        <br />      
+      </div>
+     
+      <div class="input-form">
+        <input
+          type="password"
+          name="contrasena"
+          #contrasena="ngModel"
+          [(ngModel)]="login.contrasena"
+          autocomplete="off"
+          required
+        />
+      <label class="label-input" for="contrasena"> <span class="content-input">Contraseña</span></label>
+      <br />
+  
+      </div>
+      
+      <br />
+      <button type="submit">iniciar Sesión</button>
+  
+      
+      
+    </form>
+  </div>
+  
