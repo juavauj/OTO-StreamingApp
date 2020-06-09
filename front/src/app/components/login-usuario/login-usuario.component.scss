@@ -1,8 +1,10 @@
+
+main{
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+}
 .form-container{
-    position: absolute;
-    left: 50%;
-    top: 50%;
-    transform: translate(-50%, -35%);
     height: 70vh;
     width: 60vh;
 
@@ -68,4 +70,105 @@ form{
 .input-form input:focus + .label-input::after,
 .input-form input:valid + .label-input::after{
   transform: translateX(0%);
+}
+
+//
+
+
+@-webkit-keyframes animate-svg-stroke-1 {
+  0% {
+    stroke-dashoffset: 1619.9202165987435px;
+    stroke-dasharray: 1619.9202165987435px;
+  }
+  50%{
+      stroke-dashoffset: 409px;
+    stroke-dasharray: 409px;
+  }
+  70%{
+      stroke-dashoffset: 200px;
+    stroke-dasharray: 200px;
+  }
+  90%{
+      stroke-dashoffset: 70px;
+    stroke-dasharray: 70px;
+  }
+  100% {
+    stroke-dashoffset: 0;
+  }
+}
+
+@keyframes animate-svg-stroke-1 {
+  0% {
+    stroke-dashoffset: 1619.9202165987435px;
+    stroke-dasharray: 1619.9202165987435px;
+  }
+  50%{
+      stroke-dashoffset: 409px;
+    stroke-dasharray: 409px;
+  }
+  70%{
+      stroke-dashoffset: 200px;
+    stroke-dasharray: 200px;
+  }
+  90%{
+      stroke-dashoffset: 70px;
+    stroke-dasharray: 70px;
+  }
+  100% {
+    stroke-dashoffset: 0;
+  }
+}
+
+.svg-elem-1 {
+  /* -webkit-animation: animate-svg-stroke-1 4s ease-in-out 1s ; */
+          animation: animate-svg-stroke-1 4s ease-in-out 1s ;
+}
+
+@-webkit-keyframes animate-svg-stroke-2 {
+  0% {
+    stroke-dashoffset: 818.2711181640625px;
+    stroke-dasharray: 818.2711181640625px;
+  }
+  50%{
+      stroke-dashoffset: 409px;
+    stroke-dasharray: 409px;
+  }
+  70%{
+      stroke-dashoffset: 200px;
+    stroke-dasharray: 200px;
+  }
+  90%{
+      stroke-dashoffset: 70px;
+    stroke-dasharray: 70px;
+  }
+  100% {
+    stroke-dashoffset: 0;
+  }
+}
+
+@keyframes animate-svg-stroke-2 {
+  0% {
+    stroke-dashoffset: 818.2711181640625px;
+    stroke-dasharray: 818.2711181640625px;
+  }
+  50%{
+      stroke-dashoffset: 409px;
+    stroke-dasharray: 409px;
+  }
+  70%{
+      stroke-dashoffset: 200px;
+    stroke-dasharray: 200px;
+  }
+  90%{
+      stroke-dashoffset: 1px;
+    stroke-dasharray: 1px;
+  }
+  100% {
+    stroke-dashoffset: 0;
+  }
+}
+
+.svg-elem-2 {
+  /* -webkit-animation: animate-svg-stroke-2 4s ease-in-out 1s ; */
+          animation: animate-svg-stroke-2 4s ease-in-out 1s ;
 }

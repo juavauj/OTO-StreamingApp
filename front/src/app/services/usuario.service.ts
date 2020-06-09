@@ -72,4 +72,28 @@ export class UsuarioService {
 
   }
   //----------------------------------------------------------
+  // Declarar el método del servicio editarUsuario
+  editarUsuario(id, usuarioActualizado){
+    let params = JSON.stringify(usuarioActualizado);
+    let options= {
+      headers : new HttpHeaders( { 'Content-Type' : 'application/json' } )
+    };
+    return this._http.put(
+      this.url + 'actualizar-usuario/' + id,
+      params,
+      options
+    ).pipe(map(res => res));
+  }
+  //----------------------------------------------------------
+  // Declarar el método del servicio cargarImagenUsuario
+  cargarImagenUsuario(file: File, id){
+    // Instanciamos el objeto formData que nos permitira enviar la img
+    let formData = new FormData();
+    formData.append('imagen', file);
+    return this._http.put(
+      this.url + 'subirImagen/'+id,
+      formData
+    ).pipe(map(res => res));
+  }
+  //----------------------------------------------------------
 }
