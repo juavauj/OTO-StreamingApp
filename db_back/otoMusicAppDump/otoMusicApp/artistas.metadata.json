@@ -1,1 +1,0 @@
-{"options":{},"indexes":[{"v":{"$numberInt":"2"},"key":{"_id":{"$numberInt":"1"}},"name":"_id_","ns":"otoMusicApp.artistas"}],"uuid":"fce1cc5de3d64c10b896ac8032c0a2e1"}
