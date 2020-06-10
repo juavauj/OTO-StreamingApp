@@ -1,3 +1,8 @@
+
+@font-face {
+    font-family: PoppinsSemiBold;
+    src: url(/assets/font/Poppins-SemiBold.ttf);
+}
 header{
     font-family: 'Poppins';
     position: absolute;
@@ -30,6 +35,7 @@ header nav ul li{
     list-style: none;
 }
 header nav ul li a{
+    font-size: '';
     height: 10vh;
     line-height: 10vh;
     padding: 0 40px;
@@ -37,7 +43,8 @@ header nav ul li a{
     display: block;
     cursor: pointer;
     font-size: 20px;
-    color: black;
+    color: #95DBE5;
+    font-family: PoppinsSemiBold;
 }
 /*
 

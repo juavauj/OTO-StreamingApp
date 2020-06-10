@@ -13,9 +13,10 @@ function registrarUsuario(req, res){
     usuario.apellido = parametros.apellido;
     usuario.correo = parametros.correo;
     usuario.contrasena = parametros.contrasena;
-    usuario.rol = parametros.usuario;
+    usuario.rol = parametros.rol;
     usuario.imagen = null;
-    usuario.suscripcion = parametros.suscripcion;
+    usuario.suscripcion = 'user';
+    console.log(parametros)
 
     // Función save para interactuar con la BD
     usuario.save((err, usuarioNuevo)=>{
