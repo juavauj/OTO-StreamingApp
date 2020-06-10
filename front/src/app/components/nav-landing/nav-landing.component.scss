@@ -6,6 +6,8 @@ header{
     padding: 0 50px 0 70px;
     width: 100%;
     box-sizing: border-box;
+    z-index: 1;
+    position: fixed;
 }
 header .logo{
     height: 10vh;
