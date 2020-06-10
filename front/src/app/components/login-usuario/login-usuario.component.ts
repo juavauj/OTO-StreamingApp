@@ -35,6 +35,7 @@ export class LoginUsuarioComponent implements OnInit {
       (response : any)=>{
         let usuario = response.usuario;
         this.login = usuario;
+        console.log(this.login)
         
         if(this.login){
           let usuarioLogueado = new Usuario(
