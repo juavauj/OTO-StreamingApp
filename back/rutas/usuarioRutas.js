@@ -25,7 +25,15 @@ api.put('/subirImagen/:id', subirImgDirectorio, UsuarioControl.subirImg);
 api.get('/obtenerImagen/:imageFile', UsuarioControl.mostrarArchivo);
 
 // Ruta mostara usuarios
-api.get('/optenerUsuarios', UsuarioControl.optenerUsuarios);
+api.get('/obtenerUsuarios', UsuarioControl.obtenerUsuarios);
+
+// Ruta permitira buscar usuarios
+api.get('/buscarUsuarios/:busqueda', UsuarioControl.buscarUsuario);
+
+// Ruta borrara usuarios
+api.delete('/eliminarUsuarios/:id', UsuarioControl.borrarUsuario);
+
+api.get('/usuario-estado', UsuarioControl.usuariosEstado)
 
 // Exportar el módulo
 module.exports = api;

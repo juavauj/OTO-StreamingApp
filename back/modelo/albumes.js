@@ -15,13 +15,17 @@ var AlbumSchema = new Schema({
     }],
     canciones: [{
         type: ObjectId,
-        ref: 'Canciones',
+        ref: 'Tracks',
         required: true
     }],
-    generos: [String],
+    generos: Array,
     disquera: String,
     anio: Number,
     imagen: {
+        type: String,
+        default: null
+    },
+    estado: {
         type: String,
         default: null
     }

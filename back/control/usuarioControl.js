@@ -13,9 +13,11 @@ function registrarUsuario(req, res){
     usuario.apellido = parametros.apellido;
     usuario.correo = parametros.correo;
     usuario.contrasena = parametros.contrasena;
-    usuario.rol = parametros.usuario;
+    usuario.rol = parametros.rol;
     usuario.imagen = null;
     usuario.suscripcion = parametros.suscripcion;
+    usuario.estado = parametros.estado;
+
 
     // Función save para interactuar con la BD
     usuario.save((err, usuarioNuevo)=>{
@@ -158,15 +160,46 @@ function mostrarArchivo(req, res){
 
 //Función borrar usuario
 
+async function borrarUsuario(req, res) {
+    var usuarioId = req.params.id;
+    await Usuario.findByIdAndDelete(usuarioId);
+    res.send({message: "Usuario eliminado"});
+}
+
 
 //Funcion login admin
 
 // Funcion mostrar usuarios 
-async function optenerUsuarios(req, res){
+async function obtenerUsuarios(req, res){
     const users = await Usuario.find();
     res.json(users);
 }
 
+//buscar o filtar por nombre
+function buscarUsuario(req, res) {
+    var resBusqueda = req.params.busqueda;
+
+    Usuario.find({nombre: {$regex: resBusqueda, $options: 'i'}}, (err, usuarioFound)=>{
+        if (err) {
+            res.status(500).send({message: "Error en el servidor"});
+        }else{
+            if (!usuarioFound) {
+                res.status(200).send({message: "No se ha encontrado ningún usuario"});
+            }else{
+                res.status(200).send({
+                    message: "usuarios encontrados", 
+                    usuario: usuarioFound
+                });
+            }
+        }
+    });
+}
+
+//Funcion filtrar por estado
+async function usuariosEstado(req, res){
+    const users = await Usuario.find({estado: "activo"});
+    res.json(users);
+}
 
 // Exportar paquete de funciones
 module.exports = {
@@ -175,5 +208,9 @@ module.exports = {
     actualizarUsuario,
     subirImg,
     mostrarArchivo,
-    optenerUsuarios
+    obtenerUsuarios,
+    buscarUsuario,
+    borrarUsuario,
+    usuariosEstado
+    
 }

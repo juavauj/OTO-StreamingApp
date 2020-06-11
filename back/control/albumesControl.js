@@ -8,10 +8,17 @@ function addAlbum(req, res){
     var album = new Album();
     var parametros = req.body;
 
-    album.nombre = parametros.nombre;
-    album.generos = [parametros.generos];
+    album.titulo = parametros.titulo;
+    album.artistas = parametros.artistas;
+    album.canciones = parametros.canciones;
+    album.generos = parametros.generos;
+    album.disquera = parametros.disquera;
+    album.anio = parametros.anio;
     album.imagen = null;
-    album.biografia = parametros.biografia;
+    album.estado = parametros.estado;
+
+    console.log(parametros);
+    console.log(album);
 
     album.save((err, albumNuevo)=>{
         if (err) {
@@ -22,7 +29,7 @@ function addAlbum(req, res){
             }else{
                 res.status(200).send({
                     message: "Album agregado", 
-                    albumNuevo
+                    album: albumNuevo
                 });
             }
         }
@@ -43,7 +50,7 @@ function actualizarAlbum(req, res) {
             }else{
                 res.status(200).send({
                     message: "Album actualizado", 
-                    albumActualizado
+                    album: albumActualizado
                 });
             }
         }
@@ -66,7 +73,7 @@ function borrarAlbum(req, res){
             }else{
                 res.status(200).send({
                     message: "Album eliminado", 
-                    albumEliminado
+                    album: albumEliminado
                 });
             }
         }
@@ -87,7 +94,7 @@ function mostrarUnAlbum(req, res) {
             }else{
                 res.status(200).send({
                     message: "Album encontrado", 
-                    albumEncontrado
+                    album: albumEncontrado
                 });
             }
         }
@@ -105,9 +112,10 @@ function showAlbumes(req, res) {
             if (!albumesEncontrados) {
                 res.status(200).send({message: "No ha sido posible encontrar albumes"});
             }else{
+
                 res.status(200).send({
                     message: "Albumes encontrados", 
-                    albumesEncontrados
+                    album: albumesEncontrados
                 });
             }
         }
@@ -138,7 +146,7 @@ function subirImg(req, res){
                         res.status(200).send({
                             message: "Imagen anexada",
                             imagen: nombreArchivo,
-                            artista: albumImg
+                            album: albumImg
                         });
                     }
                 }
@@ -155,7 +163,7 @@ function subirImg(req, res){
 function mostrarArchivo(req, res){
 
     var archivo = req.params.imageFile;
-    var ruta = './archivos/albumArt/'+archivo;
+    var ruta = './archivos/albumes/'+archivo;
 
     // Validar si existe o no 
     fs.exists(ruta, (exists)=>{
@@ -165,6 +173,32 @@ function mostrarArchivo(req, res){
             res.status(200).send({message: "Imagen no encontrada"});
         }
     });
+}
+
+//buscar o filtar
+function buscarAlbum(req, res) {
+    var resBusqueda = req.params.busqueda;
+
+    Album.find({nombre: {$regex: resBusqueda, $options: 'i'}}, (err, albumFound)=>{
+        if (err) {
+            res.status(500).send({message: "Error en el servidor"});
+        }else{
+            if (!albumFound) {
+                res.status(200).send({message: "No se ha encontrado ningún album"});
+            }else{
+                res.status(200).send({
+                    message: "Albumes encontrados", 
+                    album: albumFound
+                });
+            }
+        }
+    });
+}
+
+//Funcion filtrar por estado
+async function albumEstado(req, res){
+    const albums = await Album.find({estado: "activo"});
+    res.json(albums);
 }
 
 //mostrar albumes del artista
@@ -183,4 +217,6 @@ module.exports = {
     mostrarUnAlbum,
     subirImg,
     mostrarArchivo,
+    buscarAlbum,
+    albumEstado
 }
