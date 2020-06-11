@@ -15,8 +15,7 @@ function addCancion(req, res) {
     cancion.anio = parametros.anio;
     cancion.letra = parametros.letra;
     cancion.archivoCancion = null;
-    console.log(parametros);
-    
+    cancion.estado = parametros.estado;    
 
     cancion.save((err, cancionNueva)=>{
         if (err) {
@@ -27,7 +26,7 @@ function addCancion(req, res) {
             }else{
                 res.status(200).send({
                     message: "Canción registrada", 
-                    cancionNueva
+                    cancion: cancionNueva
                 });
             }
         }
@@ -46,7 +45,7 @@ function showCanciones(req, res) {
             }else{
                 res.status(200).send({
                     message: "Canciones encontradas", 
-                    cancionesEncontradas
+                    cancion: cancionesEncontradas
                 });
             }
         }
@@ -68,7 +67,7 @@ function actualizarCancion(req, res){
             }else{
                 res.status(200).send({
                     message: "Canción actualizada", 
-                    cancionActualizada
+                    cancion: cancionActualizada
                 });
             }
         }
@@ -89,7 +88,7 @@ function borrarCancion(req, res){
             }else{
                 res.status(200).send({
                     message: "Canción eliminada", 
-                    cancionEliminada
+                    cancion: cancionEliminada
                 });
             }
         }
@@ -110,7 +109,7 @@ function mostrarUnaCancion(req, res) {
             }else{
                 res.status(200).send({
                     message: "Canción encontrada", 
-                    cancionEncontrada
+                    cancion: cancionEncontrada
                 });
             }
         }
@@ -151,6 +150,34 @@ function subirAudios(req, res) {
     }
 }
 
+//buscar o filtar
+function buscarCancion(req, res) {
+    var resBusqueda = req.params.busqueda;
+
+    Cancion.find({nombre: {$regex: resBusqueda, $options: 'i'}}, (err, cancionFound)=>{
+        if (err) {
+            res.status(500).send({message: "Error en el servidor"});
+        }else{
+            if (!cancionFound) {
+                res.status(200).send({message: "No se ha encontrado ninguna canción"});
+            }else{
+                res.status(200).send({
+                    message: "Canciones encontradas", 
+                    cancion: cancionFound
+                });
+            }
+        }
+    });
+}
+
+//Funcion filtrar por estado
+async function cancionesEstado(req, res){
+    const songs = await Canciones.find({estado: "activo"});
+    res.json(songs);
+}
+
+
+
 //exportar el modulo
 
 module.exports = {
@@ -159,7 +186,9 @@ module.exports = {
     actualizarCancion,
     borrarCancion,
     mostrarUnaCancion,
-    subirAudios
+    subirAudios,
+    buscarCancion,
+    cancionesEstado
 }
 
 

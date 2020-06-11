@@ -9,14 +9,18 @@ var PlaylistSchema = new Schema({
     },
     propietario: {
         type: ObjectId,
+        ref: 'Usuarios',
         required: true
     },
-    canciones: [
-        {
-        type: String,
+    canciones: [{
+        type: ObjectId,
+        ref: 'Tracks',
         required: true
-        }
-    ]
+    }],
+    estado: {
+        type: String,
+        default: null
+    }
 });
 
 module.exports = mongoose.model('Playlist', PlaylistSchema);

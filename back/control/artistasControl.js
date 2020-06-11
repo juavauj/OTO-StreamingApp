@@ -12,6 +12,7 @@ function addArtista(req, res){
     artista.generos = [parametros.generos];
     artista.imagen = null;
     artista.biografia = parametros.biografia;
+    artista.estado = parametros.estado;
 
     artista.save((err, artistaNuevo)=>{
         if (err) {
@@ -22,7 +23,7 @@ function addArtista(req, res){
             }else{
                 res.status(200).send({
                     message: "Artista agregado", 
-                    artistaNuevo
+                    artista: artistaNuevo
                 });
             }
         }
@@ -43,7 +44,7 @@ function actualizarArtista(req, res) {
             }else{
                 res.status(200).send({
                     message: "Artista actualizado", 
-                    artistaActualizado
+                    artista: artistaActualizado
                 });
             }
         }
@@ -66,7 +67,7 @@ function borrarArtista(req, res){
             }else{
                 res.status(200).send({
                     message: "Artista eliminado", 
-                    artistaEliminado
+                    artista: artistaEliminado
                 });
             }
         }
@@ -87,7 +88,7 @@ function mostrarUnArtista(req, res) {
             }else{
                 res.status(200).send({
                     message: "Artista encontrado", 
-                    artistaEncontrado
+                    artista: artistaEncontrado
                 });
             }
         }
@@ -107,7 +108,7 @@ function showArtistas(req, res) {
             }else{
                 res.status(200).send({
                     message: "Artistas encontrados", 
-                    artistasEncontrados
+                    artista: artistasEncontrados
                 });
             }
         }
@@ -167,7 +168,31 @@ function mostrarArchivo(req, res){
     });
 }
 
-//mostrar albumes del artista
+function buscarArtista(req, res) {
+    var resBusqueda = req.params.busqueda;
+
+    Artista.find({nombre: {$regex: resBusqueda, $options: 'i'}}, (err, artistaFound)=>{
+        if (err) {
+            res.status(500).send({message: "Error en el servidor"});
+        }else{
+            if (!artistaFound) {
+                res.status(200).send({message: "No se ha encontrado ningún artista"});
+            }else{
+                res.status(200).send({
+                    message: "artistas encontrados", 
+                    artista: artistaFound
+                });
+            }
+        }
+    });
+}
+
+//Funcion filtrar por estado
+async function artistasEstado(req, res){
+    const artists = await Artista.find({estado: "activo"});
+    res.json(artists);
+}
+//mostrar artistaes del artista
 
 
 //mostrar canciones del artista
@@ -182,6 +207,8 @@ module.exports = {
     borrarArtista,
     actualizarArtista,
     subirImg,
-    mostrarArchivo
+    mostrarArchivo,
+    buscarArtista,
+    artistasEstado
 }
 
