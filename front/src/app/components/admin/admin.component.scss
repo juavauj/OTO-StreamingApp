@@ -1,8 +1,13 @@
+@font-face{
+  font-family: poppins-light;
+  src: url(../../../assets/font/Poppins-Light.ttf);
+}
 
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    
 }
 
 .sidenav {
@@ -65,12 +70,16 @@
   }
 
   .welcome{
-    background-color:  #7d5a5a;
-    flex-direction: column;
+    background: #FDC830;  /* fallback for old browsers */
+    background: -webkit-linear-gradient(to bottom, #F37335, #FDC830);  /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to bottom, #F37335, #FDC830); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+
   }
 
   .albumes{
-    background-color:  #9dc6a7;
+    background: #1f4037;  /* fallback for old browsers */
+    background: -webkit-linear-gradient(to bottom, #99f2c8, #1f4037);  /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to bottom, #99f2c8, #1f4037); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */ 
  } 
 
   .artistas{
@@ -92,4 +101,136 @@
   .admins{
     background-color: #a6b1e1;
  }
+
+.albumes__container{
+  width: 80%;
+  height: 100vh;
+  display: grid;
+  grid-template-columns: 1.2fr 3fr;
+  grid-template-rows: 1fr;
+  grid-template-areas: none;
+}
+
+.albumes__formularios{
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: 1fr 1fr;
+  grid-template-areas: none;
+}
+
+.albumes__crear, .albumes__editar{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background-color: white;
+  border-radius: 8px;
+  box-shadow: 0px 8px 20px 0px rgba(0, 0, 0, 0.15);
+  width: 80%;
+  height: 80%;
+  position: relative;
+  padding: 5% 10%;
+}
+
+.crear__titulo{
+  color: #000;
+  font-weight: 400px;
+}
+
+.albumes__autofil{
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: 1fr 8fr;
+  grid-template-areas: none;
+}
+
+
+.center{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.albumes__form__input{
+  
+  
+ 
+}
+
+.albumes__form__input input{
+  width: 100%;
+  background: transparent;
+  color: black;
+  border: none;
+  border-bottom: 1px solid black;
+
+}
+
+.imput__text{
+  background: transparent;
+  margin: 0;
+  border: none;
+  width: 100%;
+}
+
+.album__btn{
+  width: 100%;
+  height: 10%;
+  border-radius: 8px;
+  background-color: #1f4037;
+  color: white;
+  font-size: .5em;
+}
+
+// espacio para el autofill
+
+.flip-card {
+  background-color: transparent;
+  width: 300px;
+  height: 350px;
+  border: 1px solid #f1f1f1;
+  perspective: 1000px; /* Remove this if you don't want the 3D effect */
+}
+
+/* This container is needed to position the front and back side */
+.flip-card-inner {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  text-align: center;
+  transition: transform 0.8s;
+  transform-style: preserve-3d;
+}
+
+/* Do an horizontal flip when you move the mouse over the flip box container */
+.flip-card:hover .flip-card-inner {
+  transform: rotateY(180deg);
+}
+
+/* Position the front and back side */
+.flip-card-front, .flip-card-back {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  -webkit-backface-visibility: hidden; /* Safari */
+  backface-visibility: hidden;
+  border: black 1px solid;
+}
+
+/* Style the front side (fallback if image is missing) */
+.flip-card-front {
+  background-color: #bbb;
+  color: black;
+}
+
+/* Style the back side */
+.flip-card-back {
+  background-color: dodgerblue;
+  color: white;
+  transform: rotateY(180deg);
+}
+
+.flip-card-back p{
+  font-size: 15px;
+}
 
