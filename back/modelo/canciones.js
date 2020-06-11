@@ -4,14 +4,14 @@ const ObjectId = mongoose.Schema.Types.ObjectId
 
 //creacion del schema de la base de datos
 
-var CancionSchema = new Schema({
+var TrackSchema = new Schema({
     nombre: {
         type: String,
     required: true
     },
     album: {
         type: ObjectId,
-        ref: 'Albumes',
+        ref: 'Albums',
         required: true
     },
     artistas: [
@@ -22,16 +22,20 @@ var CancionSchema = new Schema({
         }
     ],
     /* duracion: Number, */
-    generos: [String],
+    generos: Array,
     anio: Number,
     letra: String,
 
     archivoCancion: {
         type: String,
         default: null
-    }
-    /*reproducciones: Number*/
+    },
+    estado: {
+        type: String,
+        default: null
+    },
+    reproducciones: Number
 })
 
 //exportar el modelo
-module.exports = mongoose.model('Cancion', CancionSchema);
+module.exports = mongoose.model('Cancion', TrackSchema);

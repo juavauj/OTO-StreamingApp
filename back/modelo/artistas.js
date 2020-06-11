@@ -7,12 +7,16 @@ var ArtistaSchema = new Schema({
         type: String,
         required: true
     },
-    generos: [String],
+    generos: Array,
     imagen: {
         type: String,
         default: null
     },
-    biografia: String
+    biografia: String,
+    estado: {
+        type: String,
+        default: null
+    }
 });
 
 module.exports = mongoose.model('Artista', ArtistaSchema);

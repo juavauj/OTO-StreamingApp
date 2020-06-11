@@ -31,8 +31,11 @@ var UsuarioSchema = new Schema({
     suscripcion: {
         type: String,
         default: "lite"
+    },
+    estado: {
+        type: String,
+        default: null
     }
-    
 });
 
 // Exportar el modelo

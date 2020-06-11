@@ -8,6 +8,8 @@ var api = express.Router();
 
 api.get('/artistas', ArtistasControl.showArtistas);
 
+api.get('/artistas-estado', ArtistasControl.artistasEstado);
+
 api.post('/registrar-artista', ArtistasControl.addArtista);
 
 api.put('/actualizar-artista/:id', ArtistasControl.actualizarArtista);
@@ -19,5 +21,7 @@ api.get('/artista/:id', ArtistasControl.mostrarUnArtista);
 api.put('/subir-img/:id',addArtistaDir, ArtistasControl.subirImg);
 
 api.get('/obtenerImagen/:imageFile', ArtistasControl.mostrarArchivo);
+
+api.get('/buscar-artistas/:busqueda', ArtistasControl.buscarArtista);
 
 module.exports = api;
