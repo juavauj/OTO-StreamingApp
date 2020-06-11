@@ -18,6 +18,7 @@ function registrarUsuario(req, res){
     usuario.suscripcion = parametros.suscripcion;
     usuario.estado = parametros.estado;
 
+
     // Función save para interactuar con la BD
     usuario.save((err, usuarioNuevo)=>{
         if(err){
