@@ -1,3 +1,17 @@
+@font-face {
+  font-family: PoppinsRegular;
+  src: url(/assets/font/Poppins-Regular.ttf);
+}
+@font-face {
+  font-family: PoppinsLight;
+  src: url(/assets/font/Poppins-Light.ttf);
+}
+main{
+  width: 100%;
+  height: 100vh;
+    // background: #95DBE5;
+    background-image: linear-gradient(to top, #23b3b3 0%, #330867 100%);
+}
 .form-container{
     position: absolute;
     left: 50%;
@@ -20,15 +34,20 @@ form{
 .input-form{
   position: relative;
   overflow: hidden;
-  height: 5vh;
-  width: 70%;
+  height: 6vh;
+  width: 80%;
 }
 .input-form input {
   width: 100%;
   height: 100%;
-  padding-top: 20px;
+  padding-top: 11px;
   border: none;
   outline: none;
+  background-color: transparent;
+  color: lightblue;
+  font-size: 20px;
+  font-family: PoppinsLight;
+  
 }
 .input-form label{
   position: absolute;
@@ -37,16 +56,18 @@ form{
   width: 100%;
   height: 100%;
   pointer-events: none;
-  border-bottom: 1px solid black;
+  border-bottom: 3px solid #30cfd0;
+  color: #30cfd0;
+  font-family: PoppinsRegular;
 }
 .input-form label::after{
   content: "";
   position: absolute;
   left: 0px;
-  bottom: -2px;
+  bottom: -4px;
   height: 100%;
   width: 100%;
-  border-bottom: 3px solid blue;
+  border-bottom: 5px solid lightblue;
   transform: translateX(-100%);
   transition: transform 0.3s ease;
 }
@@ -55,14 +76,15 @@ form{
   bottom: 0px;
   left: 0px;
   transition: all 0.3s ease;
-  font-size: 20px;
+  font-size: 23px;
+  letter-spacing: 0.8px;
 }
 
 .input-form input:focus + .label-input .content-input,
 .input-form input:valid + .label-input .content-input{
-  transform: translateY(-150%);
-  font-size: 17px;
-  color: blue;
+  transform: translateY(-100%);
+  font-size: 20px;
+  color: lightblue;
 }
 
 .input-form input:focus + .label-input::after,
