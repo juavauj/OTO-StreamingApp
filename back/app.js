@@ -11,6 +11,7 @@ const cancionRutas = require('./rutas/cancionesRutas');
 const artistaRutas = require('./rutas/ArtistasRutas');
 const albumRutas = require('./rutas/albumesRutas');
 const playlistRutas = require('./rutas/playlistsRutas');
+
 // -- Inicio Middlewares --
 app.use(express.json());
 app.use(cors());
