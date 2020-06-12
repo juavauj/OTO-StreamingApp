@@ -32,274 +32,664 @@ body {
 }
 
 
+@media only screen and (min-width: 601px) {
 
+    .overlay {
+        position: absolute;
+        width: 100%;
+        height: 100vh;
+        top: 0%;
+        z-index: 1;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
 
-.overlay {
-    position: absolute;
-    width: 100%;
-    height: 100vh;
-    top: 0%;
-    z-index: 1;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
+    .logoInicioResponsive {
+        display: none;
+    }
+    
+    
+    
+    #container {
+        display: flex;
+        flex-wrap: wrap;
+        flex-direction:column;
+        height:100vh;
+        // background: linear-gradient(to left #30cfd0 0%, #330867 100%) fixed;
+        // background-size: contain;
+        // transform: rotate(-90deg) translateX(-100vh);
+        // transform-origin: top left;
+        // overflow-y: scroll;
+        // overflow-x: hidden;
+        // position: absolute;
+        // scrollbar-width: none;
+        // -ms-overflow-style: none;
+    }
+    
+    .slide {
+        height:100vh;
+        display:flex;
+    }
+    
+    .uno {
+        width: 100vw;
+        // background: #00203FFF;
+        background-image: linear-gradient(to top, #30cfd0, #00a4ca, #0076bc, #00469c, #330867);
+        // center center no-repeat/ cover;
+        display: grid;
+        grid-template-columns: 0.7fr 1fr;
+        grid-template-rows: repeat(9, 1fr);
+        grid-template-areas: 
+        "imgUno     .   "
+        "imgUno     .   "
+        "imgUno     .   "
+        "imgUno textoUno"
+        "imgUno textoUno"
+        "imgUno     .   "
+        "imgUno     .   "
+        "imgUno     .   "
+        "imgUno     .   ";
+    }
+    
+    .imgUno {
+        grid-area: imgUno;
+        display: flex;
+        align-items: flex-end;
+    }
+    
+    .imgUno img {
+        max-width: 100%;
+        height: auto;
+    }    
+    
+    .textoUno {
+        grid-area: textoUno;
+        display: grid;
+        margin-left: 30px;
+    }
+    
+    .tituloUno {
+        color: #95DBE5;
+        font-family: PoppinsSemiBold;
+        font-size: 75px;
+        display: grid;
+        justify-self: start;
+        align-self: end;
+        letter-spacing: 0.03em;
+    
+    }
+    
+    .parrafoUno {
+        color: #95DBE5;
+        font-family: PoppinsLight;
+        font-size: 42px;
+        justify-self: start;
+        align-self: end;
+        letter-spacing: 0.05em;
+    }
+    
+    .dos {
+        width: 100vw;
+        background-image: linear-gradient(to top, #30cfd0, #00a4ca, #0076bc, #00469c, #330867);
+        display: grid;
+        grid-template-columns: 0.8fr 1fr;
+        grid-template-rows: 0.6fr repeat(8, 1fr);
+        grid-template-areas: 
+        "   .           .     "
+        "   .        imgDos   "
+        "   .        imgDos   "
+        "textoDos    imgDos   "
+        "textoDos    imgDos   "
+        ".           imgDos   "
+        "   .        imgDos   "
+        "   .        imgDos   "
+        "   .        imgDos   ";
+    }
+    
+    .imgDos {
+        grid-area: imgDos;
+        height: 100%;
+        position: relative;
+    }
+
+    .album1 {
+        z-index: 1;
+        position: relative;
+        width: 600px;
+    }
+
+    .album2 {
+        z-index: 3;
+        position: absolute;
+        width: 600px;
+        top: 10%;
+        right: 35%;
+    }
+
+    .album3 {
+        z-index: 5;
+        position: absolute;
+        width: 600px;
+        top: 20%;
+        right: 25%;
+    }
+
+    .album4 {
+        z-index: 7;
+        position: absolute;
+        width: 600px;
+        top: 35%;
+        right: 1%;
+    }
+
+    .album5 {
+        z-index: 6;
+        position: absolute;
+        width: 630px;
+        top: 27%;
+        right: 20%;
+    }
+    
+    .textoDos {
+        grid-area: textoDos;
+        font-family: PoppinsLight;
+        display: grid;
+        margin-left: 15%;
+        grid-template-columns: 1fr;
+        grid-template-rows: 1fr 1fr;
+        grid-template-areas: 
+        "descubre"
+        "parrafo";
+    }
+    
+    .tituloDos {
+        grid-area: descubre;
+        color: #95DBE5;
+        display: grid;
+        font-family: PoppinsSemiBold;
+        justify-self: start;
+        align-self: center;
+        font-size: 75px;
+        line-height: 1;
+        letter-spacing: 0.03em;
+    
+    }
+    
+    #parrafoDos {
+        grid-area: parrafo;
+        color: #95DBE5;
+        font-family: PoppinsLight;
+        font-size: 42px;
+        justify-self: start;
+        align-self: end;
+        line-height: 1;
+        letter-spacing: 0.05em;
+        padding-top: 7%;
+    }
+
+    #tituloDosResponsive {
+        display: none;
+    }
+    
+    .tres {
+        width: 100vw;
+        background-image: linear-gradient(to top, #30cfd0, #00a4ca, #0076bc, #00469c, #330867);
+        display: grid;
+        grid-template-columns: 1fr 0.9fr;
+        grid-template-rows: repeat(9, 1fr);
+        grid-template-areas: 
+        "imgTres        .       "
+        "imgTres        .       "
+        "imgTres        .       "
+        "imgTres    textoTres   "
+        "imgTres    textoTres   "
+        "imgTres    textoTres   "
+        "imgTres    textoTres   "
+        "imgTres        .       "
+        "imgTres        .       ";
+    }
+    
+    .imgTres {
+        grid-area: imgTres;
+        padding-left: 15%;
+        
+    }
+
+    .video {
+        box-shadow: 20px 15px 40px rgba(0, 0, 0, 0.65);
+    }
+    
+    .imgTres video {
+        width: 100% !important;
+        height: 100% !important;
+    }
+
+    .imgTresResponsive {
+        display: none;
+    }
+    
+    .textoTres {
+        grid-area: textoTres;
+        font-family: PoppinsLight;
+        display: grid;
+        grid-template-columns: 0.25fr 1fr 0.25fr;
+        grid-template-rows: 1fr repeat(4, 0.5fr);
+        grid-template-areas: 
+        ".      haces         ."
+        ".      publica       ."
+        ".      publica       ."
+        ".      publica       ."
+        ".      publica       .";
+    }
+    
+    #tituloTres {
+        grid-area: haces;
+        color: #95DBE5;
+        font-family: PoppinsSemiBold;
+        font-size: 70px;
+        line-height: 1;
+        align-items: center;
+        text-align: center;
+        letter-spacing: 0.03em;
+    
+    }
+    
+    .parrafoTres {
+        grid-area: publica;
+        color: #95DBE5;
+        font-family: PoppinsLight;
+        font-size: 42px;
+        align-items: center;
+        text-align: center;
+        letter-spacing: 0.05em;
+    }
+
+    #parrafoTresResponsive {
+        display: none;
+    }
+    
+    .cuatro {
+        width: 100vw;
+        background: linear-gradient(to top, #209cff 0%, #68e0cf 100%);
+        display: grid;
+        grid-template-columns: repeat(5, 1fr);
+        grid-template-rows: repeat(5, 1fr);
+        grid-template-areas: 
+        "   .           .       logoFoot        .         .  "
+        "   .           .       logoFoot        .         .  "
+        "   .           .       logoFoot        .         .  "
+        "   .           .       pruebaBoton       .         .  "
+        "infoDev        .           .         redes     redes";
+    }
+
+    .logoFootResponsive {
+        display: none;
+    }
+
+    .pruebaBotonResponsive {
+        display: none;
+    }
+    
+    .logoFoot {
+        grid-area: logoFoot;
+        align-self: center;
+    }
+    
+    
+    .pruebaBotonResponsive {
+        grid-area: pruebaBoton;
+        display: grid;
+        grid-template-columns: 0.2fr 1fr 0.2fr;
+        grid-template-rows: 1fr;
+        justify-self: center;
+        align-self: center;
+        grid-template-areas: ". boton .";
+        
+    }
+
+    .pruebaBotonResponsive p {
+        grid-area: boton;
+        font-size: 44px;
+        display: flex;
+        font-family: PoppinsRegular;
+        align-items: center;
+        text-align: center;
+        color: #68E0CF;
+        background: #330867;
+        border-radius: 5px;
+        padding: 15px 15px 15px 15px;
+        box-shadow: 0px 5px 4px rgba(0, 0, 0, 0.5), inset 0px 4px 4px rgba(0, 0, 0, 0.2);
+    }
+    
+    .infoDev {
+        grid-area: infoDev;
+    }
+    
+    .redes {
+        grid-area: redes;
+    }
 }
 
 
-// .slide {
-//     height: 100vh;
-//     width: 100vw;
-// }
 
-#container {
-    display: flex;
-    flex-wrap: wrap;
-    flex-direction:column;
-    height:100vh;    
-    // transform: rotate(-90deg) translateX(-100vh);
-    // transform-origin: top left;
-    // overflow-y: scroll;
-    // overflow-x: hidden;
-    // position: absolute;
-    // scrollbar-width: none;
-    // -ms-overflow-style: none;
+@media only screen and (max-width: 600px){
+
+    .overlay {
+        position: absolute;
+        width: 100%;
+        height: 100vh;
+        top: 0%;
+        z-index: 1;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .logoInicio {
+        display: none;
+    }
+
+    #container {
+        display: flex;
+        flex-wrap: wrap;
+        flex-direction: row;
+        height:100vh;    
+        width: 100vw;
+        // transform: rotate(-90deg) translateX(-100vh);
+        // transform-origin: top left;
+        // overflow-y: scroll;
+        // overflow-x: hidden;
+        // position: absolute;
+        // scrollbar-width: none;
+        // -ms-overflow-style: none;
+    }
+
+
+    .uno {
+        width: 100vw;
+        height: 100vh;
+        display: grid;
+        grid-template-columns: 1fr;
+        grid-template-rows: 0.6fr 0.7fr 0.7fr 1fr 1fr 1fr;
+        background-image: linear-gradient(to top, #0076bc, #00469c, #330867);
+        grid-template-areas: 
+        "."
+        "textoUno"
+        "textoUno"
+        "imgUno"
+        "imgUno"
+        "imgUno";
+    }
+    
+    .imgUno {
+        grid-area: imgUno;
+        display: flex;
+        align-items: flex-end;
+    }
+    
+    .imgUno img {
+        max-width: 110%;
+    }    
+    
+    .textoUno {
+        grid-area: textoUno;
+        display: grid;
+        align-self: stretch;
+        grid-template-rows: 1fr 1fr;
+        grid-template-areas: 
+        "tituloUno"
+        "parrafoUno";
+    }
+    
+    .tituloUno {
+        grid-area: tituloUno;
+        color: #95DBE5;
+        font-family: PoppinsSemiBold;
+        font-size: 38px;
+        display: grid;
+        align-self: center;
+        justify-self: center;
+        letter-spacing: 0.03em;
+    
+    }
+    
+    .parrafoUno {
+        grid-area: parrafoUno;
+        color: #95DBE5;
+        font-family: PoppinsLight;
+        font-size: 17px;
+        justify-self: center;
+        align-self: start;
+        letter-spacing: 0.05em;
+    }
+    
+    .dos {
+        width: 100vw;
+        height: 100vh;
+        display: grid;
+        background-image: linear-gradient(to bottom, #0076bc, #00a4ca);
+        // background-image: linear-gradient(to top, #0076bc, #00469c, #330867);
+        grid-template-columns: 1fr;
+        grid-template-rows: 0.6fr 0.7fr 0.7fr 1fr 1fr 1fr;
+        grid-template-areas: 
+        "."
+        "textoDos"
+        "textoDos"
+        "imgDos"
+        "imgDos"
+        "imgDos";
+    }
+    
+    .imgDos {
+        grid-area: imgDos;
+        height: 100%;
+        position: relative;
+    }
+
+    .album1 {
+        z-index: 1;
+        position: relative;
+        width: 170px;
+        top: 34%;
+        left: 2%;
+    }
+
+    .album2 {
+        z-index: 3;
+        position: absolute;
+        width: 170px;
+        top: 15%;
+        right: 42%;
+    }
+
+    .album3 {
+        z-index: 5;
+        position: absolute;
+        width: 170px;
+        top: 0%;
+        right: 25%;
+    }
+
+    .album4 {
+        z-index: 7;
+        position: absolute;
+        width: 175px;
+        transform: rotate(-3eg);
+        top: 35%;
+        right: 1%;
+    }
+
+    .album5 {
+        z-index: 6;
+        position: absolute;
+        width: 185px;
+        top: 10%;
+        right: 2%;
+    }
+    
+    .textoDos {
+        grid-area: textoDos;
+        font-family: PoppinsLight;
+        display: grid;
+        align-self: stretch;
+        grid-template-rows: 1fr 1fr;
+        grid-template-areas: 
+        "tituloDos"
+        "parrafoDos";
+    }
+
+    .tituloDos {
+        display: none;
+    }
+    
+    .descubre {
+        display: none;
+    }
+    
+    .artistas {
+        display: none;
+    }
+
+    #tituloDosResponsive {
+        grid-area: tituloDos;
+        color: #95DBE5;
+        display: grid;
+        font-family: PoppinsSemiBold;
+        font-size: 38px;
+        text-align: center;
+        letter-spacing: 0.03em;
+    }
+    
+    #parrafoDos {
+        grid-area: parrafoDos;
+        color: #95DBE5;
+        font-family: PoppinsLight;
+        font-size: 17px;
+        justify-self: center;
+        align-self: center;
+        letter-spacing: 0.05em;
+    }
+    
+    .tres {
+        width: 100vw;
+        height: 100vh;
+        display: grid;
+        background-image: linear-gradient(to bottom,#00a4ca , #30cfd0 );
+        grid-template-columns: 1fr;
+        grid-template-rows: 0.5fr 0.5fr 0.7fr 1.5fr;
+        grid-template-areas: 
+        "."
+        "textoTres"
+        "textoTres"
+        "imgTres";
+    }
+
+    .imgTres {
+        display: none;
+    }
+    
+    .imgTresResponsive {
+        grid-area: imgTres;
+        align-items: center;
+    }
+    
+    .imgTresResponsive video {
+        width: 100% !important;
+        height: auto !important;
+    }
+    
+    .textoTres {
+        grid-area: textoTres;
+        display: grid;
+        align-self: stretch;
+        grid-template-rows: 0.5fr 1fr;
+        grid-template-areas: 
+        "tituloTres"
+        "parrafoTres";
+    }
+    
+    #tituloTres {
+        grid-area: tituloTres;
+        color: #00469c;
+        font-family: PoppinsSemiBold;
+        font-size: 38px;
+        align-self: start;
+        text-align: center;
+        letter-spacing: 0.03em;
+    
+    }
+
+    #parrafoTresResponsive {
+        grid-area: parrafoTres;
+        color: #330867;
+        font-family: PoppinsLight;
+        font-size: 17px;
+        align-items: center;
+        text-align: center;
+        letter-spacing: 0.05em;
+    }
+    
+    .parrafoTres {
+        display: none;
+    }
+    
+    .cuatro {
+        width: 100vw;
+        height: 100vh;
+        display: grid;
+        grid-template-columns: 1fr;
+        grid-template-rows: 0.6fr 1.5fr 1fr 0.8fr;
+        background-image: linear-gradient(to top, #209cff 0%, #68e0cf 100%);
+        grid-template-areas: 
+        "  .  "
+        "logoFootRes"
+        "pruebaBotonRes"
+        "redesRes";
+    }
+    
+    .logoFoot {
+        display: none;
+    }
+
+    .pruebaBoton {
+        display: none;
+    }
+    
+    .logoFootResponsive {
+        grid-area: logoFootRes;
+        align-self: center;
+    }
+    
+    
+    .pruebaBotonResponsive {
+        grid-area: pruebaBotonRes;
+        display: grid;
+        grid-template-columns: 0.2fr 1fr 0.2fr;
+        grid-template-rows: 1fr;
+        justify-self: center;
+        align-self: center;
+        grid-template-areas: ". boton .";
+        
+    }
+
+    .pruebaBotonResponsive p {
+        grid-area: boton;
+        font-size: 28px;
+        display: flex;
+        font-family: PoppinsRegular;
+        align-items: center;
+        text-align: center;
+        color: #68E0CF;
+        background: #330867;
+        border-radius: 5px;
+        padding: 15px 15px 15px 15px;
+        box-shadow: 0px 5px 4px rgba(0, 0, 0, 0.5), inset 0px 4px 4px rgba(0, 0, 0, 0.2);
+    }
+    
+    .redes {
+        grid-area: redesRes;
+    }
 }
-
-.slide {
-    height:100%;
-    display:flex;
-}
-
-// .wrapper {
-    // display: flex;
-    // flex-direction: row;
-    // width: 400vw;
-    // transform: rotate(90deg) translateY(-100vh);
-    // transform-origin: top left;
-// }
-
-.uno {
-    width: 100vw;
-    // background: #00203FFF;
-    background-image: linear-gradient(to top, #30cfd0 0%, #330867 100%);
-    display: grid;
-    grid-template-columns: 0.8fr 1fr;
-    grid-template-rows: repeat(9, 1fr);
-    grid-template-areas: 
-    "imgUno     .   "
-    "imgUno     .   "
-    "imgUno     .   "
-    "imgUno     .   "
-    "imgUno textoUno"
-    "imgUno textoUno"
-    "imgUno     .   "
-    "imgUno     .   "
-    "imgUno     .   ";
-}
-
-.imgUno {
-    grid-area: imgUno;
-    display: flex;
-    align-items: flex-end;
-}
-
-.imgUno img {
-    max-width: 90%;
-    height: auto;
-}    
-
-.textoUno {
-    grid-area: textoUno;
-    display: grid;
-    margin-left: 30px;
-}
-
-#tituloUno {
-    color: #95DBE5;
-    font-family: PoppinsSemiBold;
-    font-size: 72px;
-    display: grid;
-    justify-self: start;
-    align-self: end;
-    letter-spacing: 0.03em;
-
-}
-
-#parrafoUno {
-    color: #95DBE5;
-    font-family: PoppinsLight;
-    font-size: 48px;
-    justify-self: start;
-    align-self: end;
-    letter-spacing: 0.05em;
-}
-
-.dos {
-    width: 100vw;
-    // background: #00203FFF;
-    background-image: linear-gradient(to top, #30cfd0 0%, #330867 100%);
-    display: grid;
-    grid-template-columns: 0.7fr 1fr;
-    grid-template-rows: repeat(9, 1fr);
-    grid-template-areas: 
-    "   .           .     "
-    "   .        imgDos   "
-    "   .        imgDos   "
-    "textoDos    imgDos   "
-    "textoDos    imgDos   "
-    "textoDos    imgDos   "
-    "   .        imgDos   "
-    "   .        imgDos   "
-    "   .        imgDos   ";
-}
-
-.imgDos {
-    grid-area: imgDos;
-    height: 100%;
-}
-
-.textoDos {
-    grid-area: textoDos;
-    font-family: PoppinsLight;
-    display: grid;
-    grid-template-columns: 1fr;
-    grid-template-rows: repeat(3, 1fr);
-    grid-template-areas: 
-    "descubre"
-    "artistas"
-    "parrafo";
-}
-
-.tituloDos {
-    color: #95DBE5;
-    font-family: PoppinsSemiBold;
-    font-size: 72px;
-    letter-spacing: 0.03em;
-
-}
-
-.descubre {
-    grid-area: descubre;
-    display: grid;
-    justify-self: start;
-    align-self: center
-}
-
-.artistas {
-    grid-area: artistas;
-    display: grid;
-    justify-self: start;
-    align-self: start;
-}
-
-#parrafoDos {
-    grid-area: parrafo;
-    color: #95DBE5;
-    font-family: PoppinsLight;
-    font-size: 42px;
-    justify-self: start;
-    align-self: end;
-    letter-spacing: 0.05em;
-}
-
-.tres {
-    width: 100vw;
-    // background: #00203FFF;
-    background-image: linear-gradient(to top, #30cfd0 0%, #330867 100%);
-    display: grid;
-    grid-template-columns: 0.7fr 1fr;
-    grid-template-rows: repeat(9, 1fr);
-    grid-template-areas: 
-    "imgTres        .       "
-    "imgTres        .       "
-    "imgTres        .       "
-    "imgTres    textoTres   "
-    "imgTres    textoTres   "
-    "imgTres    textoTres   "
-    "imgTres    textoTres   "
-    "imgTres        .       "
-    "imgTres        .       ";
-}
-
-.imgTres {
-    grid-area: imgTres;
-    // margin-left: -220px;
-}
-
-.imgTres video {
-    // width: 100% !important;
-    // height: auto !important;
-}
-
-.textoTres {
-    grid-area: textoTres;
-    font-family: PoppinsLight;
-    display: grid;
-    grid-template-columns: 0.25fr 1fr 0.25fr;
-    grid-template-rows: 1fr repeat(4, 0.5fr);
-    grid-template-areas: 
-    ".      haces         ."
-    ".      publica       ."
-    ".      publica       ."
-    ".      publica       ."
-    ".      publica       .";
-}
-
-#tituloTres {
-    grid-area: haces;
-    color: #95DBE5;
-    font-family: PoppinsSemiBold;
-    font-size: 72px;
-    align-items: center;
-    text-align: center;
-    letter-spacing: 0.03em;
-
-}
-
-.parrafoTres {
-    grid-area: publica;
-    color: #95DBE5;
-    font-family: PoppinsLight;
-    font-size: 42px;
-    align-items: center;
-    text-align: center;
-    letter-spacing: 0.05em;
-}
-
-.cuatro {
-    width: 100vw;
-    // background: #95DBE5;
-    background-image: linear-gradient(to top, #209cff 0%, #68e0cf 100%);
-    display: grid;
-    grid-template-columns: repeat(5, 1fr);
-    grid-template-rows: repeat(5, 1fr);
-    grid-template-areas: 
-    "   .           .       logoFoot        .         .  "
-    "   .           .       logoFoot        .         .  "
-    "   .           .       logoFoot        .         .  "
-    "   .           .       pruebaBoton       .         .  "
-    "infoDev        .           .         redes     redes";
-}
-
-#logoFoot {
-    grid-area: logoFoot;
-    align-self: center;
-}
-
-
-#pruebaBoton {
-    grid-area: pruebaBoton;
-    display: grid;
-    justify-self: center;
-    align-self: center;
-}
-
-#infoDev {
-    grid-area: infoDev;
-}
-
-#redes {
-    grid-area: redes;
-}
-
