@@ -3,19 +3,19 @@ const PlaylistControl = require('../control/playlistsControl');
 
 var api = express.Router();
 
-api.get('/playlists', PlaylistControl.mostrarPlaylists);
+api.get('/playlists', PlaylistControl.mostrarPlaylists);//check
 
-api.get('/playlists-estado', PlaylistControl.playlistEstado);
+api.get('/playlists-estado/:estado', PlaylistControl.playlistEstado);//check
 
-api.post('/agregar-playlist', PlaylistControl.addPlaylist);
+api.get('/mostrar-playlist/:id', PlaylistControl.mostrarUnaPlaylist);//check
 
-api.put('/actualizar-playlist/:id', PlaylistControl.actualizarPlaylist);
+api.get('/buscar-playlist/:busqueda', PlaylistControl.buscarPlaylist);//check
 
-api.get('/mostrar-playlist/:id', PlaylistControl.mostrarUnaPlaylist);
+api.post('/agregar-playlist', PlaylistControl.addPlaylist);//check
 
-api.get('/borrar-playlist/:id', PlaylistControl.eliminarPlaylist);
+api.put('/actualizar-playlist/:id', PlaylistControl.actualizarPlaylist);//check
 
-api.get('/buscar-playlist/:busqueda', PlaylistControl.buscarPlaylist);
+api.delete('/borrar-playlist/:id', PlaylistControl.eliminarPlaylist);//check
 
 
 
