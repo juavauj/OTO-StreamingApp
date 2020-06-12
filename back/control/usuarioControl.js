@@ -12,14 +12,16 @@ function registrarUsuario(req, res){
     usuario.nombre = parametros.nombre;
     usuario.apellido = parametros.apellido;
     usuario.correo = parametros.correo;
+    usuario.usuario = parametros.usuario;
     usuario.contrasena = parametros.contrasena;
     usuario.rol = parametros.rol;
     usuario.imagen = null;
     usuario.suscripcion = parametros.suscripcion;
     usuario.estado = parametros.estado;
 
-
-    // Función save para interactuar con la BD
+    console.log(usuario)
+    console.log(parametros)
+    
     usuario.save((err, usuarioNuevo)=>{
         if(err){
             res.status(500).send({message: "Error en el servidor"});
@@ -31,32 +33,6 @@ function registrarUsuario(req, res){
                     message: "Usuario Creado",
                     usuario: usuarioNuevo
                 });
-            }
-        }
-    });
-}
-
-// Función Login
-function login(req, res){
-    var parametros = req.body;
-    var correoUsuario = parametros.correo;
-    var contraUsuario = parametros.contrasena;
-
-    Usuario.findOne({correo: correoUsuario}, (err, usuarioLogeado)=>{
-        if(err){
-            res.status(500).send({message: "Error en el servidor"});
-        }else{
-            if(!usuarioLogeado){
-                res.status(200).send({message: "Usuario inexistente"});
-            }else{
-                if(usuarioLogeado.contrasena != contraUsuario){
-                    res.status(200).send({message: "Contraseña incorrecta"});
-                }else{
-                    res.status(200).send({
-                        message: "Usuario Logueado!",
-                        usuario: usuarioLogeado
-                    })
-                }
             }
         }
     });
@@ -85,6 +61,100 @@ function actualizarUsuario(req, res){
 
 }
 
+//Función borrar usuario
+async function borrarUsuario(req, res) {
+    var usuarioId = req.params.id;
+
+    try {
+        await Usuario.findByIdAndDelete(usuarioId);
+        res.send({message: "Usuario eliminado"});
+    } catch (error) {
+        res.status(500).send({message: "Error en el servidor"});
+    }
+    
+}
+
+// Funcion mostrar usuarios 
+async function obtenerUsuarios(req, res){
+    
+    try {
+        const users = await Usuario.find();
+        res.json(users);
+    } catch (error) {
+        res.status(500).send({message: "Error en el servidor"});
+    }
+}
+
+// Funcion mostrar usuarios 
+async function obtenerUsuario(req, res){
+    var usuarioId = req.params.id;
+
+    try {
+        const users = await Usuario.find({_id: usuarioId});
+        res.json(users);
+    } catch (error) {
+        res.status(500).send({message: "Error en el servidor"});
+    }
+}
+
+//buscar o filtar por nombre
+function buscarUsuario(req, res) {
+    var resBusqueda = req.params.busqueda;
+
+    Usuario.find({nombre: {$regex: resBusqueda, $options: 'i'}}, (err, usuarioFound)=>{
+        if (err) {
+            res.status(500).send({message: "Error en el servidor"});
+        }else{
+            if (!usuarioFound) {
+                res.status(200).send({message: "No se ha encontrado ningún usuario"});
+            }else{
+                res.status(200).send({
+                    message: "usuarios encontrados", 
+                    usuario: usuarioFound
+                });
+            }
+        }
+    });
+}
+
+//Funcion filtrar por estado
+async function usuariosEstado(req, res){
+    var estado = req.params.estado;
+    
+    try {
+        const users = await Usuario.find({estado: estado});
+        res.json(users);
+    } catch (error) {
+        res.status(500).send({message: "Error en el servidor"});
+    }
+}
+
+// Función Login
+function login(req, res){
+    var parametros = req.body;
+    var user = parametros.usuario;
+    var contraUsuario = parametros.contrasena;
+
+    Usuario.findOne({usuario: user}, (err, usuarioLogeado)=>{
+        if(err){
+            res.status(500).send({message: "Error en el servidor"});
+        }else{
+            if(!usuarioLogeado){
+                res.status(200).send({message: "Usuario inexistente"});
+            }else{
+                if(usuarioLogeado.contrasena != contraUsuario){
+                    res.status(200).send({message: "Contraseña incorrecta"});
+                }else{
+                    res.status(200).send({
+                        message: "Usuario Logueado!",
+                        usuario: usuarioLogeado
+                    })
+                }
+            }
+        }
+    });
+}
+
 // Función Subir IMG
 function subirImg(req, res){
     var usuarioId = req.params.id;
@@ -104,7 +174,7 @@ function subirImg(req, res){
 
         // Acceder a la posición que contiene el nombre del archivo
         var nombreArchivo = partirArchivo[2];
-        console.log(`Posición dato: ${nombreArchivo}`);
+        console.log(`ruta Archivo: ${rutaArchivo}`);
 
         // Haremos un split para separar el nombre del archivo de la extensión
         var extensionImg = nombreArchivo.split('\.');
@@ -158,48 +228,7 @@ function mostrarArchivo(req, res){
     });
 }
 
-//Función borrar usuario
-
-async function borrarUsuario(req, res) {
-    var usuarioId = req.params.id;
-    await Usuario.findByIdAndDelete(usuarioId);
-    res.send({message: "Usuario eliminado"});
-}
-
-
 //Funcion login admin
-
-// Funcion mostrar usuarios 
-async function obtenerUsuarios(req, res){
-    const users = await Usuario.find();
-    res.json(users);
-}
-
-//buscar o filtar por nombre
-function buscarUsuario(req, res) {
-    var resBusqueda = req.params.busqueda;
-
-    Usuario.find({nombre: {$regex: resBusqueda, $options: 'i'}}, (err, usuarioFound)=>{
-        if (err) {
-            res.status(500).send({message: "Error en el servidor"});
-        }else{
-            if (!usuarioFound) {
-                res.status(200).send({message: "No se ha encontrado ningún usuario"});
-            }else{
-                res.status(200).send({
-                    message: "usuarios encontrados", 
-                    usuario: usuarioFound
-                });
-            }
-        }
-    });
-}
-
-//Funcion filtrar por estado
-async function usuariosEstado(req, res){
-    const users = await Usuario.find({estado: "activo"});
-    res.json(users);
-}
 
 // Exportar paquete de funciones
 module.exports = {
@@ -209,6 +238,7 @@ module.exports = {
     subirImg,
     mostrarArchivo,
     obtenerUsuarios,
+    obtenerUsuario,
     buscarUsuario,
     borrarUsuario,
     usuariosEstado

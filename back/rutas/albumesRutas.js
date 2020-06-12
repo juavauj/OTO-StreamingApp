@@ -2,26 +2,26 @@ const express = require('express');
 const AlbumesControl = require('../control/albumesControl');
 
 const multipart = require('connect-multiparty');
-const addArtistaDir = multipart({uploadDir: './archivos/albumArt'});
+const addArtistaDir = multipart({uploadDir: './archivos/albumes'});
 
 var api = express.Router();
 
-api.get('/albumes', AlbumesControl.showAlbumes);
+api.get('/albumes', AlbumesControl.showAlbumes);//check
 
-api.get('/albumesEstado', AlbumesControl.albumEstado);
+api.get('/albumesEstado/:estado', AlbumesControl.albumEstado);//check
 
-api.post('/registrar-album', AlbumesControl.addAlbum);
+api.get('/buscar-albumes/:busqueda', AlbumesControl.buscarAlbum);//check
 
-api.put('/actualizar-album/:id', AlbumesControl.actualizarAlbum);
+api.get('/album/:id', AlbumesControl.mostrarUnAlbum);//check
 
-api.delete('/borrar-album/:id', AlbumesControl.borrarAlbum);
+api.post('/registrar-album', AlbumesControl.addAlbum);//check
 
-api.get('/album/:id', AlbumesControl.mostrarUnAlbum);
+api.put('/actualizar-album/:id', AlbumesControl.actualizarAlbum);//chack
 
-api.put('/subir-img/:id',addArtistaDir, AlbumesControl.subirImg);
+api.delete('/borrar-album/:id', AlbumesControl.borrarAlbum);//check
 
-api.get('/obtenerImagen/:imageFile', AlbumesControl.mostrarArchivo);
+api.put('/subir-img-album/:id',addArtistaDir, AlbumesControl.subirImg);//check
 
-api.get('/buscar-albumes/:busqueda', AlbumesControl.buscarAlbum);
+api.get('/obtenerImgAlbum/:imageFile', AlbumesControl.mostrarArchivo);//check
 
 module.exports = api;

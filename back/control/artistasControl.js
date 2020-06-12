@@ -4,82 +4,53 @@ const fs = require('fs');
 const path = require('path');
 
 //agregar un artista
-function addArtista(req, res){
+async function addArtista(req, res){
     var artista = new Artista();
     var parametros = req.body;
 
     artista.nombre = parametros.nombre;
-    artista.generos = [parametros.generos];
+    artista.generos = parametros.generos;
     artista.imagen = null;
     artista.biografia = parametros.biografia;
     artista.estado = parametros.estado;
 
-    artista.save((err, artistaNuevo)=>{
-        if (err) {
-            res.status(500).send({message: "Error en el servidor"});
-        }else{
-            if (!artistaNuevo) {
-                res.status(200).send({message: "No ha sipo posible registrar el artista"});
-            }else{
-                res.status(200).send({
-                    message: "Artista agregado", 
-                    artista: artistaNuevo
-                });
-            }
-        }
-    });
+    try {
+        let artistaNuevo = await artista.save();
+        res.send({message: "Artista registrado", artista: artistaNuevo});
+    } catch (error) {
+        res.status(500).send({message: "No ha sido posible registrar el artista"});
+    }
 }
-//actualizar un artista
 
-function actualizarArtista(req, res) {
+//actualizar un artista
+async function actualizarArtista(req, res) {
     var artistaId = req.params.id;
     var nuevosDatosArtista = req.body;
 
-    Artista.findByIdAndUpdate(artistaId, nuevosDatosArtista, (err, artistaActualizado)=>{
-        if (err) {
-            res.status(500).send({message: "Error en el servidor"});
-        }else{
-            if (!artistaActualizado) {
-                res.status(200).send({message: "No ha sipo posible actualizar el artista"});
-            }else{
-                res.status(200).send({
-                    message: "Artista actualizado", 
-                    artista: artistaActualizado
-                });
-            }
-        }
-    });
-
-
+    try {
+        let artistaActualizado = await Artista.findByIdAndUpdate(artistaId, nuevosDatosArtista);
+        res.send({message: "Artista actualizado", artista: artistaActualizado}); 
+    } catch (error) {
+        res.status(500).send({message: "No ha sido posible actualizar el artista"}); 
+    } 
 }
 
 //borrar un artista
-
-function borrarArtista(req, res){
+async function borrarArtista(req, res) {
     var artistaId = req.params.id;
-
-    Artista.findOneAndDelete(artistaId, (err, artistaEliminado)=>{
-        if (err) {
-            res.status(500).send({message: "Error en el servidor"});
-        }else{
-            if (!artistaEliminado) {
-                res.status(200).send({message: "No ha sido posible eliminar el registro"});
-            }else{
-                res.status(200).send({
-                    message: "Artista eliminado", 
-                    artista: artistaEliminado
-                });
-            }
-        }
-    });
+    try {
+        let artistaEliminado = await Artista.findByIdAndDelete(artistaId);
+        res.send({message: "Artista eliminado", artista: artistaEliminado});
+    } catch (error) {
+        res.status(500).send({message: "No ha sido posible eliminar el artista"}); 
+    }  
 }
 
 //mostrar un artista
-
 function mostrarUnArtista(req, res) {
     var artistaId = req.params.id;
 
-    Artista.findOne(artistaId, (err, artistaEncontrado)=>{
+    Artista.findById(artistaId, (err, artistaEncontrado)=>{
         if (err) {
             res.status(500).send({message: "Error en el servidor"});
         }else{
@@ -96,7 +67,6 @@ function mostrarUnArtista(req, res) {
 }
 
 //mostrar todos los artistas
-
 function showArtistas(req, res) {
 
     Artista.find((err, artistasEncontrados)=>{
@@ -113,6 +83,38 @@ function showArtistas(req, res) {
             }
         }
     });
+}
+
+//buscar artista por nombre
+function buscarArtista(req, res) {
+    var resBusqueda = req.params.busqueda;
+
+    Artista.find({nombre: {$regex: resBusqueda, $options: 'i'}}, (err, artistaFound)=>{
+        if (err) {
+            res.status(500).send({message: "Error en el servidor"});
+        }else{
+            if (!artistaFound) {
+                res.status(200).send({message: "No se ha encontrado ningún artista"});
+            }else{
+                res.status(200).send({
+                    message: "artistas encontrados", 
+                    artista: artistaFound
+                });
+            }
+        }
+    });
+}
+
+//Funcion filtrar por estado
+async function artistasEstado(req, res){
+    var estado = req.params.estado;
+
+    try {
+        const artists = await Artista.find({estado: estado});
+        res.json(artists); 
+    } catch (error) {
+        res.status(200).send({message: "No se ha encontrado ningún artista"})
+    } 
 }
 
 function subirImg(req, res){
@@ -167,36 +169,6 @@ function mostrarArchivo(req, res){
         }
     });
 }
-
-function buscarArtista(req, res) {
-    var resBusqueda = req.params.busqueda;
-
-    Artista.find({nombre: {$regex: resBusqueda, $options: 'i'}}, (err, artistaFound)=>{
-        if (err) {
-            res.status(500).send({message: "Error en el servidor"});
-        }else{
-            if (!artistaFound) {
-                res.status(200).send({message: "No se ha encontrado ningún artista"});
-            }else{
-                res.status(200).send({
-                    message: "artistas encontrados", 
-                    artista: artistaFound
-                });
-            }
-        }
-    });
-}
-
-//Funcion filtrar por estado
-async function artistasEstado(req, res){
-    const artists = await Artista.find({estado: "activo"});
-    res.json(artists);
-}
-//mostrar artistaes del artista
-
-
-//mostrar canciones del artista
-
 
 //exportar modulos
 
