@@ -1,0 +1,18 @@
+.vista-container{
+    height: 100%;
+    width: 100%;
+
+}
+.vista{
+  display: flex;
+  position: relative;
+  justify-content: space-around;
+  left: 50%;
+    top: 50%;
+transform: translate(-72%, -50%);
+  margin: auto;
+  width: 68%;
+  height: 80%;
+  flex-direction: column;
+  
+}

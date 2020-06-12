@@ -57,7 +57,7 @@ export class LoginUsuarioComponent implements OnInit {
           // Realizar cambio de barra de navegacion 
           this.navSwitchService.switchNav('/login');
           //Redireccion al perfil
-          this._router.navigate(['/perfil']);
+          this._router.navigate(['/perfil/vista']);
         }else{
           alert('Usuario no identificado');
         }

@@ -9,7 +9,9 @@ import { LoginAdminComponent } from './components/login-admin/login-admin.compon
 import { PerfilUsuarioComponent } from './components/perfil-usuario/perfil-usuario.component';
 import { QuienesSomosComponent } from './components/quienes-somos/quienes-somos.component';
 import { TrabajaConNosotrosComponent } from './components/trabaja-con-nosotros/trabaja-con-nosotros.component';
-import { PremiumComponent } from './components/premium/premium.component'
+import { PremiumComponent } from './components/premium/premium.component';
+import { VistaPerfilComponent } from './components/vista-perfil/vista-perfil.component';
+import { EditarPerfilComponent } from './components/editar-perfil/editar-perfil.component'
 
 // Relacionar rutas con componentes
 const routes: Routes = [
@@ -17,7 +19,12 @@ const routes: Routes = [
   { path: 'registro', component: RegistroComponent },
   { path: 'loginUsuario', component: LoginUsuarioComponent },
   { path: 'loginAdmin', component: LoginAdminComponent },
-  { path: 'perfil', component: PerfilUsuarioComponent },
+  { path: 'perfil', component: PerfilUsuarioComponent, 
+    children: [
+      {path: 'vista', component: VistaPerfilComponent},
+      {path: 'editar', component: EditarPerfilComponent}
+    ]
+  },
   { path: 'quienes-somos', component: QuienesSomosComponent },
   { path: 'trabaja-con-nosotros', component: TrabajaConNosotrosComponent },
   { path: 'premium', component: PremiumComponent }
