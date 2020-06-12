@@ -35,10 +35,11 @@
     width: 60%;
     display: grid;
     grid-template-areas:
-        'welcome_perfil welcome_perfil welcome_perfil welcome_perfil welcome_perfil welcome_perfil'
-        'menu_perfil menu_perfil editar_perfil editar_perfil editar_perfil editar_perfil'
-        'menu_perfil menu_perfil editar_perfil editar_perfil editar_perfil editar_perfil';
+        'welcome_perfil welcome_perfil '
+        'menu_perfil editar_perfil ';
     //grid-gap: 10px;
+    grid-template-rows: 20% 80% ;
+    grid-template-columns: 20% 80% ;
     border-radius: 15px;
     -webkit-box-shadow: 0px 4px 25px 10px rgba(0,0,0,0.57);
     -moz-box-shadow: 0px 4px 25px 10px rgba(0,0,0,0.57);
@@ -59,11 +60,28 @@
     color: #95DBE5;
     background-color: #240050;
     border-bottom-left-radius: 15px;
+    max-width: 100%;
     //border: 1px solid white;
+}
+.btn-perfil{
+    position: relative;
+    top: 4%;
+    left: 14%;
+    width: 67%;
+}
+.menu-perfil a{
+    display: flex;
+    flex-direction: column;
+    width: 99%;
+    margin-bottom: 30px;
+    font-size: 20px;
+    font-family: PoppinsSemiBold;
+    color: #95DBE5;
+    text-decoration: none;
 }
 .panel-editar-perfil{
     grid-area: editar_perfil;
     //border: 1px solid white;
-    background-color: rgb(239, 247, 248);
+    background-color: rgb(249, 254, 255);
     border-bottom-right-radius: 15px;
 }
