@@ -25,7 +25,13 @@ import { PremiumComponent } from './components/premium/premium.component';
 
 import { UsuarioService } from './services/usuario.service';
 import { NavSwitchService } from './services/nav-switch.service';
-import { UsuariosComponent } from './components/usuarios/usuarios.component'
+import { UsuariosComponent } from './components/usuarios/usuarios.component';
+import { AlbumesAdminComponent } from './components/albumes-admin/albumes-admin.component';
+import { FilterPipe } from './pipes/filter.pipe';
+import { CancionesAdminComponent } from './components/canciones-admin/canciones-admin.component';
+import { UsuariosAdminComponent } from './components/usuarios-admin/usuarios-admin.component';
+import { PlaylistAdminComponent } from './components/playlist-admin/playlist-admin.component';
+import { WelcomeAdminComponent } from './components/welcome-admin/welcome-admin.component'
 
 @NgModule({
   declarations: [
@@ -42,7 +48,13 @@ import { UsuariosComponent } from './components/usuarios/usuarios.component'
     QuienesSomosComponent,
     TrabajaConNosotrosComponent,
     PremiumComponent,
-    UsuariosComponent
+    UsuariosComponent,
+    AlbumesAdminComponent,
+    FilterPipe,
+    CancionesAdminComponent,
+    UsuariosAdminComponent,
+    PlaylistAdminComponent,
+    WelcomeAdminComponent
   ],
   imports: [BrowserModule, AppRoutingModule, FormsModule, HttpClientModule, BrowserAnimationsModule],
   providers: [UsuarioService, NavSwitchService],
