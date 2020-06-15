@@ -31,7 +31,8 @@ import { FilterPipe } from './pipes/filter.pipe';
 import { CancionesAdminComponent } from './components/canciones-admin/canciones-admin.component';
 import { UsuariosAdminComponent } from './components/usuarios-admin/usuarios-admin.component';
 import { PlaylistAdminComponent } from './components/playlist-admin/playlist-admin.component';
-import { WelcomeAdminComponent } from './components/welcome-admin/welcome-admin.component'
+import { WelcomeAdminComponent } from './components/welcome-admin/welcome-admin.component';
+import { ArtistasAdminComponent } from './components/artistas-admin/artistas-admin.component'
 
 @NgModule({
   declarations: [
@@ -54,7 +55,8 @@ import { WelcomeAdminComponent } from './components/welcome-admin/welcome-admin.
     CancionesAdminComponent,
     UsuariosAdminComponent,
     PlaylistAdminComponent,
-    WelcomeAdminComponent
+    WelcomeAdminComponent,
+    ArtistasAdminComponent
   ],
   imports: [BrowserModule, AppRoutingModule, FormsModule, HttpClientModule, BrowserAnimationsModule],
   providers: [UsuarioService, NavSwitchService],
