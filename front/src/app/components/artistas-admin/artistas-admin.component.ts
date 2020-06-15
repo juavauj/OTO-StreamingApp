@@ -35,7 +35,24 @@ export class ArtistasAdminComponent implements OnInit {
     );
   }
 
-  delete(post){
+  delete(artista){
+    // Consumir servicio para eliminacion de artista
+    this.artistaService.deleteArtista(artista._id).subscribe(
+      (response: any) => {
+        let eliminado = response.artista;
+        if (!eliminado) {
+          alert(`No se ha podido eliminar el artista (${artista.nombre})`);
+        } else {
+          alert(`(${eliminado.nombre}) eliminado exitosamente`);
+        }
+      },
+      (error) => {
+        let errorMensaje = <any>error;
+        if (errorMensaje != null) {
+          alert(`No se ha podido eliminar el artista (${artista.nombre})`);
+        }
+      }
+    );
   }
 
 }
