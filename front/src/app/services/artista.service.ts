@@ -23,7 +23,15 @@ export class ArtistaService {
   // Declarar el método del servicio de obtencion de artistas
   getArtistas() {
     return this._http.get(
-      this.url + 'artistas',
+      this.url + 'artistas'
+    ).pipe(map(res => res));
+  }
+
+  // ----------------------------------------------------------
+  // Declarar el método del servicio de eliminacion de artista
+  deleteArtista(id) {
+    return this._http.delete(
+      this.url + `borrar-artista/${id}`
     ).pipe(map(res => res));
   }
 }
