@@ -23,6 +23,7 @@ import { PremiumComponent } from './components/premium/premium.component';
 
 //Importar Servicios
 
+import { ArtistaService } from './services/artista.service';
 import { UsuarioService } from './services/usuario.service';
 import { NavSwitchService } from './services/nav-switch.service';
 import { UsuariosComponent } from './components/usuarios/usuarios.component';
@@ -63,7 +64,7 @@ import { EditarPerfilComponent } from './components/editar-perfil/editar-perfil.
     EditarPerfilComponent,
   ],
   imports: [BrowserModule, AppRoutingModule, FormsModule, HttpClientModule, BrowserAnimationsModule],
-  providers: [UsuarioService, NavSwitchService],
+  providers: [UsuarioService, NavSwitchService, ArtistaService],
   bootstrap: [AppComponent],
 })
 export class AppModule { }
