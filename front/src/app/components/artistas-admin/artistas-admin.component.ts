@@ -7,9 +7,16 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ArtistasAdminComponent implements OnInit {
 
+  filterPost = '';
+
+  posts;
+
   constructor() { }
 
   ngOnInit(): void {
+  }
+
+  delete(post){
   }
 
 }
