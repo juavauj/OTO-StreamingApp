@@ -12,5 +12,18 @@ import { Observable } from 'rxjs';
 @Injectable()
 export class ArtistaService {
 
-  constructor() { }
+  // Declarar la variable url de la api
+  url = 'http://localhost:3000/api/';
+
+  constructor(
+    private _http: HttpClient
+  ) { }
+
+  // ----------------------------------------------------------
+  // Declarar el método del servicio de obtencion de artistas
+  getUsuarios() {
+    return this._http.get(
+      this.url + 'artistas',
+    ).pipe(map(res => res));
+  }
 }
