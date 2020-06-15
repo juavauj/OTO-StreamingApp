@@ -12,8 +12,7 @@ async function addAlbum(req, res){
 
     album.titulo = parametros.titulo;
     album.artistas = parametros.artistas;
-    album.canciones = parametros.canciones;
-    album.generos = parametros.generos;
+    album.genero = parametros.genero;
     album.disquera = parametros.disquera;
     album.anio = parametros.anio;
     album.imagen = null;

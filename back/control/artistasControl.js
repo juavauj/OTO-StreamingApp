@@ -9,8 +9,7 @@ async function addArtista(req, res){
     var parametros = req.body;
 
     artista.nombre = parametros.nombre;
-    artista.generos = parametros.generos;
-    artista.imagen = null;
+/*     artista.genero = parametros.genero;*/    artista.imagen = null;
     artista.biografia = parametros.biografia;
     artista.estado = parametros.estado;
 
