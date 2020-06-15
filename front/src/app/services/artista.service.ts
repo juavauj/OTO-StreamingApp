@@ -21,7 +21,7 @@ export class ArtistaService {
 
   // ----------------------------------------------------------
   // Declarar el método del servicio de obtencion de artistas
-  getUsuarios() {
+  getArtistas() {
     return this._http.get(
       this.url + 'artistas',
     ).pipe(map(res => res));
