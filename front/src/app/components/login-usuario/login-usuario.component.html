@@ -1,50 +1,54 @@
-<main>
-  <div class="iniciar-sesion-container">
-    <div class="logo-animado">
-      <svg width="450" height="450" viewBox="0 0 530 530" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <circle cx="265" cy="265" r="257.5" stroke="#95DBE5" stroke-width="15" class="svg-elem-1"></circle>
-          <path d="M412.334 275.594L208.113 403.473C199.787 408.686 188.979 402.702 188.979 392.879L188.979 137.121C188.979 127.298 199.787 121.314 208.113 126.527L412.334 254.406C420.156 259.303 420.156 270.697 412.334 275.594Z" stroke="#95DBE5" stroke-width="15" class="svg-elem-2"></path>
-          </svg>        
-    </div>
-    <div class="form-container">
-      <form #formularioLogin="ngForm" (ngSubmit)="loginUsuario()" >
-       
-        <div class="input-form">
-          <input
-            type="text"
-            name="correo"
-            #correo="ngModel"
-            [(ngModel)]="login.correo"
-            autocomplete="off"
-            required
-          />
-          <label class="label-input" for="correo"> <span class="content-input">Correo</span></label>
-          <br />      
-        </div>
-       
-        <div class="input-form">
-          <input
-            type="password"
-            name="contrasena"
-            #contrasena="ngModel"
-            [(ngModel)]="login.contrasena"
-            autocomplete="off"
-            required
-          />
-        <label class="label-input" for="contrasena"> <span class="content-input">Contraseña</span></label>
-        <br />
-    
-        </div>
+<div class="body">
+    <app-nav-logins></app-nav-logins>
+  <main>
+    <div class="iniciar-sesion-container">
+      <div class="logo-animado">
+        <svg width="450" height="450" viewBox="0 0 530 530" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <circle cx="265" cy="265" r="257.5" stroke="#95DBE5" stroke-width="15" class="svg-elem-1"></circle>
+            <path d="M412.334 275.594L208.113 403.473C199.787 408.686 188.979 402.702 188.979 392.879L188.979 137.121C188.979 127.298 199.787 121.314 208.113 126.527L412.334 254.406C420.156 259.303 420.156 270.697 412.334 275.594Z" stroke="#95DBE5" stroke-width="15" class="svg-elem-2"></path>
+            </svg>        
+      </div>
+      <div class="form-container">
+        <form #formularioLogin="ngForm" (ngSubmit)="loginUsuario()" >
         
-        <br />
-        <button type="submit">iniciar Sesión</button>
-    
+          <div class="input-form">
+            <input
+              type="text"
+              name="correo"
+              #correo="ngModel"
+              [(ngModel)]="login.correo"
+              autocomplete="off"
+              required
+            />
+            <label class="label-input" for="correo"> <span class="content-input">Correo</span></label>
+            <br />      
+          </div>
         
+          <div class="input-form">
+            <input
+              type="password"
+              name="contrasena"
+              #contrasena="ngModel"
+              [(ngModel)]="login.contrasena"
+              autocomplete="off"
+              required
+            />
+          <label class="label-input" for="contrasena"> <span class="content-input">Contraseña</span></label>
+          <br />
+          
+          </div>
+
+          <br />
+          <button type="submit">iniciar Sesión</button>
         
-      </form>
+
+
+        </form>
+      </div>
+
     </div>
 
-  </div>
-  
-  
-</main>
+
+  </main>
+
+</div>

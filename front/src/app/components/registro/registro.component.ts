@@ -24,7 +24,7 @@ export class RegistroComponent implements OnInit {
     private usuarioService: UsuarioService,
     private _router: Router,
   ) {
-    this.usuarioRegistro = new Usuario('', '', '', '', '', 'usuario', '');
+    this.usuarioRegistro = new Usuario('', '','', '', '', '', 'usuario', '');
   }
 
   ngOnInit(): void {
@@ -43,7 +43,7 @@ export class RegistroComponent implements OnInit {
           alert("Error al registrarse");
         } else {
           alert(`Registro exitoso! Inicia sesión con ${this.usuarioRegistro.correo}`);
-          this.usuarioRegistro = new Usuario('', '', '', '', '', 'usuario', '');
+          this.usuarioRegistro = new Usuario('', '','', '', '', '', 'usuario', '');
           this._router.navigate(['/loginUsuario']);
         }
       },

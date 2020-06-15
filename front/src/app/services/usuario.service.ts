@@ -42,6 +42,7 @@ export class UsuarioService {
   // Declarar el método del servicio iniciarSesion
   iniciarSesion(usuarioLogueado) {
     let params = JSON.stringify(usuarioLogueado);
+    console.log('api params',params)
     let options = {
       headers: new HttpHeaders({ 'Content-Type': 'application/json' })
     }
@@ -51,6 +52,14 @@ export class UsuarioService {
       options
     ).pipe(map(res => res));
   }
+
+  //----------------------------------------------------------
+  // Declarar el metodo del servicio cerrarSesion
+  cerrarSesion(){
+    localStorage.removeItem('sesion');
+    localStorage.setItem('logged',JSON.stringify({logged:false}));
+  }
+
 
   //----------------------------------------------------------
   // Declarar el método del servicio obtenerNombreUsuario
@@ -73,6 +82,20 @@ export class UsuarioService {
   
 
   }
+   //----------------------------------------------------------
+   // Declarar el método del servicio isLogged
+  isLogged(){
+    
+        return JSON.parse(localStorage.getItem('logged')).logged;
+  }
+  //----------------------------------------------------------
+
+   // Declarar el método del servicio isLogged
+   getRol(){
+    
+    return JSON.parse(localStorage.getItem('sesion')).rol;
+  }
+//----------------------------------------------------------
 
 
   obtenerTareas (){

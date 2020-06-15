@@ -11,7 +11,13 @@ import { QuienesSomosComponent } from './components/quienes-somos/quienes-somos.
 import { TrabajaConNosotrosComponent } from './components/trabaja-con-nosotros/trabaja-con-nosotros.component';
 import { PremiumComponent } from './components/premium/premium.component';
 import { VistaPerfilComponent } from './components/vista-perfil/vista-perfil.component';
-import { EditarPerfilComponent } from './components/editar-perfil/editar-perfil.component'
+import { EditarPerfilComponent } from './components/editar-perfil/editar-perfil.component';
+import { ReproductorComponent } from './components/reproductor/reproductor.component';
+import { AdminComponent } from './components/admin/admin.component';
+
+// Import de Guards
+import { AuthGuard } from './guards/auth.guard';
+import { RoleGuard } from './guards/role.guard';
 
 // Relacionar rutas con componentes
 const routes: Routes = [
@@ -19,7 +25,8 @@ const routes: Routes = [
   { path: 'registro', component: RegistroComponent },
   { path: 'loginUsuario', component: LoginUsuarioComponent },
   { path: 'loginAdmin', component: LoginAdminComponent },
-  { path: 'perfil', component: PerfilUsuarioComponent, 
+  { path: 'perfil', component: PerfilUsuarioComponent,
+    canActivate : [AuthGuard],  // Revisa si el usuario ha iniciado sesion para acceder a la ruta vista
     children: [
       {path: 'vista', component: VistaPerfilComponent},
       {path: 'editar', component: EditarPerfilComponent}
@@ -27,7 +34,12 @@ const routes: Routes = [
   },
   { path: 'quienes-somos', component: QuienesSomosComponent },
   { path: 'trabaja-con-nosotros', component: TrabajaConNosotrosComponent },
-  { path: 'premium', component: PremiumComponent }
+  { path: 'premium', component: PremiumComponent },
+  { path: 'reproductor', component: ReproductorComponent},
+  { path: 'admin', component: AdminComponent,
+    data: {rol: 'admin'},
+    canActivate: [AuthGuard,RoleGuard]
+  }
 ];
 
 // Importamos en la raiz de RouterModule el array de rutas y luego exportamos el nuevo Módulo
