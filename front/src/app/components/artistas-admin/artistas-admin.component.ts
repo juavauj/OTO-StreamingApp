@@ -17,6 +17,10 @@ export class ArtistasAdminComponent implements OnInit {
   constructor(private artistaService: ArtistaService) { }
 
   ngOnInit(): void {
+    this.getArtistas();
+  }
+
+  getArtistas() {
     // Consumir servicio para obtencion de todos los artistas
     this.artistaService.getArtistas().subscribe(
       (response: any) => {
@@ -33,9 +37,10 @@ export class ArtistasAdminComponent implements OnInit {
         }
       }
     );
+
   }
 
-  delete(artista){
+  delete(artista) {
     // Consumir servicio para eliminacion de artista
     this.artistaService.deleteArtista(artista._id).subscribe(
       (response: any) => {
@@ -43,6 +48,8 @@ export class ArtistasAdminComponent implements OnInit {
         if (!eliminado) {
           alert(`No se ha podido eliminar el artista (${artista.nombre})`);
         } else {
+          // actualizar la vista
+          this.getArtistas();
           alert(`(${eliminado.nombre}) eliminado exitosamente`);
         }
       },
