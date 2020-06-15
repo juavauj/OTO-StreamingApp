@@ -33,6 +33,8 @@ import { UsuariosAdminComponent } from './components/usuarios-admin/usuarios-adm
 import { PlaylistAdminComponent } from './components/playlist-admin/playlist-admin.component';
 import { WelcomeAdminComponent } from './components/welcome-admin/welcome-admin.component';
 import { ArtistasAdminComponent } from './components/artistas-admin/artistas-admin.component'
+import { VistaPerfilComponent } from './components/vista-perfil/vista-perfil.component';
+import { EditarPerfilComponent } from './components/editar-perfil/editar-perfil.component'
 
 @NgModule({
   declarations: [
@@ -56,7 +58,9 @@ import { ArtistasAdminComponent } from './components/artistas-admin/artistas-adm
     UsuariosAdminComponent,
     PlaylistAdminComponent,
     WelcomeAdminComponent,
-    ArtistasAdminComponent
+    ArtistasAdminComponent,
+    VistaPerfilComponent,
+    EditarPerfilComponent,
   ],
   imports: [BrowserModule, AppRoutingModule, FormsModule, HttpClientModule, BrowserAnimationsModule],
   providers: [UsuarioService, NavSwitchService],

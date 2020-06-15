@@ -19,7 +19,7 @@ var PlaylistSchema = new Schema({
     }],
     estado: {
         type: String,
-        default: null
+        default: "activo"
     }
 });
 

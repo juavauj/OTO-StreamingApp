@@ -1,108 +1,85 @@
 const Album = require('../modelo/albumes');
+const Cancion = require('../modelo/canciones');
+const Artista = require('../modelo/artistas');
 
 const fs = require('fs');
 const path = require('path');
 
 //agregar un album
-function addAlbum(req, res){
+async function addAlbum(req, res){
     var album = new Album();
     var parametros = req.body;
 
     album.titulo = parametros.titulo;
     album.artistas = parametros.artistas;
-    album.canciones = parametros.canciones;
-    album.generos = parametros.generos;
+    album.genero = parametros.genero;
     album.disquera = parametros.disquera;
     album.anio = parametros.anio;
     album.imagen = null;
     album.estado = parametros.estado;
 
-    console.log(parametros);
-    console.log(album);
-
-    album.save((err, albumNuevo)=>{
-        if (err) {
-            res.status(500).send({message: "Error en el servidor"});
-        }else{
-            if (!albumNuevo) {
-                res.status(200).send({message: "No ha sipo posible registrar el album"});
-            }else{
-                res.status(200).send({
-                    message: "Album agregado", 
-                    album: albumNuevo
-                });
-            }
-        }
-    });
+    try {
+        var albumNuevo = await album.save();
+        res.status(200).send({message: "Album agregado", album: albumNuevo});;
+    } catch (error) {
+        res.status(500).send({message: "Error en el servidor"});
+    }
 }
 //actualizar un album
-
-function actualizarAlbum(req, res) {
+async function actualizarAlbum(req, res) {
     var albumId = req.params.id;
     var nuevosDatosAlbum = req.body;
 
-    Album.findByIdAndUpdate(albumId, nuevosDatosAlbum, (err, albumActualizado)=>{
-        if (err) {
-            res.status(500).send({message: "Error en el servidor"});
-        }else{
-            if (!albumActualizado) {
-                res.status(200).send({message: "No ha sipo posible actualizar el album"});
-            }else{
-                res.status(200).send({
-                    message: "Album actualizado", 
-                    album: albumActualizado
-                });
-            }
-        }
-    });
-
+    try {
+        var albumActualizado = await Album.findByIdAndUpdate(albumId, nuevosDatosAlbum);
+        res.status(200).send({message: "Album actualizado", album: albumActualizado});;
+    } catch (error) {
+        res.status(500).send({message: "Error en el servidor"});
+    }
 
 }
 
 //borrar un album
-
-function borrarAlbum(req, res){
+async function borrarAlbum(req, res){
     var albumId = req.params.id;
 
-    Album.findOneAndDelete(albumId, (err, albumEliminado)=>{
-        if (err) {
-            res.status(500).send({message: "Error en el servidor"});
-        }else{
-            if (!albumEliminado) {
-                res.status(200).send({message: "No ha sido posible eliminar el registro"});
-            }else{
-                res.status(200).send({
-                    message: "Album eliminado", 
-                    album: albumEliminado
-                });
-            }
-        }
-    });
+    try {
+        var albumEliminado = await Album.findByIdAndDelete(albumId);
+        res.status(200).send({message: "Album eliminado", album: albumEliminado});;
+    } catch (error) {
+        res.status(500).send({message: "Error en el servidor"});
+    }
+    
 }
 
-//mostrar un artista
-
+//mostrar un album
 function mostrarUnAlbum(req, res) {
     var albumId = req.params.id;
 
-    Album.findOne(albumId, (err, albumEncontrado)=>{
+    Album.findById(albumId, (err, albumEncontrado)=>{
         if (err) {
             res.status(500).send({message: "Error en el servidor"});
         }else{
             if (!albumEncontrado) {
                 res.status(200).send({message: "No ha sido posible encontrar el album"});
             }else{
-                res.status(200).send({
-                    message: "Album encontrado", 
-                    album: albumEncontrado
+                Cancion.populate(albumEncontrado, {path:'canciones', select: 'nombre -_id'}, (err, albumEncontrado)=>{
+                    if (albumEncontrado) {
+                        Artista.populate(albumEncontrado, {path: 'artistas', select: 'nombre -_id'}, (err, albumEncontrado)=>{
+                                res.status(200).send({
+                                message: "Album encontrado", 
+                                album: albumEncontrado
+                                });
+                            }
+                        );
+                    }
                 });
             }
         }
     })
 }
 
-//mostrar todos los artistas
-
+//mostrar todos los albumes
 function showAlbumes(req, res) {
 
     Album.find((err, albumesEncontrados)=>{
@@ -112,14 +89,60 @@ function showAlbumes(req, res) {
             if (!albumesEncontrados) {
                 res.status(200).send({message: "No ha sido posible encontrar albumes"});
             }else{
-
-                res.status(200).send({
-                    message: "Albumes encontrados", 
-                    album: albumesEncontrados
+                Cancion.populate(albumesEncontrados, {path:'canciones', select: 'nombre -_id'}, (err, albumesEncontrados)=>{
+                    if (albumesEncontrados) {
+                        Artista.populate(albumesEncontrados, {path: 'artistas', select: 'nombre -_id'}, (err, albumesEncontrados)=>{
+                                res.status(200).send({
+                                message: "Albumes encontrados", 
+                                album: albumesEncontrados
+                                });
+                            }
+                        );
+                    }
                 });
             }
         }
     });
+}
+
+//buscar o filtar
+function buscarAlbum(req, res) {
+    var resBusqueda = req.params.busqueda;
+
+    Album.find({titulo: {$regex: resBusqueda, $options: 'i'}}, (err, albumFound)=>{
+        if (err) {
+            res.status(500).send({message: "Error en el servidor"});
+        }else{
+            if (!albumFound) {
+                res.status(200).send({message: "No se ha encontrado ningún album"});
+            }else{
+                Cancion.populate(albumFound, {path:'canciones', select: 'nombre -_id'}, (err, albumFound)=>{
+                    if (albumFound) {
+                        Artista.populate(albumFound, {path: 'artistas', select: 'nombre -_id'}, (err, albumFound)=>{
+                                res.status(200).send({
+                                message: "Albumes encontrados", 
+                                album: albumFound
+                                });
+                            }
+                        );
+                    }
+                });
+            }
+        }
+    });
+}
+
+//Funcion filtrar por estado
+async function albumEstado(req, res){
+    var estado = req.params.estado;
+    try {
+        const albums = await Album.find({estado: estado});
+        const canciones = await Cancion.populate(albums, {path:'canciones', select: 'nombre -_id'});
+        const artistas = await Artista.populate(albums, {path: 'artistas', select: 'nombre -_id'});
+    res.json(artistas);
+    } catch (error) {
+        res.status(500).send({message: "Error en el servidor"});
+    }
 }
 
 function subirImg(req, res){
@@ -174,38 +197,6 @@ function mostrarArchivo(req, res){
         }
     });
 }
-
-//buscar o filtar
-function buscarAlbum(req, res) {
-    var resBusqueda = req.params.busqueda;
-
-    Album.find({nombre: {$regex: resBusqueda, $options: 'i'}}, (err, albumFound)=>{
-        if (err) {
-            res.status(500).send({message: "Error en el servidor"});
-        }else{
-            if (!albumFound) {
-                res.status(200).send({message: "No se ha encontrado ningún album"});
-            }else{
-                res.status(200).send({
-                    message: "Albumes encontrados", 
-                    album: albumFound
-                });
-            }
-        }
-    });
-}
-
-//Funcion filtrar por estado
-async function albumEstado(req, res){
-    const albums = await Album.find({estado: "activo"});
-    res.json(albums);
-}
-
-//mostrar albumes del artista
-
-
-//mostrar canciones del artista
-
 
 //exportar modulos
 
