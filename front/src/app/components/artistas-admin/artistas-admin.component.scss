@@ -26,3 +26,26 @@
 .gridSystem__formEditar {
   display: none;
 }
+// layout de la tabla
+table {
+  table-layout: fixed;
+}
+
+.acc,
+.est,
+.img,
+.name {
+  width: 19%;
+}
+
+.bio {
+  width: 24%;
+}
+// celda con scrolling
+div.scrollable {
+  width: 100%;
+  max-height: 100px;
+  margin: 0;
+  padding: 0;
+  overflow: auto;
+}
