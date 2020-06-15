@@ -98,52 +98,59 @@
     </div>
   </div>
   <div class="gridSystem__right">
-    <h1 class="text-center my-3 text-light">Panel Usuarios</h1>
+    <h1 class="text-center my-3 text-light">Panel Artistas</h1>
     <div class="px-5">
       <div class="px-5">
         <div class="row">
-          <div class="col">
+          <div class="col-12">
             <div class="form-group">
-              <input type="text" name="filterPost" class="form-control" placeholder="Search.." [(ngModel)]="filterPost">
+              <input type="text" name="filterArtista" class="form-control" placeholder="Search.." [(ngModel)]="filterArtista">
+            </div>
+            <div>
+              <table class="table table-striped table-light rounded border border-secondary table-hover">
+                <thead>
+                  <tr>
+                    <th class="name">Nombre</th>
+                    <th class="img">Imagen</th>
+                    <th class="bio">Biografia</th>
+                    <th class="est">Estado</th>
+                    <th class="acc">Acciones</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr *ngFor="let artista of artistas | filter:filterArtista">
+                    <td>
+                      <div class="scrollable">
+                        {{artista.nombre}}
+                      </div>
+                    </td>
+                    <td>
+                      <div class="scrollable">
+                        {{artista.imagen}}
+                      </div>
+                    </td>
+                    <td>
+                      <div class="scrollable">
+                        {{artista.biografia}}
+                      </div>
+                    </td>
+                    <td>
+                      <div class="scrollable">
+                        {{artista.estado}}
+                      </div>
+                    </td>
+                    <td>
+                      <button type="button" class="btn btn-info mx-1"> Edit </button>
+                      <button type="button" class="btn btn-warning mx-1"> Off </button>
+                      <button type="button" class="btn btn-danger mx-1" (click)="delete(artista)">Delete</button>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
             </div>
           </div>
         </div>
 
-        <div>
-          <table class="table table-striped table-light rounded border border-secondary table-hover col-12 container-fluid">
-            <thead>
-              <tr>
-                <th>Nombre</th>
-                <th>apellido</th>
-                <th>correo</th>
-                <th>contrasena</th>
-                <th>nick</th>
-                <th>rol</th>
-                <th>imagen</th>
-                <th>subscription</th>
-                <th>estado</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr *ngFor="let post of posts | filter:filterPost">
-                <td>{{post.nombre}}</td>
-                <td>{{post.apellido}}</td>
-                <td>{{post.correo}}</td>
-                <td>{{post.contrasena}}</td>
-                <td>{{post.userName}}</td>
-                <td>{{post.rol}}</td>
-                <td><img src="{{post.imagen}}" alt="{{post.imagen}}"> </td>
-                <td>{{post.suscripcion}}</td>
-                <td>{{post.estado}}</td>
-                <td>
-                  <button type="button" class="btn btn-info mx-1"> Edit </button>
-                  <button type="button" class="btn btn-warning mx-1"> Off </button>
-                  <button type="button" class="btn btn-danger mx-1" (click)="delete(post)">Delete</button>
-                </td>
-              </tr>
-            </tbody>
-          </table>
-        </div>
       </div>
     </div>
   </div>
