@@ -1,0 +1,68 @@
+  <!-- 
+  Formulario Actualizacion Datos Usuario
+-->
+
+<div class="form-container">
+    <form #formularioActualizar="ngForm" (ngSubmit)="actualizarUsuario()">
+        <div class="input-form">
+            <input type="text" 
+            name="nombre"
+            #nombre="ngModel"
+            [(ngModel)]="usuarioActualizar.nombre"
+            autocomplete="off"
+            required
+            />
+            <label class="label-input" for="nombre"> <span class="content-input">Nombre</span></label>
+            <br>
+
+        </div>
+
+        <div class="input-form">
+            <input type="text"
+            name="apellido"
+            #apellido="ngModel"
+            [(ngModel)]="usuarioActualizar.apellido"
+            autocomplete="off"
+            required
+            />
+            <label class="label-input" for="apellido"> <span class="content-input">Apellido</span></label>
+            <br>
+
+        </div>
+        
+        <div class="input-form">
+            <input type="text"
+            name="correo"
+            #correo="ngModel" 
+            [(ngModel)]="usuarioActualizar.correo"
+            autocomplete="off"
+            required
+            />
+            <label class="label-input" for="correo"> <span class="content-input">Correo</span></label>
+            <br>
+
+        </div>
+        
+        <div class="input-form">
+            <input type="text"
+            name="contrasena"
+            #contrasena="ngModel"
+            [(ngModel)]="usuarioActualizar.contrasena"
+            autocomplete="off"
+            required
+            />
+            <label class="label-input" for="contrasena"> <span class="content-input">Contraseña</span></label>
+
+        </div>
+        <br>
+       
+        <input type="file" placeholder="Subir Imagen" (change)="subirArchivo($event)" />
+       
+        <!-- 
+            Previsualizar la imagen escogida por el usuario
+         -->
+       
+         <button type="submit">Actualizar Datos</button>
+    </form>
+
+</div>

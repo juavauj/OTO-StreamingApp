@@ -1,1 +1,1 @@
-{"options":{},"indexes":[{"v":{"$numberInt":"2"},"key":{"_id":{"$numberInt":"1"}},"name":"_id_","ns":"otoMusicApp.artistas"}],"uuid":"50de94700d844bc88edd3374ea64002c"}
+{"options":{},"indexes":[{"v":{"$numberInt":"2"},"key":{"_id":{"$numberInt":"1"}},"name":"_id_","ns":"otoMusicApp.artistas"}],"uuid":"5833bf30f0be49f1915b9b737ae003d2"}

@@ -8,50 +8,27 @@
 
     Segunda Opcion
     <img id="imgUsuario" src="{{ rutaImagen }}" >
- -->
- <section class="welcome-perfil">
-  <img  id="imgUsuario" style="width: 80px;"/>
-  <span>Bienvenido {{identidad.nombre}}</span>
+    -->
+    <section class="welcome-perfil">
 
- </section>
- <aside class="menu-perfil">
-    <p>Vista General</p>
- </aside>
- <section class="panel-editar-perfil">
-   <!-- 
-  Formulario Actualizacion Datos Usuario
--->
+      <img  id="imgUsuario" style="width: 80px;"/>
+      <span>Bienvenido {{identidad.nombre}}</span>
+    
+    </section>
 
-  <form #formularioActualizar="ngForm" (ngSubmit)="actualizarUsuario()">
-  <input type="text"  placeholder="Nombre" name="nombre"
-  #nombre="ngModel" [(ngModel)]="usuarioActualizar.nombre"/>
-  <br>
-  <input type="text"  placeholder="Apellido" name="apellido"
-  #apellido="ngModel" [(ngModel)]="usuarioActualizar.apellido"/>
-  <br>
-  <input type="text"  placeholder="Correo" name="correo"
-  #correo="ngModel" [(ngModel)]="usuarioActualizar.correo"/>
-  <br>
-  <input type="text"  placeholder="Contraseña" name="contrasena"
-  #contrasena="ngModel" [(ngModel)]="usuarioActualizar.contrasena"/>
-  <br><br>
+    <aside class="menu-perfil">
+      <div class="btn-perfil">
+        <a routerLink="/perfil/vista"> Vista General</a>
+        <a routerLink="/perfil/editar"> Editar Perfil</a>
+
+      </div>
+      
+    </aside>
+
+    <section class="panel-editar-perfil">
+         <router-outlet></router-outlet>
+    </section>
  
-  <input type="file" placeholder="Subir Imagen" (change)="subirArchivo($event)" />
- 
-  <!-- 
-      Previsualizar la imagen escogida por el usuario
-   -->
- 
-   <button type="submit">Actualizar Datos</button>
- </form>
-
- </section>
- 
-
-
-
   </div>
-
-
 
 </main>

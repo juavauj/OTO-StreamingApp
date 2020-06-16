@@ -1,26 +1,29 @@
 const express = require('express');
 const CancionControl = require('../control/cancionesControl');
+const PlayerControl = require('../control/playerControl');
 
 const multipart = require('connect-multiparty');
 const subirAudioDirectorio = multipart({uploadDir: './archivos/canciones'});
 
 var api = express.Router();
 
-api.get('/canciones', CancionControl.showCanciones);
+api.get('/canciones', CancionControl.showCanciones); //check
 
-api.get('/canciones-estado', CancionControl.cancionesEstado);
+api.get('/canciones-estado/:estado', CancionControl.cancionesEstado);//check
 
-api.post('/registrar-cancion', CancionControl.addCancion);
+api.get('/cancion/:id', CancionControl.mostrarUnaCancion);//check
 
-api.put('/actualizar-cancion/:id', CancionControl.actualizarCancion);
+api.get('/buscar-cancion/:busqueda', CancionControl.buscarCancion);//check
 
-api.delete('/borrar-cancion/:id', CancionControl.borrarCancion);
+api.post('/registrar-cancion', CancionControl.addCancion);//check
 
-api.get('/cancion/:id', CancionControl.mostrarUnaCancion);
+api.put('/actualizar-cancion/:id', CancionControl.actualizarCancion);//check
 
-api.put('/subir-audio/:id',subirAudioDirectorio, CancionControl.subirAudios);
+api.delete('/borrar-cancion/:id', CancionControl.borrarCancion);//check
 
-api.get('/buscar-cancion/:busqueda', CancionControl.buscarCancion);
+api.put('/subir-audio/:id', subirAudioDirectorio, CancionControl.subirAudios);//check
+
+api.get('/play-cancion/:file', PlayerControl.playMedia);
 
 
 module.exports = api;

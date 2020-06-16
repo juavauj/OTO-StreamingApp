@@ -16,9 +16,15 @@ var UsuarioSchema = new Schema({
        unique: true,
        required: true
     },
+    usuario: {
+        type: String,
+        unique: true,
+        required: true
+    },
     contrasena: {
         type: String,
-        required: true
+        required: true,
+        minlength: 8
     },
     rol: {
         type: String,
@@ -30,11 +36,13 @@ var UsuarioSchema = new Schema({
     },
     suscripcion: {
         type: String,
-        default: "lite"
+        default: "lite",
+        required: true
     },
     estado: {
         type: String,
-        default: null
+        default: "activo",
+        required: true
     }
 });
 
