@@ -1,5 +1,5 @@
 const Playlist = require('../modelo/playlists');
-const Cancion = require('../modelo/canciones');
+const Track = require('../modelo/canciones');
 const Usuario = require('../modelo/usuario');
 
 
@@ -10,7 +10,7 @@ async function addPlaylist(req, res){
     var parametros = req.body;
 
     playlist.nombre = parametros.nombre;
-    playlist.propietario = parametros.propietario;
+    playlist.idUsuario = parametros.idUsuario;
     playlist.canciones = parametros.canciones;
     playlist.estado = parametros.estado;
     
@@ -61,9 +61,9 @@ function mostrarUnaPlaylist(req, res) {
             if (!playlistEncontrada) {
                 res.status(200).send({message: "No se ha podido encontrar la playlist"});
             }else{
-                Cancion.populate(playlistEncontrada, {path:'canciones', select: 'nombre -_id'}, (err, playlistEncontrada)=>{
+                Track.populate(playlistEncontrada, {path:'canciones', select: 'nombre'}, (err, playlistEncontrada)=>{
                     if (playlistEncontrada) {
-                        Usuario.populate(playlistEncontrada, {path:'propietario', select: 'usuario -_id'}, (err, playlistEncontrada)=>{
+                        Usuario.populate(playlistEncontrada, {path:'idUsuario', select: 'nick'}, (err, playlistEncontrada)=>{
                             res.status(200).send({message: "Playlists encontradas exitosamente", 
                         playlist: playlistEncontrada}); 
                         });
@@ -86,9 +86,9 @@ function mostrarPlaylists(req, res) {
             if (!playlistEncontradas) {
                 res.status(200).send({message: "No se ha podido encontrar ninguna playlist"});
             }else{
-                Cancion.populate(playlistEncontradas, {path:'canciones', select: 'nombre -_id'}, (err, playlistEncontradas)=>{
+                Track.populate(playlistEncontradas, {path:'canciones', select: 'nombre'}, (err, playlistEncontradas)=>{
                     if (playlistEncontradas) {
-                        Usuario.populate(playlistEncontradas, {path:'propietario', select: 'usuario -_id'}, (err, playlistEncontradas)=>{
+                        Usuario.populate(playlistEncontradas, {path:'idUsuario', select: 'nick'}, (err, playlistEncontradas)=>{
                             res.status(200).send({message: "Playlists encontradas exitosamente", 
                         playlist: playlistEncontradas}); 
                         });
@@ -110,9 +110,9 @@ function buscarPlaylist(req, res) {
             if (!playlistFound) {
                 res.status(200).send({message: "No se ha encontrado ninguna playlist"});
             }else{
-                Cancion.populate(playlistFound, {path:'canciones', select: 'nombre -_id'}, (err, playlistFound)=>{
+                Track.populate(playlistFound, {path:'canciones', select: 'nombre'}, (err, playlistFound)=>{
                     if (playlistFound) {
-                        Usuario.populate(playlistFound, {path:'propietario', select: 'usuario -_id'}, (err, playlistFound)=>{
+                        Usuario.populate(playlistFound, {path:'idUsuario', select: 'nick'}, (err, playlistFound)=>{
                             res.status(200).send({message: "Playlists encontradas exitosamente", 
                         playlist: playlistFound}); 
                         });
@@ -129,8 +129,8 @@ async function playlistEstado(req, res){
 
     try {
         const playlist = await Playlist.find({estado: estado});
-        const usuarios = await Usuario.populate(playlist, {path:'propietario', select: 'usuario -_id'});
-        const canciones = await Cancion.populate(playlist, {path:'canciones', select: 'nombre -_id'});
+        const usuarios = await Usuario.populate(playlist, {path:'idUsuario', select: 'nick'});
+        const canciones = await Track.populate(playlist, {path:'canciones', select: 'nombre'});
         res.json(canciones);
     } catch (error) {
         res.status(500).send({message: "Error en el servidor"});  

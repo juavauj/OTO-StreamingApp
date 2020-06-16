@@ -7,7 +7,7 @@ var PlaylistSchema = new Schema({
         type: String,
         required: true
     },
-    propietario: {
+    idUsuario: {
         type: ObjectId,
         ref: 'Usuarios',
         required: true
