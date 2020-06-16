@@ -62,4 +62,33 @@ export class ArtistasAdminComponent implements OnInit {
     );
   }
 
+  updateEstado(artista) {
+    // cambiar el estado del artista
+    if (artista.estado === 'activo') {
+      artista.estado = 'inactivo';
+    } else if (artista.estado === 'inactivo') {
+      artista.estado = 'activo'
+    }
+    // aqui se puede utilizar el mismo servicio de actualizacion de artista
+    this.artistaService.actualizarArtista(artista._id, artista)
+      .subscribe(
+        (response: any) => {
+          let actualizado = response.artista;
+          if (!actualizado) {
+            alert(`No se ha podido actualizar el artista (${artista.nombre})`);
+          } else {
+            // actualizar la vista
+            this.getArtistas();
+            alert(`(${actualizado.nombre}) actualizado exitosamente`);
+          }
+        },
+        (error) => {
+          let errorMensaje = <any>error;
+          if (errorMensaje != null) {
+            alert(`No se ha podido actualizar el artista (${artista.nombre})`);
+          }
+        }
+      );
+  }
+
 }
