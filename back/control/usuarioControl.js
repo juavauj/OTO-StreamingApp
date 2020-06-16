@@ -15,7 +15,7 @@ function registrarUsuario(req, res){
     usuario.usuario = parametros.usuario;
     usuario.contrasena = parametros.contrasena;
     usuario.rol = parametros.rol;
-    usuario.imagen = null;
+    usuario.imagen = parametros.imagen;
     usuario.suscripcion = parametros.suscripcion;
     usuario.estado = parametros.estado;
 
@@ -25,6 +25,7 @@ function registrarUsuario(req, res){
     usuario.save((err, usuarioNuevo)=>{
         if(err){
             res.status(500).send({message: "Error en el servidor"});
+            console.log(err);
         }else{
             if(!usuarioNuevo){
                 res.status(200).send({message: "No fue posible realizar el registro"});

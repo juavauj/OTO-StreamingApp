@@ -26,8 +26,14 @@ import { PremiumComponent } from './components/premium/premium.component';
 import { UsuarioService } from './services/usuario.service';
 import { NavSwitchService } from './services/nav-switch.service';
 import { UsuariosComponent } from './components/usuarios/usuarios.component';
+import { AlbumesAdminComponent } from './components/albumes-admin/albumes-admin.component';
+import { FilterPipe } from './pipes/filter.pipe';
+import { CancionesAdminComponent } from './components/canciones-admin/canciones-admin.component';
+import { UsuariosAdminComponent } from './components/usuarios-admin/usuarios-admin.component';
+import { PlaylistAdminComponent } from './components/playlist-admin/playlist-admin.component';
+import { WelcomeAdminComponent } from './components/welcome-admin/welcome-admin.component';
 import { VistaPerfilComponent } from './components/vista-perfil/vista-perfil.component';
-import { EditarPerfilComponent } from './components/editar-perfil/editar-perfil.component'
+import { EditarPerfilComponent } from './components/editar-perfil/editar-perfil.component';
 
 @NgModule({
   declarations: [
@@ -45,6 +51,12 @@ import { EditarPerfilComponent } from './components/editar-perfil/editar-perfil.
     TrabajaConNosotrosComponent,
     PremiumComponent,
     UsuariosComponent,
+    AlbumesAdminComponent,
+    FilterPipe,
+    CancionesAdminComponent,
+    UsuariosAdminComponent,
+    PlaylistAdminComponent,
+    WelcomeAdminComponent,
     VistaPerfilComponent,
     EditarPerfilComponent
   ],

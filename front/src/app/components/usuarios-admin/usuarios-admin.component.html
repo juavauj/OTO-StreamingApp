@@ -1,0 +1,150 @@
+<div class="gridSystem">
+    <div class="gridSystem__left mt-5 pt-2 ml-5">
+        <div class="gridSystem__formNuevo ml-4 mt-5">
+              <form class="bg-dark text-light p-3 rounded"> 
+                <div class="row form-group">
+                    <div class="col">
+                        <input type="text" class="form-control" id="nombre" placeholder="name" aria-describedby="nombre">
+                    </div>
+                    <div class="col">
+                        <input type="text" class="form-control" id="apellido" placeholder="lastname" aria-describedby="apellido">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <input type="text" class="form-control" id="correo" placeholder="email" aria-describedby="correo">
+                </div> 
+                <div class="form-group">
+                    <input type="password" class="form-control" id="contrasena" placeholder="password" aria-describedby="contrasena">
+                </div> 
+                <div class="form-group">
+                    <input type="text" class="form-control" id="nick" placeholder="Nickname" aria-describedby="Nickname">
+                </div>
+                <div class="form-group">                
+                    <label for="exampleFormControlSelect1">Rol</label>
+                    <select class="form-control"  id="rol"> 
+                         <option>Usuario</option> 
+                         <option>Admin</option>
+                       </select>                     
+                </div> 
+                <div class="form-group ">
+                    <label for="exampleFormControlSelect1">Imagen</label>
+                    <input type="file" class="form-control bg-secondary border-0 text-light" id="file"  aria-describedby="file">
+                </div>
+                <div class="form-group">                
+                    <label for="exampleFormControlSelect1">Suscripcion</label>
+                    <select class="form-control" id="estado"> 
+                         <option>Lite</option> 
+                         <option>premium</option>
+                    </select>                     
+                  </div>    
+                <div class="form-group">                
+                  <label for="exampleFormControlSelect1">Estado</label>
+                  <select class="form-control" id="estado"> 
+                       <option>Activo</option> 
+                       <option>Inactivo</option>
+                     </select>                     
+                </div>      
+                                  
+                <button type="submit" class="btn btn-success  btn-block">Nuevo usuario</button>
+              </form>
+        </div>
+        <div class="gridSystem__formEditar ml-4 top_gap">
+            <form class="bg-dark text-light p-3 rounded"> 
+                <div class="row form-group">
+                    <div class="col">
+                        <input type="text" class="form-control" id="nombre" placeholder="name" aria-describedby="nombre">
+                    </div>
+                    <div class="col">
+                        <input type="text" class="form-control" id="apellido" placeholder="lastname" aria-describedby="apellido">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <input type="text" class="form-control" id="correo" placeholder="email" aria-describedby="correo">
+                </div> 
+                <div class="form-group">
+                    <input type="password" class="form-control" id="contrasena" placeholder="password" aria-describedby="contrasena">
+                </div> 
+                <div class="form-group">
+                    <input type="text" class="form-control" id="nick" placeholder="Nickname" aria-describedby="Nickname">
+                </div>
+                <div class="form-group">                
+                    <label for="exampleFormControlSelect1">Rol</label>
+                    <select class="form-control"  id="rol"> 
+                         <option>Usuario</option> 
+                         <option>Admin</option>
+                       </select>                     
+                </div> 
+                <div class="form-group ">
+                    <label for="exampleFormControlSelect1">Imagen</label>
+                    <input type="file" class="form-control bg-secondary border-0 text-light" id="file"  aria-describedby="file">
+                </div>
+                <div class="form-group">                
+                    <label for="exampleFormControlSelect1">Suscripcion</label>
+                    <select class="form-control" id="estado"> 
+                         <option>Lite</option> 
+                         <option>premium</option>
+                    </select>                     
+                  </div>    
+                <div class="form-group">                
+                  <label for="exampleFormControlSelect1">Estado</label>
+                  <select class="form-control" id="estado"> 
+                       <option>Activo</option> 
+                       <option>Inactivo</option>
+                     </select>                     
+                </div>      
+                                  
+                <button type="submit" class="btn btn-success  btn-block">Editar usuario</button>
+              </form>
+        </div>
+    </div>
+    <div class="gridSystem__right">
+      <h1 class="text-center my-3 text-light">Panel Usuarios</h1>
+      <div class="px-5">
+      <div class="px-5"> 
+        <div class="row">
+          <div class="col">
+              <div class="form-group">
+                  <input type="text" name="filterPost" class="form-control" placeholder="Search.." [(ngModel)]="filterPost"> 
+              </div>
+          </div>
+      </div>
+  
+      <div>
+        <table class="table table-striped table-light rounded border border-secondary table-hover col-12 container-fluid">
+          <thead>
+              <tr>
+                  <th>Nombre</th>
+                  <th>apellido</th>                  
+                  <th>correo</th>  
+                  <th>contrasena</th>                 
+                  <th>nick</th>                 
+                  <th>rol</th>              
+                  <th>imagen</th>
+                  <th>subscription</th>
+                  <th>estado</th>
+              </tr>
+          </thead>
+          <tbody>
+              <tr *ngFor="let post of posts | filter:filterPost">
+                  <td>{{post.nombre}}</td>
+                  <td>{{post.apellido}}</td>
+                  <td>{{post.correo}}</td>                              
+                  <td>{{post.contrasena}}</td>                              
+                  <td>{{post.userName}}</td>                                                      
+                  <td>{{post.rol}}</td>
+                  <td><img src="{{post.imagen}}" alt="{{post.imagen}}"> </td>
+                  <td>{{post.suscripcion}}</td>
+                  <td>{{post.estado}}</td>
+                  <td>
+                    <button type="button" class="btn btn-info mx-1"> Edit </button>
+                    <button type="button" class="btn btn-warning mx-1"> Off </button>
+                    <button type="button" class="btn btn-danger mx-1" (click)="delete(post)">Delete</button>                    
+                  </td>                                 
+              </tr>
+          </tbody>
+      </table>
+    </div>
+      </div>
+    </div>
+    </div>
+  </div>

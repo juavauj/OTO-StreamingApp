@@ -13,6 +13,14 @@ import { PremiumComponent } from './components/premium/premium.component';
 import { VistaPerfilComponent } from './components/vista-perfil/vista-perfil.component';
 import { EditarPerfilComponent } from './components/editar-perfil/editar-perfil.component'
 
+// subrouting admins
+import { AdminComponent } from './components/admin/admin.component';
+import { AlbumesAdminComponent } from './components/albumes-admin/albumes-admin.component';
+import { CancionesAdminComponent } from './components/canciones-admin/canciones-admin.component';
+import { UsuariosAdminComponent  } from './components/usuarios-admin/usuarios-admin.component';
+import { PlaylistAdminComponent  } from './components/playlist-admin/playlist-admin.component';
+import { WelcomeAdminComponent  } from './components/welcome-admin/welcome-admin.component';
+
 // Relacionar rutas con componentes
 const routes: Routes = [
   { path: '', component: LandingComponent },
@@ -27,7 +35,39 @@ const routes: Routes = [
   },
   { path: 'quienes-somos', component: QuienesSomosComponent },
   { path: 'trabaja-con-nosotros', component: TrabajaConNosotrosComponent },
-  { path: 'premium', component: PremiumComponent }
+  { path: 'premium', component: PremiumComponent },
+  { path: 'admin', component: AdminComponent, 
+    children:  [
+      {
+        path: 'canciones',
+        component: CancionesAdminComponent
+      },
+      {
+        path: 'albumes',
+        component: AlbumesAdminComponent
+      },
+      {
+        path: 'albumes',
+        component: AlbumesAdminComponent
+      },
+      {
+        path: 'usuarios',
+        component: UsuariosAdminComponent
+      },
+      {
+        path: 'playlist',
+        component: PlaylistAdminComponent
+      },
+      {
+        path: 'welcome',
+        component: WelcomeAdminComponent
+      },
+      {
+        path: '',
+        component: WelcomeAdminComponent
+      }
+  ] }, 
+ 
 ];
 
 // Importamos en la raiz de RouterModule el array de rutas y luego exportamos el nuevo Módulo
