@@ -13,7 +13,6 @@ import { PremiumComponent } from './components/premium/premium.component';
 import { VistaPerfilComponent } from './components/vista-perfil/vista-perfil.component';
 import { EditarPerfilComponent } from './components/editar-perfil/editar-perfil.component';
 import { ReproductorComponent } from './components/reproductor/reproductor.component';
-import { AdminComponent } from './components/admin/admin.component';
 
 // Import de Guards
 import { AuthGuard } from './guards/auth.guard';
