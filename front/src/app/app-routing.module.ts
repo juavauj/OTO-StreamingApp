@@ -19,6 +19,14 @@ import { AdminComponent } from './components/admin/admin.component';
 import { AuthGuard } from './guards/auth.guard';
 import { RoleGuard } from './guards/role.guard';
 
+// subrouting admins
+import { AdminComponent } from './components/admin/admin.component';
+import { AlbumesAdminComponent } from './components/albumes-admin/albumes-admin.component';
+import { CancionesAdminComponent } from './components/canciones-admin/canciones-admin.component';
+import { UsuariosAdminComponent  } from './components/usuarios-admin/usuarios-admin.component';
+import { PlaylistAdminComponent  } from './components/playlist-admin/playlist-admin.component';
+import { WelcomeAdminComponent  } from './components/welcome-admin/welcome-admin.component';
+
 // Relacionar rutas con componentes
 const routes: Routes = [
   { path: '', component: LandingComponent },
@@ -36,10 +44,39 @@ const routes: Routes = [
   { path: 'trabaja-con-nosotros', component: TrabajaConNosotrosComponent },
   { path: 'premium', component: PremiumComponent },
   { path: 'reproductor', component: ReproductorComponent},
-  { path: 'admin', component: AdminComponent,
+  { path: 'admin', component: AdminComponent, 
     data: {rol: 'admin'},
-    canActivate: [AuthGuard,RoleGuard]
-  }
+    canActivate: [AuthGuard,RoleGuard],
+    children:  [
+      {
+        path: 'canciones',
+        component: CancionesAdminComponent
+      },
+      {
+        path: 'albumes',
+        component: AlbumesAdminComponent
+      },
+      {
+        path: 'albumes',
+        component: AlbumesAdminComponent
+      },
+      {
+        path: 'usuarios',
+        component: UsuariosAdminComponent
+      },
+      {
+        path: 'playlist',
+        component: PlaylistAdminComponent
+      },
+      {
+        path: 'welcome',
+        component: WelcomeAdminComponent
+      },
+      {
+        path: '',
+        component: WelcomeAdminComponent
+      }
+  ] }, 
 ];
 
 // Importamos en la raiz de RouterModule el array de rutas y luego exportamos el nuevo Módulo

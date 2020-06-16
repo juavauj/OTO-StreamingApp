@@ -1,5 +1,6 @@
 const express = require('express');
 const CancionControl = require('../control/cancionesControl');
+const PlayerControl = require('../control/playerControl');
 
 const multipart = require('connect-multiparty');
 const subirAudioDirectorio = multipart({uploadDir: './archivos/canciones'});
@@ -21,6 +22,8 @@ api.put('/actualizar-cancion/:id', CancionControl.actualizarCancion);//check
 api.delete('/borrar-cancion/:id', CancionControl.borrarCancion);//check
 
 api.put('/subir-audio/:id', subirAudioDirectorio, CancionControl.subirAudios);//check
+
+api.get('/play-cancion/:file', PlayerControl.playMedia);
 
 
 module.exports = api;

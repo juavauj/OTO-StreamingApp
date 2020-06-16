@@ -14,17 +14,16 @@ var TrackSchema = new Schema({
         ref: 'Albums',
         required: true
     },
-    artistas: [
+    artista: 
         {
             type: ObjectId,
             ref:'Artistas',
             required: true
-        }
-    ],
-    /* duracion: Number, */
-    generos: Array,
+        },
+    duracion: Number,
+    /* genero: String,
     anio: Number,
-    letra: String,
+    letra: String, */
 
     archivoCancion: {
         type: String,
@@ -34,7 +33,7 @@ var TrackSchema = new Schema({
         type: String,
         default: null
     },
-    reproducciones: Number
+   /*  duracion: Number */
 })
 
 //exportar el modelo

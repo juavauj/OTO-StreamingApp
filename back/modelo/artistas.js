@@ -7,7 +7,7 @@ var ArtistaSchema = new Schema({
         type: String,
         required: true
     },
-    generos: Array,
+    /* genero: String, */
     imagen: {
         type: String,
         default: null

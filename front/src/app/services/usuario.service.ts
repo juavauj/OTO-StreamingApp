@@ -100,10 +100,10 @@ export class UsuarioService {
 
   obtenerTareas (){
     return this._http.get(
-      this.url + `optenerUsuarios`
+      this.url + `obtenerUsuarios`
     ).pipe(map(res=> res));
-  
   }
+
 
   //----------------------------------------------------------
   // Declarar el método del servicio editarUsuario
@@ -132,7 +132,17 @@ export class UsuarioService {
       formData
     ).pipe(map(res => res));
   }
-}
 
+  // eliminar usuario
+
+  eliminarUsuario (id){
+    return this._http.delete(
+      this.url + `eliminarUsuarios/${id}`
+    ).pipe(map(res=> res));
+  }
+
+
+
+}
 
 

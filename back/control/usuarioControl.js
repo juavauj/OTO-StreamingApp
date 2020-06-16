@@ -26,6 +26,7 @@ function registrarUsuario(req, res){
         console.log(err)
         if(err){
             res.status(500).send({message: "Error en el servidor"});
+            console.log(err);
         }else{
             if(!usuarioNuevo){
                 res.status(200).send({message: "No fue posible realizar el registro"});
