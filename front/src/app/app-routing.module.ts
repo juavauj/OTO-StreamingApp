@@ -26,6 +26,7 @@ import { CancionesAdminComponent } from './components/canciones-admin/canciones-
 import { UsuariosAdminComponent  } from './components/usuarios-admin/usuarios-admin.component';
 import { PlaylistAdminComponent  } from './components/playlist-admin/playlist-admin.component';
 import { WelcomeAdminComponent  } from './components/welcome-admin/welcome-admin.component';
+import { ArtistasAdminComponent  } from './components/artistas-admin/artistas-admin.component';
 
 // Relacionar rutas con componentes
 const routes: Routes = [
@@ -44,7 +45,7 @@ const routes: Routes = [
   { path: 'trabaja-con-nosotros', component: TrabajaConNosotrosComponent },
   { path: 'premium', component: PremiumComponent },
   { path: 'reproductor', component: ReproductorComponent},
-  { path: 'admin', component: AdminComponent, 
+  { path: 'admin', component: AdminComponent,
     data: {rol: 'admin'},
     canActivate: [AuthGuard,RoleGuard],
     children:  [
@@ -75,8 +76,13 @@ const routes: Routes = [
       {
         path: '',
         component: WelcomeAdminComponent
-      }
-  ] }, 
+      },
+      {
+        path: 'artistas',
+        component: ArtistasAdminComponent
+      },
+  ] },
+
 ];
 
 // Importamos en la raiz de RouterModule el array de rutas y luego exportamos el nuevo Módulo
