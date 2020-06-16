@@ -23,6 +23,7 @@ import { PremiumComponent } from './components/premium/premium.component';
 
 //Importar Servicios
 
+import { ArtistaService } from './services/artista.service';
 import { UsuarioService } from './services/usuario.service';
 import { NavSwitchService } from './services/nav-switch.service';
 import { UsuariosComponent } from './components/usuarios/usuarios.component';
@@ -34,6 +35,7 @@ import { PlaylistAdminComponent } from './components/playlist-admin/playlist-adm
 import { WelcomeAdminComponent } from './components/welcome-admin/welcome-admin.component';
 import { VistaPerfilComponent } from './components/vista-perfil/vista-perfil.component';
 import { EditarPerfilComponent } from './components/editar-perfil/editar-perfil.component';
+import { ArtistasAdminComponent } from './components/artistas-admin/artistas-admin.component'
 
 // Importar Guards
 
@@ -63,14 +65,16 @@ import { RoleGuard } from './guards/role.guard';
     PlaylistAdminComponent,
     WelcomeAdminComponent,
     VistaPerfilComponent,
-    EditarPerfilComponent
+    EditarPerfilComponent,
+    ArtistasAdminComponent,
   ],
   imports: [BrowserModule, AppRoutingModule, FormsModule, HttpClientModule, BrowserAnimationsModule],
   providers: [
     UsuarioService,
     NavSwitchService,
     AuthGuard,
-    RoleGuard  
+    RoleGuard,
+    ArtistaService,
   ],
   bootstrap: [AppComponent],
 })
