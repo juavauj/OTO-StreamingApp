@@ -1,29 +1,19 @@
-.gridSystem {
-  display: grid;
-  grid-template-columns: 1.2fr 4fr;
-  grid-template-rows: 1fr;
-  grid-template-areas: none;
-  width: 100%;
+.main {
+  width: 100vw;
   min-height: 100vh;
-  background: #DEE5E8;
-  background: -webkit-linear-gradient(bottom right, #DEE5E8, #041B15);
-  background: -moz-linear-gradient(bottom right, #DEE5E8, #041B15);
-  background: linear-gradient(to top left, #DEE5E8, #041B15);
+  background: rgb(37,51,83);
+  background: linear-gradient(90deg, rgba(37,51,83,1) 0%, rgba(109,76,255,1) 71%);
 }
 
-.gridSystem__left {
-  display: grid;
-  grid-template-columns: 1fr;
-  grid-template-rows: 1fr;
+.container {
+  margin-right: 95px;
 }
 
-.gridSystem__right {
-  display: grid;
-  grid-template-columns: 1fr;
-  grid-template-rows: 1fr 9fr;
+.new-form {
+  margin-top: 80px;
+  margin-bottom: 50px;
 }
-
-// layout de la tabla
+// layout de tabla
 table {
   table-layout: fixed;
 }
@@ -32,16 +22,16 @@ table {
 .est,
 .img,
 .name {
-  width: 19%;
+  width: 15%;
 }
 
-.bio {
-  width: 24%;
+div.bio {
+  height: 120px;
 }
-// celda con scrolling
-div.scrollable {
+
+.scrollable {
   width: 100%;
-  max-height: 100px;
+  height: 100%;
   margin: 0;
   padding: 0;
   overflow: auto;
