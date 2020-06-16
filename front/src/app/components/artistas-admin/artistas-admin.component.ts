@@ -204,7 +204,7 @@ export class ArtistasAdminComponent implements OnInit {
         error => {
           let errorMensaje = <any>error;
           if (errorMensaje != null) {
-            alert(`${this.artistaActualizado.nombre} no se ha podido actualizar!`);
+            alert(`${this.artistaActualizar.nombre} no se ha podido actualizar!`);
           }
         }
       );
