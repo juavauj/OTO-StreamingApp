@@ -60,5 +60,19 @@ export class ArtistaService {
       this.url + `subir-img-artista/${id}`,
       formData
     ).pipe(map(res=>res));
-  }  
+  }
+
+  // ----------------------------------------------------------
+  // Declarar el método del servicio para agregar un artista
+  addArtista(nuevoArtista) {
+    let params = JSON.stringify(nuevoArtista);
+    let options = {
+      headers: new HttpHeaders({ 'Content-Type': 'application/json'})
+    }
+    return this._http.post(
+      this.url + 'registrar-artista',
+      params,
+      options
+    ).pipe(map(res => res));
+  }
 }
