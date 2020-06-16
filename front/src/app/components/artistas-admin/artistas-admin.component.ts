@@ -113,6 +113,8 @@ export class ArtistasAdminComponent implements OnInit {
             alert(`${this.nuevoArtista.nombre} no se ha podido registrar!`);
           } else {
             alert(`Artista ${this.nuevoArtista.nombre} registrado!`);
+            // rellenar con artistas actualizados (sin imagen)
+            this.getArtistas();
             // ahora se procede a cargar la imagen (de haber una)
             if (!this.nuevaImagen) {
               alert(`No has seleccionado una imagen para ${this.nuevoArtista.nombre}`);
@@ -123,6 +125,8 @@ export class ArtistasAdminComponent implements OnInit {
                 .subscribe(
                   (result: any) => {
                     // tener en cuenta que aca no se revisan errores
+                    // rellenar con artistas actualizados (con imagen)
+                    this.getArtistas();
                   }
                 );
               // limpiar para nueva imagen
@@ -130,8 +134,6 @@ export class ArtistasAdminComponent implements OnInit {
             }
             // limpiar para un nuevo artista
             this.nuevoArtista = new Artista('', '', 'activo', '', '');
-            // rellenar con artistas actualizados
-            this.getArtistas();
           }
         },
         error => {
