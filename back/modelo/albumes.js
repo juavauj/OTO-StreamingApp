@@ -8,17 +8,12 @@ var AlbumSchema = new Schema({
         type: String,
         required: true
     },
-    artistas: [{
+    artistas: {
         type: ObjectId,
         ref: 'Artistas',
         required: true
-    }],
-    canciones: [{
-        type: ObjectId,
-        ref: 'Tracks',
-        required: true
-    }],
-    generos: Array,
+    },
+    genero: String,
     disquera: String,
     anio: Number,
     imagen: {

@@ -15,9 +15,10 @@ async function addCancion(req, res) {
     cancion.nombre = parametros.nombre;
     cancion.album = parametros.album;
     cancion.artistas = parametros.artistas;
-    cancion.generos = parametros.generos;
+    cancion.duracion = parametros.duracion;
+/*  cancion.generos = parametros.generos;
     cancion.anio = parametros.anio;
-    cancion.letra = parametros.letra;
+    cancion.letra = parametros.letra;*/    
     cancion.archivoCancion = null;
     cancion.estado = parametros.estado;    
 
