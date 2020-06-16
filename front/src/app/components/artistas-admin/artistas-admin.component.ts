@@ -3,6 +3,9 @@ import { Component, OnInit } from '@angular/core';
 // Importar el servicio de Artista
 import { ArtistaService } from '../../services/artista.service';
 
+// Importar modelo de artista
+import { Artista } from '../../modelo/artista'
+
 @Component({
   selector: 'app-artistas-admin',
   templateUrl: './artistas-admin.component.html',
@@ -14,7 +17,12 @@ export class ArtistasAdminComponent implements OnInit {
 
   artistas;
 
-  constructor(private artistaService: ArtistaService) { }
+  // corresponde al formulario para nuevo artista
+  nuevoArtista: Artista;
+
+  constructor(private artistaService: ArtistaService) {
+    this.nuevoArtista = new Artista('', '', 'activo', '', '');
+  }
 
   ngOnInit(): void {
     this.getArtistas();
@@ -89,6 +97,10 @@ export class ArtistasAdminComponent implements OnInit {
           }
         }
       );
+  }
+
+  addArtista() {
+    console.log(this.nuevoArtista);
   }
 
 }
