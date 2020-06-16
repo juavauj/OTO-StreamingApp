@@ -23,6 +23,12 @@ export class ArtistasAdminComponent implements OnInit {
   // corresponde a la imagen del nuevo artista
   nuevaImagen: File;
 
+  // corresponde al formulario de edicion de artista
+  artistaActualizar: Artista;
+
+  // corresponde a la imagen del artista a actualizar
+  imagenActualizar: File;
+
   constructor(private artistaService: ArtistaService) {
     this.nuevoArtista = new Artista('', '', 'activo', '', '');
   }
@@ -149,6 +155,20 @@ export class ArtistasAdminComponent implements OnInit {
   // una a traves del formulario de nuevo artista
   subirNuevaImg(evt: any) {
     this.nuevaImagen = <File>evt.target.files[0];
+  }
+
+  // igual que la anterior funcion, pero cuando el usuario quiere
+  // editar un artista
+  subirImagenActualizar(evt: any) {
+    this.imagenActualizar = <File>evt.target.files[0];
+  }
+
+  setArtistaActualizar(artista) {
+    this.artistaActualizar = artista;
+  }
+
+  actualizarArtista() {
+
   }
 
 }

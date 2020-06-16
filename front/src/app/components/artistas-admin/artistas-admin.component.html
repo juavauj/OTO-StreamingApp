@@ -38,27 +38,40 @@
         <button type="submit" class="btn btn-success  btn-block">Nuevo Artista</button>
       </form>
     </div>
-    <div class="gridSystem__formEditar ml-4 top_gap">
-      <form class="bg-dark text-light p-3 rounded">
+    <!-- Solo se muestra si se ha seleccionado un artista a editar -->
+    <div class="gridSystem__formEditar ml-4 top_gap"
+         *ngIf="artistaActualizar">
+      <form class="bg-dark text-light p-3 rounded"
+            #formularioEditarArtista="ngForm" (ngSubmit)="actualizarArtista()">
         <div class="row form-group">
           <div class="col">
-            <input type="text" class="form-control" id="nombre" placeholder="Nombre">
+            <input type="text" class="form-control"
+                   id="nombreActualizar" placeholder="Nombre"
+                   name="nombre"
+                   #nombre="ngModel" [(ngModel)]="artistaActualizar.nombre">
           </div>
         </div>
         <div class="form-group ">
-          <label for="file">Imagen</label>
-          <input type="file" class="form-control bg-secondary border-0 text-light" id="file">
+          <label for="fileActualizar">Imagen</label>
+          <input type="file" class="form-control bg-secondary border-0 text-light"
+                 id="fileActualizar"
+                 (change)="subirImagenActualizar($event)">
         </div>
         <div class="form-group">
-          <label for="estado">Estado</label>
-          <select class="form-control" id="estado">
+          <label for="estadoActualizar">Estado</label>
+          <select class="form-control" id="estadoActualizar"
+                  name="estado" #estado="ngModel"
+                  [(ngModel)]="artistaActualizar.estado">
             <option value="activo">Activo</option>
             <option value="inactivo">Inactivo</option>
           </select>
         </div>
         <div class="form-group">
-          <label for="bio">Biografía</label>
-          <textarea id="bio" name="biografia" rows="8" cols="20"></textarea>
+          <label for="bioActualizar">Biografía</label>
+          <textarea id="bioActualizar" name="biografia"
+                    rows="8" cols="20"
+                    #biografia="ngModel"
+                    [(ngModel)]="artistaActualizar.biografia"></textarea>
         </div>
         <button type="submit" class="btn btn-success  btn-block">Editar Artista</button>
       </form>
@@ -107,7 +120,7 @@
                       </div>
                     </td>
                     <td>
-                      <button type="button" class="btn btn-info mx-1"> Edit </button>
+                      <button type="button" class="btn btn-info mx-1" (click)="setArtistaActualizar(artista)"> Edit </button>
                       <button type="button" class="btn btn-warning mx-1" (click)="updateEstado(artista)"> On/Off </button>
                       <button type="button" class="btn btn-danger mx-1" (click)="delete(artista)">Delete</button>
                     </td>
