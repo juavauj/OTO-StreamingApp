@@ -48,4 +48,17 @@ export class ArtistaService {
       options
     ).pipe(map(res => res));
   }
+
+  // ----------------------------------------------------------
+  // Declarar el método del servicio para subir imagen del artista
+  subirImg(id, archivoImagen: File) {
+    // NOTA: se toma como referencia el metodo visto en clase
+    // `cargarImagenUsuario` del archivo usuario.service.ts
+    let formData = new FormData();
+    formData.append('imagen', archivoImagen);
+    return this._http.put(
+      this.url + `subir-img-artista/${id}`,
+      formData
+    ).pipe(map(res=>res));
+  }  
 }
