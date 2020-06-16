@@ -1,8 +1,8 @@
 .main {
   width: 100vw;
   min-height: 100vh;
-  background: rgb(37,51,83);
-  background: linear-gradient(90deg, rgba(37,51,83,1) 0%, rgba(109,76,255,1) 71%);
+  background: rgb(20,29,51);
+  background: linear-gradient(130deg, rgba(20,29,51,1) 0%, rgba(109,76,255,1) 71%);
 }
 
 .container {
@@ -14,6 +14,7 @@
   margin-bottom: 50px;
 }
 // layout de tabla
+
 table {
   table-layout: fixed;
 }
@@ -26,7 +27,7 @@ table {
 }
 
 div.bio {
-  height: 120px;
+  max-height: 120px;
 }
 
 .scrollable {
