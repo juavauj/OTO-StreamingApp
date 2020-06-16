@@ -1,0 +1,129 @@
+<div class="gridSystem">
+  <div class="gridSystem__left mt-5 pt-2 ml-5">
+      <div class="gridSystem__formNuevo ml-4 mt-5">
+            <form class="bg-dark text-light p-3 rounded"> 
+              <div class="form-group">
+                <label for="exampleFormControlSelect1">Cancion</label>
+                <input type="text" class="form-control" id="titulo" placeholder="Titulo" aria-describedby="titulo">
+              </div>
+              <div class="form-group">
+                <label for="exampleFormControlSelect1">Artista</label>
+                 <select class="form-control" id="exampleFormControlSelect1" id="artistas">  <!-- Autofill de artistas -->
+                      <option>John Lennon</option> 
+                      <option>Mike Miyers</option>
+                      <option>Gilberto Santarosa</option>
+                    </select>                                          
+              </div>
+              <div class="form-group">
+                <label for="exampleFormControlSelect1">Album</label>
+                 <select class="form-control" id="exampleFormControlSelect1" id="albumes">  <!-- Autofill de artistas -->
+                      <option>Grandes exitos</option> 
+                      <option>Hits del anio</option>
+                      <option>bachata </option>
+                    </select>                                          
+              </div>  
+              <div class="form-group">
+                <label for="exampleFormControlSelect1">Duracion</label>
+                <input type="text" class="form-control" id="duracion" placeholder="timelapse" aria-describedby="titulo">
+              </div>   
+              <div class="form-group ">
+                <label for="exampleFormControlSelect1">Audio</label>
+                <input type="file" class="form-control bg-secondary border-0 text-light" id="file"  aria-describedby="file">
+              </div>           
+              <div class="form-group">                
+                <label for="exampleFormControlSelect1">Estado</label>
+                <select class="form-control" id="exampleFormControlSelect1" id="estado"> 
+                     <option>Activo</option> 
+                     <option>Inactivo</option>
+                   </select>                     
+              </div>                         
+              <button type="submit" class="btn btn-success  btn-block">Nueva cancion</button>
+            </form>
+      </div>
+      <div class="gridSystem__formEditar ml-4 top_gap">
+        <form class="bg-dark text-light p-3 rounded"> 
+          <div class="form-group">
+            <label for="exampleFormControlSelect1">Cancion</label>
+            <input type="text" class="form-control" id="titulo" placeholder="Titulo" aria-describedby="titulo">
+          </div>
+          <div class="form-group">
+            <label for="exampleFormControlSelect1">Artista</label>
+             <select class="form-control" id="exampleFormControlSelect1" id="artistas">  <!-- Autofill de artistas -->
+                  <option>John Lennon</option> 
+                  <option>Mike Miyers</option>
+                  <option>Gilberto Santarosa</option>
+                </select>                                          
+          </div>
+          <div class="form-group">
+            <label for="exampleFormControlSelect1">Album</label>
+             <select class="form-control" id="exampleFormControlSelect1" id="albumes">  <!-- Autofill de artistas -->
+                  <option>Grandes exitos</option> 
+                  <option>Hits del anio</option>
+                  <option>bachata </option>
+                </select>                                          
+          </div>  
+          <div class="form-group">
+            <label for="exampleFormControlSelect1">Duracion</label>
+            <input type="text" class="form-control" id="duracion" placeholder="timelapse" aria-describedby="titulo">
+          </div>   
+          <div class="form-group ">
+            <label for="exampleFormControlSelect1">Audio</label>
+            <input type="file" class="form-control bg-secondary border-0 text-light" id="file"  aria-describedby="file">
+          </div>           
+          <div class="form-group">                
+            <label for="exampleFormControlSelect1">Estado</label>
+            <select class="form-control" id="exampleFormControlSelect1" id="estado"> 
+                 <option>Activo</option> 
+                 <option>Inactivo</option>
+               </select>                     
+          </div>                         
+          <button type="submit" class="btn btn-success  btn-block">Editar cancion</button>
+        </form>
+      </div>
+  </div>
+  <div class="gridSystem__right">
+    <h1 class="text-center my-3 text-light">Panel Canciones</h1>
+    <div class="px-5">
+    <div class="px-5"> 
+      <div class="row">
+        <div class="col">
+            <div class="form-group">
+                <input type="text" name="filterPost" class="form-control" placeholder="Search.." [(ngModel)]="filterPost"> 
+            </div>
+        </div>
+    </div>
+
+    <div>
+      <table class="table table-striped table-dark rounded border border-secondary table-hover col-12 container-fluid">
+        <thead>
+            <tr>
+                <th>Cancion</th>
+                <th>Artista</th>                  
+                <th>Album</th>  
+                <th>Duracion</th>                 
+                <th>Archivo</th>                 
+                <th>Estado</th>              
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let post of posts | filter:filterPost">
+                <td>{{post.nombre}}</td>
+                <td>{{post.artista.nombre}}</td>
+                <td>{{post.album.nombre}}</td>                              
+                <td>{{post.duracion}}</td>                              
+                <td>{{post.archivoAudio}}</td>                                                      
+                <td>{{post.estado}}</td>
+                <td>
+                  <button type="button" class="btn btn-info mx-1"> Edit </button>
+                  <button type="button" class="btn btn-warning mx-1"> Off </button>
+                  <button type="button" class="btn btn-danger mx-1">Delete</button>                    
+                </td>                                 
+            </tr>
+        </tbody>
+    </table>
+  </div>
+    </div>
+  </div>
+  </div>
+</div>

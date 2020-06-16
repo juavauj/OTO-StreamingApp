@@ -1,0 +1,21 @@
+
+
+.gridSystem{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    width: 100%;
+    min-height: 100vh;
+    background: linear-gradient(to top, #30cfd0, #330867);
+    color: white;
+  }
+  
+ 
+.tittle{
+  font-size: 100px;
+}
+
+.p{
+  font-size: 50px;
+}

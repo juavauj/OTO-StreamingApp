@@ -1,12 +1,127 @@
-
-
-
-.container{
-    display: flex;
+@font-face {
+    font-family: PoppinsRegular;
+    src: url(/assets/font/Poppins-Regular.ttf);
+  }
+  @font-face {
+    font-family: PoppinsLight;
+    src: url(/assets/font/Poppins-Light.ttf);
+  }
+  @font-face {
+    font-family: PoppinsSemiBold;
+    src: url(/assets/font/Poppins-SemiBold.ttf);
+  }
+  
+  .body{
+    min-height: 100vh;
+    background-image: linear-gradient(to top, #23b3b3 0%, #330867 100%);
+  }
+  main{
     width: 100%;
-    height: 100vh;
-    flex-direction: column;
+    height: 100%;
+  }
+  .iniciar-sesion-container{
+    position: absolute;
+    display: flex;
     justify-content: center;
     align-items: center;
-}
-
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    height: 60vh;
+    width: 70%;
+  }
+  .form-container{
+      height: 80%;
+      width: 80%;
+  
+  }
+  form{
+    display: flex;
+    margin: auto;
+    width: 80%;
+    height: 100%;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-evenly;
+    
+  }
+  .input-form{
+    position: relative;
+    overflow: hidden;
+    height: 6vh;
+    width: 80%;
+  }
+  .input-form input {
+    width: 100%;
+    height: 100%;
+    padding-top: 11px;
+    border: none;
+    outline: none;
+    background-color: transparent;
+    color: lightblue;
+    font-size: 20px;
+    font-family: PoppinsLight;
+    
+  }
+  .input-form label{
+    position: absolute;
+    bottom: 0px;
+    left: 0px;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    border-bottom: 3px solid #30cfd0;
+    color: #30cfd0;
+    font-family: PoppinsRegular;
+  }
+  .input-form label::after{
+    content: "";
+    position: absolute;
+    left: 0px;
+    bottom: -4px;
+    height: 100%;
+    width: 100%;
+    border-bottom: 5px solid lightblue;
+    transform: translateX(-100%);
+    transition: transform 0.3s ease;
+  }
+  .content-input{
+    position: absolute;
+    bottom: 0px;
+    left: 0px;
+    transition: all 0.3s ease;
+    font-size: 23px;
+    letter-spacing: 0.8px;
+  }
+  
+  .input-form input:focus + .label-input .content-input,
+  .input-form input:valid + .label-input .content-input{
+    transform: translateY(-100%);
+    font-size: 20px;
+    color: lightblue;
+  }
+  
+  .input-form input:focus + .label-input::after,
+  .input-form input:valid + .label-input::after{
+    transform: translateX(0%);
+  }
+  
+  form button{
+    background-color: #330867;
+    color: #30cfd0;
+    width: 50%;
+    height: 8%;
+    border-radius: 15px;
+    outline: none;
+    border: none;
+    cursor: pointer;
+    font-family: PoppinsSemiBold;
+    font-size: 20px;
+    transition: all 0.2s ease-in-out;
+  }
+  form button:hover{
+    transform: scale(1.05);
+    
+  }
+  //
+  

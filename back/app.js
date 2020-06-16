@@ -2,13 +2,13 @@
 
 const express = require('express');
 const app = express();
-// Declaración de cors 
+// Declaración de cors
 const cors = require('cors');
 
 // Declaración de rutas a ejecutar por express
 const usuarioRutas = require('./rutas/usuarioRutas');
 const cancionRutas = require('./rutas/cancionesRutas');
-const artistaRutas = require('./rutas/ArtistasRutas');
+const artistaRutas = require('./rutas/artistasRutas');
 const albumRutas = require('./rutas/albumesRutas');
 const playlistRutas = require('./rutas/playlistsRutas');
 

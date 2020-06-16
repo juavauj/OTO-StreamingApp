@@ -58,3 +58,39 @@ header nav ul li a{
     margin: 5px;
     transition: all 0.3s ease;
 } */
+.dropbtn {
+    color: white;
+    padding: 16px;
+    font-size: 16px;
+    border: none;
+  }
+  
+  .dropdown {
+    position: relative;
+    display: inline-block;
+  }
+  
+  .dropdown-content {
+    display: none;
+    position: absolute;
+    min-width: 160px;
+    z-index: 1;
+  }
+  
+  .dropdown-content a {
+    color: black;
+    padding: 0 !important;
+    padding-left: 14px !important;
+    height: 5vh !important;
+    line-height: 5vh !important;
+    
+    text-decoration: none;
+    display: block;
+  }
+  
+  header nav ul li a:hover {
+      color: white;
+  }
+  
+  .dropdown:hover .dropdown-content {display: block;}
+  

@@ -8,6 +8,7 @@ import { UsuarioService } from '../../services/usuario.service';
   styleUrls: ['./perfil-usuario.component.scss']
 })
 export class PerfilUsuarioComponent implements OnInit {
+  public rutaImagen;
 
   // Declarar la variable usuarioActualizar
 
@@ -32,6 +33,8 @@ export class PerfilUsuarioComponent implements OnInit {
     // usuarioActualizar = {nombre: "Pepe", apellido}
     this.usuarioActualizar = JSON.parse(localStorage.getItem('sesion'));
     this.identidad = this.usuarioService.obtenerNombreUsuario();
+
+    this.rutaImagen= this.url + 'obtenerImgUsuario/' + this.usuarioActualizar.imagen;
   }
 
   // Método subirArchivo
@@ -54,13 +57,15 @@ export class PerfilUsuarioComponent implements OnInit {
             alert(`Tu imagen es ${this.archivoSubir.name}`);
             this.usuarioService.cargarImagenUsuario(this.archivoSubir, this.usuarioActualizar._id).subscribe(
               (result: any) => {
+                console.log('entro a img')
                 this.usuarioActualizar.imagen = result.imagen;
                 localStorage.setItem('sesion', JSON.stringify(this.usuarioActualizar));
 
                 // Mostrar la imagen 
-                let rutaImagen = this.url + 'obtenerImagen/' + this.usuarioActualizar.imagen;
+                this.rutaImagen = this.url + 'obtenerImgUsuario/' + this.usuarioActualizar.imagen;
                 //document.getElementById('mostrarImagen').setAttribute('src', rutaImagen);
-                document.getElementById('imgUsuario').setAttribute('src', rutaImagen);
+                document.getElementById('imgUsuario').setAttribute('src', this.rutaImagen);
+                console.log(this.rutaImagen)
 
                 // Cierre mostrar imagen
 

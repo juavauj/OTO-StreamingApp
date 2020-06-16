@@ -4,147 +4,24 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Administrador</title>
-    <script src="https://kit.fontawesome.com/7045981063.js"  crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.0-2/css/all.min.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+
 </head>
 <body>
+    <!-- <app-nav-landing></app-nav-landing> -->
     <div class="sidenav">
-        <a href="#welcome">*</a>
-        <a href="#albumes">*</a>
-        <a href="#artistas">*</a>
-        <a href="#canciones">*</a>
-        <a href="#playlist">*</a>
-        <a href="#usuarios">*</a>
-        <a href="#admins">*</a>
-      </div>
-      
-      <!-- Page content -->
-      <div class="main">
-        <div class="section welcome" id="welcome">
-            <div class="texto-welcome">
-                <h1> OTO </h1>
-                <h2> Bienvenido al  </h2>
-                <h2> panel de administradores</h2>  
-            </div>
-        </div>
-        <div class="section albumes" id="albumes">
-            <div class="albumes__container">
-                <div class="albumes__formularios">
-                    <div class="center">
-                     <div class="albumes__crear">
-                            <h3 class="crear__titulo">Album info</h3>
-                            <form class="albumes__form">
-                                <div class="albumes__form__input">                
-                                <input type="text" placeholder="Album">
-                                <label for=""></label>
-                                </div>
-                                <div class="albumes__form__input">                
-                                    <input type="textarea" placeholder="Artistas">
-                                    <label for=""></label>
-                                </div>
-                                <div class="albumes__form__input">                
-                                    <input type="file" placeholder="imagen" class="album__file">
-                                    <label for=""></label>
-                                </div>
-                                <div class="albumes__form__input">                
-                                    <input type="text" placeholder="Disquera">
-                                    <label for=""></label>
-                                </div>
-                                <div class="albumes__form__input">                
-                                    <input type="text" placeholder="year">
-                                    <label for=""></label>
-                                </div>
-                                <div class="albumes__form__input">                
-                                    <input type="textarea" placeholder="canciones">
-                                    <label for=""></label>
-                                </div>
-                                <div class="albumes__form__input">                
-                                    <input type="textarea" placeholder="estado">
-                                    <label for=""></label>
-                                </div>
-                                <button type="submit" class="album__btn" > Crear nuevo </button>
-                            </form>                        
-                     </div>
-                  </div> 
-                  <div class="center">
-                  <div class="albumes__editar">                    
-                        <h3 class="crear__titulo">Editor</h3>
-                        <form class="albumes__form">
-                            <div class="albumes__form__input">                
-                                <input type="text" placeholder="Album" class="imput__text">
-                                <label for=""></label>
-                            </div>
-                            <div class="albumes__form__input">                
-                                <input type="textarea" placeholder="Artistas">
-                                <label for=""></label>
-                            </div>
-                            <div class="albumes__form__input">                
-                                <input type="file" placeholder="imagen">
-                                <label for=""></label>
-                            </div>
-                            <div class="albumes__form__input">                
-                                <input type="text" placeholder="Disquera">
-                                <label for=""></label>
-                            </div>
-                            <div class="albumes__form__input">                
-                                <input type="text" placeholder="year">
-                                <label for=""></label>
-                            </div>
-                            <div class="albumes__form__input">                
-                                <input type="textarea" placeholder="canciones">
-                                <label for=""></label>
-                            </div>
-                            <div class="albumes__form__input">                
-                                <input type="textarea" placeholder="estado">
-                                <label for=""></label>
-                            </div>
-                            <button type="submit" class="album__btn"> Actualizar </button>
-                        </form>
-                     </div> 
-                  </div> 
-                </div>
-                <div class="albumes__autofil">
-                  <div class="albumes__titulo">
-                      <h1 class="autofil__titulo"> Panel de albumes </h1>
-                      
-                  </div>
-                  <div class="albumes__cards"> 
-                    <div class="flip-card">   
-                        <div class="flip-card-inner">
-                            <div class="flip-card-front">
-                              <img src="../../../assets/images/adminIcon.png" alt="" style="width:300px;height:300px;">                              
-                            </div>
-                            <div class="flip-card-back">
-                              <h4>Album name</h4>
-                              <p>2020</p>
-                              <p>bachata,pop,rock</p>
-                              <h5>warner music</h5>
-                              <h5>activo</h5>
-                              <p>1. Lorem ipsum dolor sit amet. 1. Lorem ipsum dolor sit amet.1. Lorem ipsum dolor sit amet.1. Lorem ipsum dolor sit amet.1. Lorem ipsum dolor sit amet.</p>
-                            </div>
-                          </div>           
-                    </div> 
-                  </div>
-                </div>
-              </div>
-        </div>
-        <div class="section artistas" id="artistas">
-            <h1> Artistas </h1>
-        </div>
-        <div class="section canciones" id="canciones">
-            <h1> canciones </h1>
-        </div>
-        <div class="section playlist" id="playlist">
-            <h1> Playlist </h1>
-        </div>
-        <div class="section usuarios" id="usuarios">
-            <h1> Usuarios </h1>
-        </div>
-        <div class="section admins" id="admins">
-            <h1> Admins </h1>
-        </div>
-      </div>
-    
+        <a routerLink="welcome"><i class="fa fa-home"></i></a>
+        <a routerLink="albumes"><i class="fa fa-record-vinyl"></i></a>
+        <a routerLink="canciones"><i class="fa fa-music"></i></a>
+        <a routerLink="usuarios"><i class="fa fa-users"></i></a>
+        <a routerLink="playlist"><i class="fa fa-list-ol"></i></a>
+        <a routerLink="artistas"><i class="fas fa-podcast"></i></a>
+    </div>
+      <router-outlet></router-outlet>
+
+
 </body>
 
- 
+
 </html>

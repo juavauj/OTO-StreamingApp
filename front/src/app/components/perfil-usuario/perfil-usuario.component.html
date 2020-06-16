@@ -1,4 +1,5 @@
 <main>
+  <app-nav-landing></app-nav-landing>
   <div class="perfil-container">
 
     <!-- 
@@ -11,18 +12,24 @@
     -->
     <section class="welcome-perfil">
 
-      <img  id="imgUsuario" style="width: 80px;"/>
-      <span>Bienvenido {{identidad.nombre}}</span>
+      <!-- <img  id="imgUsuario" style="width: 80px;"/> -->
+      <!-- <img id="imgUsuario" src="{{ url + 'obtenerImagen/' + identidad.imagen }}" /> -->
+      <div class="welcome-container">
+        <span class="welcome-text">Bienvenido {{identidad.nombre}}</span>
+        <img class="img-user" id="imgUsuario" src="{{ rutaImagen }}" style="width: 100px;">
+
+      </div>
+      
     
     </section>
 
     <aside class="menu-perfil">
       <div class="btn-perfil">
+
         <a routerLink="/perfil/vista"> Vista General</a>
         <a routerLink="/perfil/editar"> Editar Perfil</a>
 
-      </div>
-      
+      </div>      
     </aside>
 
     <section class="panel-editar-perfil">
