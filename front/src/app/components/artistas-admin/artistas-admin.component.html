@@ -11,8 +11,11 @@
           </div>
         </div>
         <div class="form-group ">
-          <label for="file">Imagen</label>
-          <input type="file" class="form-control bg-secondary border-0 text-light" id="file">
+          <label for="imagen-nuevo-artista">Imagen</label>
+          <input type="file"
+                 class="form-control bg-secondary border-0 text-light"
+                 id="imagen-nuevo-artista"
+                 (change)="subirNuevaImg($event)">
         </div>
         <div class="form-group">
           <label for="estado">Estado</label>

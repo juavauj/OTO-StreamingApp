@@ -20,6 +20,9 @@ export class ArtistasAdminComponent implements OnInit {
   // corresponde al formulario para nuevo artista
   nuevoArtista: Artista;
 
+  // corresponde a la imagen del nuevo artista
+  nuevaImagen: File;
+
   constructor(private artistaService: ArtistaService) {
     this.nuevoArtista = new Artista('', '', 'activo', '', '');
   }
@@ -100,7 +103,50 @@ export class ArtistasAdminComponent implements OnInit {
   }
 
   addArtista() {
-    console.log(this.nuevoArtista);
+    // tomando como referencia `registro` en el servicio `UsuarioService` del
+    // ejemplo del profesor
+    this.artistaService.addArtista(this.nuevoArtista)
+      .subscribe(
+        (response: any) => {
+          this.nuevoArtista = response.artista;
+          if (!this.nuevoArtista._id) {
+            alert(`${this.nuevoArtista.nombre} no se ha podido registrar!`);
+          } else {
+            alert(`Artista ${this.nuevoArtista.nombre} registrado!`);
+            // ahora se procede a cargar la imagen (de haber una)
+            if (!this.nuevaImagen) {
+              alert(`No has seleccionado una imagen para ${this.nuevoArtista.nombre}`);
+            } else {
+              alert(`La imagen seleccionada es ${this.nuevaImagen.name}`);
+              // utilizar el servicio de carga de imagen
+              this.artistaService.subirImg(this.nuevoArtista._id, this.nuevaImagen)
+                .subscribe(
+                  (result: any) => {
+                    // tener en cuenta que aca no se revisan errores
+                  }
+                );
+              // limpiar para nueva imagen
+              this.nuevaImagen = undefined;
+            }
+            // limpiar para un nuevo artista
+            this.nuevoArtista = new Artista('', '', 'activo', '', '');
+            // rellenar con artistas actualizados
+            this.getArtistas();
+          }
+        },
+        error => {
+          let errorMensaje = <any>error;
+          if (errorMensaje != null) {
+            alert(`${this.nuevoArtista.nombre} no se ha podido registrar!`);
+          }
+        }
+      );
+  }
+
+  // se actualiza la imagen a subir cada vez que el usuario selecciona
+  // una a traves del formulario de nuevo artista
+  subirNuevaImg(evt: any) {
+    this.nuevaImagen = <File>evt.target.files[0];
   }
 
 }
