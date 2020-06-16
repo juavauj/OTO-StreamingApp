@@ -108,9 +108,11 @@ export class UsuarioService {
   //----------------------------------------------------------
   // Declarar el método del servicio editarUsuario
   editarusuario(id, usuarioActualizado) {
+    
     let params = JSON.stringify(usuarioActualizado);
+    console.log(`id ${id} user ${params}`)
     let options = {
-      headers: new HttpHeaders({ 'Content-Type': 'aplication/json' })
+      headers: new HttpHeaders({ 'Content-Type': 'application/json' })
     }
     return this._http.put(
       this.url + 'actualizar-usuario/' + id,
@@ -126,7 +128,7 @@ export class UsuarioService {
     let formData = new FormData();
     formData.append('imagen', file);
     return this._http.put(
-      this.url + 'subirImagen/' + id,
+      this.url + 'subirImagenUsuario/' + id,
       formData
     ).pipe(map(res => res));
   }

@@ -9,19 +9,19 @@ const subirImgDirectorio = multipart({uploadDir: './archivos/usuarios'});
 var api = express.Router();
 
 // Rutas Registrar Usuario -> angular url hhtp:/localhost:3000/api/
-api.post('/registro', UsuarioControl.registrarUsuario);//check
+api.post('/registro', UsuarioControl.registrarUsuario);//check x2
 
 // Ruta Login
-api.post('/login', UsuarioControl.login);//check
+api.post('/login', UsuarioControl.login);//check x2
 
 // Ruta Actualizar Usuario
-api.put('/actualizar-usuario/:id', UsuarioControl.actualizarUsuario);//check
+api.put('/actualizar-usuario/:id', UsuarioControl.actualizarUsuario);//check x2
 
 // Ruta Subir Imagen Usuario
-api.put('/subirImagenUsuario/:id', subirImgDirectorio, UsuarioControl.subirImg);//check
+api.put('/subirImagenUsuario/:id', subirImgDirectorio, UsuarioControl.subirImg);//check x2
 
 // Ruta mostrar Imagen Usuario
-api.get('/obtenerImgUsuario/:imageFile', UsuarioControl.mostrarArchivo);//check
+api.get('/obtenerImgUsuario/:imageFile', UsuarioControl.mostrarArchivo);//check x2
 
 // Ruta mostara usuarios
 api.get('/obtenerUsuarios', UsuarioControl.obtenerUsuarios);//check

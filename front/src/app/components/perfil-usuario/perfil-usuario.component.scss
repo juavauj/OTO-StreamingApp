@@ -43,22 +43,29 @@
     border-radius: 15px;
     -webkit-box-shadow: 0px 4px 25px 10px rgba(0,0,0,0.57);
     -moz-box-shadow: 0px 4px 25px 10px rgba(0,0,0,0.57);
-    box-shadow: 0px 4px 25px 10px rgba(0,0,0,0.57);
+    box-shadow: 0px 3px 3px 1px rgba(0, 0, 0, 0.57);
 }
 .welcome-perfil{
     grid-area: welcome_perfil;
+    display: flex;
     color: #95DBE5;
+    align-items: center;
+    justify-content: flex-end;
     //border: 1px solid white;
-    background-color: #240050;
+    //background-color: #240050;
     border-radius: 15px 15px 0 0;
     font-family: PoppinsSemiBold;
     font-size: 40px;
     letter-spacing: 1.5px;
+
+    -webkit-box-shadow: inset 0px -20px 58px -55px rgba(0, 0, 0, 0.85);
+    -moz-box-shadow: inset 0px -20px 58px -55px rgba(0, 0, 0, 0.85);
+    box-shadow: inset 0px -20px 58px -55px rgba(0, 0, 0, 0.85);
 }
 .menu-perfil{
     grid-area: menu_perfil;
     color: #95DBE5;
-    background-color: #240050;
+    //background-color: #240050;
     border-bottom-left-radius: 15px;
     max-width: 100%;
     //border: 1px solid white;
@@ -69,6 +76,7 @@
     left: 14%;
     width: 67%;
 }
+
 .menu-perfil a{
     display: flex;
     flex-direction: column;
@@ -79,9 +87,34 @@
     color: #95DBE5;
     text-decoration: none;
 }
+.menu-perfil a:hover {
+    color: white;
+}
+
 .panel-editar-perfil{
     grid-area: editar_perfil;
+    -webkit-box-shadow: inset 27px 28px 32px -49px rgba(0, 0, 0, 0.85);
+-moz-box-shadow: inset 27px 28px 32px -49px rgba(0, 0, 0, 0.85);
+box-shadow: inset 27px 28px 32px -49px rgba(0, 0, 0, 0.85);
     //border: 1px solid white;
-    background-color: rgb(249, 254, 255);
+    //background-color: rgb(249, 254, 255);
     border-bottom-right-radius: 15px;
+ 
+}
+
+.welcome-container{
+    width: 80%;
+    height: 100%;
+    align-items: center;
+    display: grid;
+    grid-template-areas:
+        'welcome_texto img_user';
+    //grid-gap: 10px;
+    grid-template-columns: 80% 20% ;
+}
+.welcome-text{
+    grid-area:welcome_texto;
+}
+.img-user{
+    grid-area: img_user;
 }

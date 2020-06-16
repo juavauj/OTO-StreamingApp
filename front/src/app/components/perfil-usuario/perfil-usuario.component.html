@@ -12,8 +12,14 @@
     -->
     <section class="welcome-perfil">
 
-      <img  id="imgUsuario" style="width: 80px;"/>
-      <span>Bienvenido {{identidad.nombre}}</span>
+      <!-- <img  id="imgUsuario" style="width: 80px;"/> -->
+      <!-- <img id="imgUsuario" src="{{ url + 'obtenerImagen/' + identidad.imagen }}" /> -->
+      <div class="welcome-container">
+        <span class="welcome-text">Bienvenido {{identidad.nombre}}</span>
+        <img class="img-user" id="imgUsuario" src="{{ rutaImagen }}" style="width: 100px;">
+
+      </div>
+      
     
     </section>
 

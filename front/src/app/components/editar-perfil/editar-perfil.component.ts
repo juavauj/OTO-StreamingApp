@@ -54,13 +54,15 @@ export class EditarPerfilComponent implements OnInit {
            alert(`Tu imagen es ${this.archivoSubir.name}`);
            this.usuarioService.cargarImagenUsuario(this.archivoSubir, this.usuarioActualizar._id).subscribe(
              (result: any) => {
+              console.log('entro a img')
                this.usuarioActualizar.imagen = result.imagen;
                localStorage.setItem('sesion', JSON.stringify(this.usuarioActualizar));
 
                // Mostrar la imagen 
-               let rutaImagen = this.url + 'obtenerImagen/' + this.usuarioActualizar.imagen;
+               let rutaImagen = this.url + 'obtenerImgUsuario/' + this.usuarioActualizar.imagen;
                //document.getElementById('mostrarImagen').setAttribute('src', rutaImagen);
                document.getElementById('imgUsuario').setAttribute('src', rutaImagen);
+               console.log(rutaImagen)
 
                // Cierre mostrar imagen
 

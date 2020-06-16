@@ -12,7 +12,7 @@ const DB = 'mongodb://localhost:27017/otoMusicApp';
 
 // Conexión a y Servidor
 
-mongoose.connect(DB, (err, res)=>{
+mongoose.connect(DB, {useUnifiedTopology:true, useNewUrlParser:true},(err, res)=>{
     if(err){
         console.log(`El error es ${err}`);
     }else{
