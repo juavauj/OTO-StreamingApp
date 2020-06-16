@@ -35,6 +35,11 @@ import { WelcomeAdminComponent } from './components/welcome-admin/welcome-admin.
 import { VistaPerfilComponent } from './components/vista-perfil/vista-perfil.component';
 import { EditarPerfilComponent } from './components/editar-perfil/editar-perfil.component';
 
+// Importar Guards
+
+import { AuthGuard } from './guards/auth.guard';
+import { RoleGuard } from './guards/role.guard';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -61,7 +66,12 @@ import { EditarPerfilComponent } from './components/editar-perfil/editar-perfil.
     EditarPerfilComponent
   ],
   imports: [BrowserModule, AppRoutingModule, FormsModule, HttpClientModule, BrowserAnimationsModule],
-  providers: [UsuarioService, NavSwitchService],
+  providers: [
+    UsuarioService,
+    NavSwitchService,
+    AuthGuard,
+    RoleGuard  
+  ],
   bootstrap: [AppComponent],
 })
 export class AppModule { }

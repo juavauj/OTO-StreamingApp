@@ -20,6 +20,7 @@
 .form-container{
     height: 100%;
     width: 100%;
+    background-color: transparent;
 
 }
 form{
@@ -45,7 +46,7 @@ form{
   border: none;
   outline: none;
   background-color: transparent;
-  color: #370574;
+  color: white;
   font-size: 20px;
   font-family: PoppinsRegular;
   
@@ -57,8 +58,8 @@ form{
   width: 100%;
   height: 100%;
   pointer-events: none;
-  border-bottom: 1px solid #370574;
-  color: #370574;
+  border-bottom: 1px solid white;
+  color: white;
   font-family: PoppinsRegular;
 }
 .input-form label::after{

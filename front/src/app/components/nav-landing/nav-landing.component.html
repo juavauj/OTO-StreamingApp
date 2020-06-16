@@ -16,15 +16,25 @@
                 <a routerLink="/premium">Premium</a>
             </li> -->
             <li>
-                <a *ngIf="isLoggedIn; else registro">Reproductor Web</a>
+                <a *ngIf="isLoggedIn; else registro" routerLink="/reproductor">Reproductor Web</a>
                 <ng-template #registro>
                     <a routerLink="/registro" (click)="switchNav('/registro')">Registrarse</a>
                 </ng-template>
                 
             </li>
             <li>
-                <a *ngIf="isLoggedIn; else login">User</a>
+               <!--  <a routerLink="/perfil/vista">User</a> -->
+                    <div *ngIf="isLoggedIn; else login"  class="dropdown">
+                        <a class="dropbtn">User</a>
+                        <div class="dropdown-content">
+                          <a routerLink="/perfil/vista">Editar Perfil</a>
+                          <a *ngIf="rol==='admin'" routerLink="/admin">Panel Admin</a>
+                          <a (click)="logOut()">Cerrar Sesión</a>
+                        </div>
+                      </div>
                 <ng-template #login>
+                   
+
                     <a routerLink="/loginUsuario" (click)="switchNav('/registro')">Iniciar Sesión</a>
                 </ng-template>
                 

@@ -12,17 +12,18 @@ function registrarUsuario(req, res){
     usuario.nombre = parametros.nombre;
     usuario.apellido = parametros.apellido;
     usuario.correo = parametros.correo;
-    usuario.usuario = parametros.usuario;
+    usuario.usuario = 'usuario';
     usuario.contrasena = parametros.contrasena;
-    usuario.rol = parametros.rol;
-    usuario.imagen = parametros.imagen;
-    usuario.suscripcion = parametros.suscripcion;
-    usuario.estado = parametros.estado;
+    usuario.rol = 'admin';
+    usuario.imagen = null;
+    usuario.suscripcion = 'lite';
+    usuario.estado = 'activo';
 
     console.log(usuario)
     console.log(parametros)
     
     usuario.save((err, usuarioNuevo)=>{
+        console.log(err)
         if(err){
             res.status(500).send({message: "Error en el servidor"});
             console.log(err);
@@ -133,10 +134,13 @@ async function usuariosEstado(req, res){
 // Función Login
 function login(req, res){
     var parametros = req.body;
-    var user = parametros.usuario;
+    //var user = parametros.usuario;
+    var correo = parametros.correo;
     var contraUsuario = parametros.contrasena;
 
-    Usuario.findOne({usuario: user}, (err, usuarioLogeado)=>{
+    console.log(parametros);
+
+    Usuario.findOne({correo: correo }, (err, usuarioLogeado)=>{
         if(err){
             res.status(500).send({message: "Error en el servidor"});
         }else{
@@ -146,6 +150,7 @@ function login(req, res){
                 if(usuarioLogeado.contrasena != contraUsuario){
                     res.status(200).send({message: "Contraseña incorrecta"});
                 }else{
+                    console.log('sa',usuarioLogeado)
                     res.status(200).send({
                         message: "Usuario Logueado!",
                         usuario: usuarioLogeado

@@ -24,10 +24,14 @@ export class LoginUsuarioComponent implements OnInit {
   public identidad;
 
   constructor(private usuarioService : UsuarioService, private _router : Router, private navSwitchService : NavSwitchService) { 
-    this.login = new Usuario("","","","","","usuario","");
+    this.login = new Usuario("","","","","","","usuario","");
   }
 
   ngOnInit(): void {
+
+    if(this.usuarioService.isLogged()){
+      this._router.navigate(['/']);
+    }
   }
   // Metodo loginUsuario que consumira el servicio iniciarSesion
   loginUsuario(){
@@ -35,6 +39,7 @@ export class LoginUsuarioComponent implements OnInit {
       (response : any)=>{
         let usuario = response.usuario;
         this.login = usuario;
+        console.log('res', usuario)
         console.log(this.login)
         
         if(this.login){
@@ -42,6 +47,7 @@ export class LoginUsuarioComponent implements OnInit {
             this.login._id,
             this.login.nombre,
             this.login.apellido,
+            this.login.usuario,
             this.login.correo,
             this.login.contrasena,
             this.login.rol,

@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+/* import { Component, OnInit } from '@angular/core';
 
 // Importar el módelo de Usuario
 import { Usuario } from '../../modelo/usuario';
@@ -29,7 +29,7 @@ export class UsuariosComponent implements OnInit {
     private _router: Router,
     private http: HttpClient
   ) { 
-    this.usuarioRegistro = new Usuario('', '', '', '', '', 'usuario', '');
+    this.usuarioRegistro = new Usuario('', '', '', '','', '', 'usuario', '');
   }
 
   ngOnInit(): void {
@@ -46,7 +46,7 @@ export class UsuariosComponent implements OnInit {
           alert("Error al registrarse");
         } else {
           alert(`Registro exitoso! Inicia sesión con ${this.usuarioRegistro.correo}`);
-          this.usuarioRegistro = new Usuario('', '', '', '', '', 'usuario', '');
+          this.usuarioRegistro = new Usuario('', '', '','', '', '', 'usuario', '');
           this._router.navigate(['/loginUsuario']);
         }
       },
@@ -69,3 +69,4 @@ export class UsuariosComponent implements OnInit {
 
 
 }
+ */
