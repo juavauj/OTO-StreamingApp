@@ -173,20 +173,20 @@ export class ArtistasAdminComponent implements OnInit {
       this.artistaActualizar._id, this.artistaActualizar)
       .subscribe(
         (response: any) => {
-          this.artistaActualizado = response.artista;
-          if (!this.artistaActualizado._id) {
-            alert(`${this.artistaActualizado.nombre} no se ha podido actualizar!`);
+          this.artistaActualizar = response.artista;
+          if (!this.artistaActualizar._id) {
+            alert(`${this.artistaActualizar.nombre} no se ha podido actualizar!`);
           } else {
-            alert(`Artista ${this.artistaActualizado.nombre} actualizado!`);
+            alert(`Artista ${this.artistaActualizar.nombre} actualizado!`);
             // rellenar con artistas actualizados (sin imagen)
             this.getArtistas();
             // ahora se procede a cargar la imagen (de haber una)
             if (!this.imagenActualizar) {
-              alert(`No has seleccionado una imagen para ${this.artistaActualizado.nombre}`);
+              alert(`No has seleccionado una imagen para ${this.artistaActualizar.nombre}`);
             } else {
               alert(`La imagen seleccionada es ${this.imagenActualizar.name}`);
               // utilizar el servicio de carga de imagen
-              this.artistaService.subirImg(this.artistaActualizado._id, this.imagenActualizar)
+              this.artistaService.subirImg(this.artistaActualizar._id, this.imagenActualizar)
                 .subscribe(
                   (result: any) => {
                     // tener en cuenta que aca no se revisan errores
@@ -198,7 +198,7 @@ export class ArtistasAdminComponent implements OnInit {
               this.imagenActualizar = undefined;
             }
             // limpiar para un nuevo artista a actualizar
-            this.artistaActualizado = undefined;
+            this.artistaActualizar = undefined;
           }
         },
         error => {
