@@ -22,7 +22,7 @@ export class LoginAdminComponent implements OnInit {
  public identidad;
 
  constructor(private usuarioService : UsuarioService, private _router : Router, private navSwitchService : NavSwitchService) { 
-   this.login = new Usuario("","","","","","","usuario","");
+   this.login = new Usuario("","","","","","","","","","");
  }
 
   ngOnInit(): void {

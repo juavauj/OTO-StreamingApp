@@ -12,11 +12,11 @@ function registrarUsuario(req, res){
     usuario.nombre = parametros.nombre;
     usuario.apellido = parametros.apellido;
     usuario.correo = parametros.correo;
-    usuario.usuario = 'usuario';
+    usuario.nick = 'usuario';
     usuario.contrasena = parametros.contrasena;
     usuario.rol = 'admin';
     usuario.imagen = null;
-    usuario.suscripcion = 'lite';
+    usuario.tipoSuscripcion = 'lite';
     usuario.estado = 'activo';
 
     console.log(usuario)
