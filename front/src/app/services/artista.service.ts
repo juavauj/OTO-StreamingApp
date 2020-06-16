@@ -34,4 +34,18 @@ export class ArtistaService {
       this.url + `borrar-artista/${id}`
     ).pipe(map(res => res));
   }
+
+  // ----------------------------------------------------------
+  // Declarar el método del servicio de actualizacion de artista
+  actualizarArtista(id, artistaActualizado) {
+    let params = JSON.stringify(artistaActualizado);
+    let options = {
+      headers: new HttpHeaders({ 'Content-Type': 'application/json' })
+    }
+    return this._http.put(
+      this.url + `actualizar-artista/${id}`,
+      params,
+      options
+    ).pipe(map(res => res));
+  }
 }
