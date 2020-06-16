@@ -2,20 +2,12 @@ import { Component, OnInit } from '@angular/core';
 
 import { gsap, ScrollTrigger, Draggable, MotionPathPlugin } from "gsap/all";
 
+import inView from 'in-view';
+
 declare var ScrollMagic: any;
 
 gsap.registerPlugin(ScrollTrigger, Draggable, MotionPathPlugin);
 
-
-// Timeline
-
-function timeline() {
-  let tl = gsap.timeline(); //create the timeline
-
-  tl.from(".uno", { x: 100 }) //start sequencing
-    .to(".dos", { y: 100, ease: "elastic" })
-    .to(".tres", { rotation: 180 });
-}
 
 
 @Component({
@@ -29,10 +21,7 @@ export class LandingComponent implements OnInit {
   constructor() { }
 
   ngOnInit() {
-    this.resize();
-
-
-    // timeline();
+    this.gsapAnimations();
   }
 
 
@@ -41,10 +30,33 @@ export class LandingComponent implements OnInit {
     -----------------------------------------------------------------------------------------------------------------------------------  
   */
 
-  // Resize
+  gsapAnimations() {
 
-  resize() {
+    // var $target = $('.wrapper');
 
+    // inView('.section').on('enter', function (el) {
+    //   var color = $(el).attr('data-background-color');
+    //   $target.css('background-color', color);
+    // });
+
+    // Cuando se actualiza vuelve a la posición inicial de la página
+    window.onbeforeunload = function () {
+      window.scrollTo(0, 0);
+    };
+
+    // Funciones para desactivar y activar el scroll en la página
+    function disableScrolling() {
+      var x = window.scrollX;
+      var y = window.scrollY;
+      window.onscroll = function () { window.scrollTo(x, y); };
+    };
+
+    function enableScrolling() {
+      window.onscroll = function () { };
+    };
+
+
+    // Condición para responsive en la página
     if (window.matchMedia("(min-width: 650px)").matches) {
 
       // Scroll Horizontal
@@ -53,7 +65,6 @@ export class LandingComponent implements OnInit {
         let container = document.getElementById("container");
 
         let sections = gsap.utils.toArray(".slide");
-
 
         gsap.to(container, {
           x: () => -(container.scrollWidth - document.documentElement.clientWidth) + "px",
@@ -72,6 +83,7 @@ export class LandingComponent implements OnInit {
 
       // Animacion Inicio
       (function logoInicio() {
+
         gsap.from(".logo1", {
           opacity: 0,
           duration: 2,
@@ -90,8 +102,8 @@ export class LandingComponent implements OnInit {
           opacity: 0,
           duration: 1.5,
           y: 200,
-          delay: 0.5,
-          ease: " back.out(1.7)"
+          ease: " back.out(1.7)",
+          onStart: disableScrolling
         })
 
         gsap.from(".logoName", {
@@ -105,7 +117,8 @@ export class LandingComponent implements OnInit {
         gsap.to(".overlay", 1.5, {
           top: "-100%",
           delay: 5,
-          ease: "sine.inOut"
+          ease: "sine.inOut",
+          onComplete: enableScrolling
         })
       })();
 
@@ -114,15 +127,26 @@ export class LandingComponent implements OnInit {
       (function slide1() {
         gsap.from(".imgUno", {
           opacity: 0,
+          x: -50,
           duration: 1,
           delay: 6,
           ease: "sine.out"
         })
 
-        gsap.from(".textoUno", {
+        gsap.from(".tituloUno", {
           opacity: 0,
+          y: 70,
           duration: 1,
           delay: 7,
+          ease: "sine.out"
+        })
+
+        gsap.from(".parrafoUno", {
+          opacity: 0,
+
+          y: 70,
+          duration: 1,
+          delay: 7.5,
           ease: "sine.out"
         })
       })();
@@ -130,59 +154,95 @@ export class LandingComponent implements OnInit {
       // Animacion Slide 2
 
       (function slide2() {
-        // let container = document.getElementById("container");
-        gsap.from(".textoDos", {
-          opacity: 0, duration: 2, scrollTrigger: {
+
+        gsap.from(".tituloDos", {
+          opacity: 0,
+          duration: 1,
+          ease: "sine.out",
+          y: 70,
+          scrollTrigger: {
             trigger: ".textoDos",
             // markers: true,
-            start: "200",
-            end: "+=500",
-            // horizontal: true
+            start: "150",
+            end: "+=500"
           }
         })
+
+        gsap.from("#parrafoDos", {
+          opacity: 0,
+          duration: 1,
+          ease: "sine.out",
+          y: 70,
+          delay: 0.5,
+          scrollTrigger: {
+            trigger: ".textoDos",
+            // markers: true,
+            start: "150",
+            end: "+=500"
+          }
+        })
+
         gsap.from(".album1", {
-          opacity: 0, duration: 2, scrollTrigger: {
+          opacity: 0,
+          duration: 2,
+          x: 500,
+          scrollTrigger: {
             trigger: ".imgDos",
             // markers: true,
-            start: "500",
-            end: "+=500",
-            // horizontal: true
+            start: "450",
+            end: "+=500"
+
           }
         })
         gsap.from(".album2", {
-          opacity: 0, duration: 2, scrollTrigger: {
+          opacity: 0,
+          duration: 2,
+          x: 500,
+          delay: 0.2,
+          scrollTrigger: {
             trigger: ".imgDos",
             // markers: true,
-            start: "510",
-            end: "+=500",
-            // horizontal: true
+            start: "450",
+            end: "+=500"
+
           }
         })
         gsap.from(".album3", {
-          opacity: 0, duration: 2, scrollTrigger: {
+          opacity: 0,
+          duration: 2,
+          x: 500,
+          delay: 0.6,
+          scrollTrigger: {
             trigger: ".imgDos",
             // markers: true,
-            start: "520",
-            end: "+=500",
-            // horizontal: true
+            start: "450",
+            end: "+=500"
+
           }
         })
         gsap.from(".album4", {
-          opacity: 0, duration: 2, scrollTrigger: {
+          opacity: 0,
+          duration: 2,
+          x: 500,
+          delay: 1.4,
+          scrollTrigger: {
             trigger: ".imgDos",
             // markers: true,
-            start: "540",
-            end: "+=500",
-            // horizontal: true
+            start: "450",
+            end: "+=500"
           }
         })
         gsap.from(".album5", {
-          opacity: 0, duration: 2, scrollTrigger: {
+          opacity: 0,
+          duration: 2,
+          x: 500,
+          delay: 1,
+          scrollTrigger: {
             trigger: ".imgDos",
             // markers: true,
-            start: "530",
-            end: "+=500",
-            // horizontal: true
+            start: "450",
+            end: "+=500"
+
           }
         })
       })();
@@ -191,21 +251,42 @@ export class LandingComponent implements OnInit {
 
       (function slide3() {
         gsap.from(".video", {
-          opacity: 0, duration: 2, scrollTrigger: {
+          opacity: 0,
+          duration: 2,
+          x: -300,
+          scrollTrigger: {
             trigger: ".textoTres",
             // markers: true,
             start: "750",
-            end: "+=500",
-            // horizontal: true
+            end: "+=500"
+
           }
         })
-        gsap.from(".textoTres", {
-          opacity: 0, duration: 2, scrollTrigger: {
+
+        gsap.from("#tituloTres", {
+          opacity: 0,
+          duration: 2,
+          y: 70,
+          scrollTrigger: {
             trigger: ".textoTres",
             // markers: true,
-            start: "850",
-            end: "+=500",
-            // horizontal: true
+            start: "900",
+            end: "+=500"
+
+          }
+        })
+
+        gsap.from(".parrafoTres", {
+          opacity: 0,
+          duration: 2,
+          y: 70,
+          delay: 0.5,
+          scrollTrigger: {
+            trigger: ".textoTres",
+            // markers: true,
+            start: "900",
+            end: "+=500"
+
           }
         })
       })();
@@ -223,22 +304,25 @@ export class LandingComponent implements OnInit {
         //     // markers: true,
         //     start: "1700",
         //     end: "+=500",
-        //     // horizontal: true
+        //   
         //   }
         // });
 
         gsap.from(".logoFoot, .pruebaBotonResponsive", {
-          opacity: 0, duration: 2, scrollTrigger: {
+          opacity: 0,
+          duration: 2,
+          y: 70,
+          scrollTrigger: {
             trigger: ".logoFoot",
             // markers: true,
             start: "1700",
             end: "+=500",
-            // horizontal: true
+
           }
         })
       })();
 
-
+      // Animaciones para responsive celulares
     } else {
 
       // Scroll Vertical
@@ -283,8 +367,8 @@ export class LandingComponent implements OnInit {
           opacity: 0,
           duration: 1.5,
           y: 150,
-          delay: 0.5,
-          ease: " back.out(1.7)"
+          ease: " back.out(1.7)",
+          onStart: disableScrolling
         })
 
         gsap.from(".logoName", {
@@ -298,7 +382,8 @@ export class LandingComponent implements OnInit {
         gsap.to(".overlay", 1.5, {
           top: "-100%",
           delay: 5,
-          ease: "sine.inOut"
+          ease: "sine.inOut",
+          onComplete: enableScrolling
         })
       })();
 
@@ -309,6 +394,7 @@ export class LandingComponent implements OnInit {
           opacity: 0,
           duration: 2.2,
           delay: 6,
+          y: 70,
           ease: "sine.out"
         })
 
@@ -316,32 +402,183 @@ export class LandingComponent implements OnInit {
           opacity: 0,
           duration: 1,
           delay: 6,
+          y: 50,
           ease: "sine.out"
         })
 
         gsap.from(".parrafoUno", {
           opacity: 0,
           duration: 1,
-          delay: 7,
+          delay: 6.5,
+          y: 70,
           ease: "sine.out"
         })
       })();
 
       // Animacion Slide 2
 
-      // (function slide2() {
 
-      //   // let container = document.getElementById("container");
-      //   gsap.from(".textoDos", {
-      //     opacity: 0, duration: 2, scrollTrigger: {
-      //       trigger: ".textoDos",
-      //       // markers: true,
-      //       start: "200",
-      //       end: "+=500",
-      //       // horizontal: true
-      //     }
-      //   })
-      // })();
+      (function slide2() {
+
+        gsap.from("#tituloDosResponsive", {
+          opacity: 0,
+          duration: 1,
+          ease: "sine.out",
+          y: 70,
+          scrollTrigger: {
+            trigger: ".textoDos",
+            // markers: true,
+            end: "+=500"
+          }
+        })
+
+        gsap.from("#parrafoDos", {
+          opacity: 0,
+          duration: 1,
+          ease: "sine.out",
+          y: 70,
+          delay: 0.5,
+          scrollTrigger: {
+            trigger: ".textoDos",
+            // markers: true,
+            end: "+=500"
+          }
+        })
+
+        gsap.from(".album1", {
+          opacity: 0,
+          duration: 2,
+          delay: 0.5,
+          y: 90,
+          scrollTrigger: {
+            trigger: ".textoDos",
+            // markers: true,
+            end: "+=500"
+
+          }
+        })
+        gsap.from(".album2", {
+          opacity: 0,
+          duration: 2,
+          y: 70,
+          delay: 0.7,
+          scrollTrigger: {
+            trigger: ".textoDos",
+            // markers: true,
+            end: "+=500"
+
+          }
+        })
+        gsap.from(".album3", {
+          opacity: 0,
+          duration: 2,
+          y: 70,
+          delay: 0.9,
+          scrollTrigger: {
+            trigger: ".textoDos",
+            // markers: true,
+            end: "+=500"
+
+          }
+        })
+        gsap.from(".album4", {
+          opacity: 0,
+          duration: 2,
+          y: 70,
+          delay: 1.3,
+          scrollTrigger: {
+            trigger: ".textoDos",
+            // markers: true,
+            end: "+=500"
+          }
+        })
+        gsap.from(".album5", {
+          opacity: 0,
+          duration: 2,
+          y: 70,
+          delay: 1.1,
+          scrollTrigger: {
+            trigger: ".textoDos",
+            // markers: true,
+            end: "+=500"
+
+          }
+        })
+      })();
+
+
+      // Animacion Slide 3
+
+      (function slide3() {
+        gsap.from(".videoResponsive", {
+          opacity: 0,
+          duration: 2,
+          y: 150,
+          scrollTrigger: {
+            trigger: ".uno",
+            start: "370px",
+            // markers: true,
+            end: "+=500"
+
+          }
+        })
+
+        gsap.from("#tituloTres", {
+          opacity: 0,
+          duration: 2,
+          y: 100,
+          scrollTrigger: {
+            trigger: ".uno",
+            start: "340px",
+            end: "+=500"
+
+          }
+        })
+
+        gsap.from("#parrafoTresResponsive", {
+          opacity: 0,
+          duration: 2,
+          y: 100,
+          delay: 0.5,
+          scrollTrigger: {
+            trigger: ".uno",
+            start: "340px",
+            end: "+=500"
+
+          }
+        })
+      })();
+
+      // Animacion Slide 4
+
+      (function slide4() {
+
+        // gsap.to(".cuatro", {
+        //   opacity: 0,
+        //   duration: 1,
+        //   css: { background: "linear-gradient(to top, #30cfd0, #00a4ca, #0076bc, #00469c, #330867)" },
+        //   scrollTrigger: {
+        //     trigger: ".logoFoot",
+        //     // markers: true,
+        //     start: "1700",
+        //     end: "+=500",
+        //   
+        //   }
+        // });
+
+        gsap.from(".logoFootResponsive, .pruebaBotonResponsive", {
+          opacity: 0,
+          duration: 2,
+          y: 80,
+          scrollTrigger: {
+            trigger: ".uno",
+            // markers: true,
+            start: "550px",
+            end: "+=500",
+
+          }
+        })
+      })();
 
     }
   }

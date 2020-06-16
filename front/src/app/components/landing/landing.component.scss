@@ -28,7 +28,7 @@
 
 body {
     margin: 0;
-    padding: 0;
+    padding: 0; 
 }
 
 
@@ -57,15 +57,7 @@ body {
         flex-wrap: wrap;
         flex-direction:column;
         height:100vh;
-        // background: linear-gradient(to left #30cfd0 0%, #330867 100%) fixed;
-        // background-size: contain;
-        // transform: rotate(-90deg) translateX(-100vh);
-        // transform-origin: top left;
-        // overflow-y: scroll;
-        // overflow-x: hidden;
-        // position: absolute;
-        // scrollbar-width: none;
-        // -ms-overflow-style: none;
+        scroll-behavior: smooth;
     }
     
     .slide {
@@ -75,9 +67,7 @@ body {
     
     .uno {
         width: 100vw;
-        // background: #00203FFF;
         background-image: linear-gradient(to top, #30cfd0, #00a4ca, #0076bc, #00469c, #330867);
-        // center center no-repeat/ cover;
         display: grid;
         grid-template-columns: 0.7fr 1fr;
         grid-template-rows: repeat(9, 1fr);
@@ -398,13 +388,7 @@ body {
         flex-direction: row;
         height:100vh;    
         width: 100vw;
-        // transform: rotate(-90deg) translateX(-100vh);
-        // transform-origin: top left;
-        // overflow-y: scroll;
-        // overflow-x: hidden;
-        // position: absolute;
-        // scrollbar-width: none;
-        // -ms-overflow-style: none;
+        scroll-behavior: smooth;
     }
 
 
@@ -471,7 +455,6 @@ body {
         height: 100vh;
         display: grid;
         background-image: linear-gradient(to bottom, #0076bc, #00a4ca);
-        // background-image: linear-gradient(to top, #0076bc, #00469c, #330867);
         grid-template-columns: 1fr;
         grid-template-rows: 0.6fr 0.7fr 0.7fr 1fr 1fr 1fr;
         grid-template-areas: 
