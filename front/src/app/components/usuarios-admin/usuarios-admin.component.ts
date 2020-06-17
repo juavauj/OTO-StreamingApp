@@ -14,6 +14,8 @@ import { HttpClient } from '@angular/common/http';
 export class UsuariosAdminComponent implements OnInit {
 
   public usuarioRegistro: Usuario;
+  public usuarioActualizar: Usuario;
+
   selectedUser: Usuario;
   usuarios: [];
 
@@ -73,8 +75,6 @@ export class UsuariosAdminComponent implements OnInit {
   } 
  
 
-
-
   registrarUsuario() {
     console.log(this.usuarioRegistro);
      this.usuarioService.registroAdmin(this.usuarioRegistro).subscribe(
@@ -104,5 +104,35 @@ export class UsuariosAdminComponent implements OnInit {
     console.log(this.usuarioRegistro) 
   }
 
-  
+  actualizarUsuario(){
+    console.log(this.usuarioActualizar);
+     this.usuarioService.editarusuario(this.usuarioActualizar._id, this.usuarioActualizar).subscribe(
+      (response: any) => {
+        let usuario = response.usuario;
+        this.usuarioActualizar = usuario;
+        console.log(usuario);
+
+        if (!this.usuarioActualizar._id) {
+          alert("Error al actualizar");
+        } else {
+          alert(`EL usuario ${this.usuarioActualizar.correo} ha sido actualizado`);
+          this.usuarioActualizar = undefined; 
+          this.usuarioService.obtenerTareas().subscribe((res:any)=>{
+            this.usuarios = res;
+          });
+        }
+      },
+      (error) => {
+        var errorMensaje = <any>error;
+        if (errorMensaje != null) {
+          console.log(error);
+        }
+      }
+    );
+    console.log(this.usuarioActualizar) 
+  }
+
+  setUsuarioActualizar(usuario) {
+    this.usuarioActualizar = usuario;
+  }
 }

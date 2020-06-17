@@ -1,23 +1,23 @@
 <div class="gridSystem">
-    <div class="gridSystem__left mt-5 pt-2 ml-5">
-        <div class="gridSystem__formNuevo ml-4 mt-5">
+    <div class="gridSystem__left mt-5 pt-2 ml-5" > 
+        <div class="gridSystem__formNuevo ml-4 mt-5"  *ngIf="!usuarioActualizar">
               <form  class="bg-dark text-light p-3 rounded" #formularioRegistro="ngForm" (ngSubmit)="registrarUsuario()"> 
                 <div class="row form-group">
                     <div class="col">
-                        <input type="text" class="form-control" placeholder="Nombre" name="nombre" #nombre="ngModel" [(ngModel)]="usuarioRegistro.nombre" autocomplete="off" required/>
+                        <input type="text" class="form-control" placeholder="Nombre" name="nombre" #nombre="ngModel" [(ngModel)]="usuarioRegistro.nombre"  required/>
                     </div>
                     <div class="col">
-                        <input type="text" class="form-control" placeholder="apellido" name="apellido" #nombre="ngModel" [(ngModel)]="usuarioRegistro.apellido" autocomplete="off" required/>
+                        <input type="text" class="form-control" placeholder="apellido" name="apellido" #nombre="ngModel" [(ngModel)]="usuarioRegistro.apellido"  required/>
                     </div>
                 </div>
                 <div class="form-group">
-                    <input type="text" class="form-control" placeholder="Correo" name="correo" #nombre="ngModel" [(ngModel)]="usuarioRegistro.correo" autocomplete="off" required/>
+                    <input type="text" class="form-control" placeholder="Correo" name="correo" #nombre="ngModel" [(ngModel)]="usuarioRegistro.correo"  required/>
                 </div> 
                 <div class="form-group">
-                    <input type="password" class="form-control" placeholder="Password" name="contrasena" #nombre="ngModel" [(ngModel)]="usuarioRegistro.contrasena" autocomplete="off" required/>
+                    <input type="password" class="form-control" placeholder="Password" name="contrasena" #nombre="ngModel" [(ngModel)]="usuarioRegistro.contrasena"  required/>
                 </div> 
                 <div class="form-group">
-                    <input type="text" class="form-control" placeholder="Nickname" name="nick" #nombre="ngModel" [(ngModel)]="usuarioRegistro.nick" autocomplete="off" required/>
+                    <input type="text" class="form-control" placeholder="Nickname" name="nick" #nombre="ngModel" [(ngModel)]="usuarioRegistro.nick"  required/>
                 </div>
                 <div class="form-group">               
                     <label for="exampleFormControlSelect1">Rol</label>
@@ -48,8 +48,53 @@
                 <button type="submit" class="btn btn-success  btn-block">Nuevo usuario</button>
               </form>
         </div>
-        <div class="gridSystem__formEditar ml-4 top_gap">
-           <!-- formulario igual -->
+        <div class="gridSystem__formEditar ml-4 mt-5" *ngIf="usuarioActualizar">
+          <form  class="bg-dark text-light p-3 rounded" #formularioActualizar="ngForm" (ngSubmit)="actualizarUsuario()"> 
+            <div class="row form-group">
+                <div class="col">
+                    <input type="text" class="form-control" placeholder="Nombre" name="nombre" #nombre="ngModel" [(ngModel)]="usuarioActualizar.nombre"  required/>
+                </div>
+                <div class="col">
+                    <input type="text" class="form-control" placeholder="apellido" name="apellido" #nombre="ngModel" [(ngModel)]="usuarioActualizar.apellido"  required/>
+                </div>
+            </div>
+            <div class="form-group">
+                <input type="text" class="form-control" placeholder="Correo" name="correo" #nombre="ngModel" [(ngModel)]="usuarioActualizar.correo"  required/>
+            </div> 
+            <div class="form-group">
+                <input type="password" class="form-control" placeholder="Password" name="contrasena" #nombre="ngModel" [(ngModel)]="usuarioActualizar.contrasena"  required/>
+            </div> 
+            <div class="form-group">
+                <input type="text" class="form-control" placeholder="Nickname" name="nick" #nombre="ngModel" [(ngModel)]="usuarioActualizar.nick"  required/>
+            </div>
+            <div class="form-group">               
+                <label for="exampleFormControlSelect1">Rol</label>
+                <select class="form-control" name="rol" #nombre="ngModel" [(ngModel)]="usuarioActualizar.rol"> 
+                     <option>usuario</option> 
+                     <option>admin</option>
+                   </select>                     
+            </div> 
+            <div class="form-group ">
+                <label for="exampleFormControlSelect1">Imagen</label>
+                <input type="file" class="form-control bg-secondary border-0 text-light" name="imagen" #nombre="ngModel" [(ngModel)]="usuarioActualizar.imagen" aria-describedby="imagen">
+            </div>
+            <div class="form-group">                
+                <label for="exampleFormControlSelect1">Suscripcion</label>
+                <select class="form-control" id="estado"  name="tipoSuscripcion" #nombre="ngModel" [(ngModel)]="usuarioActualizar.tipoSuscripcion">  
+                     <option>lite</option> 
+                     <option>premium</option>
+                </select>                     
+              </div>    
+            <div class="form-group">                
+              <label for="exampleFormControlSelect1">Estado</label>
+              <select class="form-control" name="estado" name="rol" #nombre="ngModel" [(ngModel)]="usuarioActualizar.estado"> 
+                   <option>activo</option> 
+                   <option>inactivo</option>
+                 </select>                     
+            </div>      
+                              
+            <button type="submit" class="btn btn-success  btn-block">Nuevo usuario</button>
+          </form>
         </div>
     </div>
     <div class="gridSystem__right">
@@ -90,7 +135,7 @@
                   <td>{{usuario.tipoSuscripcion}}</td>
                   <td>{{usuario.estado}}</td>
                   <td>
-                    <button type="button" class="btn btn-info mx-1"> Edit </button>
+                    <button type="button" class="btn btn-info mx-1" (click)="setUsuarioActualizar(usuario)"> Edit </button>
                     <button type="button" class="btn btn-warning mx-1" (click)="mutearUsuario(usuario)"> Off </button>
                     <button type="button" class="btn btn-danger mx-1" (click)="delete(usuario)">Delete</button>                    
                   </td>                                 
