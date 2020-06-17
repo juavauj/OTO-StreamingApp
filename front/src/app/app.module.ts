@@ -43,6 +43,7 @@ import { AuthGuard } from './guards/auth.guard';
 import { RoleGuard } from './guards/role.guard';
 import { CancionesComponent } from './components/canciones/canciones.component';
 import { AlbumsReproductorComponent } from './components/albums-reproductor/albums-reproductor.component';
+import { VariosReproductorComponent } from './components/varios-reproductor/varios-reproductor.component';
 
 @NgModule({
   declarations: [
@@ -70,6 +71,7 @@ import { AlbumsReproductorComponent } from './components/albums-reproductor/albu
     ArtistasAdminComponent,
     CancionesComponent,
     AlbumsReproductorComponent,
+    VariosReproductorComponent,
   ],
   imports: [BrowserModule, AppRoutingModule, FormsModule, HttpClientModule, BrowserAnimationsModule],
   providers: [
