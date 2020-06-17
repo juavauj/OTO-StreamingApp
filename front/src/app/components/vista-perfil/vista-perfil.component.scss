@@ -1,3 +1,22 @@
+@font-face {
+  font-family: PoppinsRegular;
+  src: url(/assets/font/Poppins-Regular.ttf);
+}
+
+@font-face {
+  font-family: PoppinsExtraBold;
+  src: url(/assets/font/Poppins-ExtraBold.ttf);
+}
+
+@font-face {
+  font-family: PoppinsSemiBold;
+  src: url(/assets/font/Poppins-SemiBold.ttf);
+}
+
+@font-face {
+  font-family: PoppinsLight;
+  src: url(/assets/font/Poppins-Light.ttf);
+}
 .vista-container{
     height: 100%;
     width: 100%;
@@ -13,6 +32,26 @@ transform: translate(-72%, -50%);
   margin: auto;
   width: 68%;
   height: 80%;
-  flex-direction: column;
+  font-size: 20px;
   
+}
+.titulos-vista{
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+}
+.datos-vista{
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+
+}
+.vista p{
+  font-family: PoppinsSemiBold;
+  color:#95DBE5 ;
+}
+.vista p span{
+  font-family: PoppinsSemiBold;
+  color: white;
+  margin-left: 150px;
 }

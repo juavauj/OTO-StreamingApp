@@ -7,3 +7,4 @@ export class Artista {
     public biografia: String
   ) {}
 }
+

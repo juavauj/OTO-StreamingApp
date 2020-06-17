@@ -16,7 +16,7 @@ var UsuarioSchema = new Schema({
        unique: true,
        required: true
     },
-    usuario: {
+    nick: {
         type: String,
         unique: true,
         required: true
@@ -34,7 +34,7 @@ var UsuarioSchema = new Schema({
         type: String,
         default: null
     },
-    suscripcion: {
+    tipoSuscripcion: {
         type: String,
         default: "lite",
         required: true

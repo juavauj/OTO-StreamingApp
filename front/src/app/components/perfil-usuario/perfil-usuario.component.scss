@@ -41,9 +41,9 @@
     grid-template-rows: 20% 80% ;
     grid-template-columns: 20% 80% ;
     border-radius: 15px;
-    -webkit-box-shadow: 0px 4px 25px 10px rgba(0,0,0,0.57);
-    -moz-box-shadow: 0px 4px 25px 10px rgba(0,0,0,0.57);
-    box-shadow: 0px 3px 3px 1px rgba(0, 0, 0, 0.57);
+    -webkit-box-shadow: 0px -1px 0px 1px rgba(0, 0, 0, 0.47);
+    -moz-box-shadow: 0px -1px 0px 1px rgba(0, 0, 0, 0.47);
+    box-shadow: 0px -1px 0px 1px rgba(0, 0, 0, 0.47);
 }
 .welcome-perfil{
     grid-area: welcome_perfil;
