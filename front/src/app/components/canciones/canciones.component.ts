@@ -31,6 +31,7 @@ export class CancionesComponent implements OnInit {
         var errorMensaje = <any>error;
         if (errorMensaje != null){
           console.log(error);
+        }
       }
     )
   }
