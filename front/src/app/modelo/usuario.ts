@@ -7,6 +7,7 @@ export class Usuario {
     public correo: String,
     public contrasena: String,
     public rol: String,
-    public imagen: String
+    public imagen: String,
+    public suscripcion: String
   ) {}
 }

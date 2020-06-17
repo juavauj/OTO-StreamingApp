@@ -45,5 +45,14 @@ export class NavLandingComponent implements OnInit {
 
   }
 
+  burgerClic(){
+    const header = document.querySelector('header');
+    const burgMenu = document.querySelector('.burger-menu')
+    header.classList.toggle('active');
+    burgMenu.classList.toggle('active');
+    
+
+  }
+
 
 }

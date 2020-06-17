@@ -37,54 +37,7 @@ export class PerfilUsuarioComponent implements OnInit {
     this.rutaImagen= this.url + 'obtenerImgUsuario/' + this.usuarioActualizar.imagen;
   }
 
-  // Método subirArchivo
-  subirArchivo(fileInput: any) {
-    this.archivoSubir = <File>fileInput.target.files[0];
-  }
+ 
 
-  // Método actualizar Usuario
-  actualizarUsuario() {
-    this.usuarioService.editarusuario(this.usuarioActualizar._id, this.usuarioActualizar).subscribe(
-      (response: any) => {
-        if (response.usuario) {
-          alert('Tus datos han sido Actualizados correctamente!');
-          localStorage.setItem('sesion', JSON.stringify(this.usuarioActualizar));
-
-          // Validacion de la carga de la imagen
-          if (!this.archivoSubir) {
-            alert('No hay ninguna imagen');
-          } else {
-            alert(`Tu imagen es ${this.archivoSubir.name}`);
-            this.usuarioService.cargarImagenUsuario(this.archivoSubir, this.usuarioActualizar._id).subscribe(
-              (result: any) => {
-                console.log('entro a img')
-                this.usuarioActualizar.imagen = result.imagen;
-                localStorage.setItem('sesion', JSON.stringify(this.usuarioActualizar));
-
-                // Mostrar la imagen 
-                this.rutaImagen = this.url + 'obtenerImgUsuario/' + this.usuarioActualizar.imagen;
-                //document.getElementById('mostrarImagen').setAttribute('src', rutaImagen);
-                document.getElementById('imgUsuario').setAttribute('src', this.rutaImagen);
-                console.log(this.rutaImagen)
-
-                // Cierre mostrar imagen
-
-              }
-            );
-          }
-
-          // Cierrre Validacion
-        } else {
-          alert(`${response.message}`);
-        }
-
-        // Cierre response
-      }, error => {
-        if (error != null) {
-          console.log(error);
-        }
-      }
-    );
-  }
-
+ 
 }
