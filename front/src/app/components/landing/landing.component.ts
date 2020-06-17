@@ -151,6 +151,17 @@ export class LandingComponent implements OnInit {
         })
       })();
 
+      // Animacion navBar
+
+      (function hideNavBar() {
+        gsap.from("#navBar", {
+          opacity: 0,
+          // delay: 8,
+          ease: "sine.out"
+        })
+      })();
+
+
       // Animacion Slide 2
 
       (function slide2() {
@@ -314,7 +325,7 @@ export class LandingComponent implements OnInit {
           y: 70,
           scrollTrigger: {
             trigger: ".logoFoot",
-            // markers: true,
+            markers: true,
             start: "1700",
             end: "+=500",
 

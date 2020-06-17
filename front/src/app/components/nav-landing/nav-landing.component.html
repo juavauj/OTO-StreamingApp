@@ -1,12 +1,12 @@
 <header>
     <div class="logo">
-        <a  routerLink="/">  <img src="assets/img/logo.png" height="100px" alt="logo">   </a> 
+        <a routerLink="/"> <img src="assets/img/logo.png" height="100px" alt="logo"> </a>
     </div>
 
     <nav>
-        
+
         <ul class="nav-links">
-           <!--  <li>
+            <!--  <li>
                 <a routerLink="/quienes-somos">¿Quíenes somos?</a>
             </li>
             <li>
@@ -20,29 +20,29 @@
                 <ng-template #registro>
                     <a routerLink="/registro" (click)="switchNav('/registro')">Registrarse</a>
                 </ng-template>
-                
+
             </li>
             <li>
-               <!--  <a routerLink="/perfil/vista">User</a> -->
-                    <div *ngIf="isLoggedIn; else login"  class="dropdown">
-                        <a class="dropbtn">User</a>
-                        <div class="dropdown-content">
-                          <a routerLink="/perfil/vista">Editar Perfil</a>
-                          <a *ngIf="rol==='admin'" routerLink="/admin">Panel Admin</a>
-                          <a (click)="logOut()">Cerrar Sesión</a>
-                        </div>
-                      </div>
+                <!--  <a routerLink="/perfil/vista">User</a> -->
+                <div *ngIf="isLoggedIn; else login" class="dropdown">
+                    <a class="dropbtn">User</a>
+                    <div class="dropdown-content">
+                        <a routerLink="/perfil/vista">Editar Perfil</a>
+                        <a *ngIf="rol==='admin'" routerLink="/admin">Panel Admin</a>
+                        <a (click)="logOut()">Cerrar Sesión</a>
+                    </div>
+                </div>
                 <ng-template #login>
-                   
+
 
                     <a routerLink="/loginUsuario" (click)="switchNav('/registro')">Iniciar Sesión</a>
                 </ng-template>
-                
+
             </li>
         </ul>
-        
-      
-    
+
+
+
     </nav>
     <div class="burger" (click)="burgerClic()">
         <div class="line1"></div>
@@ -82,6 +82,41 @@
                  
              </li>
          </ul>
+
+    </div>
+
+    <div class="burger-menu">
+
+        <ul class="burger-nav-links">
+            <li>
+                <div>
+                    <a *ngIf="isLoggedIn; else registro" routerLink="/reproductor">Reproductor Web</a>
+                    <ng-template #registro>
+                        <a routerLink="/registro" (click)="switchNav('/registro')">Registrarse</a>
+                    </ng-template>
+
+                </div>
+
+
+            </li>
+            <li>
+                <!--  <a routerLink="/perfil/vista">User</a> -->
+                <div *ngIf="isLoggedIn; else login" class="dropdown">
+                    <a class="burger-dropbtn">User</a>
+                    <div class="burger-dropdown-content">
+                        <a routerLink="/perfil/vista">Editar Perfil</a>
+                        <a *ngIf="rol==='admin'" routerLink="/admin">Panel Admin</a>
+                        <a (click)="logOut()">Cerrar Sesión</a>
+                    </div>
+                </div>
+                <ng-template #login>
+
+
+                    <a routerLink="/loginUsuario" (click)="switchNav('/registro')">Iniciar Sesión</a>
+                </ng-template>
+
+            </li>
+        </ul>
 
     </div>
 
