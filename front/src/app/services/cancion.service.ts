@@ -28,7 +28,7 @@ export class CancionService {
       this.url,
       params,
       options
-    ).pipe(map(res => res));
+    ).pipe(map(res => res))
   }
 
  //servicio para actualizar canciones
@@ -42,13 +42,13 @@ export class CancionService {
       this.url + 'actualizar-cancion/' + id,
       params,
       options
-    )
-  }.pipe(map(res => res))
+    ).pipe(map(res => res))
+  }
 
   //servicio para borrar las canciones
   borrarCanciones(id){
     let options = {
-      heares: new HttpClient({'content-type' : 'application/json'})
+      headers: new HttpHeaders({'content-type' : 'application/json'})
     }
     return this._http.delete(
       this.url + 'borrar-cancion' + id,
@@ -60,15 +60,15 @@ export class CancionService {
   //servicio para traer las canciones
   obtenerCanciones(){
     return this._http.get(
-      this.url + 'canciones';
+      this.url + 'canciones'
     ).pipe(map(res => res));
   }
 
   //servicio para traer una canción
   ObtenerTrack(id){
     return this._http.get(
-      this.url + 'cancion/' + id;
-    ).pipe(map(res => res));
+      this.url + 'cancion/' + id
+    ).pipe(map(res => res))
   }
 
   cargarArchivoAudio(file:File, id){
