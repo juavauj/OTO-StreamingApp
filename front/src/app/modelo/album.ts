@@ -1,7 +1,7 @@
 export class Album {
     constructor(
       public _id: String,
-      public titulo: String,
+      public nombre: String,
       public artistas: String[],
       public canciones: String[],
       public generos: String[],
