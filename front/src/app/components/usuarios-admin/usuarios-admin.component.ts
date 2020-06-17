@@ -51,7 +51,7 @@ export class UsuariosAdminComponent implements OnInit {
       usuario.estado = 'activo'
     }
 
-    this.usuarioService.editarusuario(usuario._id, usuario).subscribe(
+   /*  this.usuarioService.editarusuario(usuario._id, usuario).subscribe(
       (response : any)=>{
         let actualizado = response.usuario;
         if(!actualizado){
@@ -68,7 +68,7 @@ export class UsuariosAdminComponent implements OnInit {
           console.log(error);
         }
       }
-    );
+    ); */
   }
 
 

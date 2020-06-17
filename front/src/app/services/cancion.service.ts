@@ -12,6 +12,8 @@ export class CancionService {
 
   url = 'http://localhost:3000/api/';
 
+  public cancion;
+
   constructor(
     private _http: HttpClient
   ) { }
@@ -25,7 +27,7 @@ export class CancionService {
       }
 
     return this._http.post(
-      this.url,
+      this.url + 'registrar-cancion',
       params,
       options
     ).pipe(map(res => res))
@@ -46,16 +48,26 @@ export class CancionService {
   }
 
   //servicio para borrar las canciones
-  borrarCanciones(id){
+  borrarCancion(id){
     let options = {
       headers: new HttpHeaders({'content-type' : 'application/json'})
     }
     return this._http.delete(
-      this.url + 'borrar-cancion' + id,
+      this.url + 'borrar-cancion/' + id,
       options
     ).pipe(map(res => res));
   }
 
+  obtenerNombreCancion(){
+    let cancionReproducir = JSON.parse(localStorage.getItem('cancion'));
+
+    if (cancionReproducir != 'undefined') {
+      this.cancion = cancionReproducir;
+    }else{
+      this.cancion = null;
+    } 
+    return this.cancion
+  }
 
   //servicio para traer las canciones
   obtenerCanciones(){
@@ -66,8 +78,13 @@ export class CancionService {
 
   //servicio para traer una canción
   ObtenerTrack(id){
+    let options = {
+      headers: new HttpHeaders({'content-type' : 'application/json'})
+    }
+
     return this._http.get(
-      this.url + 'cancion/' + id
+      this.url + 'cancion/' + id,
+      options
     ).pipe(map(res => res))
   }
 
