@@ -3,6 +3,11 @@ import { NavSwitchService } from '../../services/nav-switch.service';
 // Importar el servicio
 import { UsuarioService } from '../../services/usuario.service';
 
+// Importar Animaciones GSAP
+import { gsap, ScrollTrigger, Draggable, MotionPathPlugin } from "gsap/all";
+
+gsap.registerPlugin(ScrollTrigger, Draggable, MotionPathPlugin);
+
 // Importar el manejador de rutas
 import { Router, ActivatedRoute, Params } from '@angular/router';
 
@@ -53,6 +58,27 @@ export class NavLandingComponent implements OnInit {
     
 
   }
+  
+  /*
+    --------------------------------------------------- GSAP Animations ---------------------------------------------------------------
+    -----------------------------------------------------------------------------------------------------------------------------------  
+  */
+
+ gsapAnimatios() {
+
+  // Mostrar el navBar luego de las animaciones iniciales
+
+  (function hideNavBar() {
+    gsap.from("header", {
+      opacity: 0,
+      y: -80,
+      duration: 2,
+      delay: 6,
+      ease: "sine.out"
+    })
+  })();
+
+};
 
 
 }
