@@ -1,156 +1,107 @@
-<div class="gridSystem">
-  <div class="gridSystem__left mt-5 pt-2 ml-5">
-    <div class="gridSystem__formNuevo ml-4 mt-5">
-      <form class="bg-dark text-light p-3 rounded">
-        <div class="row form-group">
-          <div class="col">
-            <input type="text" class="form-control" id="nombre" placeholder="name" aria-describedby="nombre">
-          </div>
-          <div class="col">
-            <input type="text" class="form-control" id="apellido" placeholder="lastname" aria-describedby="apellido">
-          </div>
-        </div>
-        <div class="form-group">
-          <input type="text" class="form-control" id="correo" placeholder="email" aria-describedby="correo">
-        </div>
-        <div class="form-group">
-          <input type="password" class="form-control" id="contrasena" placeholder="password" aria-describedby="contrasena">
-        </div>
-        <div class="form-group">
-          <input type="text" class="form-control" id="nick" placeholder="Nickname" aria-describedby="Nickname">
-        </div>
-        <div class="form-group">
-          <label for="exampleFormControlSelect1">Rol</label>
-          <select class="form-control" id="rol">
-            <option>Usuario</option>
-            <option>Admin</option>
-          </select>
-        </div>
-        <div class="form-group ">
-          <label for="exampleFormControlSelect1">Imagen</label>
-          <input type="file" class="form-control bg-secondary border-0 text-light" id="file" aria-describedby="file">
-        </div>
-        <div class="form-group">
-          <label for="exampleFormControlSelect1">Suscripcion</label>
-          <select class="form-control" id="estado">
-            <option>Lite</option>
-            <option>premium</option>
-          </select>
-        </div>
-        <div class="form-group">
-          <label for="exampleFormControlSelect1">Estado</label>
-          <select class="form-control" id="estado">
-            <option>Activo</option>
-            <option>Inactivo</option>
-          </select>
-        </div>
-
-        <button type="submit" class="btn btn-success  btn-block">Nuevo usuario</button>
-      </form>
-    </div>
-    <div class="gridSystem__formEditar ml-4 top_gap">
-      <form class="bg-dark text-light p-3 rounded">
-        <div class="row form-group">
-          <div class="col">
-            <input type="text" class="form-control" id="nombre" placeholder="name" aria-describedby="nombre">
-          </div>
-          <div class="col">
-            <input type="text" class="form-control" id="apellido" placeholder="lastname" aria-describedby="apellido">
-          </div>
-        </div>
-        <div class="form-group">
-          <input type="text" class="form-control" id="correo" placeholder="email" aria-describedby="correo">
-        </div>
-        <div class="form-group">
-          <input type="password" class="form-control" id="contrasena" placeholder="password" aria-describedby="contrasena">
-        </div>
-        <div class="form-group">
-          <input type="text" class="form-control" id="nick" placeholder="Nickname" aria-describedby="Nickname">
-        </div>
-        <div class="form-group">
-          <label for="exampleFormControlSelect1">Rol</label>
-          <select class="form-control" id="rol">
-            <option>Usuario</option>
-            <option>Admin</option>
-          </select>
-        </div>
-        <div class="form-group ">
-          <label for="exampleFormControlSelect1">Imagen</label>
-          <input type="file" class="form-control bg-secondary border-0 text-light" id="file" aria-describedby="file">
-        </div>
-        <div class="form-group">
-          <label for="exampleFormControlSelect1">Suscripcion</label>
-          <select class="form-control" id="estado">
-            <option>Lite</option>
-            <option>premium</option>
-          </select>
-        </div>
-        <div class="form-group">
-          <label for="exampleFormControlSelect1">Estado</label>
-          <select class="form-control" id="estado">
-            <option>Activo</option>
-            <option>Inactivo</option>
-          </select>
-        </div>
-
-        <button type="submit" class="btn btn-success  btn-block">Editar usuario</button>
-      </form>
-    </div>
-  </div>
-  <div class="gridSystem__right">
-    <h1 class="text-center my-3 text-light">Panel Artistas</h1>
-    <div class="px-5">
-      <div class="px-5">
-        <div class="row">
-          <div class="col-12">
-            <div class="form-group">
-              <input type="text" name="filterArtista" class="form-control" placeholder="Search.." [(ngModel)]="filterArtista">
-            </div>
-            <div>
-              <table class="table table-striped table-light rounded border border-secondary table-hover">
-                <thead>
-                  <tr>
-                    <th class="name">Nombre</th>
-                    <th class="img">Imagen</th>
-                    <th class="bio">Biografia</th>
-                    <th class="est">Estado</th>
-                    <th class="acc">Acciones</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr *ngFor="let artista of artistas | filter:filterArtista">
-                    <td>
-                      <div class="scrollable">
-                        {{artista.nombre}}
-                      </div>
-                    </td>
-                    <td>
-                      <div class="scrollable">
-                        {{artista.imagen}}
-                      </div>
-                    </td>
-                    <td>
-                      <div class="scrollable">
-                        {{artista.biografia}}
-                      </div>
-                    </td>
-                    <td>
-                      <div class="scrollable">
-                        {{artista.estado}}
-                      </div>
-                    </td>
-                    <td>
-                      <button type="button" class="btn btn-info mx-1"> Edit </button>
-                      <button type="button" class="btn btn-warning mx-1"> Off </button>
-                      <button type="button" class="btn btn-danger mx-1" (click)="delete(artista)">Delete</button>
-                    </td>
-                  </tr>
-                </tbody>
-              </table>
+<!-- otro div para todo -->
+<div class="main">
+  <!-- contenedor de todo el grid -->
+  <div class="container">
+    <!-- fila principal -->
+    <div class="row">
+      <!-- columna de formularios -->
+      <div class="col-4">
+        <form class="new-form bg-dark text-light p-3 rounded" #formularioNuevoArtista="ngForm" (ngSubmit)="addArtista()">
+          <div class="row form-group">
+            <div class="col">
+              <input type="text" class="form-control" id="nombre" placeholder="Nombre" name="nombre" #nombre="ngModel" [(ngModel)]="nuevoArtista.nombre">
             </div>
           </div>
-        </div>
+          <div class="form-group ">
+            <label for="imagen-nuevo-artista">Imagen</label>
+            <input type="file" class="form-control bg-secondary border-0 text-light" id="imagen-nuevo-artista" (change)="subirNuevaImg($event)">
+          </div>
+          <div class="form-group">
+            <label for="estado">Estado</label>
+            <select class="form-control" id="estado" name="estado" #estado="ngModel" [(ngModel)]="nuevoArtista.estado">
+              <option value="activo">Activo</option>
+              <option value="inactivo">Inactivo</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label for="bio">Biografía</label>
+            <textarea class="form-control" id="bio" name="biografia" rows="5" cols="20" #biografia="ngModel" [(ngModel)]="nuevoArtista.biografia">
+          </textarea>
+          </div>
+          <button type="submit" class="btn btn-success  btn-block">Nuevo Artista</button>
+        </form>
+        <!-- Solo se muestra si se ha seleccionado un artista a editar -->
+        <form class="bg-dark text-light p-3 rounded" #formularioEditarArtista="ngForm" (ngSubmit)="actualizarArtista()" *ngIf="artistaActualizar">
+          <div class="row form-group">
+            <div class="col">
+              <input type="text" class="form-control" id="nombreActualizar" placeholder="Nombre" name="nombre" #nombre="ngModel" [(ngModel)]="artistaActualizar.nombre">
+            </div>
+          </div>
+          <div class="form-group ">
+            <label for="fileActualizar">Imagen</label>
+            <input type="file" class="form-control bg-secondary border-0 text-light" id="fileActualizar" (change)="subirImagenActualizar($event)">
+          </div>
+          <div class="form-group">
+            <label for="estadoActualizar">Estado</label>
+            <select class="form-control" id="estadoActualizar" name="estado" #estado="ngModel" [(ngModel)]="artistaActualizar.estado">
+              <option value="activo">Activo</option>
+              <option value="inactivo">Inactivo</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label for="bioActualizar">Biografía</label>
+            <textarea class="form-control" id="bioActualizar" name="biografia" rows="5" cols="20" #biografia="ngModel" [(ngModel)]="artistaActualizar.biografia"></textarea>
+          </div>
+          <button type="submit" class="btn btn-success  btn-block">Editar Artista</button>
+        </form>
+      </div>
 
+      <!-- columna de tabla -->
+      <div class="col-8">
+        <h1 class="text-center my-3 text-light">Panel Artistas</h1>
+        <div class="form-group">
+          <input type="text" name="filterArtista" class="form-control" placeholder="Buscar por nombre..." [(ngModel)]="filterArtista">
+        </div>
+        <table class="table table-striped table-dark rounded border border-secondary table-hover">
+          <thead>
+            <tr>
+              <th class="name">Nombre</th>
+              <th class="img">Imagen</th>
+              <th class="bio">Biografia</th>
+              <th class="est">Estado</th>
+              <th class="acc">Acciones</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let artista of artistas | filter:filterArtista">
+              <td>
+                <div class="scrollable">
+                  {{artista.nombre}}
+                </div>
+              </td>
+              <td>
+                <div class="scrollable">
+                  {{artista.imagen}}
+                </div>
+              </td>
+              <td>
+                <div class="scrollable bio">
+                  {{artista.biografia}}
+                </div>
+              </td>
+              <td>
+                <div class="scrollable">
+                  {{artista.estado}}
+                </div>
+              </td>
+              <td>
+                <button type="button" class="btn btn-block btn-info mx-1" (click)="setArtistaActualizar(artista)"> Edit </button>
+                <button type="button" class="btn btn-block btn-warning mx-1" (click)="updateEstado(artista)"> On/Off </button>
+                <button type="button" class="btn btn-block btn-danger mx-1" (click)="delete(artista)">Delete</button>
+              </td>
+            </tr>
+          </tbody>
+        </table>
       </div>
     </div>
   </div>
