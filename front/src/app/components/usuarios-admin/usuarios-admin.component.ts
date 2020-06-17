@@ -51,26 +51,27 @@ export class UsuariosAdminComponent implements OnInit {
       usuario.estado = 'activo'
     }
 
-    // this.usuarioService.editarusuario(usuario._id, usuario).subscribe(
-    //   (response : any)=>{
-    //     let actualizado = response.usuario;
-    //     if(!actualizado){
-    //      alert(`no hemos podido acializar el usuario (${usuario.nombre})`);
-    //   } else {
-    //     this.usuarioService.obtenerTareas().subscribe((res:any)=>{
-    //       this.posts = res;
-    //       alert(`(${actualizado.nombre}) actualizado exitosamente`);
-    //     }
-    //   }
-    //   (error) =>{
-    //     var errorMensaje = <any>error;
-    //     if(errorMensaje != null){
-    //       console.log(error);
-    //     }
-    //   }
-    // );
+   /*  this.usuarioService.editarusuario(usuario._id, usuario).subscribe(
+      (response : any)=>{
+        let actualizado = response.usuario;
+        if(!actualizado){
+         alert(`no hemos podido acializar el usuario (${usuario.nombre})`);
+      } else {
+        this.usuarioService.obtenerTareas().subscribe((res:any)=>{
+          this.posts = res;
+          alert(`(${actualizado.nombre}) actualizado exitosamente`);
+        }
+      }
+      (error) =>{
+        var errorMensaje = <any>error;
+        if(errorMensaje != null){
+          console.log(error);
+        }
+      }
+    ); */
   }
 
+ 
 
 
 
