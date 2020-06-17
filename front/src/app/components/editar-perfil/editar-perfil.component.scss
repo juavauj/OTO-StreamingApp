@@ -93,3 +93,33 @@ form{
 .input-form input:valid + .label-input::after{
   transform: translateX(0%);
 }
+
+form button{
+  background-color: #30cfd0;
+  color: #330867;
+  width: 50%;
+  height: 6%;
+  border-radius: 15px;
+  outline: none;
+  border: none;
+  cursor: pointer;
+  font-family: PoppinsSemiBold;
+  font-size: 20px;
+  transition: all 0.2s ease-in-out;
+}
+form button:hover{
+  transform: scale(1.05);
+  
+}
+
+.image-form{
+  width: 80%;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: flex-end;
+}
+
+.image-form input{
+  color: #30cfd0;
+  font-family: PoppinsSemiBold;
+}
