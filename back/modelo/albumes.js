@@ -4,11 +4,11 @@ const ObjectId = mongoose.Schema.Types.ObjectId;
 
 var AlbumSchema = new Schema({
     
-    titulo: {
+    nombre: {
         type: String,
         required: true
     },
-    artistas: {
+    idArtista: {
         type: ObjectId,
         ref: 'Artistas',
         required: true

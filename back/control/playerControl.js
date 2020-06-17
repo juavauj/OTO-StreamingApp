@@ -1,4 +1,4 @@
-const Cancion = require('../modelo/canciones');
+const Track = require('../modelo/canciones');
 
 const fs = require('fs');
 const path = require('path');
@@ -6,7 +6,7 @@ const { exists } = require('../modelo/canciones');
 
 // play
 
-async function playMedia(){
+function playMedia(){
     var archivo = req.params.file;
     var ruta = './archivos/canciones/' + archivo;
 

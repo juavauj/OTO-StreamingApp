@@ -9,12 +9,12 @@ var TrackSchema = new Schema({
         type: String,
     required: true
     },
-    album: {
+    idAlbum: {
         type: ObjectId,
         ref: 'Albums',
         required: true
     },
-    artista: 
+    idArtista: 
         {
             type: ObjectId,
             ref:'Artistas',
@@ -25,7 +25,7 @@ var TrackSchema = new Schema({
     anio: Number,
     letra: String, */
 
-    archivoCancion: {
+    archivoAudio: {
         type: String,
         default: null
     },
@@ -37,4 +37,4 @@ var TrackSchema = new Schema({
 })
 
 //exportar el modelo
-module.exports = mongoose.model('Cancion', TrackSchema);
+module.exports = mongoose.model('Track', TrackSchema);
