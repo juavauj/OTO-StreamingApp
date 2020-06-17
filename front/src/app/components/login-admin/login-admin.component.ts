@@ -22,7 +22,7 @@ export class LoginAdminComponent implements OnInit {
  public identidad;
 
  constructor(private usuarioService : UsuarioService, private _router : Router, private navSwitchService : NavSwitchService) { 
-   this.login = new Usuario('', '','', '', '','','usuario', '' ,'lite');
+   this.login = new Usuario("","","","","","","","","","");
  }
 
   ngOnInit(): void {
@@ -41,12 +41,13 @@ export class LoginAdminComponent implements OnInit {
               this.login._id,
               this.login.nombre,
               this.login.apellido,
-              this.login.usuario,
+              this.login.nick,
               this.login.correo,
               this.login.contrasena,
               this.login.rol,
-              this.login.imagen,
-              this.login.suscripcion
+              this.login.tipoSuscripcion,
+              this.login.estado,
+              this.login.imagen
             );
             // crear el objeto localStorage
             localStorage.setItem('sesion',JSON.stringify(usuarioLogueado));

@@ -1,4 +1,4 @@
-/* import { Component, OnInit } from '@angular/core';
+/*  import { Component, OnInit } from '@angular/core';
 
 // Importar el módelo de Usuario
 import { Usuario } from '../../modelo/usuario';
@@ -65,8 +65,5 @@ export class UsuariosComponent implements OnInit {
     
   })
  }
-
-
-
-}
- */
+} */
+ 
