@@ -44,10 +44,45 @@
       
     
     </nav>
-    <div class="burger">
+    <div class="burger" (click)="burgerClic()">
         <div class="line1"></div>
         <div class="line2"></div>
         <div class="line3"></div>
+    </div>
+    
+    <div class="burger-menu">
+
+        <ul class="burger-nav-links">
+             <li>
+                 <div >
+                    <a *ngIf="isLoggedIn; else registro" routerLink="/reproductor">Reproductor Web</a>
+                    <ng-template #registro>
+                        <a routerLink="/registro" (click)="switchNav('/registro')">Registrarse</a>
+                    </ng-template>
+
+                 </div>
+                
+                 
+             </li>
+             <li>
+                <!--  <a routerLink="/perfil/vista">User</a> -->
+                     <div *ngIf="isLoggedIn; else login"  class="dropdown">
+                         <a class="burger-dropbtn">User</a>
+                         <div class="burger-dropdown-content">
+                           <a routerLink="/perfil/vista">Editar Perfil</a>
+                           <a *ngIf="rol==='admin'" routerLink="/admin">Panel Admin</a>
+                           <a (click)="logOut()">Cerrar Sesión</a>
+                         </div>
+                       </div>
+                 <ng-template #login>
+                    
+ 
+                     <a routerLink="/loginUsuario" (click)="switchNav('/registro')">Iniciar Sesión</a>
+                 </ng-template>
+                 
+             </li>
+         </ul>
+
     </div>
 
 </header>

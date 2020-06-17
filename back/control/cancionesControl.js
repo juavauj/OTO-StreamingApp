@@ -67,7 +67,7 @@ function showCanciones(req, res) {
                     if (cancionesEncontradas) {
                         Artista.populate(cancionesEncontradas, {path:'artistas', select: 'nombre -_id'}, (err, cancionesEncontradas)=>{
                             res.status(200).send({message: "Canciones encontradas exitosamente", 
-                            cancion: cancionesEncontradas}); 
+                                cancion: cancionesEncontradas}); 
                         });
                     }
                 });

@@ -66,9 +66,13 @@
             <label class="label-input" for="contrasena"> <span class="content-input">Contraseña</span></label>
 
         </div>
-        <br>
+        <div class="image-form">
+            <img  id="img-user" src="{{ rutaImagen }}" style="width: 100px;">
+            <input type="file"  (change)="subirArchivo($event)" />
+
+        </div>
        
-        <input type="file" placeholder="Subir Imagen" (change)="subirArchivo($event)" />
+        
        
         <!-- 
             Previsualizar la imagen escogida por el usuario

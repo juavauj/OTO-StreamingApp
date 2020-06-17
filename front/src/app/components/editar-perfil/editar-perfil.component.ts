@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, AfterViewInit } from '@angular/core';
 import { Usuario } from '../../modelo/usuario';
 import { UsuarioService } from '../../services/usuario.service';
 
@@ -8,7 +8,8 @@ import { UsuarioService } from '../../services/usuario.service';
   templateUrl: './editar-perfil.component.html',
   styleUrls: ['./editar-perfil.component.scss']
 })
-export class EditarPerfilComponent implements OnInit {
+export class EditarPerfilComponent implements OnInit, AfterViewInit {
+  public rutaImagen;
  // Declarar la variable usuarioActualizar
 
  public usuarioActualizar: Usuario;
@@ -32,6 +33,11 @@ export class EditarPerfilComponent implements OnInit {
    // usuarioActualizar = {nombre: "Pepe", apellido}
    this.usuarioActualizar = JSON.parse(localStorage.getItem('sesion'));
    this.identidad = this.usuarioService.obtenerNombreUsuario();
+
+   this.rutaImagen= this.url + 'obtenerImgUsuario/' + this.usuarioActualizar.imagen;
+ }
+ ngAfterViewInit(): void {
+  this.rutaImagen= this.url + 'obtenerImgUsuario/' + this.usuarioActualizar.imagen;
  }
 
  // Método subirArchivo
@@ -62,6 +68,7 @@ export class EditarPerfilComponent implements OnInit {
                let rutaImagen = this.url + 'obtenerImgUsuario/' + this.usuarioActualizar.imagen;
                //document.getElementById('mostrarImagen').setAttribute('src', rutaImagen);
                document.getElementById('imgUsuario').setAttribute('src', rutaImagen);
+               document.getElementById('img-user').setAttribute('src', rutaImagen);
                console.log(rutaImagen)
 
                // Cierre mostrar imagen
