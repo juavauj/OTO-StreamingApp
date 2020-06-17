@@ -44,6 +44,13 @@ export class UsuariosAdminComponent implements OnInit {
     })
   }
 
+  mute(post){
+    console.log('hola mundo');
+  }
+
+
+
+
   registrarUsuario() {
     this.usuarioService.registro(this.usuarioRegistro).subscribe(
       (response: any) => {

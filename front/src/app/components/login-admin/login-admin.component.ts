@@ -41,10 +41,12 @@ export class LoginAdminComponent implements OnInit {
               this.login._id,
               this.login.nombre,
               this.login.apellido,
-              this.login.usuario,
+              this.login.nick,
               this.login.correo,
               this.login.contrasena,
               this.login.rol,
+              this.login.tipoSuscripcion,
+              this.login.estado,
               this.login.imagen
             );
             // crear el objeto localStorage
