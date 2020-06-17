@@ -17,7 +17,7 @@ export class CancionService {
   ) { }
 
 
-  //servicio para agregar canciones
+ /*  //servicio para agregar canciones
   agregarCancion(cancionNueva){
     let params = JSON.stringify(cancionNueva);
     let options = {
@@ -81,5 +81,5 @@ export class CancionService {
       this.url + 'subir-audio/' + id,
       formData
     ).pipe(map(res => res));
-  }  
+  }   */
 }
