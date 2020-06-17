@@ -1,5 +1,4 @@
 const Album = require('../modelo/albumes');
-const Cancion = require('../modelo/canciones');
 const Artista = require('../modelo/artistas');
 
 const fs = require('fs');
@@ -10,8 +9,8 @@ async function addAlbum(req, res){
     var album = new Album();
     var parametros = req.body;
 
-    album.titulo = parametros.titulo;
-    album.artistas = parametros.artistas;
+    album.nombre = parametros.nombre;
+    album.idArtista = parametros.idArtista;
     album.genero = parametros.genero;
     album.disquera = parametros.disquera;
     album.anio = parametros.anio;
@@ -63,17 +62,13 @@ function mostrarUnAlbum(req, res) {
             if (!albumEncontrado) {
                 res.status(200).send({message: "No ha sido posible encontrar el album"});
             }else{
-                Cancion.populate(albumEncontrado, {path:'canciones', select: 'nombre -_id'}, (err, albumEncontrado)=>{
-                    if (albumEncontrado) {
-                        Artista.populate(albumEncontrado, {path: 'artistas', select: 'nombre -_id'}, (err, albumEncontrado)=>{
-                                res.status(200).send({
-                                message: "Album encontrado", 
-                                album: albumEncontrado
-                                });
-                            }
-                        );
+                Artista.populate(albumEncontrado, {path: 'idArtista', select: 'nombre'}, (err, albumEncontrado)=>{
+                    res.status(200).send({
+                    message: "Album encontrado", 
+                    album: albumEncontrado
+                        });
                     }
-                });
+                );
             }
         }
     })
@@ -89,17 +84,13 @@ function showAlbumes(req, res) {
             if (!albumesEncontrados) {
                 res.status(200).send({message: "No ha sido posible encontrar albumes"});
             }else{
-                Cancion.populate(albumesEncontrados, {path:'canciones', select: 'nombre -_id'}, (err, albumesEncontrados)=>{
-                    if (albumesEncontrados) {
-                        Artista.populate(albumesEncontrados, {path: 'artistas', select: 'nombre -_id'}, (err, albumesEncontrados)=>{
-                                res.status(200).send({
-                                message: "Albumes encontrados", 
-                                album: albumesEncontrados
-                                });
-                            }
-                        );
-                    }
-                });
+                Artista.populate(albumesEncontrados, {path: 'idArtista', select: 'nombre'}, (err, albumesEncontrados)=>{
+                    res.status(200).send({
+                    message: "Albumes encontrados", 
+                    album: albumesEncontrados
+                        });
+                     }
+                );
             }
         }
     });
@@ -116,17 +107,13 @@ function buscarAlbum(req, res) {
             if (!albumFound) {
                 res.status(200).send({message: "No se ha encontrado ningún album"});
             }else{
-                Cancion.populate(albumFound, {path:'canciones', select: 'nombre -_id'}, (err, albumFound)=>{
-                    if (albumFound) {
-                        Artista.populate(albumFound, {path: 'artistas', select: 'nombre -_id'}, (err, albumFound)=>{
-                                res.status(200).send({
-                                message: "Albumes encontrados", 
-                                album: albumFound
-                                });
-                            }
-                        );
+                Artista.populate(albumFound, {path: 'idArtista', select: 'nombre'}, (err, albumFound)=>{
+                    res.status(200).send({
+                    message: "Albumes encontrados", 
+                    album: albumFound
+                        });
                     }
-                });
+                );
             }
         }
     });
@@ -137,8 +124,7 @@ async function albumEstado(req, res){
     var estado = req.params.estado;
     try {
         const albums = await Album.find({estado: estado});
-        const canciones = await Cancion.populate(albums, {path:'canciones', select: 'nombre -_id'});
-        const artistas = await Artista.populate(albums, {path: 'artistas', select: 'nombre -_id'});
+        const artistas = await Artista.populate(albums, {path: 'idArtista', select: 'nombre'});
     res.json(artistas);
     } catch (error) {
         res.status(500).send({message: "Error en el servidor"});

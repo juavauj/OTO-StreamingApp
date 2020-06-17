@@ -34,4 +34,45 @@ export class ArtistaService {
       this.url + `borrar-artista/${id}`
     ).pipe(map(res => res));
   }
+
+  // ----------------------------------------------------------
+  // Declarar el método del servicio de actualizacion de artista
+  actualizarArtista(id, artistaActualizado) {
+    let params = JSON.stringify(artistaActualizado);
+    let options = {
+      headers: new HttpHeaders({ 'Content-Type': 'application/json' })
+    }
+    return this._http.put(
+      this.url + `actualizar-artista/${id}`,
+      params,
+      options
+    ).pipe(map(res => res));
+  }
+
+  // ----------------------------------------------------------
+  // Declarar el método del servicio para subir imagen del artista
+  subirImg(id, archivoImagen: File) {
+    // NOTA: se toma como referencia el metodo visto en clase
+    // `cargarImagenUsuario` del archivo usuario.service.ts
+    let formData = new FormData();
+    formData.append('imagen', archivoImagen);
+    return this._http.put(
+      this.url + `subir-img-artista/${id}`,
+      formData
+    ).pipe(map(res=>res));
+  }
+
+  // ----------------------------------------------------------
+  // Declarar el método del servicio para agregar un artista
+  addArtista(nuevoArtista) {
+    let params = JSON.stringify(nuevoArtista);
+    let options = {
+      headers: new HttpHeaders({ 'Content-Type': 'application/json'})
+    }
+    return this._http.post(
+      this.url + 'registrar-artista',
+      params,
+      options
+    ).pipe(map(res => res));
+  }
 }

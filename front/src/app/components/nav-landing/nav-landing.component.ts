@@ -64,21 +64,21 @@ export class NavLandingComponent implements OnInit {
     -----------------------------------------------------------------------------------------------------------------------------------  
   */
 
-  gsapAnimatios() {
+ gsapAnimatios() {
 
-    // Mostrar el navBar luego de las animaciones iniciales
+  // Mostrar el navBar luego de las animaciones iniciales
 
-    (function hideNavBar() {
-      gsap.from("header", {
-        opacity: 0,
-        y: -80,
-        duration: 2,
-        delay: 6,
-        ease: "sine.out"
-      })
-    })();
+  (function hideNavBar() {
+    gsap.from("header", {
+      opacity: 0,
+      y: -80,
+      duration: 2,
+      delay: 6,
+      ease: "sine.out"
+    })
+  })();
 
-  };
+};
 
 
 }

@@ -1,4 +1,4 @@
-const Cancion = require('../modelo/canciones');
+const Track = require('../modelo/canciones');
 const Album = require('../modelo/albumes');
 const Artista = require('../modelo/artistas');
 
@@ -9,17 +9,17 @@ const path = require('path');
 
 //subir cancion
 async function addCancion(req, res) {
-    var cancion = new Cancion();
+    var cancion = new Track();
     var parametros = req.body;
 
     cancion.nombre = parametros.nombre;
-    cancion.album = parametros.album;
-    cancion.artistas = parametros.artistas;
+    cancion.idAlbum = parametros.idAlbum;
+    cancion.idArtista = parametros.idArtista;
     cancion.duracion = parametros.duracion;
 /*  cancion.generos = parametros.generos;
     cancion.anio = parametros.anio;
     cancion.letra = parametros.letra;*/    
-    cancion.archivoCancion = null;
+    cancion.archivoAudio = null;
     cancion.estado = parametros.estado;    
 
     try {
@@ -36,7 +36,7 @@ async function actualizarCancion(req, res) {
     var newDataCancion = req.body;
 
     try {
-        let cancionActualizada = await Cancion.findByIdAndUpdate(cancionId, newDataCancion);
+        let cancionActualizada = await Track.findByIdAndUpdate(cancionId, newDataCancion);
         res.send({message: "Canción actualizada", cancion: cancionActualizada}); 
     } catch (error) {
         res.status(500).send({message: "No ha sido posible actualizar la canción"}); 
@@ -47,7 +47,7 @@ async function actualizarCancion(req, res) {
 async function borrarCancion(req, res) {
     var usuarioId = req.params.id;
     try {
-        let cancionBorrada = await Cancion.findByIdAndDelete(usuarioId);
+        let cancionBorrada = await Track.findByIdAndDelete(usuarioId);
         res.send({message: "Canción eliminada", cancion: cancionBorrada});
     } catch (error) {
         res.status(500).send({message: "No ha sido posible eliminar la canción"}); 
@@ -56,18 +56,18 @@ async function borrarCancion(req, res) {
 
 //mostrar canciones
 function showCanciones(req, res) {
-    Cancion.find((err, cancionesEncontradas)=>{
+    Track.find((err, cancionesEncontradas)=>{
         if (err) {
             res.status(500).send({message: "Error en el servidor"});
         }else{
             if (!cancionesEncontradas) {
                 res.status(200).send({message: "No ha sido posible encontrar canciones"});
             }else{
-                Album.populate(cancionesEncontradas, {path:'album', select: 'titulo -_id'}, (err, cancionesEncontradas)=>{
+                Album.populate(cancionesEncontradas, {path:'idAlbum', select: 'nombre imagen'}, (err, cancionesEncontradas)=>{
                     if (cancionesEncontradas) {
-                        Artista.populate(cancionesEncontradas, {path:'artistas', select: 'nombre -_id'}, (err, cancionesEncontradas)=>{
+                        Artista.populate(cancionesEncontradas, {path:'idArtista', select: 'nombre'}, (err, cancionesEncontradas)=>{
                             res.status(200).send({message: "Canciones encontradas exitosamente", 
-                            cancion: cancionesEncontradas}); 
+                                cancion: cancionesEncontradas}); 
                         });
                     }
                 });
@@ -80,16 +80,16 @@ function showCanciones(req, res) {
 function mostrarUnaCancion(req, res) {
     var cancionId = req.params.id;
 
-    Cancion.findById(cancionId, (err, cancionEncontrada)=>{
+    Track.findById(cancionId, (err, cancionEncontrada)=>{
         if (err) {
             res.status(500).send({message: "Error en el servidor"});
         }else{
             if (!cancionEncontrada) {
                 res.status(200).send({message: "No ha sido posible encontrar canciones"});
             }else{
-                Album.populate(cancionEncontrada, {path:'album', select: 'titulo -_id'}, (err, cancionEncontrada)=>{
+                Album.populate(cancionEncontrada, {path:'idAlbum', select: 'nombre imagen'}, (err, cancionEncontrada)=>{
                     if (cancionEncontrada) {
-                        Artista.populate(cancionEncontrada, {path:'artistas', select: 'nombre -_id'}, (err, cancionEncontrada)=>{
+                        Artista.populate(cancionEncontrada, {path:'idArtista', select: 'nombre'}, (err, cancionEncontrada)=>{
                             res.status(200).send({message: "Canciones encontradas exitosamente", 
                             cancion: cancionEncontrada}); 
                         });
@@ -105,16 +105,16 @@ function mostrarUnaCancion(req, res) {
 function buscarCancion(req, res) {
     var resBusqueda = req.params.busqueda;
 
-    Cancion.find({nombre: {$regex: resBusqueda, $options: 'i'} }, (err, cancionFound)=>{
+    Track.find({nombre: {$regex: resBusqueda, $options: 'i'} }, (err, cancionFound)=>{
         if (err) {
             res.status(500).send({message: "Error en el servidor"});
         }else{
             if (!cancionFound) {
                 res.status(200).send({message: "No se ha encontrado ninguna canción"});
             }else{
-                Album.populate(cancionFound, {path:'album', select: 'titulo -_id'}, (err, cancionFound)=>{
+                Album.populate(cancionFound, {path:'idAlbum', select: 'nombre imagen'}, (err, cancionFound)=>{
                     if (cancionFound) {
-                        Artista.populate(cancionFound, {path:'artistas', select: 'nombre -_id'}, (err, cancionFound)=>{
+                        Artista.populate(cancionFound, {path:'idArtista', select: 'nombre'}, (err, cancionFound)=>{
                             res.status(200).send({message: "Canciones encontradas exitosamente", 
                             cancion: cancionFound}); 
                         });
@@ -130,9 +130,9 @@ async function cancionesEstado(req, res){
     var estado = req.params.estado;
 
     try {
-        const songs = await Cancion.find({estado: estado})
-        const albums = await Album.populate(songs, {path:'album', select: 'titulo -_id'});
-        const artists = await Artista.populate(songs, {path:'artistas', select: 'nombre -_id'});
+        const songs = await Track.find({estado: estado})
+        const albums = await Album.populate(songs, {path:'idAlbum', select: 'nombre imagen'});
+        const artists = await Artista.populate(songs, {path:'idArtista', select: 'nombre'});
         
         res.json(artists);
     } catch (error) {
@@ -146,14 +146,14 @@ function subirAudios(req, res) {
     var nombreArchivo = "No ha subido ningún archivo...";
     
     if (req.files) {
-        var rutaArchivo = req.files.archivoCancion.path;
+        var rutaArchivo = req.files.archivoAudio.path;
         var filesplit = rutaArchivo.split('\\');
         var nombreArchivo = filesplit[2];
         var extension = nombreArchivo.split('\.');
         var extensionArchivo = extension[1];
 
         if (extensionArchivo == 'mp3') {
-            Cancion.findByIdAndUpdate(cancionId, {archivoCancion: nombreArchivo}, (err, cancionTrack)=>{
+            Track.findByIdAndUpdate(cancionId, {archivoAudio: nombreArchivo}, (err, cancionTrack)=>{
                 console.log(cancionTrack)
                 if(err){
                     res.status(500).send({message: "Error en el servidor"});
@@ -163,7 +163,7 @@ function subirAudios(req, res) {
                     }else{
                         res.status(200).send({
                             message: "canción anexada",
-                            archivoCancion: nombreArchivo,
+                            archivoAudio: nombreArchivo,
                             cancion: cancionTrack
                         });
                     }
