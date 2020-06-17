@@ -41,6 +41,7 @@ import { ArtistasAdminComponent } from './components/artistas-admin/artistas-adm
 
 import { AuthGuard } from './guards/auth.guard';
 import { RoleGuard } from './guards/role.guard';
+import { CancionesComponent } from './components/canciones/canciones.component';
 
 @NgModule({
   declarations: [
@@ -66,6 +67,7 @@ import { RoleGuard } from './guards/role.guard';
     VistaPerfilComponent,
     EditarPerfilComponent,
     ArtistasAdminComponent,
+    CancionesComponent,
   ],
   imports: [BrowserModule, AppRoutingModule, FormsModule, HttpClientModule, BrowserAnimationsModule],
   providers: [

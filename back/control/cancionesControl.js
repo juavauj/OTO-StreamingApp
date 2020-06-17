@@ -63,7 +63,7 @@ function showCanciones(req, res) {
             if (!cancionesEncontradas) {
                 res.status(200).send({message: "No ha sido posible encontrar canciones"});
             }else{
-                Album.populate(cancionesEncontradas, {path:'idAlbum', select: 'nombre'}, (err, cancionesEncontradas)=>{
+                Album.populate(cancionesEncontradas, {path:'idAlbum', select: 'nombre imagen'}, (err, cancionesEncontradas)=>{
                     if (cancionesEncontradas) {
                         Artista.populate(cancionesEncontradas, {path:'idArtista', select: 'nombre'}, (err, cancionesEncontradas)=>{
                             res.status(200).send({message: "Canciones encontradas exitosamente", 
@@ -87,7 +87,7 @@ function mostrarUnaCancion(req, res) {
             if (!cancionEncontrada) {
                 res.status(200).send({message: "No ha sido posible encontrar canciones"});
             }else{
-                Album.populate(cancionEncontrada, {path:'idAlbum', select: 'nombre'}, (err, cancionEncontrada)=>{
+                Album.populate(cancionEncontrada, {path:'idAlbum', select: 'nombre imagen'}, (err, cancionEncontrada)=>{
                     if (cancionEncontrada) {
                         Artista.populate(cancionEncontrada, {path:'idArtista', select: 'nombre'}, (err, cancionEncontrada)=>{
                             res.status(200).send({message: "Canciones encontradas exitosamente", 
@@ -112,7 +112,7 @@ function buscarCancion(req, res) {
             if (!cancionFound) {
                 res.status(200).send({message: "No se ha encontrado ninguna canción"});
             }else{
-                Album.populate(cancionFound, {path:'idAlbum', select: 'nombre'}, (err, cancionFound)=>{
+                Album.populate(cancionFound, {path:'idAlbum', select: 'nombre imagen'}, (err, cancionFound)=>{
                     if (cancionFound) {
                         Artista.populate(cancionFound, {path:'idArtista', select: 'nombre'}, (err, cancionFound)=>{
                             res.status(200).send({message: "Canciones encontradas exitosamente", 
@@ -131,7 +131,7 @@ async function cancionesEstado(req, res){
 
     try {
         const songs = await Track.find({estado: estado})
-        const albums = await Album.populate(songs, {path:'idAlbum', select: 'nombre'});
+        const albums = await Album.populate(songs, {path:'idAlbum', select: 'nombre imagen'});
         const artists = await Artista.populate(songs, {path:'idArtista', select: 'nombre'});
         
         res.json(artists);
