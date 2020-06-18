@@ -325,7 +325,6 @@ export class LandingComponent implements OnInit {
           y: 70,
           scrollTrigger: {
             trigger: ".logoFoot",
-            markers: true,
             start: "1700",
             end: "+=500",
 

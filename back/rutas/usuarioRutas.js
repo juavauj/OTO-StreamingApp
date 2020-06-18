@@ -38,6 +38,10 @@ api.get('/usuario/:id', UsuarioControl.obtenerUsuario);//check
 // Ruta borrara usuarios
 api.delete('/eliminarUsuarios/:id', UsuarioControl.borrarUsuario);//check
 
+// registro por el lado de admin 
+
+api.post('/registroAdmin', UsuarioControl.registrarUsuarioAdmin);
 
 // Exportar el módulo
 module.exports = api;
+

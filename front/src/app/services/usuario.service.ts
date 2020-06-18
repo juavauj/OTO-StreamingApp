@@ -35,7 +35,20 @@ export class UsuarioService {
       params,
       options
     ).pipe(map(res => res));
+  }
 
+  //  servicio registro desde la parte de admin 
+  registroAdmin(usuarioNuevo) {
+    let params = JSON.stringify(usuarioNuevo);
+    let options = {
+      headers: new HttpHeaders({ 'Content-Type': 'application/json' })
+    };
+
+    return this._http.post(
+      this.url + 'registroAdmin',
+      params,
+      options
+    ).pipe(map(res => res));
   }
 
   //----------------------------------------------------------
