@@ -23,10 +23,7 @@
   grid-template-rows: 1fr 9fr;
 }
 
-.gridSystem__formEditar{
-  display: none;
-}
 
 .tableFixHead          { overflow-y: auto;  }
 .tableFixHead thead tr th { position: sticky; top: -1px; background-color: black; }
-
+  

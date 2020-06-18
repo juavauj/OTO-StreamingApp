@@ -14,6 +14,8 @@ import { HttpClient } from '@angular/common/http';
 export class UsuariosAdminComponent implements OnInit {
 
   public usuarioRegistro: Usuario;
+  public usuarioActualizar: Usuario;
+
   selectedUser: Usuario;
   usuarios: [];
 
@@ -27,19 +29,18 @@ export class UsuariosAdminComponent implements OnInit {
 
 
   filterPost = '';
-  posts;
 
   ngOnInit(): void {
-    this.usuarioService.obtenerTareas().subscribe((response: any) => {
-      this.posts = response
+    this.usuarioService.obtenerTareas().subscribe((response:any)=>{
+      this.usuarios = response
     })
   }
 
-  delete(post) {
-    this.usuarioService.eliminarUsuario(post._id).subscribe((response: any) => {
+  delete(usuario){
+    this.usuarioService.eliminarUsuario(usuario._id).subscribe((response:any)=>{
       console.log(response);
-      this.usuarioService.obtenerTareas().subscribe((res: any) => {
-        this.posts = res
+      this.usuarioService.obtenerTareas().subscribe((res:any)=>{
+        this.usuarios = res
       })
     })
   }
@@ -50,33 +51,33 @@ export class UsuariosAdminComponent implements OnInit {
     } else if (usuario.estado === 'inactivo') {
       usuario.estado = 'activo'
     }
+    
+     this.usuarioService.editarusuario(usuario._id, usuario).subscribe(
 
-   /*  this.usuarioService.editarusuario(usuario._id, usuario).subscribe(
       (response : any)=>{
         let actualizado = response.usuario;
+
         if(!actualizado){
          alert(`no hemos podido acializar el usuario (${usuario.nombre})`);
-      } else {
-        this.usuarioService.obtenerTareas().subscribe((res:any)=>{
-          this.posts = res;
-          alert(`(${actualizado.nombre}) actualizado exitosamente`);
+        } else {
+          this.usuarioService.obtenerTareas().subscribe((res:any)=>{
+            this.usuarios = res;
+            alert(`(${actualizado.nombre}) El estado ha cambiado`);
+          });
         }
-      }
+      },
       (error) =>{
         var errorMensaje = <any>error;
         if(errorMensaje != null){
           console.log(error);
         }
       }
-    ); */
-  }
-
- 
-
-
+    ); 
+  } 
 
   registrarUsuario() {
-    this.usuarioService.registro(this.usuarioRegistro).subscribe(
+    console.log(this.usuarioRegistro);
+     this.usuarioService.registroAdmin(this.usuarioRegistro).subscribe(
       (response: any) => {
         let usuario = response.usuario;
         this.usuarioRegistro = usuario;
@@ -85,9 +86,11 @@ export class UsuariosAdminComponent implements OnInit {
         if (!this.usuarioRegistro._id) {
           alert("Error al registrarse");
         } else {
-          alert(`Registro exitoso! Inicia sesión con ${this.usuarioRegistro.correo}`);
-          this.usuarioRegistro = new Usuario('', '', '', '', '', '', '', '', '', '');
-          this._router.navigate(['/loginUsuario']);
+          alert(`EL nuevo usuario ${this.usuarioRegistro.correo} ha sido creado`);
+          this.usuarioRegistro = new Usuario('', '', '','', '', '', '', '', '', '');
+          this.usuarioService.obtenerTareas().subscribe((res:any)=>{
+            this.usuarios = res;
+          });
         }
       },
       (error) => {
@@ -98,8 +101,37 @@ export class UsuariosAdminComponent implements OnInit {
         }
       }
     );
-    console.log(this.usuarioRegistro)
+    console.log(this.usuarioRegistro) 
   }
 
+  actualizarUsuario(){
+    console.log(this.usuarioActualizar);
+     this.usuarioService.editarusuario(this.usuarioActualizar._id, this.usuarioActualizar).subscribe(
+      (response: any) => {
+        let usuario = response.usuario;
+        this.usuarioActualizar = usuario;
+        console.log(usuario);
 
+        if (!this.usuarioActualizar._id) {
+          alert("Error al actualizar");
+        } else {
+          alert(`EL usuario ${this.usuarioActualizar.correo} ha sido actualizado`);
+          this.usuarioActualizar = undefined; 
+          this.usuarioService.obtenerTareas().subscribe((res:any)=>{
+            this.usuarios = res;
+          });
+        }
+      },
+      (error) => {
+        var errorMensaje = <any>error;
+        if (errorMensaje != null) {
+          console.log(error);
+        }
+      }
+    );
+    console.log(this.usuarioActualizar) 
+  }
+  setUsuarioActualizar(usuario) {
+    this.usuarioActualizar = usuario;
+  }
 }

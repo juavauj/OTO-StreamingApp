@@ -40,6 +40,43 @@ function registrarUsuario(req, res){
     });
 }
 
+// funcion para registro de usuarios en el admin 
+
+function registrarUsuarioAdmin(req, res){
+    var usuario = new Usuario();
+    var parametros = req.body;
+
+    usuario.nombre = parametros.nombre;
+    usuario.apellido = parametros.apellido;
+    usuario.correo = parametros.correo;
+    usuario.nick = parametros.nick;
+    usuario.contrasena = parametros.contrasena;
+    usuario.rol = parametros.rol;
+    usuario.imagen = null;
+    usuario.tipoSuscripcion = parametros.tipoSuscripcion;
+    usuario.estado = parametros.estado;
+
+    console.log(usuario)
+    console.log(parametros)
+    
+    usuario.save((err, usuarioNuevo)=>{
+        console.log(err)
+        if(err){
+            res.status(500).send({message: "Error en el servidor"});
+            console.log(err);
+        }else{
+            if(!usuarioNuevo){
+                res.status(200).send({message: "No fue posible realizar el registro"});
+            }else{
+                res.status(200).send({
+                    message: "Usuario Creado",
+                    usuario: usuarioNuevo
+                });
+            }
+        }
+    });
+}
+
 // Función Actualizar Usuario
 function actualizarUsuario(req, res){
   
@@ -232,6 +269,11 @@ function mostrarArchivo(req, res){
             res.status(200).send({message: "Imagen no encontrada"});
         }
     });
+
+
+
+    
+
 }
 
 //Funcion login admin
@@ -247,6 +289,6 @@ module.exports = {
     obtenerUsuario,
     buscarUsuario,
     borrarUsuario,
-    usuariosEstado
-    
+    usuariosEstado,
+    registrarUsuarioAdmin
 }
