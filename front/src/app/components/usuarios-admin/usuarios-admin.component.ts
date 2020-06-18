@@ -44,7 +44,6 @@ export class UsuariosAdminComponent implements OnInit {
       })
     })
   }
-
   mutearUsuario(usuario) {
     if (usuario.estado === 'activo') {
       usuario.estado = 'inactivo';
@@ -74,7 +73,6 @@ export class UsuariosAdminComponent implements OnInit {
       }
     ); 
   } 
-
   registrarUsuario() {
     console.log(this.usuarioRegistro);
      this.usuarioService.registroAdmin(this.usuarioRegistro).subscribe(
