@@ -1,8 +1,14 @@
 <div class="contenedor">
+    <div class="buscador">
+        <input type="text" name="filterPost" class="form-control" placeholder="Search.." [(ngModel)]="filterPost"> 
+    </div>
     <h1>Canciones</h1>
-    <div class="cancion" *ngFor="let cancion of cancionesEncontradas" >
+    
+    <div class="cancion" *ngFor="let cancion of cancionesEncontradas | filter:filterPost" (click)="playCancion(cancion._id)">
         <h4 class="nombre">{{cancion.nombre}}</h4>
         <h5 class="album">{{cancion.idAlbum.nombre}}</h5>
         <h5 class="artista">{{cancion.idArtista.nombre}}</h5>
     </div>
+
+    <button (click)="pauseSong()">pause</button>
 </div>

@@ -1,0 +1,10 @@
+<div class="contenedor">
+    <h1>Playlists</h1>
+    <div class="playlist" *ngFor="let playlist of playlistsEncontradas" (click)="cambiar()">
+        <h4 class="nombre">{{playlist.nombre}}</h4>
+        <h5 class="propietario">{{playlist.idUsuario.nick}}</h5>
+        <div [className]="estado ? 'hidden' : 'active'">
+        <p class="canciones" *ngFor="let cancion of playlist.canciones">{{cancion.nombre}}</p>
+        </div>
+    </div>
+</div>

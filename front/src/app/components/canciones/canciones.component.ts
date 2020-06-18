@@ -20,15 +20,19 @@ export class CancionesComponent implements OnInit {
 
   public cancionEncontrada : any;
 
+  public filterPost = '';
+
+  public song;
+
   constructor(private CancionService: CancionService) {
     this.url = CancionService.url;
    }
 
   ngOnInit(): void {
-    // this.mostrarCanciones();
+    this.mostrarCanciones();
   }
 
-  /* mostrarCanciones(){
+   mostrarCanciones(){
     this.CancionService.obtenerCanciones().subscribe(
       (response : any)=>{
         this.cancionesEncontradas = response.cancion;
@@ -42,10 +46,15 @@ export class CancionesComponent implements OnInit {
     )
   }
 
-  /* playCancion(){
-    this.CancionService.cancionEstado(estado).subscribe(
+  playCancion(_id){
+    this.CancionService.ObtenerTrack(_id).subscribe(
       (response : any)=>{
-        this.cancionesEncontradas = response.cancion;
+        this.cancionEncontrada = response.cancion;
+
+        let rutaAudio = this.url + 'play-cancion/' + this.cancionEncontrada.archivoAudio;
+          this.song = new Audio(rutaAudio);
+          this.song.play()
+        
       },
       (error)=>{
         var errorMensaje = <any>error;
@@ -54,6 +63,9 @@ export class CancionesComponent implements OnInit {
         }
       }
     )
-  } */
+  }
+  pauseSong(){
+    this.song.pause();
+  }
 }
 

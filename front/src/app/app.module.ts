@@ -39,19 +39,15 @@ import { WelcomeAdminComponent } from './components/welcome-admin/welcome-admin.
 import { VistaPerfilComponent } from './components/vista-perfil/vista-perfil.component';
 import { EditarPerfilComponent } from './components/editar-perfil/editar-perfil.component';
 import { ArtistasAdminComponent } from './components/artistas-admin/artistas-admin.component';
-import { CancionesComponent } from "./components/canciones/canciones.component";
 
 // Importar Guards
 
 import { AuthGuard } from './guards/auth.guard';
 import { RoleGuard } from './guards/role.guard';
-<<<<<<< HEAD
-
-=======
 import { CancionesComponent } from './components/canciones/canciones.component';
 import { AlbumsReproductorComponent } from './components/albums-reproductor/albums-reproductor.component';
 import { VariosReproductorComponent } from './components/varios-reproductor/varios-reproductor.component';
->>>>>>> 8c2d103e4abea1be72583e49c9154eeeaa7f8d62
+import { PlaylistReproductorComponent } from './components/playlist-reproductor/playlist-reproductor.component';
 
 @NgModule({
   declarations: [
@@ -77,13 +73,10 @@ import { VariosReproductorComponent } from './components/varios-reproductor/vari
     VistaPerfilComponent,
     EditarPerfilComponent,
     ArtistasAdminComponent,
-<<<<<<< HEAD
-    CancionesComponent
-=======
     CancionesComponent,
     AlbumsReproductorComponent,
     VariosReproductorComponent,
->>>>>>> 8c2d103e4abea1be72583e49c9154eeeaa7f8d62
+    PlaylistReproductorComponent,
   ],
   imports: [BrowserModule, AppRoutingModule, FormsModule, HttpClientModule, BrowserAnimationsModule],
   providers: [

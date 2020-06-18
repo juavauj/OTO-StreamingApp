@@ -1,0 +1,51 @@
+.contenedor{
+    color: white;
+    font-family: sans-serif;
+    background: linear-gradient(90deg, rgba(20,29,51,1) 0%, rgba(109,76,255,1) 71%);
+    /* max-width: 60%; */
+    margin: auto;
+}
+.contenedor h1{
+    padding: 5%;
+    font-size: 4vw;
+    font-weight: lighter;
+    background: rgba(0, 0, 0, 0.349);
+/*     background-color: rgb(44, 31, 99); */
+}
+.playlist{
+    border-bottom: 2px white solid;
+}
+.propietario, .nombre{
+    margin: 1%;
+    cursor: default;
+}
+.nombre{
+    font-size: x-large;
+    padding: 3%;
+    padding-bottom: 0;
+    margin-top: 0;
+}
+.propietario{
+    font-size: large;
+    font-weight: lighter;
+    padding: 0% 3% 3% 3%;
+}
+.canciones{
+    border-bottom: 1px white solid;
+    padding: 2% 3%;
+    color: #888d8d;
+    transition: 0.5s;
+}
+.canciones:first-child{
+    border-top: 3px white solid;
+}
+.hidden{
+    display: none;
+}
+.active{
+    display: block;
+}
+.canciones:hover{
+    background: rgba(0, 0, 0, 0.349);
+    transition: 0.5s;
+}
