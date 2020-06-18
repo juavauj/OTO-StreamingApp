@@ -1,4 +1,6 @@
+
 <div id="container">
+    
 
     <div class="navBarRepro">
         <div class="burgerNav">
@@ -17,25 +19,15 @@
             <p>logo</p>
         </div>
         <div class="rutasNavBar">
-            <p>rutas</p>
+            <a routerLink="/reproductor">Home</a>
+            <a routerLink="/reproductor">Canciones</a>
+            <a routerLink="/reproductor">Artistas</a>
+            <a routerLink="/reproductor/albumes">Albumes</a>
         </div>
     </div>
 
     <div class="contenidoMixto">
-        <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Asperiores recusandae unde laboriosam aut tempora
-            ab debitis rerum beatae sapiente quae eos dolores autem consectetur, sed nihil doloremque porro dicta.
-            Natus?Lorem ipsum dolor sit, amet consectetur adipisicing elit. Ratione, facilis incidunt quae aliquid,
-            commodi fuga ea saepe, repellendus corporis quasi quis recusandae aut nemo. Error impedit nihil repudiandae
-            sint velit!Loreml
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Omnis deleniti velit fugit officiis odit unde vel
-            possimus corporis dignissimos cum, explicabo vero labore non error voluptate expedita magnam deserunt
-            voluptatibus.l
-            Lorem ipsum dolor sit amet consectetur, adipisicing elit. Natus similique rem tempora. Debitis amet
-            consequatur laboriosam odio vero rem velit nihil sequi at id fugit unde, iure et est quaerat?
-            Lorem ipsum dolor sit, amet consectetur adipisicing elit. Voluptatibus cumque quaerat quae facilis at, rem
-            modi, tempora ea dignissimos eveniet accusamus aspernatur itaque! Consequatur suscipit nulla iste nisi
-            tempora reiciendis.
-        </p>
+        <router-outlet></router-outlet>
     </div>
 
     <div class="controlReproductor">
