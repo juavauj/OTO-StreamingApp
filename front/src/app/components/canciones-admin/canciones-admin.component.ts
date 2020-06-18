@@ -98,7 +98,7 @@ export class CancionesAdminComponent implements OnInit {
 	}
 
 	deleteCancion(cancion){
-		this.cancionesService.borrarCanciones(cancion._id).subscribe(
+		this.cancionesService.borrarCancion(cancion._id).subscribe(
 			(response: any)=>{
 				let cancionBorrada = response.cancion;
 				console.log(cancionBorrada);
