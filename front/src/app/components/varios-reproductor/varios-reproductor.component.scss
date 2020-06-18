@@ -1,0 +1,116 @@
+.panel-albumes{
+    background-color: #140328;
+    width: 100%;
+    height: 57px;
+    margin: auto;
+    display: flex;
+    align-items: center;
+    color: white;
+    justify-content: space-around;
+    font-family: PoppinsSemiBold;
+    letter-spacing: 0.5px;
+}
+.buscador input{
+    background-color: transparent;
+    border: none;
+    outline: none;
+    color: white;
+    font-family:PoppinsLight;
+    border: 1px solid white;
+    padding: 3px;
+    border-radius: 5px;
+}
+::placeholder{
+    color: white;
+    font-family:PoppinsLight;
+    font-size: 15px;
+}
+h3{
+    text-align: center;
+    color: white;
+    font-family: PoppinsSemiBold;
+    letter-spacing: 0.5px;
+}
+.albumes-home{
+    max-height: 80vh;
+}
+.album-card,
+.artista-card{
+    display: grid;
+    grid-auto-rows: auto;
+    row-gap: 100px;
+    grid-auto-flow: row dense;
+    width: 85%;
+    margin: auto;
+    height: 35.5vh;
+    overflow: scroll;
+   
+  }
+
+  .album-card__item,
+  .artista-card__item{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 7vh;
+  }
+  .img-album,
+  .img-artista{
+      display: flex;
+      justify-content: center;
+  }
+
+  .img-album img,
+  .img-artista img{
+       height: 191px;
+      width: 82%;
+      cursor: pointer;
+      opacity: 0.7;
+      transition: all 0.3s ease-in-out;
+  }
+
+  .img-album img:hover,
+  .img-artista img:hover{
+      opacity: 1;
+}
+p{
+    //color: lightblue;
+    color: white;
+    font-family: PoppinsSemiBold;
+    font-size: 15px;
+}
+p span{
+    color: lightblue;
+}
+h2{
+    color: #30cfd0;
+    font-family: PoppinsSemiBold;
+    font-size: 27px;
+    text-align: center;
+}
+  
+  @media all and (min-width: 320px) {
+    .album-card,
+    .artista-card {
+      grid-template-columns: repeat(1, 1fr);
+    }
+  }
+  
+  @media all and (min-width: 768px) {
+    .album-card,
+    .artista-card {
+      grid-template-columns: repeat(3, 1fr);
+    }
+  }
+  
+  @media all and (min-width: 1024px) {
+    .album-card,
+    .artista-card {
+      grid-template-columns: repeat(4, 1fr);
+    }
+  }
+  
+  

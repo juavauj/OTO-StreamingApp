@@ -1,43 +1,43 @@
 <div>
 
     <div class="panel-albumes">
+        <h3>Artistas</h3>
         <div class="buscador">
-            <input type="text" name="filterPost" class="form-control" placeholder="Search.." [(ngModel)]="filterPost"> 
+            <input type="text" name="filterPost" class="form-control" placeholder="Buscar.." [(ngModel)]="filterPost"> 
         </div>
-        
+       
     </div>
+    <h2>Albums</h2>
     <div class="albumes-home">
-        <h3>Albums</h3>
+       
         <div class="album-card">
             <div *ngFor="let album of albumes | filter:filterPost" class="album-card__item">
     
                 <div class="img-album">
-                    <img src="{{ruta}}obtenerImgAlbum/{{album.imagen}}" >
+                    <img src="{{ruta}}obtenerImgAlbum/{{album.imagen}}"(click)="setAlbumDetalles(album)" >
                 </div>
                 <div class="nombre-album">
                     <p>{{album.nombre}}</p>
                 </div>
                 <div class="artista-album">
-                    <p>{{album.idArtista.nombre}}</p>
+                    <p><span>{{album.idArtista.nombre}} </span></p>
                 </div>
         </div>
 
     </div>
-
+    <h2>Artistas</h2>
     <div class="artistas-home">
-        <h3>Artistas</h3>
+        
         <div class="artista-card">
             <div *ngFor="let artista of artistas | filter:filterPost" class="artista-card__item">
     
                 <div class="img-artista">
-                    <img src="{{ruta}}obtenerImgArtista/{{artista.imagen}}" >
+                    <img src="{{ruta}}obtenerImgArtista/{{artista.imagen}}" (click)="setArtistaDetalles(artista)" >
                 </div>
                 <div class="nombre-artista">
                     <p>{{artista.nombre}}</p>
                 </div>
-                <div class="artista-artista">
-                    <p>{{artista.biografia}}</p>
-                </div>
+                
         </div>
 
     </div>

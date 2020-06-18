@@ -4,6 +4,9 @@ import { Cancion } from '../../modelo/cancion';
 import { Album } from '../../modelo/album';
 import { Artista } from '../../modelo/artista';
 
+// Importar el manejador de rutas
+import { Router, ActivatedRoute, Params } from '@angular/router';
+
 import { CancionService } from '../../services/cancion.service';
 import { AlbumesService } from '../../services/albumes.service';
 import { ArtistaService } from '../../services/artista.service';
@@ -24,8 +27,10 @@ export class VariosReproductorComponent implements OnInit {
 
   public filterPost = '';
   public ruta:String;
+  public albumParams = { details: false, album: new Album('', '', '', '', '', 0, '', '') };
+  public artistaParams = { details: false, album: new Artista('', '', '', '', '') };
 
-  constructor(private cancionService: CancionService, private artistaService:ArtistaService, private albumesService: AlbumesService) { 
+  constructor(private cancionService: CancionService, private artistaService:ArtistaService, private albumesService: AlbumesService,private _router : Router) { 
     this.ruta = albumesService.url;
 
     this.canciones=[];
@@ -37,12 +42,12 @@ export class VariosReproductorComponent implements OnInit {
     this.getContentHome();
   }
   getContentHome(){
-    this.getCancionesHome();
+    //this.getCancionesHome();
     this.getArtistasHome();
     this.getAlbumesHome();
 
   }
-  getCancionesHome(){
+  /* getCancionesHome(){
     this.cancionesHome.forEach(id=>{
       this.cancionService.ObtenerTrack(id).subscribe(
         (response: any)=>{
@@ -64,55 +69,61 @@ export class VariosReproductorComponent implements OnInit {
       
     })
 
-  }
+  } */
 
   getArtistasHome(){
-    this.artistasHome.forEach(id=>{
-      this.artistaService.getArtistasById(id).subscribe(
-        (response: any)=>{
-          this.artistas.push(response.artista)
-          console.log('Artistas',this.artistas);
-          if(!this.artistas){
-            console.log('No hay canciones en la BD')
-          }
+    this.artistaService.getArtistasActivos().subscribe(
+      (response: any) => {
+        this.artistas = response;
+        if (!this.artistas) {
+          console.log('No hay artistas en la BD');
 
-        },
-        (error)=>{
-          let errorMsg = <any>error;
-          if(errorMsg != null){
-            console.log(errorMsg);
-  
-           }
         }
-      );
 
+      },
+      (error) => {
+        let errorMsg = <any>error;
+        if (errorMsg != null) {
+          console.log(errorMsg);
 
-
-
-    })
+        }
+      }
+    );
   }
   getAlbumesHome(){
-    this.albumesHome.forEach(id=>{
-      this.albumesService.getAlbumById(id).subscribe(
-        (response: any)=>{
-          this.albumes.push(response.album)
-          console.log('Albumes',this.albumes);
-          if(!this.albumes){
-            console.log('No hay canciones en la BD')
-          }
+    this.albumesService.getAlbumesActivos().subscribe(
+      (response: any) => {
+        this.albumes = response;
+        if (!this.albumes) {
+          console.log('No hay albumes en la BD');
 
-        },
-        (error)=>{
-          let errorMsg = <any>error;
-          if(errorMsg != null){
-            console.log(errorMsg);
-  
-           }
         }
-      );
 
+      },
+      (error) => {
+        let errorMsg = <any>error;
+        if (errorMsg != null) {
+          console.log(errorMsg);
 
-    })
+        }
+      }
+    );
+  }
+
+  setAlbumDetalles(album: Album){
+    this.albumParams.details = true;
+    this.albumParams.album = album;
+    localStorage.setItem('albumParams', JSON.stringify(this.albumParams));
+    this._router.navigate(['/reproductor/albumes']);
+    
+  }
+  setArtistaDetalles(album: Artista){
+       
+    this.artistaParams.details = true;
+    this.artistaParams.album = album;
+    localStorage.setItem('artistaParams', JSON.stringify(this.artistaParams));
+    this._router.navigate(['/reproductor/artistas']);
+    
   }
 
 }

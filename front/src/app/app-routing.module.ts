@@ -18,7 +18,10 @@ import { CancionesComponent } from "./components/canciones/canciones.component";
 import { PlaylistReproductorComponent } from "./components/playlist-reproductor/playlist-reproductor.component";
 
 import { VariosReproductorComponent } from './components/varios-reproductor/varios-reproductor.component';
-import { AlbumsReproductorComponent } from './components/albums-reproductor/albums-reproductor.component'
+import { AlbumsReproductorComponent } from './components/albums-reproductor/albums-reproductor.component';
+import { ArtistasReproductorComponent } from './components/artistas-reproductor/artistas-reproductor.component';
+import { CancionesReproComponent } from './components/canciones-repro/canciones-repro.component'
+
 // Import de Guards
 import { AuthGuard } from './guards/auth.guard';
 import { RoleGuard } from './guards/role.guard';
@@ -52,8 +55,11 @@ const routes: Routes = [
     children:[
       {path: '', component: VariosReproductorComponent},
       {path: 'albumes', component: AlbumsReproductorComponent },
-      { path: 'songs', component: CancionesComponent},
-      { path: 'playlists', component: PlaylistReproductorComponent},
+      {path: 'artistas', component:ArtistasReproductorComponent},
+      {path: 'canciones', component:CancionesReproComponent},
+      {path: 'playlists', component:PlaylistReproductorComponent},
+
+
     ]
   },
   { path: 'admin', component: AdminComponent,

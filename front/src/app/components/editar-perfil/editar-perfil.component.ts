@@ -81,7 +81,7 @@ export class EditarPerfilComponent implements OnInit, AfterViewInit {
        } else {
          alert(`${response.message}`);
        }
-
+       location.reload();
        // Cierre response
      }, error => {
        if (error != null) {

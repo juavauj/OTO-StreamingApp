@@ -26,6 +26,9 @@ export class LoginAdminComponent implements OnInit {
  }
 
   ngOnInit(): void {
+    if(this.usuarioService.isLogged()){
+      this._router.navigate(['/']);
+    }
   }
 
     // Metodo loginUsuario que consumira el servicio iniciarSesion

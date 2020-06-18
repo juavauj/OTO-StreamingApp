@@ -1,0 +1,52 @@
+<div class="albumes-container">
+    <div *ngIf="showArtistaDetails; else artistaContent" >
+        <div class="back-btn">
+            <button (click)="listArtistas()">Atras</button>
+
+        </div>
+        
+        
+        <div class="img-album-details">
+            <img src="{{ruta}}obtenerImgArtista/{{artistaDetails.imagen}}" >
+        </div>
+        <div class="info-album-details">
+            <h2> Artista</h2>
+            <p>{{artistaDetails.nombre}}</p>
+        </div>
+        <div class="info-album-details">
+            <h2>Biografia</h2>
+            <p class="bio-artista">{{artistaDetails.biografia}}</p>
+        </div>
+       
+    </div>
+        
+       
+    <ng-template #artistaContent>
+        <div class="panel-albumes">
+            <h3>Artistas</h3>
+            <div class="buscador">
+                <input type="text" name="filterPost" class="form-control" placeholder="Buscar.." [(ngModel)]="filterPost"> 
+            </div>
+           
+        </div>
+
+        <div class="album-card">
+            <div *ngFor="let artista of artistas | filter:filterPost" class="album-card__item">
+    
+                <div class="img-album">
+                    <img src="{{ruta}}obtenerImgArtista/{{artista.imagen}}" (click)="artistaDetalles(artista)">
+                </div>
+                <div class="nombre-album">
+                    <p>{{artista.nombre}}</p>
+                </div>
+        </div>
+
+        </div>
+           
+    
+    </ng-template>
+
+</div>
+
+
+

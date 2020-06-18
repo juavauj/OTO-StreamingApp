@@ -29,6 +29,7 @@ import { NavSwitchService } from './services/nav-switch.service';
 import { CancionService } from "./services/cancion.service";
 import { AlbumService } from "./services/album.service";
 import { PlaylistService } from "./services/playlist.service";
+import { ControlReproService } from './services/control-repro.service'
 //import { UsuariosComponent } from './components/usuarios/usuarios.component';
 import { AlbumesAdminComponent } from './components/albumes-admin/albumes-admin.component';
 import { FilterPipe } from './pipes/filter.pipe';
@@ -38,8 +39,7 @@ import { PlaylistAdminComponent } from './components/playlist-admin/playlist-adm
 import { WelcomeAdminComponent } from './components/welcome-admin/welcome-admin.component';
 import { VistaPerfilComponent } from './components/vista-perfil/vista-perfil.component';
 import { EditarPerfilComponent } from './components/editar-perfil/editar-perfil.component';
-import { ArtistasAdminComponent } from './components/artistas-admin/artistas-admin.component';
-
+import { ArtistasAdminComponent } from './components/artistas-admin/artistas-admin.component'
 // Importar Guards
 
 import { AuthGuard } from './guards/auth.guard';
@@ -48,6 +48,8 @@ import { CancionesComponent } from './components/canciones/canciones.component';
 import { AlbumsReproductorComponent } from './components/albums-reproductor/albums-reproductor.component';
 import { VariosReproductorComponent } from './components/varios-reproductor/varios-reproductor.component';
 import { PlaylistReproductorComponent } from './components/playlist-reproductor/playlist-reproductor.component';
+import { ArtistasReproductorComponent } from './components/artistas-reproductor/artistas-reproductor.component';
+import { CancionesReproComponent } from './components/canciones-repro/canciones-repro.component';
 
 @NgModule({
   declarations: [
@@ -77,6 +79,8 @@ import { PlaylistReproductorComponent } from './components/playlist-reproductor/
     AlbumsReproductorComponent,
     VariosReproductorComponent,
     PlaylistReproductorComponent,
+    ArtistasReproductorComponent,
+    CancionesReproComponent,
   ],
   imports: [BrowserModule, AppRoutingModule, FormsModule, HttpClientModule, BrowserAnimationsModule],
   providers: [
@@ -87,7 +91,8 @@ import { PlaylistReproductorComponent } from './components/playlist-reproductor/
     ArtistaService,
     AlbumService,
     CancionService,
-    PlaylistService
+    PlaylistService,
+    ControlReproService
   ],
   bootstrap: [AppComponent],
 })
