@@ -27,6 +27,11 @@ export class AlbumesService {
 
   }
 
+  getAlbumById(id) {
+    return this._http.get(
+      this.url + 'album/' + id
+    ).pipe(map(res => res))
+  }
   
   addAlbum(albumNuevo){
 
@@ -43,3 +48,4 @@ export class AlbumesService {
 
   }
 }
+

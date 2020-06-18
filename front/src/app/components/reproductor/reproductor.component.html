@@ -1,2 +1,61 @@
 
+<div id="container">
+    
+
+    <div class="navBarRepro">
+        <div class="burgerNav">
+            <p>burger</p>
+        </div>
+        <div class="logo">
+            <p>logo</p>
+        </div>
+        <div class="buscarNav">
+            <p>lupa</p>
+        </div>
+    </div>
+
+    <div class="navBar">
+        <div class="logo">
+            <p>logo</p>
+        </div>
+        <div class="rutasNavBar">
+            <a routerLink="/reproductor">Home</a>
+            <a routerLink="/reproductor">Canciones</a>
+            <a routerLink="/reproductor">Artistas</a>
+            <a routerLink="/reproductor/albumes">Albumes</a>
+        </div>
+    </div>
+
+    <div class="contenidoMixto">
+        <router-outlet></router-outlet>
+    </div>
+
+    <div class="controlReproductor">
+        <div class="controlCover">
+            <p>cover</p>
+        </div>
+        <div class="controlBotones">
+            <div class="tituloCancion">
+                <p id="cancionRep">Cancion</p>
+                <p id="artistaRep">Artista</p>
+            </div>
+            <div class="botones">
+                <img id="backward" src="../../../assets/img/backward.png" alt="backward">
+                <img id="play" src="../../../assets/img/play.png" alt="backward">
+                <img id="forward" src="../../../assets/img/forward.png" alt="backward">
+            </div>
+        </div>
+        <div class="controlVolumen">
+            <img id="volumen" src="../../../assets/img/speaker.png" alt="">
+        </div>
+    </div>
+
+</div>
+
 <audio src=""></audio>
+
+<!-- <app-albums-reproductor></app-albums-reproductor>
+
+<app-varios-reproductor></app-varios-reproductor>
+
+ -->

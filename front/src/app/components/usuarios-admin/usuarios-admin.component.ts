@@ -19,13 +19,13 @@ export class UsuariosAdminComponent implements OnInit {
   selectedUser: Usuario;
   usuarios: [];
 
-  constructor( 
+  constructor(
     private usuarioService: UsuarioService,
     private _router: Router,
     private http: HttpClient
-   ) {
-    this.usuarioRegistro = new Usuario('', '', '', '','', '', '', '', '', '');
-    }
+  ) {
+    this.usuarioRegistro = new Usuario('', '', '', '', '', '', '', '', '', '');
+  }
 
 
   filterPost = '';
@@ -45,7 +45,7 @@ export class UsuariosAdminComponent implements OnInit {
     })
   }
 
-  mutearUsuario(usuario){
+  mutearUsuario(usuario) {
     if (usuario.estado === 'activo') {
       usuario.estado = 'inactivo';
     } else if (usuario.estado === 'inactivo') {
@@ -53,6 +53,7 @@ export class UsuariosAdminComponent implements OnInit {
     }
     
      this.usuarioService.editarusuario(usuario._id, usuario).subscribe(
+
       (response : any)=>{
         let actualizado = response.usuario;
 
@@ -73,7 +74,6 @@ export class UsuariosAdminComponent implements OnInit {
       }
     ); 
   } 
- 
 
   registrarUsuario() {
     console.log(this.usuarioRegistro);
@@ -131,7 +131,6 @@ export class UsuariosAdminComponent implements OnInit {
     );
     console.log(this.usuarioActualizar) 
   }
-
   setUsuarioActualizar(usuario) {
     this.usuarioActualizar = usuario;
   }
