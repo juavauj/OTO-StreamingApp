@@ -64,7 +64,7 @@
         </div>
         <div class="rutasNavBar">
             <a id="homeRutas" routerLink="/reproductor">HOME</a>
-            <a id="cancionesRutas" routerLink="/reproductor">CANCIONES</a>
+            <a id="cancionesRutas" routerLink="/reproductor/canciones">CANCIONES</a>
             <a id="artistasRutas" routerLink="/reproductor/artistas">ARTISTAS</a>
             <a id="albumesRutas" routerLink="/reproductor/albumes">ALBUMES</a>
         </div>
@@ -98,7 +98,9 @@
         <div class="controlBotonesDesktop">
             <div class="desktopButtons">
                 <img id="backwardDesk" src="../../../assets/img/backwardDesk.png" alt="backward">
-                <img id="playDesk" src="../../../assets/img/playDesk.png" alt="backward">
+                <img *ngIf="trackStatus==='false'" id="playDesk" src="../../../assets/img/playDesk.png" alt="backward" (click)="play()">
+                <img *ngIf="trackStatus==='true'" id="playDesk" src="../../../assets/img/pausa.png" alt="backward" (click)="stop()">
+                
                 <img id="forwardDesk" src="../../../assets/img/forwardDesk.png" alt="backward">
             </div>
         </div>
@@ -110,8 +112,10 @@
                 </div>
             </div>
             <div class="tituloCancionDesk">
-                <p id="cancionRep">Cancion</p>
-                <p id="artistaRep">Artista</p>
+                <!-- <p *ngIf="trackStatus==='false'" id="cancionRep">Cancion</p> -->
+                <p  id="cancionRep">{{cancion.nombre}}</p>
+                <!-- <p  *ngIf="trackStatus==='false'" id="artistaRep">Artista</p> -->
+                <!-- <p  *ngIf="trackStatus==='true'" id="artistaRep">{{cancion.idArtista.nombre}}</p> -->
             </div>
         </div>
     </div>

@@ -11,9 +11,11 @@
     z-index: 1;
     position: sticky;
     top: -1px;
-    background: black;
+    background: #140328;
     color: white;
     justify-content: space-around;
+    font-family: PoppinsSemiBold;
+    letter-spacing: 0.5px;
 }
 .album-card {
      display: grid;
@@ -23,12 +25,22 @@
     width: 87%;
     margin: auto;
     margin-top: 35px; 
-
-  
-
-    
   }
-
+  .buscador input{
+    background-color: transparent;
+    border: none;
+    outline: none;
+    color: white;
+    font-family:PoppinsLight;
+    border: 1px solid white;
+    padding: 3px;
+    border-radius: 5px;
+}
+::placeholder{
+    color: white;
+    font-family:PoppinsLight;
+    font-size: 15px;
+}
   .album-card__item {
     width: 100%;
     height: 100%;
@@ -65,7 +77,18 @@
     border-radius: 15px;
     height: 80%;
     cursor: pointer;
-}
+    background-color: #30cfd0;
+    color: #330867;
+    outline: none;
+    border: none;
+    font-family: PoppinsSemiBold;
+    font-size: 20px;
+    transition: all 0.2s ease-in-out;
+  }
+  button:hover{
+    transform: scale(1.05);
+    
+  }
 
 .img-album-details{
     display: flex;
@@ -85,6 +108,24 @@
     justify-content: center;
     align-items: center;
     margin-bottom: 20px;
+}
+p{
+    //color: lightblue;
+    color: white;
+    font-family: PoppinsSemiBold;
+    font-size: 15px;
+}
+p span{
+    color: lightblue;
+}
+h2{
+    color: #30cfd0;
+    font-family: PoppinsSemiBold;
+    font-size: 27px;
+}
+.bio-artista{
+    width: 50%;
+    text-align: justify;
 }
   
   @media all and (min-width: 320px) {

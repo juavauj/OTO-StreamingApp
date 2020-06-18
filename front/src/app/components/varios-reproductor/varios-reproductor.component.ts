@@ -4,6 +4,9 @@ import { Cancion } from '../../modelo/cancion';
 import { Album } from '../../modelo/album';
 import { Artista } from '../../modelo/artista';
 
+// Importar el manejador de rutas
+import { Router, ActivatedRoute, Params } from '@angular/router';
+
 import { CancionService } from '../../services/cancion.service';
 import { AlbumesService } from '../../services/albumes.service';
 import { ArtistaService } from '../../services/artista.service';
@@ -24,8 +27,10 @@ export class VariosReproductorComponent implements OnInit {
 
   public filterPost = '';
   public ruta:String;
+  public albumParams = { details: false, album: new Album('', '', '', '', '', 0, '', '') };
+  public artistaParams = { details: false, album: new Artista('', '', '', '', '') };
 
-  constructor(private cancionService: CancionService, private artistaService:ArtistaService, private albumesService: AlbumesService) { 
+  constructor(private cancionService: CancionService, private artistaService:ArtistaService, private albumesService: AlbumesService,private _router : Router) { 
     this.ruta = albumesService.url;
 
     this.canciones=[];
@@ -103,6 +108,22 @@ export class VariosReproductorComponent implements OnInit {
         }
       }
     );
+  }
+
+  setAlbumDetalles(album: Album){
+    this.albumParams.details = true;
+    this.albumParams.album = album;
+    localStorage.setItem('albumParams', JSON.stringify(this.albumParams));
+    this._router.navigate(['/reproductor/albumes']);
+    
+  }
+  setArtistaDetalles(album: Artista){
+       
+    this.artistaParams.details = true;
+    this.artistaParams.album = album;
+    localStorage.setItem('artistaParams', JSON.stringify(this.artistaParams));
+    this._router.navigate(['/reproductor/artistas']);
+    
   }
 
 }

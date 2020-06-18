@@ -1,0 +1,69 @@
+.contenedor{
+    color: white;
+    font-family: sans-serif;
+    background: linear-gradient(90deg, rgba(20,29,51,1) 0%, rgba(109,76,255,1) 71%);
+    max-height: 82vh;
+    overflow: scroll;
+    /* max-width: 60%; /
+    margin: auto;
+}
+.contenedor h1{
+    padding: 5%;
+    font-size: 4vw;
+    font-weight: lighter;
+    background: rgba(0, 0, 0, 0.349);
+/     background-color: rgb(44, 31, 99); */}
+.album-card{
+    max-height: 82vh;
+    overflow: scroll;
+}
+.album-card__item{
+    display: flex;
+    justify-content: space-between;
+    width: 70%;
+    margin: auto;
+    border: 1px white solid;
+}
+
+.cancion{
+    border: 1px white solid;
+    padding: 1% 5%;
+    transition: 0.5s;
+    width: 70%;
+}
+.cancion:hover{
+    background: rgba(0, 0, 0, 0.349);
+    transition: 0.5s;
+}
+.artista, .nombre, .album{
+    margin: 1%;
+    cursor: default;
+}
+.artista, .album{
+    color: #888d8d;
+}
+
+.play-btn{
+    height: 6vh;
+    display: flex;
+    align-items: center;
+}
+.play-btn button{
+    width: 100%;
+    margin-right: 87px;
+    margin-top: 25px;
+    border-radius: 15px;
+    height: 80%;
+    cursor: pointer;
+    background-color: #330867;
+    color: #30cfd0;
+    outline: none;
+    border: none;
+    font-family: PoppinsSemiBold;
+    font-size: 20px;
+    transition: all 0.2s ease-in-out;
+  }
+  button:hover{
+    transform: scale(1.05);
+    
+  }

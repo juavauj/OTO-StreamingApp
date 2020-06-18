@@ -16,6 +16,7 @@ import { ReproductorComponent } from './components/reproductor/reproductor.compo
 import { VariosReproductorComponent } from './components/varios-reproductor/varios-reproductor.component';
 import { AlbumsReproductorComponent } from './components/albums-reproductor/albums-reproductor.component';
 import { ArtistasReproductorComponent } from './components/artistas-reproductor/artistas-reproductor.component';
+import { CancionesReproComponent } from './components/canciones-repro/canciones-repro.component'
 
 // Import de Guards
 import { AuthGuard } from './guards/auth.guard';
@@ -50,7 +51,8 @@ const routes: Routes = [
     children:[
       {path: '', component: VariosReproductorComponent},
       {path: 'albumes', component: AlbumsReproductorComponent },
-      {path: 'artistas', component:ArtistasReproductorComponent}
+      {path: 'artistas', component:ArtistasReproductorComponent},
+      {path: 'canciones', component:CancionesReproComponent}
 
     ]
   },

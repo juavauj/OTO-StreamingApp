@@ -26,6 +26,7 @@ import { PremiumComponent } from './components/premium/premium.component';
 import { ArtistaService } from './services/artista.service';
 import { UsuarioService } from './services/usuario.service';
 import { NavSwitchService } from './services/nav-switch.service';
+import { ControlReproService } from './services/control-repro.service'
 //import { UsuariosComponent } from './components/usuarios/usuarios.component';
 import { AlbumesAdminComponent } from './components/albumes-admin/albumes-admin.component';
 import { FilterPipe } from './pipes/filter.pipe';
@@ -45,6 +46,7 @@ import { CancionesComponent } from './components/canciones/canciones.component';
 import { AlbumsReproductorComponent } from './components/albums-reproductor/albums-reproductor.component';
 import { VariosReproductorComponent } from './components/varios-reproductor/varios-reproductor.component';
 import { ArtistasReproductorComponent } from './components/artistas-reproductor/artistas-reproductor.component';
+import { CancionesReproComponent } from './components/canciones-repro/canciones-repro.component';
 
 @NgModule({
   declarations: [
@@ -74,6 +76,7 @@ import { ArtistasReproductorComponent } from './components/artistas-reproductor/
     AlbumsReproductorComponent,
     VariosReproductorComponent,
     ArtistasReproductorComponent,
+    CancionesReproComponent,
   ],
   imports: [BrowserModule, AppRoutingModule, FormsModule, HttpClientModule, BrowserAnimationsModule],
   providers: [
@@ -82,6 +85,7 @@ import { ArtistasReproductorComponent } from './components/artistas-reproductor/
     AuthGuard,
     RoleGuard,
     ArtistaService,
+    ControlReproService,
     AlbumService
   ],
   bootstrap: [AppComponent],
