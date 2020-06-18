@@ -1,85 +1,93 @@
 <div class="gridSystem">
-    <div class="gridSystem__left mt-5 pt-2 ml-5">
-        <div class="gridSystem__formNuevo ml-4 mt-5">
-              <form  class="bg-dark text-light p-3 rounded" #formularioRegistro="ngForm" (ngSubmit)="registrarUsuario()"> 
-                <div class="row form-group">
-                    <div class="col">
-                        <input type="text" class="form-control" placeholder="Nombre" name="nombre" #nombre="ngModel" [(ngModel)]="usuarioRegistro.nombre" autocomplete="off" required/>
-                    </div>
-                    <div class="col">
-                        <input type="text" class="form-control" placeholder="apellido" name="apellido" #nombre="ngModel" [(ngModel)]="usuarioRegistro.apellido" autocomplete="off" required/>
-                    </div>
-                </div>
-                <div class="form-group">
-                    <input type="text" class="form-control" placeholder="Correo" name="correo" #nombre="ngModel" [(ngModel)]="usuarioRegistro.correo" autocomplete="off" required/>
-                </div> 
-                <div class="form-group">
-                    <input type="password" class="form-control" placeholder="Password" name="contrasena" #nombre="ngModel" [(ngModel)]="usuarioRegistro.contrasena" autocomplete="off" required/>
-                </div> 
-                <div class="form-group">
-                    <input type="text" class="form-control" placeholder="Nickname" name="nick" #nombre="ngModel" [(ngModel)]="usuarioRegistro.nick" autocomplete="off" required/>
-                </div>
-                <div class="form-group">               
-                    <label for="exampleFormControlSelect1">Rol</label>
-                    <select class="form-control" name="rol" #nombre="ngModel" [(ngModel)]="usuarioRegistro.rol"> 
-                         <option>Usuario</option> 
-                         <option>Admin</option>
-                       </select>                     
-                </div> 
-                <div class="form-group ">
-                    <label for="exampleFormControlSelect1">Imagen</label>
-                    <input type="file" class="form-control bg-secondary border-0 text-light" name="imagen" #nombre="ngModel" [(ngModel)]="usuarioRegistro.imagen" aria-describedby="imagen">
-                </div>
-                <div class="form-group">                
-                    <label for="exampleFormControlSelect1">Suscripcion</label>
-                    <select class="form-control" id="estado"  name="tipoSuscripcion" #nombre="ngModel" [(ngModel)]="usuarioRegistro.tipoSuscripcion">  
-                         <option>Lite</option> 
-                         <option>premium</option>
-                    </select>                     
-                  </div>    
-                <div class="form-group">                
-                  <label for="exampleFormControlSelect1">Estado</label>
-                  <select class="form-control" name="estado" name="rol" #nombre="ngModel" [(ngModel)]="usuarioRegistro.estado"> 
-                       <option>Activo</option> 
-                       <option>Inactivo</option>
-                     </select>                     
-                </div>      
-                                  
-                <button type="submit" class="btn btn-success  btn-block">Nuevo usuario</button>
-              </form>
+  <div class="gridSystem__left mt-5 pt-2 ml-5">
+    <div class="gridSystem__formNuevo ml-4 mt-5">
+      <form class="bg-dark text-light p-3 rounded" #formularioRegistro="ngForm" (ngSubmit)="registrarUsuario()">
+        <div class="row form-group">
+          <div class="col">
+            <input type="text" class="form-control" placeholder="Nombre" name="nombre" #nombre="ngModel"
+              [(ngModel)]="usuarioRegistro.nombre" autocomplete="off" required />
+          </div>
+          <div class="col">
+            <input type="text" class="form-control" placeholder="apellido" name="apellido" #nombre="ngModel"
+              [(ngModel)]="usuarioRegistro.apellido" autocomplete="off" required />
+          </div>
         </div>
-        <div class="gridSystem__formEditar ml-4 top_gap">
-           <!-- formulario igual -->
+        <div class="form-group">
+          <input type="text" class="form-control" placeholder="Correo" name="correo" #nombre="ngModel"
+            [(ngModel)]="usuarioRegistro.correo" autocomplete="off" required />
         </div>
+        <div class="form-group">
+          <input type="password" class="form-control" placeholder="Password" name="contrasena" #nombre="ngModel"
+            [(ngModel)]="usuarioRegistro.contrasena" autocomplete="off" required />
+        </div>
+        <div class="form-group">
+          <input type="text" class="form-control" placeholder="Nickname" name="nick" #nombre="ngModel"
+            [(ngModel)]="usuarioRegistro.nick" autocomplete="off" required />
+        </div>
+        <div class="form-group">
+          <label for="exampleFormControlSelect1">Rol</label>
+          <select class="form-control" name="rol" #nombre="ngModel" [(ngModel)]="usuarioRegistro.rol">
+            <option>Usuario</option>
+            <option>Admin</option>
+          </select>
+        </div>
+        <div class="form-group ">
+          <label for="exampleFormControlSelect1">Imagen</label>
+          <input type="file" class="form-control bg-secondary border-0 text-light" name="imagen" #nombre="ngModel"
+            [(ngModel)]="usuarioRegistro.imagen" aria-describedby="imagen">
+        </div>
+        <div class="form-group">
+          <label for="exampleFormControlSelect1">Suscripcion</label>
+          <select class="form-control" id="estado" name="tipoSuscripcion" #nombre="ngModel"
+            [(ngModel)]="usuarioRegistro.tipoSuscripcion">
+            <option>Lite</option>
+            <option>premium</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label for="exampleFormControlSelect1">Estado</label>
+          <select class="form-control" name="estado" name="rol" #nombre="ngModel" [(ngModel)]="usuarioRegistro.estado">
+            <option>Activo</option>
+            <option>Inactivo</option>
+          </select>
+        </div>
+
+        <button type="submit" class="btn btn-success  btn-block">Nuevo usuario</button>
+      </form>
     </div>
-    <div class="gridSystem__right">
-      <h1 class="text-center my-3 text-light">Panel Usuarios</h1>
+    <div class="gridSystem__formEditar ml-4 top_gap">
+      <!-- formulario igual -->
+    </div>
+  </div>
+  <div class="gridSystem__right">
+    <h1 class="text-center my-3 text-light">Panel Usuarios</h1>
+    <div class="px-5">
       <div class="px-5">
-      <div class="px-5"> 
         <div class="row">
           <div class="col">
-              <div class="form-group">
-                  <input type="text" name="filterPost" class="form-control" placeholder="Search.." [(ngModel)]="filterPost"> 
-              </div>
+            <div class="form-group">
+              <input type="text" name="filterPost" class="form-control" placeholder="Search.." [(ngModel)]="filterPost">
+            </div>
           </div>
-      </div>
-  
-      <div>
-        <table class="table table-striped table-light rounded border border-secondary table-hover col-12 container-fluid">
-          <thead>
+        </div>
+
+        <div>
+          <table
+            class="table table-striped table-light rounded border border-secondary table-hover col-12 container-fluid">
+            <thead>
               <tr>
-                  <th>Nombre</th>
-                  <th>apellido</th>                  
-                  <th>correo</th>  
-                  <th>contrasena</th>                 
-                  <th>nick</th>                 
-                  <th>rol</th>              
-                  <th>imagen</th>
-                  <th>subscription</th>
-                  <th>estado</th>
+                <th>Nombre</th>
+                <th>apellido</th>
+                <th>correo</th>
+                <th>contrasena</th>
+                <th>nick</th>
+                <th>rol</th>
+                <th>imagen</th>
+                <th>subscription</th>
+                <th>estado</th>
               </tr>
-          </thead>
-          <tbody>
+            </thead>
+            <tbody>
               <tr *ngFor="let post of posts | filter:filterPost">
                   <td>{{post.nombre}}</td>
                   <td>{{post.apellido}}</td>
@@ -92,14 +100,20 @@
                   <td>{{post.estado}}</td>
                   <td>
                     <button type="button" class="btn btn-info mx-1"> Edit </button>
+<<<<<<< HEAD
 <!--                     <button type="button" class="btn btn-warning mx-1" (click)="mutearUsuario(usuario)"> Off </button>
  -->                    <button type="button" class="btn btn-danger mx-1" (click)="delete(post)">Delete</button>                    
                   </td>                                 
+=======
+                    <button type="button" class="btn btn-warning mx-1" > Off </button>
+                    <button type="button" class="btn btn-danger mx-1" >Delete</button>                    
+                  </td>    
+>>>>>>> 8c2d103e4abea1be72583e49c9154eeeaa7f8d62
               </tr>
-          </tbody>
-      </table>
-    </div>
+            </tbody>
+          </table>
+        </div>
       </div>
     </div>
-    </div>
   </div>
+</div>

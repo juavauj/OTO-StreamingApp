@@ -45,7 +45,13 @@ import { CancionesComponent } from "./components/canciones/canciones.component";
 
 import { AuthGuard } from './guards/auth.guard';
 import { RoleGuard } from './guards/role.guard';
+<<<<<<< HEAD
 
+=======
+import { CancionesComponent } from './components/canciones/canciones.component';
+import { AlbumsReproductorComponent } from './components/albums-reproductor/albums-reproductor.component';
+import { VariosReproductorComponent } from './components/varios-reproductor/varios-reproductor.component';
+>>>>>>> 8c2d103e4abea1be72583e49c9154eeeaa7f8d62
 
 @NgModule({
   declarations: [
@@ -71,7 +77,13 @@ import { RoleGuard } from './guards/role.guard';
     VistaPerfilComponent,
     EditarPerfilComponent,
     ArtistasAdminComponent,
+<<<<<<< HEAD
     CancionesComponent
+=======
+    CancionesComponent,
+    AlbumsReproductorComponent,
+    VariosReproductorComponent,
+>>>>>>> 8c2d103e4abea1be72583e49c9154eeeaa7f8d62
   ],
   imports: [BrowserModule, AppRoutingModule, FormsModule, HttpClientModule, BrowserAnimationsModule],
   providers: [
