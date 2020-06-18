@@ -173,7 +173,6 @@ export class LandingComponent implements OnInit {
           y: 70,
           scrollTrigger: {
             trigger: ".textoDos",
-            // markers: true,
             start: "150",
             end: "+=500"
           }
@@ -187,7 +186,6 @@ export class LandingComponent implements OnInit {
           delay: 0.5,
           scrollTrigger: {
             trigger: ".textoDos",
-            // markers: true,
             start: "150",
             end: "+=500"
           }
@@ -199,7 +197,6 @@ export class LandingComponent implements OnInit {
           x: 500,
           scrollTrigger: {
             trigger: ".imgDos",
-            // markers: true,
             start: "450",
             end: "+=500"
 
@@ -212,7 +209,6 @@ export class LandingComponent implements OnInit {
           delay: 0.2,
           scrollTrigger: {
             trigger: ".imgDos",
-            // markers: true,
             start: "450",
             end: "+=500"
 
@@ -225,7 +221,6 @@ export class LandingComponent implements OnInit {
           delay: 0.6,
           scrollTrigger: {
             trigger: ".imgDos",
-            // markers: true,
             start: "450",
             end: "+=500"
 
@@ -238,7 +233,6 @@ export class LandingComponent implements OnInit {
           delay: 1.4,
           scrollTrigger: {
             trigger: ".imgDos",
-            // markers: true,
             start: "450",
             end: "+=500"
           }
@@ -250,7 +244,6 @@ export class LandingComponent implements OnInit {
           delay: 1,
           scrollTrigger: {
             trigger: ".imgDos",
-            // markers: true,
             start: "450",
             end: "+=500"
 
@@ -267,7 +260,6 @@ export class LandingComponent implements OnInit {
           x: -300,
           scrollTrigger: {
             trigger: ".textoTres",
-            // markers: true,
             start: "750",
             end: "+=500"
 
@@ -280,7 +272,6 @@ export class LandingComponent implements OnInit {
           y: 70,
           scrollTrigger: {
             trigger: ".textoTres",
-            // markers: true,
             start: "900",
             end: "+=500"
 
@@ -294,7 +285,6 @@ export class LandingComponent implements OnInit {
           delay: 0.5,
           scrollTrigger: {
             trigger: ".textoTres",
-            // markers: true,
             start: "900",
             end: "+=500"
 
@@ -312,7 +302,7 @@ export class LandingComponent implements OnInit {
         //   css: { background: "linear-gradient(to top, #30cfd0, #00a4ca, #0076bc, #00469c, #330867)" },
         //   scrollTrigger: {
         //     trigger: ".logoFoot",
-        //     // markers: true,
+
         //     start: "1700",
         //     end: "+=500",
         //   
@@ -437,7 +427,6 @@ export class LandingComponent implements OnInit {
           y: 70,
           scrollTrigger: {
             trigger: ".textoDos",
-            // markers: true,
             end: "+=500"
           }
         })
@@ -450,7 +439,6 @@ export class LandingComponent implements OnInit {
           delay: 0.5,
           scrollTrigger: {
             trigger: ".textoDos",
-            // markers: true,
             end: "+=500"
           }
         })
@@ -462,7 +450,6 @@ export class LandingComponent implements OnInit {
           y: 90,
           scrollTrigger: {
             trigger: ".textoDos",
-            // markers: true,
             end: "+=500"
 
           }
@@ -474,7 +461,6 @@ export class LandingComponent implements OnInit {
           delay: 0.7,
           scrollTrigger: {
             trigger: ".textoDos",
-            // markers: true,
             end: "+=500"
 
           }
@@ -486,7 +472,6 @@ export class LandingComponent implements OnInit {
           delay: 0.9,
           scrollTrigger: {
             trigger: ".textoDos",
-            // markers: true,
             end: "+=500"
 
           }
@@ -498,7 +483,6 @@ export class LandingComponent implements OnInit {
           delay: 1.3,
           scrollTrigger: {
             trigger: ".textoDos",
-            // markers: true,
             end: "+=500"
           }
         })
@@ -509,7 +493,6 @@ export class LandingComponent implements OnInit {
           delay: 1.1,
           scrollTrigger: {
             trigger: ".textoDos",
-            // markers: true,
             end: "+=500"
 
           }
@@ -527,7 +510,6 @@ export class LandingComponent implements OnInit {
           scrollTrigger: {
             trigger: ".uno",
             start: "370px",
-            // markers: true,
             end: "+=500"
 
           }
@@ -569,7 +551,7 @@ export class LandingComponent implements OnInit {
         //   css: { background: "linear-gradient(to top, #30cfd0, #00a4ca, #0076bc, #00469c, #330867)" },
         //   scrollTrigger: {
         //     trigger: ".logoFoot",
-        //     // markers: true,
+
         //     start: "1700",
         //     end: "+=500",
         //   
@@ -582,7 +564,6 @@ export class LandingComponent implements OnInit {
           y: 80,
           scrollTrigger: {
             trigger: ".uno",
-            // markers: true,
             start: "550px",
             end: "+=500",
 
