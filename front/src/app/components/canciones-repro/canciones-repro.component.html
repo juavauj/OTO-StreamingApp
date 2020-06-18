@@ -1,0 +1,24 @@
+<div class="contenedor">
+    <div class="album-card">
+        <div *ngFor="let cancion of canciones | filter:filterPost" class="album-card__item">
+    
+            
+            <div class="cancion">
+                <p>{{cancion.nombre}}</p>
+                <div class="artista">
+                    <p>{{cancion.idArtista.nombre}}</p>
+                </div>
+                <p>{{cancion.idAlbum.nombre}}</p>
+                <audio id="{{cancion._id}}">
+                    <source src="http://localhost:3000/api/play-cancion/{{cancion.archivoAudio}}" type="audio/mpeg">
+                </audio>
+            </div>
+           
+
+            <div class="play-btn">
+                <button (click)="listenSong(cancion)">Listen</button>
+            </div>
+            
+    </div>
+
+</div>

@@ -12,9 +12,9 @@ function registrarUsuario(req, res){
     usuario.nombre = parametros.nombre;
     usuario.apellido = parametros.apellido;
     usuario.correo = parametros.correo;
-    usuario.nick = 'usuario';
+    usuario.nick = parametros.nick;
     usuario.contrasena = parametros.contrasena;
-    usuario.rol = 'admin';
+    usuario.rol = parametros.rol;
     usuario.imagen = null;
     usuario.tipoSuscripcion = 'lite';
     usuario.estado = 'activo';

@@ -77,6 +77,12 @@ export class CancionService {
     ).pipe(map(res => res));
   }
 
+  obtenerCancionesActivas(){
+    return this._http.get(
+      this.url + 'canciones-estado/activo'
+    ).pipe(map(res => res));
+  }
+
   //servicio para traer una canción
   ObtenerTrack(id){
     let options = {

@@ -24,7 +24,7 @@ export class RegistroComponent implements OnInit {
     private usuarioService: UsuarioService,
     private _router: Router,
   ) {
-    this.usuarioRegistro = new Usuario('', '','', '', '', '', '', '', '', '');
+    this.usuarioRegistro = new Usuario('', '','', 'user2020', '', '', 'usuario', '', '', '');
   }
 
   ngOnInit(): void {

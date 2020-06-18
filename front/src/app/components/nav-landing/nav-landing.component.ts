@@ -38,6 +38,7 @@ export class NavLandingComponent implements OnInit {
   logOut() {
     this.usuarioService.cerrarSesion();
     this._router.navigate(['']);
+    location.reload();
 
   }
 
