@@ -29,7 +29,7 @@ body {
         height: 100vh;
         width: 100vw;
         display: grid;
-        background-image: linear-gradient(to top, #30cfd0, #00a4ca, #0076bc, #00469c, #330867);
+        background-color: #E1E1E8;
         grid-template-columns: 0.4fr 2fr;
         grid-template-rows: 2fr 0.4fr;
         grid-template-areas: 
@@ -40,7 +40,53 @@ body {
     .navBar {
         grid-area: navbar;
         display: grid;
-        background-color: #0c021888;
+        background-color: #25054d8c;
+        grid-template-rows: 1fr 1fr;
+        grid-template-areas: "logo"
+        "rutas";
+    }
+
+    .logo {
+        grid-area: logo;
+        place-self: center;
+    }
+
+    .rutasNavBar {
+        grid-area: rutas;
+        place-self: auto;
+        display: grid;
+        grid-template-columns: 0.2fr 1fr 0.2fr;
+        grid-template-rows: repeat(4, 1fr);
+        grid-template-areas: 
+        ".      home        ."
+        ".      canciones        ."
+        ".      artistas        ."
+        ".      albumes        .";
+    }
+
+    .rutasNavBar a {
+        text-align: center;
+        letter-spacing: 0.15em;
+        color: #FFFFFF;
+        font-family: PoppinsSemiBold;
+        font-size: 25px;
+        text-decoration: none;
+    }
+
+    #homeRutas {
+        grid-area: home;
+    }
+
+    #cancionesRutas {
+        grid-area: canciones;
+    }
+
+    #artistasRutas {
+        grid-area: artistas;
+    }
+
+    #albumesRutas {
+        grid-area: albumes;
     }
 
     .contenidoMixto {
@@ -51,11 +97,119 @@ body {
     .controlReproductor {
         grid-area: repro;
         display: grid;
-        background-color: #0c0218;
+        background-color: #25054D;
+        grid-template-columns: repeat(3, 1fr);
+        grid-template-rows: 1fr;
+        grid-template-areas: "botones   cover   vol";
+    }
+
+    .controlBotones {
+        display: none;
+    }
+
+    .controlCover {
+        display: none;    
     }
 
     .navBarRepro {
         display: none;
+    }
+
+    .controlBotonesDesktop {
+        grid-area: botones;
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        grid-template-rows: repeat(3, 1fr);
+        grid-template-areas: 
+        ".   .   ."
+        ".   buttons   ."
+        ".   .   .";
+    }
+
+    .desktopButtons {
+        display: grid;
+        grid-area: buttons;
+        grid-template-columns: repeat(3, 1fr);
+        grid-template-rows: 1fr;
+        grid-template-areas: 
+        "backward   play   forward";
+    }
+
+    #backwardDesk {
+        grid-area: backward;
+        place-self: center;
+        width: 50%;
+    }
+
+    #playDesk {
+        grid-area: play;
+        place-self: center;
+        width: 50%;
+    }
+
+    #forwardDesk {
+        grid-area: forward;
+        place-self: center;
+        width: 50%;
+    }
+
+    
+
+    .controlVolumen {
+        grid-area: vol;
+        place-self: center;
+    }
+
+    #volumen {
+        width: 150%;
+    }
+
+    .controlCoverDesktop {
+        display: grid;
+        grid-area: cover;
+        grid-template-columns: 0.4fr 0.6fr 1fr;
+        grid-template-rows: repeat(4, 1fr);
+        grid-template-areas: 
+        ".  album  ."
+        ".  album  desc"
+        ".  album  desc"
+        ".  album  .";
+    }
+
+    .coverDesk {
+        grid-area: album;
+        display: grid;
+        grid-template-columns: 0.3fr 1fr 0.3fr;
+        grid-template-rows: 0.2fr 1fr 0.2fr;
+        grid-template-areas: ". . ."
+        ". cover ."
+        ". . .";
+    }
+
+    .imagenAlbumDesk {
+        grid-area: cover;
+        background-color: #fff;
+    }
+
+    .tituloCancionDesk {
+        grid-area: desc;
+        place-self: start;
+    }
+
+    #cancionRep {
+        font-family: PoppinsSemiBold;
+        color: #fff;
+        font-size: 30px;
+        text-align: left;
+        letter-spacing: 0.06em;
+    }
+
+    #artistaRep {
+        font-family: PoppinsRegular;
+        color: #fff;
+        font-size: 20px;
+        text-align: left;
+        letter-spacing: 0.06em;
     }
 
 }
@@ -79,7 +233,7 @@ body {
         display: grid;
         grid-template-columns: repeat(3, 1fr);
         grid-template-rows: 60px;
-        grid-template-areas: "burger    logo    lupa";
+        grid-template-areas: ".    logo    burger";
         background-color: #25054D;
         width: 100%;
         box-sizing: border-box;
@@ -94,10 +248,16 @@ body {
 
     .logo {
         grid-area: logo;
+        place-self: center;
+        
     }
-    
-    .buscarNav {
-        grid-area: lupa;
+
+    .controlBotonesDesktop {
+        display: none;
+    }
+
+    .controlCoverDesktop {
+        display: none;
     }
 
     .contenidoMixto {
@@ -125,6 +285,17 @@ body {
 
     .controlCover {
         grid-area: cover;
+        display: grid;
+        grid-template-columns: 0.3fr 1fr 0.3fr;
+        grid-template-rows: 0.4fr 0.6fr 0.4fr;
+        grid-template-areas: ". . ."
+        ". cover ."
+        ". . .";
+    }
+
+    .imagenCover {
+        grid-area: cover;
+        background-color: #fff;
     }
     
     .controlBotones {
