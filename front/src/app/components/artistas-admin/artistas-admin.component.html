@@ -1,11 +1,11 @@
 <!-- otro div para todo -->
 <div class="main">
   <!-- contenedor de todo el grid -->
-  <div class="container">
+  <div class="container-fluid">
     <!-- fila principal -->
     <div class="row">
       <!-- columna de formularios -->
-      <div class="col-4">
+      <div class="col-3 px-5">
         <form class="new-form bg-dark text-light p-3 rounded" #formularioNuevoArtista="ngForm" (ngSubmit)="addArtista()">
           <div class="row form-group">
             <div class="col">
@@ -57,13 +57,14 @@
       </div>
 
       <!-- columna de tabla -->
-      <div class="col-8">
+      <div class="col-9">
         <h1 class="text-center my-3 text-light">Panel Artistas</h1>
         <div class="form-group">
           <input type="text" name="filterArtista" class="form-control" placeholder="Buscar por nombre..." [(ngModel)]="filterArtista">
         </div>
-        <table class="table table-striped table-dark rounded border border-secondary table-hover">
-          <thead>
+        <div class="tableFixHead"  style=" max-height: 80vh;overflow: auto;">
+        <table class="table table-striped table-light rounded border border-secondary table-hover">
+          <thead class="text-light">
             <tr>
               <th class="name">Nombre</th>
               <th class="img">Imagen</th>
@@ -102,6 +103,7 @@
             </tr>
           </tbody>
         </table>
+      </div>
       </div>
     </div>
   </div>

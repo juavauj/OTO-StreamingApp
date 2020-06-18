@@ -1,0 +1,189 @@
+@font-face {
+    font-family: PoppinsRegular;
+    src: url(/assets/font/Poppins-Regular.ttf);
+}
+
+@font-face {
+    font-family: PoppinsExtraBold;
+    src: url(/assets/font/Poppins-ExtraBold.ttf);
+}
+
+@font-face {
+    font-family: PoppinsSemiBold;
+    src: url(/assets/font/Poppins-SemiBold.ttf);
+}
+
+@font-face {
+    font-family: PoppinsLight;
+    src: url(/assets/font/Poppins-Light.ttf);
+}
+
+body {
+    margin: 0;
+    padding: 0; 
+}
+
+@media only screen and (min-width: 600px) {
+    
+    #container {
+        height: 100vh;
+        width: 100vw;
+        display: grid;
+        background-image: linear-gradient(to top, #30cfd0, #00a4ca, #0076bc, #00469c, #330867);
+        grid-template-columns: 0.4fr 2fr;
+        grid-template-rows: 2fr 0.4fr;
+        grid-template-areas: 
+        "navbar     contenido"
+        "repro      repro    ";
+    }
+
+    .navBar {
+        grid-area: navbar;
+        display: grid;
+        background-color: #0c021888;
+    }
+
+    .contenidoMixto {
+        grid-area: contenido;
+        //display: grid;
+    }
+
+    .controlReproductor {
+        grid-area: repro;
+        display: grid;
+        background-color: #0c0218;
+    }
+
+    .navBarRepro {
+        display: none;
+    }
+
+}
+
+@media only screen and (max-width: 500px) {
+    #container {
+        height: auto;
+        width: 100vw;
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        grid-template-rows: auto;
+        grid-template-areas: 
+        "contenido  contenido   contenido";
+    }
+
+    .navBar {
+        display: none;
+    }
+
+    .navBarRepro {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        grid-template-rows: 60px;
+        grid-template-areas: "burger    logo    lupa";
+        background-color: #25054D;
+        width: 100%;
+        box-sizing: border-box;
+        z-index: 1;
+        position: fixed;
+
+    }
+
+    .burgerNav {
+        grid-area: burger;
+    }
+
+    .logo {
+        grid-area: logo;
+    }
+    
+    .buscarNav {
+        grid-area: lupa;
+    }
+
+    .contenidoMixto {
+        display: grid;
+        background-color: #E1E1E8;
+        grid-area: contenido;
+        font-family: PoppinsRegular;
+        font-size: 30px;
+    }
+
+    .controlReproductor {
+        display: grid;
+        grid-template-columns: 0.5fr 1fr 0.5fr;
+        grid-template-rows: 120px;
+        grid-template-areas: 
+        "cover boton vol";
+        background-color: #25054D;
+        width: 100%;
+        box-sizing: border-box;
+        z-index: 1;
+        position: fixed;
+        left: 0;
+        bottom: 0;
+    }
+
+    .controlCover {
+        grid-area: cover;
+    }
+    
+    .controlBotones {
+        grid-area: boton;
+        display: grid;
+        grid-template-rows: 1fr 1fr;
+        grid-template-columns: repeat(4, 1fr);
+        grid-template-areas: 
+        "tituloCancion tituloCancion tituloCancion tituloCancion"
+        "botones botones botones botones";
+    }
+    
+    .tituloCancion {
+        grid-area: tituloCancion;
+        place-self: center;
+        font-family: PoppinsRegular;
+        color: #fff;
+    }
+
+    #artistaRep {
+        font-family: PoppinsRegular;
+        color: #fff;
+        font-size: 15px;
+        text-align: center;
+    }
+
+    #cancionRep {
+        font-family: PoppinsSemiBold;
+        color: #fff;
+        font-size: 20px;
+        text-align: center;
+    }
+
+    .botones {
+        display: grid;
+        grid-area: botones;
+        grid-template-columns: repeat(3, 1fr);
+        padding-bottom: 5%;
+
+    }
+
+    #backward {
+        display: grid;
+        place-self: center;
+    }
+
+    #play {
+        display: grid;
+        place-self: center;
+    }
+
+    #forward {
+        display: grid;
+        place-self: center;
+    }
+    
+    .controlVolumen {
+        grid-area: vol;
+        place-self: center;
+    }
+}
+
