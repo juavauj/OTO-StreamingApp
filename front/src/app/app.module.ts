@@ -37,7 +37,7 @@ import { WelcomeAdminComponent } from './components/welcome-admin/welcome-admin.
 import { VistaPerfilComponent } from './components/vista-perfil/vista-perfil.component';
 import { EditarPerfilComponent } from './components/editar-perfil/editar-perfil.component';
 import { ArtistasAdminComponent } from './components/artistas-admin/artistas-admin.component'
-
+import { AlbumService } from './services/album.service';
 // Importar Guards
 
 import { AuthGuard } from './guards/auth.guard';
@@ -85,7 +85,8 @@ import { CancionesReproComponent } from './components/canciones-repro/canciones-
     AuthGuard,
     RoleGuard,
     ArtistaService,
-    ControlReproService
+    ControlReproService,
+    AlbumService
   ],
   bootstrap: [AppComponent],
 })

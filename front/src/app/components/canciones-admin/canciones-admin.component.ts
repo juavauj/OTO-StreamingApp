@@ -47,8 +47,7 @@ export class CancionesAdminComponent implements OnInit {
 				//console.log(this.canciones[0])
 				if(!this.canciones){
 					console.log('No hay canciones en la BD');
-				}
-  
+				} 
 			},
 			(error) =>{
 				let errorMsg = <any>error;
