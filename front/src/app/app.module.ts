@@ -44,6 +44,7 @@ import { RoleGuard } from './guards/role.guard';
 import { CancionesComponent } from './components/canciones/canciones.component';
 import { AlbumsReproductorComponent } from './components/albums-reproductor/albums-reproductor.component';
 import { VariosReproductorComponent } from './components/varios-reproductor/varios-reproductor.component';
+import { ArtistasReproductorComponent } from './components/artistas-reproductor/artistas-reproductor.component';
 
 @NgModule({
   declarations: [
@@ -72,6 +73,7 @@ import { VariosReproductorComponent } from './components/varios-reproductor/vari
     CancionesComponent,
     AlbumsReproductorComponent,
     VariosReproductorComponent,
+    ArtistasReproductorComponent,
   ],
   imports: [BrowserModule, AppRoutingModule, FormsModule, HttpClientModule, BrowserAnimationsModule],
   providers: [

@@ -1,13 +1,15 @@
 <div>
 
     <div class="panel-albumes">
+        <h3>Artistas</h3>
         <div class="buscador">
-            <input type="text" name="filterPost" class="form-control" placeholder="Search.." [(ngModel)]="filterPost"> 
+            <input type="text" name="filterPost" class="form-control" placeholder="Buscar.." [(ngModel)]="filterPost"> 
         </div>
-        
+       
     </div>
+    <h3>Albums</h3>
     <div class="albumes-home">
-        <h3>Albums</h3>
+       
         <div class="album-card">
             <div *ngFor="let album of albumes | filter:filterPost" class="album-card__item">
     
@@ -23,9 +25,9 @@
         </div>
 
     </div>
-
+    <h3>Artistas</h3>
     <div class="artistas-home">
-        <h3>Artistas</h3>
+        
         <div class="artista-card">
             <div *ngFor="let artista of artistas | filter:filterPost" class="artista-card__item">
     
@@ -35,9 +37,7 @@
                 <div class="nombre-artista">
                     <p>{{artista.nombre}}</p>
                 </div>
-                <div class="artista-artista">
-                    <p>{{artista.biografia}}</p>
-                </div>
+                
         </div>
 
     </div>

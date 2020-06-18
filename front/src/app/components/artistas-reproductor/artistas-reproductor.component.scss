@@ -1,15 +1,3 @@
-@font-face {
-    font-family: PoppinsRegular;
-    src: url(/assets/font/Poppins-Regular.ttf);
-  }
-  @font-face {
-    font-family: PoppinsLight;
-    src: url(/assets/font/Poppins-Light.ttf);
-  }
-  @font-face {
-    font-family: PoppinsSemiBold;
-    src: url(/assets/font/Poppins-SemiBold.ttf);
-  }
 .albumes-container{
     max-height: 82vh;
     overflow: scroll;
@@ -23,35 +11,22 @@
     z-index: 1;
     position: sticky;
     top: -1px;
-    background: #2c1573;
-    color: #30cfd0;
+    background: black;
+    color: white;
     justify-content: space-around;
-    font-family: PoppinsSemiBold;
-    letter-spacing: 0.5px;
-}
-.buscador input{
-    background-color: transparent;
-    border: none;
-    outline: none;
-    color: #30cfd0;
-    font-family:PoppinsLight;
-    border: 1px solid #30cfd0;
-    padding: 3px;
-    border-radius: 5px;
-}
-::placeholder{
-    color: #30cfd0;
-    font-family:PoppinsLight;
-    font-size: 15px;
 }
 .album-card {
-    display: grid;
+     display: grid;
     grid-auto-rows: auto;
     row-gap: 57px;
     grid-auto-flow: row dense;
     width: 87%;
     margin: auto;
-    margin-top: 35px;
+    margin-top: 35px; 
+
+  
+
+    
   }
 
   .album-card__item {
@@ -69,10 +44,11 @@
   }
 
   .img-album img{
-      width: 75%;
+      width: 83%;
       cursor: pointer;
       opacity: 0.7;
       transition: all 0.3s ease-in-out;
+      height: 29vh;
   }
 
   .img-album img:hover{
@@ -89,18 +65,7 @@
     border-radius: 15px;
     height: 80%;
     cursor: pointer;
-    background-color: #30cfd0;
-    color: #330867;
-    outline: none;
-    border: none;
-    font-family: PoppinsSemiBold;
-    font-size: 20px;
-    transition: all 0.2s ease-in-out;
-  }
-  button:hover{
-    transform: scale(1.05);
-    
-  }
+}
 
 .img-album-details{
     display: flex;
@@ -121,23 +86,6 @@
     align-items: center;
     margin-bottom: 20px;
 }
-
-p{
-    //color: lightblue;
-    color: #30cfd0;
-    font-family: PoppinsSemiBold;
-    font-size: 15px;
-}
-p span{
-    color: lightblue;
-}
-h2{
-    color: #30cfd0;
-    font-family: PoppinsSemiBold;
-    font-size: 27px;
-}
-
-    
   
   @media all and (min-width: 320px) {
     .album-card {

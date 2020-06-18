@@ -29,6 +29,13 @@ export class ArtistaService {
 
   // ----------------------------------------------------------
 
+  getArtistasActivos(){
+    return this._http.get(
+      this.url + 'artistas-estado/activo'
+    ).pipe(map(res => res));
+
+  }
+// ----------------------------------------------------------
   // Declarar el método del servicio de obtencion de artistas
   getArtistasById(id) {
     return this._http.get(
