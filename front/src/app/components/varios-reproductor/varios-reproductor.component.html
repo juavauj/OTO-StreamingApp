@@ -7,32 +7,32 @@
         </div>
        
     </div>
-    <h3>Albums</h3>
+    <h2>Albums</h2>
     <div class="albumes-home">
        
         <div class="album-card">
             <div *ngFor="let album of albumes | filter:filterPost" class="album-card__item">
     
                 <div class="img-album">
-                    <img src="{{ruta}}obtenerImgAlbum/{{album.imagen}}" >
+                    <img src="{{ruta}}obtenerImgAlbum/{{album.imagen}}"(click)="setAlbumDetalles(album)" >
                 </div>
                 <div class="nombre-album">
                     <p>{{album.nombre}}</p>
                 </div>
                 <div class="artista-album">
-                    <p>{{album.idArtista.nombre}}</p>
+                    <p><span>{{album.idArtista.nombre}} </span></p>
                 </div>
         </div>
 
     </div>
-    <h3>Artistas</h3>
+    <h2>Artistas</h2>
     <div class="artistas-home">
         
         <div class="artista-card">
             <div *ngFor="let artista of artistas | filter:filterPost" class="artista-card__item">
     
                 <div class="img-artista">
-                    <img src="{{ruta}}obtenerImgArtista/{{artista.imagen}}" >
+                    <img src="{{ruta}}obtenerImgArtista/{{artista.imagen}}" (click)="setArtistaDetalles(artista)" >
                 </div>
                 <div class="nombre-artista">
                     <p>{{artista.nombre}}</p>

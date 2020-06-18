@@ -6,7 +6,7 @@ const { exists } = require('../modelo/canciones');
 
 // play
 
-function playMedia(){
+function playMedia(req,res){
     var archivo = req.params.file;
     var ruta = './archivos/canciones/' + archivo;
 

@@ -25,10 +25,24 @@ export class AlbumsReproductorComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    localStorage.setItem('albumParams', JSON.stringify(this.albumParams));
-    //this.showAlbumDetails = JSON.parse(localStorage.getItem('albumParams')).details;
+
+    //
+    let audio = new Audio()
+    audio.src='http://localhost:3000/api/play-cancion/5ee7eb880d63d25b4b25c688.mp3';
+    console.log(audio.src)
+    console.log(audio)
+    audio.load();
+    audio.play();
+    
+    if(JSON.parse(localStorage.getItem('albumParams')) && JSON.parse(localStorage.getItem('albumParams')).details===true){
+      this.showAlbumDetails = JSON.parse(localStorage.getItem('albumParams')).details;
+      this.albumDetails=JSON.parse(localStorage.getItem('albumParams')).album;
+    }else{
+      localStorage.setItem('albumParams', JSON.stringify(this.albumParams));
+    }
+    
     this.obtenerAlbumesActivos();
-    console.log(this.albumDetails.nombre)
+    //console.log(this.albumDetails.nombre)
   }
 
   obtenerAlbumesActivos() {

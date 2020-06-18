@@ -23,8 +23,8 @@
     z-index: 1;
     position: sticky;
     top: -1px;
-    background: #2c1573;
-    color: #30cfd0;
+    background: #140328;
+    color: white;
     justify-content: space-around;
     font-family: PoppinsSemiBold;
     letter-spacing: 0.5px;
@@ -33,14 +33,14 @@
     background-color: transparent;
     border: none;
     outline: none;
-    color: #30cfd0;
+    color: white;
     font-family:PoppinsLight;
-    border: 1px solid #30cfd0;
+    border: 1px solid white;
     padding: 3px;
     border-radius: 5px;
 }
 ::placeholder{
-    color: #30cfd0;
+    color: white;
     font-family:PoppinsLight;
     font-size: 15px;
 }
@@ -124,7 +124,7 @@
 
 p{
     //color: lightblue;
-    color: #30cfd0;
+    color: white;
     font-family: PoppinsSemiBold;
     font-size: 15px;
 }
