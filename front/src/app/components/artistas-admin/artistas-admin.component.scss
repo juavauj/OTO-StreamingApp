@@ -5,8 +5,8 @@
   background: linear-gradient(130deg, rgba(20,29,51,1) 0%, rgba(109,76,255,1) 71%);
 }
 
-.container {
-  margin-right: 95px;
+.container-fluid {
+  padding-right: 115px;
 }
 
 .new-form {
@@ -37,3 +37,6 @@ div.bio {
   padding: 0;
   overflow: auto;
 }
+
+.tableFixHead          { overflow-y: auto;  }
+.tableFixHead thead tr th { position: sticky; top: -1px; background-color: black; }

@@ -25,10 +25,10 @@ export class CancionesComponent implements OnInit {
    }
 
   ngOnInit(): void {
-    this.mostrarCanciones();
+    // this.mostrarCanciones();
   }
 
-  mostrarCanciones(){
+  /* mostrarCanciones(){
     this.CancionService.obtenerCanciones().subscribe(
       (response : any)=>{
         this.cancionesEncontradas = response.cancion;

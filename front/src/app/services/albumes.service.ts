@@ -32,7 +32,6 @@ export class AlbumesService {
       this.url + 'album/' + id
     ).pipe(map(res => res))
   }
-
   
   addAlbum(albumNuevo){
 
@@ -49,3 +48,4 @@ export class AlbumesService {
 
   }
 }
+
