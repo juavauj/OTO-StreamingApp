@@ -13,6 +13,8 @@ import { PremiumComponent } from './components/premium/premium.component';
 import { VistaPerfilComponent } from './components/vista-perfil/vista-perfil.component';
 import { EditarPerfilComponent } from './components/editar-perfil/editar-perfil.component';
 import { ReproductorComponent } from './components/reproductor/reproductor.component';
+//revisar
+import { CancionesComponent } from "./components/canciones/canciones.component";
 
 // Import de Guards
 import { AuthGuard } from './guards/auth.guard';
@@ -43,7 +45,9 @@ const routes: Routes = [
   { path: 'quienes-somos', component: QuienesSomosComponent },
   { path: 'trabaja-con-nosotros', component: TrabajaConNosotrosComponent },
   { path: 'premium', component: PremiumComponent },
+  //revisar
   { path: 'reproductor', component: ReproductorComponent},
+  { path: 'songs', component: CancionesComponent},
   { path: 'admin', component: AdminComponent,
     data: {rol: 'admin'},
     canActivate: [AuthGuard,RoleGuard],

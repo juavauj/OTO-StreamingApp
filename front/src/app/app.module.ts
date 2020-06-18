@@ -26,6 +26,9 @@ import { PremiumComponent } from './components/premium/premium.component';
 import { ArtistaService } from './services/artista.service';
 import { UsuarioService } from './services/usuario.service';
 import { NavSwitchService } from './services/nav-switch.service';
+import { CancionService } from "./services/cancion.service";
+import { AlbumService } from "./services/album.service";
+import { PlaylistService } from "./services/playlist.service";
 //import { UsuariosComponent } from './components/usuarios/usuarios.component';
 import { AlbumesAdminComponent } from './components/albumes-admin/albumes-admin.component';
 import { FilterPipe } from './pipes/filter.pipe';
@@ -35,13 +38,14 @@ import { PlaylistAdminComponent } from './components/playlist-admin/playlist-adm
 import { WelcomeAdminComponent } from './components/welcome-admin/welcome-admin.component';
 import { VistaPerfilComponent } from './components/vista-perfil/vista-perfil.component';
 import { EditarPerfilComponent } from './components/editar-perfil/editar-perfil.component';
-import { ArtistasAdminComponent } from './components/artistas-admin/artistas-admin.component'
+import { ArtistasAdminComponent } from './components/artistas-admin/artistas-admin.component';
+import { CancionesComponent } from "./components/canciones/canciones.component";
 
 // Importar Guards
 
 import { AuthGuard } from './guards/auth.guard';
 import { RoleGuard } from './guards/role.guard';
-import { CancionesComponent } from './components/canciones/canciones.component';
+
 
 @NgModule({
   declarations: [
@@ -67,7 +71,7 @@ import { CancionesComponent } from './components/canciones/canciones.component';
     VistaPerfilComponent,
     EditarPerfilComponent,
     ArtistasAdminComponent,
-    CancionesComponent,
+    CancionesComponent
   ],
   imports: [BrowserModule, AppRoutingModule, FormsModule, HttpClientModule, BrowserAnimationsModule],
   providers: [
@@ -76,6 +80,9 @@ import { CancionesComponent } from './components/canciones/canciones.component';
     AuthGuard,
     RoleGuard,
     ArtistaService,
+    AlbumService,
+    CancionService,
+    PlaylistService
   ],
   bootstrap: [AppComponent],
 })

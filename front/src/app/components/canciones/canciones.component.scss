@@ -1,0 +1,27 @@
+.contenedor{
+    color: white;
+    font-family: sans-serif;
+    background: linear-gradient(90deg, rgba(20,29,51,1) 0%, rgba(109,76,255,1) 71%);
+    max-width: 60%;
+    margin: auto;
+}
+.contenedor h1{
+    padding: 5%;
+    font-size: 4vw;
+    font-weight: lighter;
+    background: rgba(0, 0, 0, 0.349);
+/*     background-color: rgb(44, 31, 99); */}
+.cancion{
+    border: 1px white solid;
+    padding: 1% 5%;
+}
+.cancion:hover{
+    background: rgba(0, 0, 0, 0.349);
+}
+.artista, .nombre, .album{
+    margin: 1%;
+    cursor: default;
+}
+.artista, .album{
+    color: #888d8d;
+}

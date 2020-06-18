@@ -1,0 +1,8 @@
+<div class="contenedor">
+    <h1>Canciones</h1>
+    <div class="cancion" *ngFor="let cancion of cancionesEncontradas" >
+        <h4 class="nombre">{{cancion.nombre}}</h4>
+        <h5 class="album">{{cancion.idAlbum.nombre}}</h5>
+        <h5 class="artista">{{cancion.idArtista.nombre}}</h5>
+    </div>
+</div>

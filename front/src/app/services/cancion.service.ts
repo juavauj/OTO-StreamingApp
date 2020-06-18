@@ -88,6 +88,17 @@ export class CancionService {
     ).pipe(map(res => res))
   }
 
+  cancionEstado(estado){
+    let options = {
+      headers: new HttpHeaders({'content-type' : 'application/json'})
+    }
+
+    return this._http.get(
+      this.url + 'canciones-estado/' + estado,
+      options
+    ).pipe(map(res => res))
+  }
+
   cargarArchivoAudio(file:File, id){
 
     let formData = new FormData();

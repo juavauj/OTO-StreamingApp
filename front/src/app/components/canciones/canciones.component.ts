@@ -13,10 +13,16 @@ import { CancionService } from "../../services/cancion.service";
   styleUrls: ['./canciones.component.scss']
 })
 export class CancionesComponent implements OnInit {
+
+  public url  : String;
   
   public cancionesEncontradas : any = [];
 
-  constructor(private CancionService: CancionService) { }
+  public cancionEncontrada : any;
+
+  constructor(private CancionService: CancionService) {
+    this.url = CancionService.url;
+   }
 
   ngOnInit(): void {
     this.mostrarCanciones();
@@ -24,8 +30,8 @@ export class CancionesComponent implements OnInit {
 
   mostrarCanciones(){
     this.CancionService.obtenerCanciones().subscribe(
-      (Response : any)=>{
-        this.cancionesEncontradas = Response.canciones;
+      (response : any)=>{
+        this.cancionesEncontradas = response.cancion;
       },
       (error)=>{
         var errorMensaje = <any>error;
@@ -35,4 +41,19 @@ export class CancionesComponent implements OnInit {
       }
     )
   }
+
+  /* playCancion(){
+    this.CancionService.cancionEstado(estado).subscribe(
+      (response : any)=>{
+        this.cancionesEncontradas = response.cancion;
+      },
+      (error)=>{
+        var errorMensaje = <any>error;
+        if (errorMensaje != null){
+          console.log(error);
+        }
+      }
+    )
+  } */
 }
+
