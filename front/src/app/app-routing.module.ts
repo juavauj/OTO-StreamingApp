@@ -14,7 +14,8 @@ import { VistaPerfilComponent } from './components/vista-perfil/vista-perfil.com
 import { EditarPerfilComponent } from './components/editar-perfil/editar-perfil.component';
 import { ReproductorComponent } from './components/reproductor/reproductor.component';
 import { VariosReproductorComponent } from './components/varios-reproductor/varios-reproductor.component';
-import { AlbumsReproductorComponent } from './components/albums-reproductor/albums-reproductor.component'
+import { AlbumsReproductorComponent } from './components/albums-reproductor/albums-reproductor.component';
+import { ArtistasReproductorComponent } from './components/artistas-reproductor/artistas-reproductor.component';
 
 // Import de Guards
 import { AuthGuard } from './guards/auth.guard';
@@ -48,7 +49,8 @@ const routes: Routes = [
   { path: 'reproductor', component: ReproductorComponent,
     children:[
       {path: '', component: VariosReproductorComponent},
-      {path: 'albumes', component: AlbumsReproductorComponent }
+      {path: 'albumes', component: AlbumsReproductorComponent },
+      {path: 'artistas', component:ArtistasReproductorComponent}
 
     ]
   },

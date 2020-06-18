@@ -1,25 +1,37 @@
-<div>
+<div class="albumes-container">
     <div *ngIf="showAlbumDetails; else albumesContent" >
-        <button (click)="listAlbumes()">Atras</button>
+        <div class="back-btn">
+            <button (click)="listAlbumes()">Atras</button>
+
+        </div>
         
-        <div class="img-album">
+        
+        <div class="img-album-details">
             <img src="{{ruta}}obtenerImgAlbum/{{albumDetails.imagen}}" >
         </div>
-        <div class="nombre-album">
-            <p>{{albumDetails.nombre}}</p>
+        <div class="info-album-details">
+            <h2>Nombre de Album</h2>
+            <p><span> {{albumDetails.nombre}}</span> </p>
         </div>
-        <div class="artista-album">
-            <p></p>
+        <div class="info-album-details">
+            <h2>Genero de Album</h2>
+            <p><span> {{albumDetails.genero}}</span> </p>
         </div>
+        <div class="info-album-details">
+            <h2>Año de Lanzamiento</h2>
+            <p> <span>{{albumDetails.anio}} </span></p>
+        </div>
+       
     </div>
         
        
     <ng-template #albumesContent>
         <div class="panel-albumes">
-            <div class="buscador">
-                <input type="text" name="filterPost" class="form-control" placeholder="Search.." [(ngModel)]="filterPost"> 
-            </div>
             <h3>Albums</h3>
+            <div class="buscador">
+                <input type="text" name="filterPost" class="form-control" placeholder="Buscar.." [(ngModel)]="filterPost"> 
+            </div>
+           
         </div>
 
         <div class="album-card">
@@ -32,7 +44,7 @@
                     <p>{{album.nombre}}</p>
                 </div>
                 <div class="artista-album">
-                    <p>{{album.idArtista.nombre}}</p>
+                    <p><span> {{album.idArtista.nombre}}</span></p>
                 </div>
         </div>
 
