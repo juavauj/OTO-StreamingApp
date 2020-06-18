@@ -4,9 +4,8 @@ import { HttpClient, HttpHeaders } from "@angular/common/http";
 import { map } from "rxjs/operators";
 import { observable } from "rxjs";
 
-@Injectable({
-  providedIn: 'root'
-})
+@Injectable()
+
 export class AlbumService {
 
   url = 'http://localhost:3000/api/'

@@ -71,7 +71,7 @@
               </div>  
             </div>             
           
-            <button type="submit" class="btn btn-success  btn-block">Nuevo album</button>
+            <button type="submit" class="btn btn-success  btn-block">Editar album</button>
           </form>
         </div>
     </div>
@@ -88,10 +88,11 @@
       </div>
 
       <div>
-        <table class="table table-striped table-dark rounded border border-secondary table-hover col-12 container-fluid">
+        <div class="tableFixHead" style=" max-height: 80vh;overflow: auto;">
+        <table 
+        class="table table-striped table-light rounded border border-secondary table-hover col-12 container-fluid">
           <thead>
-              <tr>
-                  <th style="display: none">id</th>
+              <tr class="text-light">
                   <th>Album</th>
                   <th>Artista</th>                  
                   <th>Genero</th>
@@ -103,23 +104,24 @@
               </tr>
           </thead>
           <tbody>
-              <tr *ngFor="let post of posts | filter:filterPost">
-                  <td style="display: none" name="id">{{post.id}}</td>
-                  <td>{{post.nombre}}</td>
-                  <td>{{post.artista.nombre}}</td>
-                  <td>{{post.genero}}</td>
-                  <td><img src="{{post.imagen}}" alt="{{post.imagen}}"> </td>
-                  <td>{{post.disquera}}</td>
-                  <td>{{post.anio}}</td>                  
-                  <td>{{post.estado}}</td>
+              <tr *ngFor="let album of albumes | filter:filterPost">
+                
+                  <td>{{album.nombre}}</td>
+                  <td>{{album.idArtista.nombre}}</td>
+                  <td>{{album.genero}}</td>
+                  <td>{{album.imagen}} </td>
+                  <td>{{album.disquera}}</td>
+                  <td>{{album.anio}}</td>                  
+                  <td>{{album.estado}}</td>
                   <td>
-                    <button type="button" class="btn btn-info mx-1"> Edit </button>
-                    <button type="button" class="btn btn-warning mx-1"> Off </button>
-                    <button type="button" class="btn btn-danger mx-1">Delete</button>                    
+                    <button type="button" class="btn btn-info btn-block mx-1"> Edit </button>
+                    <button type="button" class="btn btn-warning btn-block mx-1"> Off </button>
+                    <button type="button" class="btn btn-danger btn-block mx-1">Delete</button>                    
                   </td>                                 
               </tr>
           </tbody>
       </table>
+    </div>
     </div>
       </div>
     </div>

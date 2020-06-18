@@ -6,7 +6,7 @@
     <div class="row">
       <!-- columna de formularios -->
       <div class="col-3 px-5">
-        <form class="new-form bg-dark text-light p-3 rounded" #formularioNuevoArtista="ngForm" (ngSubmit)="addArtista()">
+        <form class="new-form bg-dark text-light p-3 rounded" #formularioNuevoArtista="ngForm" (ngSubmit)="addArtista()" *ngIf="!artistaActualizar">
           <div class="row form-group">
             <div class="col">
               <input type="text" class="form-control" id="nombre" placeholder="Nombre" name="nombre" #nombre="ngModel" [(ngModel)]="nuevoArtista.nombre">
@@ -31,7 +31,8 @@
           <button type="submit" class="btn btn-success  btn-block">Nuevo Artista</button>
         </form>
         <!-- Solo se muestra si se ha seleccionado un artista a editar -->
-        <form class="bg-dark text-light p-3 rounded" #formularioEditarArtista="ngForm" (ngSubmit)="actualizarArtista()" *ngIf="artistaActualizar">
+        
+        <form class="bg-dark text-light p-3 mt-5  rounded" #formularioEditarArtista="ngForm" (ngSubmit)="actualizarArtista()" *ngIf="artistaActualizar">
           <div class="row form-group">
             <div class="col">
               <input type="text" class="form-control" id="nombreActualizar" placeholder="Nombre" name="nombre" #nombre="ngModel" [(ngModel)]="artistaActualizar.nombre">
@@ -54,6 +55,7 @@
           </div>
           <button type="submit" class="btn btn-success  btn-block">Editar Artista</button>
         </form>
+      
       </div>
 
       <!-- columna de tabla -->
