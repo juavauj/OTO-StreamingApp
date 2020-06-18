@@ -53,7 +53,7 @@ body {
 
     .rutasNavBar {
         grid-area: rutas;
-        place-self: center;
+        place-self: auto;
         display: grid;
         grid-template-columns: 0.2fr 1fr 0.2fr;
         grid-template-rows: repeat(4, 1fr);
@@ -62,7 +62,6 @@ body {
         ".      canciones        ."
         ".      artistas        ."
         ".      albumes        .";
-        row-gap: 20%;
     }
 
     .rutasNavBar a {
