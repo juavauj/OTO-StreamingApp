@@ -1,1 +1,46 @@
-<p>varios-reproductor works!</p>
+<div>
+
+    <div class="panel-albumes">
+        <div class="buscador">
+            <input type="text" name="filterPost" class="form-control" placeholder="Search.." [(ngModel)]="filterPost"> 
+        </div>
+        
+    </div>
+    <div class="albumes-home">
+        <h3>Albums</h3>
+        <div class="album-card">
+            <div *ngFor="let album of albumes | filter:filterPost" class="album-card__item">
+    
+                <div class="img-album">
+                    <img src="{{ruta}}obtenerImgAlbum/{{album.imagen}}" >
+                </div>
+                <div class="nombre-album">
+                    <p>{{album.nombre}}</p>
+                </div>
+                <div class="artista-album">
+                    <p>{{album.idArtista.nombre}}</p>
+                </div>
+        </div>
+
+    </div>
+
+    <div class="artistas-home">
+        <h3>Artistas</h3>
+        <div class="artista-card">
+            <div *ngFor="let artista of artistas | filter:filterPost" class="artista-card__item">
+    
+                <div class="img-artista">
+                    <img src="{{ruta}}obtenerImgArtista/{{artista.imagen}}" >
+                </div>
+                <div class="nombre-artista">
+                    <p>{{artista.nombre}}</p>
+                </div>
+                <div class="artista-artista">
+                    <p>{{artista.biografia}}</p>
+                </div>
+        </div>
+
+    </div>
+  
+
+</div>

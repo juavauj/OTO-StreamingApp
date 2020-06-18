@@ -22,14 +22,19 @@ export class VariosReproductorComponent implements OnInit {
   public albumes: Album[];
   public artistas: Artista[];
 
+  public filterPost = '';
+  public ruta:String;
+
   constructor(private cancionService: CancionService, private artistaService:ArtistaService, private albumesService: AlbumesService) { 
+    this.ruta = albumesService.url;
+
     this.canciones=[];
     this.albumes=[];
     this.artistas=[]
   }
 
   ngOnInit(): void {
-    this.getContentHome()
+    this.getContentHome();
   }
   getContentHome(){
     this.getCancionesHome();
