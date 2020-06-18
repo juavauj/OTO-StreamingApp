@@ -1,31 +1,30 @@
-
 .gridSystem{
-    display: grid;
-    grid-template-columns: 1.2fr 4fr;
-    grid-template-rows: 1fr;
-    grid-template-areas: none;
-    width: 100%;
-    min-height: 100vh;
-    background: #DEE5E8;
-    background: -webkit-linear-gradient(bottom right, #DEE5E8, #041B15);
-    background: -moz-linear-gradient(bottom right, #DEE5E8, #041B15);
-    background: linear-gradient(to top left, #DEE5E8, #041B15);
-  }
-  
-  .gridSystem__left{
-    display: grid;
-    grid-template-columns: 1fr;
-    grid-template-rows: 1fr;
-  }
-  
-  .gridSystem__right{
-    display: grid;
-    grid-template-columns: 1fr;
-    grid-template-rows: 1fr 9fr;
-  }
-  
-  .gridSystem__formEditar{
-    display: none;
-  }
-  
+  display: grid;
+  grid-template-columns: 1.2fr 4fr;
+  grid-template-rows: 1fr;
+  grid-template-areas: none;
+  width: 100%;
+  min-height: 100vh;
+  background: #DEE5E8;
+  background: -webkit-linear-gradient(bottom right, #DEE5E8, #041B15);
+  background: -moz-linear-gradient(bottom right, #DEE5E8, #041B15);
+  background: linear-gradient(to top left, #DEE5E8, #041B15);
+}
+
+.gridSystem__left{
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: 1fr;
+}
+
+.gridSystem__right{
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: 1fr 9fr;
+}
+
+
+
+.tableFixHead          { overflow-y: auto;  }
+.tableFixHead thead tr th { position: sticky; top: -1px; background-color: black; }
   

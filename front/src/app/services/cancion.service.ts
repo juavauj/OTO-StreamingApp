@@ -1,3 +1,4 @@
+  
 import { Injectable } from '@angular/core';
 
 import { HttpClient, HttpHeaders } from "@angular/common/http";
@@ -17,7 +18,7 @@ export class CancionService {
   ) { }
 
 
- /*  //servicio para agregar canciones
+  //servicio para agregar canciones
   agregarCancion(cancionNueva){
     let params = JSON.stringify(cancionNueva);
     let options = {
@@ -25,7 +26,7 @@ export class CancionService {
       }
 
     return this._http.post(
-      this.url,
+      this.url + `registrar-cancion`,
       params,
       options
     ).pipe(map(res => res))
@@ -51,7 +52,7 @@ export class CancionService {
       headers: new HttpHeaders({'content-type' : 'application/json'})
     }
     return this._http.delete(
-      this.url + 'borrar-cancion' + id,
+      this.url + 'borrar-cancion/' + id,
       options
     ).pipe(map(res => res));
   }
@@ -81,5 +82,5 @@ export class CancionService {
       this.url + 'subir-audio/' + id,
       formData
     ).pipe(map(res => res));
-  }   */
+  }  
 }
